@@ -1,0 +1,649 @@
+// Prisma Schema for Wenasa Driving School (wenasadriving.lk)
+// Supporting PostgreSQL (Neon / Supabase)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  STUDENT
+  INSTRUCTOR
+  FRONT_DESK
+  ADMIN
+  SUPER_ADMIN
+}
+
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  COMPLETED
+  CANCELLED
+  NO_SHOW
+}
+
+enum PaymentStatus {
+  PENDING
+  COMPLETED
+  FAILED
+  REFUNDED
+  PARTIALLY_REFUNDED
+}
+
+enum PaymentMethod {
+  PAYHERE
+  BANK_TRANSFER
+  CASH
+}
+
+enum DocumentType {
+  NIC_FRONT
+  NIC_BACK
+  MEDICAL_CERTIFICATE_NTMI
+  PASSPORT_PHOTO
+  BIRTH_CERTIFICATE
+  EXISTING_LICENCE
+  PAYMENT_SLIP
+}
+
+enum VerificationStatus {
+  PENDING
+  VERIFIED
+  REJECTED
+}
+
+enum LicenceStage {
+  REGISTRATION
+  MEDICAL_EXAM
+  DMT_APPLICATION
+  THEORY_EXAM
+  LEARNER_PERMIT_ISSUED
+  PRACTICAL_TRAINING
+  PRACTICAL_TRIAL
+  LICENCE_ISSUED
+}
+
+enum QuestionCategory {
+  ROAD_SIGNS
+  TRAFFIC_RULES
+  ROAD_SAFETY
+  VEHICLE_MECHANISM
+  GENERAL_AWARENESS
+}
+
+model User {
+  id            String    @id @default(cuid())
+  email         String?   @unique
+  phoneNumber   String    @unique // E.164 format, e.g., +94707076029
+  name          String
+  passwordHash  String?
+  role          Role      @default(STUDENT)
+  locale        String    @default("si") // "si", "en", "ta"
+  isActive      Boolean   @default(true)
+  emailVerified DateTime?
+  phoneVerified DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  studentProfile    StudentProfile?
+  instructorProfile InstructorProfile?
+  auditLogs         AuditLog[]
+  notifications     Notification[]
+  consents          Consent[]
+  dataRequests      DataRequest[]
+
+  @@index([role])
+  @@index([phoneNumber])
+}
+
+model StudentProfile {
+  id              String        @id @default(cuid())
+  userId          String        @unique
+  user            User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  nicNumber       String        @unique // Supports 9-digit+V/X and 12-digit
+  dateOfBirth     DateTime
+  gender          String?
+  addressLine1    String
+  addressLine2    String?
+  city            String        @default("Kirindiwela")
+  district        String        @default("Gampaha")
+  postalCode      String        @default("11740")
+  bloodGroup      String?
+  currentStage    LicenceStage  @default(REGISTRATION)
+  medicalExpiry   DateTime?
+  permitNumber    String?
+  permitIssueDate DateTime?
+  permitExpiry    DateTime?
+  testDateTheory  DateTime?
+  testDateTrial   DateTime?
+  emergencyContactName String?
+  emergencyContactPhone String?
+  notes           String?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  preferredBranchId String?
+  preferredBranch   Branch?     @relation(fields: [preferredBranchId], references: [id])
+
+  enrollments     Enrollment[]
+  bookings        Booking[]
+  documents       Document[]
+  skillRatings    SkillRating[]
+  examAttempts    ExamAttempt[]
+  progress        Progress[]
+  referralsMade   Referral[]    @relation("Referrer")
+  referredBy      Referral?     @relation("ReferredStudent")
+
+  @@index([nicNumber])
+}
+
+model InstructorProfile {
+  id               String    @id @default(cuid())
+  userId           String    @unique
+  user             User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  instructorLicenceNo String @unique
+  licenceExpiryDate   DateTime
+  bio              String?
+  languages        String[]  @default(["si", "en"])
+  specialties      String[]
+  ratingAverage    Float     @default(5.0)
+  totalRatings     Int       @default(0)
+  hireDate         DateTime  @default(now())
+  isActive         Boolean   @default(true)
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+
+  branchId         String
+  branch           Branch    @relation(fields: [branchId], references: [id])
+
+  lessonSlots      LessonSlot[]
+  bookings         Booking[]
+  skillRatings     SkillRating[]
+  vehiclesAssigned Vehicle[]
+}
+
+model Branch {
+  id           String    @id @default(cuid())
+  code         String    @unique // e.g. "KIRINDIWELA"
+  nameEn       String
+  nameSi       String
+  nameTa       String
+  address      String
+  city         String
+  district     String
+  postalCode   String
+  phoneNumber  String
+  whatsappNumber String
+  email        String
+  latitude     Float     // 7.0429825
+  longitude    Float     // 80.1313591
+  googleMapsUrl String
+  openingHours Json      // Mon-Sun schedule
+  isMain       Boolean   @default(false)
+  isActive     Boolean   @default(true)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  students     StudentProfile[]
+  instructors  InstructorProfile[]
+  vehicles     Vehicle[]
+  lessonSlots  LessonSlot[]
+}
+
+model Vehicle {
+  id                 String    @id @default(cuid())
+  registrationNumber String    @unique // e.g. WP CAC-1234
+  make               String    // e.g. Suzuki / Toyota
+  model              String    // e.g. Alto / Vitz
+  year               Int
+  transmission       String    // "MANUAL" or "AUTOMATIC"
+  hasDualControls    Boolean   @default(true)
+  revenueLicenceExpiry DateTime
+  insuranceExpiry    DateTime
+  fitnessCertExpiry  DateTime?
+  serviceDueKm       Int?
+  currentMileageKm   Int       @default(0)
+  status             String    @default("ACTIVE") // ACTIVE, MAINTENANCE, RETIRED
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+
+  branchId           String
+  branch             Branch    @relation(fields: [branchId], references: [id])
+  licenceClassId     String
+  licenceClass       LicenceClass @relation(fields: [licenceClassId], references: [id])
+  instructorId       String?
+  assignedInstructor InstructorProfile? @relation(fields: [instructorId], references: [id])
+
+  bookings           Booking[]
+  lessonSlots        LessonSlot[]
+
+  @@index([registrationNumber])
+}
+
+model LicenceClass {
+  id             String    @id @default(cuid())
+  code           String    @unique // A1, A, B1, B, C1, C, CE, D1, D, DE, G1, G, J, PT
+  nameEn         String
+  nameSi         String
+  nameTa         String
+  description    String
+  minimumAge     Int       @default(18) // 18 or 21, editable
+  vehicleType    String    // Motorcycle, Light Motor Car, Dual Purpose, etc.
+  transmissionTypes String[] @default(["MANUAL", "AUTOMATIC"])
+  medicalRequired Boolean  @default(true)
+  officialDmtUrl String    @default("https://dmt.gov.lk")
+  lastVerifiedAt DateTime  @default(now())
+  isOffered      Boolean   @default(true)
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  packages       Package[]
+  vehicles       Vehicle[]
+
+  @@index([code])
+}
+
+model Package {
+  id             String    @id @default(cuid())
+  slug           String    @unique
+  nameEn         String
+  nameSi         String
+  nameTa         String
+  descriptionEn  String
+  descriptionSi  String
+  descriptionTa  String
+  priceLkr       Decimal   @db.Decimal(10, 2)
+  isPopular      Boolean   @default(false)
+  isActive       Boolean   @default(true)
+  durationWeeks  Int       @default(8)
+  practicalHours Int       @default(20)
+  theorySessions Int       @default(10)
+  includesMedical Boolean  @default(false)
+  includesDmtFees Boolean  @default(false)
+  includesExamPapers Boolean @default(true)
+  featuresListEn String[]
+  featuresListSi String[]
+  featuresListTa String[]
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  licenceClassId String
+  licenceClass   LicenceClass @relation(fields: [licenceClassId], references: [id])
+
+  items          PackageItem[]
+  enrollments    Enrollment[]
+}
+
+model PackageItem {
+  id          String   @id @default(cuid())
+  packageId   String
+  package     Package  @relation(fields: [packageId], references: [id], onDelete: Cascade)
+  titleEn     String
+  titleSi     String
+  titleTa     String
+  orderIndex  Int      @default(0)
+}
+
+model Enrollment {
+  id             String        @id @default(cuid())
+  studentId      String
+  student        StudentProfile @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  packageId      String
+  package        Package       @relation(fields: [packageId], references: [id])
+  totalAmount    Decimal       @db.Decimal(10, 2)
+  paidAmount     Decimal       @default(0) @db.Decimal(10, 2)
+  status         String        @default("ACTIVE") // ACTIVE, COMPLETED, SUSPENDED, CANCELLED
+  startDate      DateTime      @default(now())
+  completionDate DateTime?
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+
+  payments       Payment[]
+  bookings       Booking[]
+}
+
+model LessonSlot {
+  id           String    @id @default(cuid())
+  branchId     String
+  branch       Branch    @relation(fields: [branchId], references: [id])
+  instructorId String
+  instructor   InstructorProfile @relation(fields: [instructorId], references: [id])
+  vehicleId    String
+  vehicle      Vehicle   @relation(fields: [vehicleId], references: [id])
+  startTime    DateTime
+  endTime      DateTime
+  isAvailable  Boolean   @default(true)
+  slotType     String    @default("PRACTICAL") // PRACTICAL, SIMULATOR, THEORY
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  booking      Booking?
+
+  @@unique([instructorId, startTime, endTime])
+  @@unique([vehicleId, startTime, endTime])
+  @@index([startTime, endTime])
+}
+
+model Booking {
+  id             String        @id @default(cuid())
+  enrollmentId   String
+  enrollment     Enrollment    @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
+  studentId      String
+  student        StudentProfile @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  instructorId   String
+  instructor     InstructorProfile @relation(fields: [instructorId], references: [id])
+  vehicleId      String
+  vehicle        Vehicle       @relation(fields: [vehicleId], references: [id])
+  slotId         String        @unique
+  slot           LessonSlot    @relation(fields: [slotId], references: [id])
+  status         BookingStatus @default(CONFIRMED)
+  startTime      DateTime
+  endTime        DateTime
+  notes          String?
+  cancellationReason String?
+  reminderSent24h Boolean      @default(false)
+  reminderSent2h  Boolean      @default(false)
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+
+  attendance     Attendance?
+  skillRatings   SkillRating[]
+
+  @@index([studentId, startTime])
+  @@index([instructorId, startTime])
+  @@index([vehicleId, startTime])
+}
+
+model Attendance {
+  id           String    @id @default(cuid())
+  bookingId    String    @unique
+  booking      Booking   @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  checkInTime  DateTime?
+  checkOutTime DateTime?
+  isPresent    Boolean   @default(true)
+  instructorNote String?
+  startKm      Int?
+  endKm        Int?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+}
+
+model SkillRating {
+  id           String         @id @default(cuid())
+  studentId    String
+  student      StudentProfile @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  instructorId String
+  instructor   InstructorProfile @relation(fields: [instructorId], references: [id])
+  bookingId    String?
+  booking      Booking?       @relation(fields: [bookingId], references: [id])
+  skillName    String         // e.g. "Clutch Control", "Parallel Parking", "Hill Start", "Roundabouts"
+  score        Int            // 1 to 5
+  feedback     String?
+  createdAt    DateTime       @default(now())
+
+  @@index([studentId, skillName])
+}
+
+model Payment {
+  id             String        @id @default(cuid())
+  enrollmentId   String
+  enrollment     Enrollment    @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
+  orderId        String        @unique // e.g. WENASA-2026-XXXX
+  amount         Decimal       @db.Decimal(10, 2)
+  currency       String        @default("LKR")
+  method         PaymentMethod @default(PAYHERE)
+  status         PaymentStatus @default(PENDING)
+  payherePaymentId String?
+  bankSlipUrl    String?
+  adminApprovedBy String?
+  receiptNumber  String?       @unique
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+
+  paymentEvents  PaymentEvent[]
+  refunds        Refund[]
+
+  @@index([orderId])
+  @@index([status])
+}
+
+model PaymentEvent {
+  id          String   @id @default(cuid())
+  paymentId   String
+  payment     Payment  @relation(fields: [paymentId], references: [id], onDelete: Cascade)
+  eventType   String   // PAYHERE_NOTIFY, BANK_SLIP_UPLOAD, APPROVAL, REJECTION
+  payload     Json
+  createdAt   DateTime @default(now())
+}
+
+model Refund {
+  id          String    @id @default(cuid())
+  paymentId   String
+  payment     Payment   @relation(fields: [paymentId], references: [id], onDelete: Cascade)
+  amount      Decimal   @db.Decimal(10, 2)
+  reason      String
+  status      String    @default("PENDING") // PENDING, PROCESSED, REJECTED
+  requestedAt DateTime  @default(now())
+  processedAt DateTime?
+}
+
+model Document {
+  id           String             @id @default(cuid())
+  studentId    String
+  student      StudentProfile     @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  documentType DocumentType
+  fileUrl      String
+  fileName     String
+  fileSize     Int
+  mimeType     String
+  status       VerificationStatus @default(PENDING)
+  verifiedAt   DateTime?
+  rejectionReason String?
+  createdAt    DateTime           @default(now())
+  updatedAt    DateTime           @updatedAt
+
+  @@index([studentId, documentType])
+}
+
+model ExamQuestion {
+  id           String           @id @default(cuid())
+  questionNo   Int              @unique
+  category     QuestionCategory
+  questionSi   String
+  questionEn   String
+  questionTa   String
+  optionsSi    String[]
+  optionsEn    String[]
+  optionsTa    String[]
+  correctIndex Int              // 0-3
+  explanationSi String?
+  explanationEn String?
+  explanationTa String?
+  imageUrl     String?
+  isActive     Boolean          @default(true)
+  isSample     Boolean          @default(true) // Marked "sample, verify before publishing"
+  createdAt    DateTime         @default(now())
+  updatedAt    DateTime         @updatedAt
+
+  answers      ExamAnswer[]
+}
+
+model ExamAttempt {
+  id          String         @id @default(cuid())
+  studentId   String
+  student     StudentProfile @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  mode        String         @default("EXAM") // "EXAM" or "PRACTICE"
+  score       Int
+  totalQuestions Int         @default(40)
+  passScore   Int            @default(30)
+  passed      Boolean
+  durationSec Int
+  createdAt   DateTime       @default(now())
+
+  answers     ExamAnswer[]
+}
+
+model ExamAnswer {
+  id             String       @id @default(cuid())
+  attemptId      String
+  attempt        ExamAttempt  @relation(fields: [attemptId], references: [id], onDelete: Cascade)
+  questionId     String
+  question       ExamQuestion @relation(fields: [questionId], references: [id])
+  selectedIndex  Int
+  isCorrect      Boolean
+}
+
+model VideoLesson {
+  id          String   @id @default(cuid())
+  titleEn     String
+  titleSi     String
+  titleTa     String
+  description String?
+  videoUrl    String
+  thumbnailUrl String?
+  durationSec Int
+  category    String   // THEORY, PRACTICAL, EXAM_TIPS
+  orderIndex  Int      @default(0)
+  isPublic    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  progress    Progress[]
+}
+
+model Progress {
+  id            String         @id @default(cuid())
+  studentId     String
+  student       StudentProfile @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  videoLessonId String
+  videoLesson   VideoLesson    @relation(fields: [videoLessonId], references: [id], onDelete: Cascade)
+  completed     Boolean        @default(false)
+  watchDurationSec Int         @default(0)
+  lastWatchedAt DateTime       @default(now())
+
+  @@unique([studentId, videoLessonId])
+}
+
+model BlogPost {
+  id             String   @id @default(cuid())
+  slug           String   @unique
+  titleEn        String
+  titleSi        String
+  titleTa        String
+  excerptEn      String
+  excerptSi      String
+  excerptTa      String
+  contentEn      String
+  contentSi      String
+  contentTa      String
+  coverImageUrl  String?
+  authorName     String   @default("Wenasa Driving School Team")
+  category       String
+  tags           String[]
+  isPublished    Boolean  @default(true)
+  publishedAt    DateTime @default(now())
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@index([slug])
+}
+
+model Review {
+  id          String   @id @default(cuid())
+  authorName  String
+  rating      Int      @default(5)
+  comment     String
+  source      String   @default("GOOGLE") // GOOGLE, INTERNAL
+  googleReviewId String?
+  isVerified  Boolean  @default(false)
+  isFeatured  Boolean  @default(false)
+  createdAt   DateTime @default(now())
+}
+
+model Notification {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title     String
+  message   String
+  type      String   // LESSON_REMINDER, PERMIT_EXPIRY, PAYMENT, GENERAL
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([userId, read])
+}
+
+model Consent {
+  id            String   @id @default(cuid())
+  userId        String?
+  user          User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  ipAddress     String?
+  userAgent     String?
+  consentType   String   // COOKIES_ANALYTICS, COOKIES_MARKETING, TERMS_OF_SERVICE, PRIVACY_POLICY
+  granted       Boolean
+  createdAt     DateTime @default(now())
+}
+
+model DataRequest {
+  id           String    @id @default(cuid())
+  userId       String
+  user         User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  requestType  String    // ACCESS, RECTIFICATION, ERASURE, PORTABILITY
+  status       String    @default("PENDING") // PENDING, PROCESSING, COMPLETED, REJECTED
+  details      String?
+  respondedAt  DateTime?
+  adminNotes   String?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+}
+
+model AuditLog {
+  id         String   @id @default(cuid())
+  userId     String?
+  user       User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  action     String   // e.g. "VIEW_SENSITIVE_NIC", "UPDATE_ROLE", "DELETE_STUDENT"
+  resource   String
+  resourceId String?
+  ipAddress  String?
+  metadata   Json?
+  createdAt  DateTime @default(now())
+
+  @@index([action, resource])
+}
+
+model ContentBlock {
+  id             String   @id @default(cuid())
+  key            String   @unique // e.g. "dmt_written_test_format", "minimum_age_requirements"
+  title          String
+  content        Json
+  sourceUrl      String   @default("https://dmt.gov.lk")
+  lastVerifiedAt DateTime @default(now())
+  verifiedBy     String?
+  updatedAt      DateTime @updatedAt
+}
+
+model PromoCode {
+  id             String    @id @default(cuid())
+  code           String    @unique
+  discountLkr    Decimal?  @db.Decimal(10, 2)
+  discountPercent Float?
+  validFrom      DateTime  @default(now())
+  validUntil     DateTime
+  maxUses        Int?
+  usedCount      Int       @default(0)
+  isActive       Boolean   @default(true)
+}
+
+model Referral {
+  id             String         @id @default(cuid())
+  referrerId     String
+  referrer       StudentProfile @relation("Referrer", fields: [referrerId], references: [id])
+  referredStudentId String      @unique
+  referredStudent StudentProfile @relation("ReferredStudent", fields: [referredStudentId], references: [id])
+  rewardStatus   String         @default("PENDING") // PENDING, APPLIED, PAID
+  createdAt      DateTime       @default(now())
+}

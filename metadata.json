@@ -1,0 +1,6 @@
+{
+  "name": "Wenasa Driving School - වෙනස රියැදුරු පාසල",
+  "description": "Government-approved driving school in Kirindiwela, Sri Lanka. Learn driving with confidence with certified instructors, dual-control vehicles, and DMT test prep.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
