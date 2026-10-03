@@ -80,7 +80,7 @@ export default async function LocalizedHomePage({
   const currentLocale: Locale = locale;
 
   return (
-    <div className="min-h-screen flex flex-col bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans antialiased selection:bg-emerald-600 selection:text-white">
+    <div className="min-h-screen flex flex-col bg-[#faf8f2] text-slate-900 dark:bg-[#090d16] dark:text-slate-100 font-sans antialiased selection:bg-emerald-600 selection:text-white">
       {/* Schema.org Structured Data */}
       <SchemaJsonLd locale={currentLocale} />
 
@@ -138,7 +138,7 @@ export default async function LocalizedHomePage({
       <MobileActionBar locale={currentLocale} />
 
       {/* Sri Lanka PDPA Compliant Granular Cookie Consent */}
-      <CookieConsent />
+      <CookieConsent locale={currentLocale} />
     </div>
   );
 }

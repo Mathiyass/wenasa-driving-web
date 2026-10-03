@@ -115,7 +115,7 @@ export function FaqSection({ locale }: FaqSectionProps) {
   };
 
   return (
-    <section id="faq" className="py-20 bg-slate-50 dark:bg-slate-900/40 border-t border-slate-200 dark:border-slate-800 scroll-mt-20">
+    <section id="faq" className="py-16 sm:py-20 scroll-mt-20">
       {/* Inject FAQPage Structured Data */}
       <script
         type="application/ld+json"
@@ -123,44 +123,48 @@ export function FaqSection({ locale }: FaqSectionProps) {
       />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="text-xs font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 mb-2">
-            {dict.faq.badge}
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-14">
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-950/60 border border-emerald-800/80 text-xs font-semibold uppercase tracking-wider text-emerald-300 mb-3 shadow-xs">
+            <span>{dict.nav.faq}</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-slate-900 dark:text-white" style={{ textWrap: "balance" }}>
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white" style={{ textWrap: "balance" }}>
             {dict.faq.title}
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-slate-400">
+          <p className="mt-3 text-sm sm:text-base text-slate-300 leading-relaxed">
             {dict.faq.subtitle}
           </p>
         </div>
 
         {/* Accordion */}
-        <div className="space-y-3">
+        <div className="space-y-3.5">
           {FAQ_ITEMS.map((item) => {
             const isOpen = openId === item.id;
             return (
               <div
                 key={item.id}
-                className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden transition-colors"
+                className={`rounded-3xl border transition-all duration-200 overflow-hidden ${
+                  isOpen
+                    ? "border-emerald-500/50 bg-slate-900 shadow-xl"
+                    : "border-slate-800 bg-slate-900/60 hover:border-slate-700 shadow-xs"
+                }`}
               >
                 <button
                   onClick={() => setOpenId(isOpen ? null : item.id)}
-                  className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 focus-visible:outline-2 focus-visible:outline-emerald-600 cursor-pointer"
+                  className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 focus-visible:outline-2 focus-visible:outline-emerald-500 cursor-pointer"
                   aria-expanded={isOpen}
                 >
-                  <span className="text-sm sm:text-base font-bold text-slate-900 dark:text-white">
+                  <span className="text-sm sm:text-base font-bold text-white">
                     {item.q[locale]}
                   </span>
                   <ChevronDown
                     className={`w-4 h-4 text-slate-400 shrink-0 transition-transform duration-200 ${
-                      isOpen ? "rotate-180 text-emerald-600" : ""
+                      isOpen ? "rotate-180 text-emerald-400" : ""
                     }`}
                   />
                 </button>
 
                 {isOpen && (
-                  <div className="px-5 pb-5 sm:px-6 sm:pb-6 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed pt-1 border-t border-slate-100 dark:border-slate-800">
+                  <div className="px-5 pb-5 sm:px-6 sm:pb-6 text-xs sm:text-sm text-slate-300 leading-relaxed pt-2 border-t border-slate-800">
                     {item.a[locale]}
                   </div>
                 )}

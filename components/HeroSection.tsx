@@ -1,16 +1,21 @@
 "use client";
 
+import { useState } from "react";
+import Image from "next/image";
 import { siteConfig } from "@/src/config/site";
 import { Locale } from "@/src/config/i18n";
 import { getDictionary } from "@/src/i18n";
 import { 
   ShieldCheck, 
-  MapPin, 
   ArrowRight, 
-  MessageSquare, 
-  Car, 
-  Navigation,
-  CheckCircle2
+  ArrowUpRight,
+  ArrowDown,
+  CheckCircle2,
+  Award,
+  Sparkles,
+  Users,
+  ChevronRight,
+  Navigation
 } from "lucide-react";
 import { motion } from "motion/react";
 
@@ -18,227 +23,219 @@ interface HeroSectionProps {
   locale: Locale;
 }
 
+const VEHICLE_PRESETS = [
+  { id: "b-auto", label: { en: "🚗 Car (Auto)", si: "🚗 මෝටර් රථ (Auto)", ta: "🚗 கார் (Auto)" } },
+  { id: "b-manual", label: { en: "🚗 Car (Manual)", si: "🚗 මෝටර් රථ (Manual)", ta: "🚗 கார் (Manual)" } },
+  { id: "a-bike", label: { en: "🏍️ Motorcycle", si: "🏍️ යතුරුපැදි", ta: "🏍️ மோட்டார்சைக்கிள்" } },
+  { id: "combo", label: { en: "⚡ Car + Bike Combo", si: "⚡ රථ + යතුරුපැදි", ta: "⚡ கார் + பைக்" } },
+];
+
 export function HeroSection({ locale }: HeroSectionProps) {
   const dict = getDictionary(locale);
+  const [selectedPreset, setSelectedPreset] = useState("combo");
+
+  const scrollToPackage = (id: string) => {
+    setSelectedPreset(id);
+    const element = document.getElementById("packages") || document.getElementById("apply");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
-    <section className="relative overflow-hidden bg-slate-900 text-white pt-12 pb-24 lg:pt-20 lg:pb-32">
-      {/* Background architectural mesh */}
-      <div 
-        className="absolute inset-0 opacity-15 pointer-events-none"
-        style={{
-          backgroundImage: "radial-gradient(#10b981 1px, transparent 1px), radial-gradient(#059669 1px, #0f172a 1px)",
-          backgroundSize: "40px 40px",
-          backgroundPosition: "0 0, 20px 20px",
-        }}
-      />
-
-      {/* Subtle ambient light orb */}
-      <div className="absolute top-1/4 -left-40 w-96 h-96 bg-emerald-600/20 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 right-0 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+    <section className="relative overflow-hidden pt-8 pb-10 sm:pt-14 sm:pb-14 lg:pt-20 lg:pb-16 text-center">
+      {/* Subtle ambient warm lighting matching HopeRise canvas */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[32rem] bg-gradient-to-b from-amber-500/10 via-emerald-500/5 to-transparent blur-3xl pointer-events-none -z-10" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[40rem] h-64 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          {/* Left Column: Headlines & Call to Actions */}
-          <div className="lg:col-span-7 space-y-6">
-            {/* Trust Kicker */}
-            <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-emerald-400">
-              <ShieldCheck className="w-4 h-4" />
-              <span>{siteConfig.legalEntityName}</span>
-              <span aria-hidden="true">·</span>
-              <span>{siteConfig.contact.city}</span>
-            </div>
+        
+        {/* Top HopeRise Eyebrow Badge */}
+        <motion.div 
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/90 dark:bg-slate-900/90 border border-slate-200/90 dark:border-slate-800 text-slate-800 dark:text-slate-200 text-xs font-bold uppercase tracking-wider shadow-xs mb-6 sm:mb-8"
+        >
+          <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse ring-2 ring-emerald-500/20" />
+          <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+          <span>{siteConfig.legalEntityName}</span>
+          <span className="text-slate-300 dark:text-slate-700">·</span>
+          <span>{siteConfig.contact.city}</span>
+        </motion.div>
 
-            {/* Main Headline */}
-            <h1 
-              className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight"
-              style={{ textWrap: "balance" }}
-            >
-              {dict.hero.headline}
-            </h1>
+        {/* Clean, Commanding Masterpiece Headline */}
+        <motion.h1 
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: 0.08 }}
+          className="text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-black tracking-tight text-slate-900 dark:text-white leading-[1.08] max-w-5xl mx-auto select-none"
+        >
+          <span>{dict.hero.editorialPrefix} {dict.hero.editorialSuffix}</span>
+          <span className="block mt-1 sm:mt-2 bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-400 bg-clip-text text-transparent">
+            {dict.hero.editorialTagline}
+          </span>
+        </motion.h1>
 
-            {/* Sub-headline */}
-            <p className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
-              {dict.hero.subheadline}
-            </p>
+        {/* Subtitle */}
+        <motion.p 
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.16 }}
+          className="text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed mt-5 sm:mt-7 font-normal"
+        >
+          {dict.hero.subheadline}
+        </motion.p>
 
-            {/* Trust Badges */}
-            <div className="pt-2 flex flex-wrap gap-y-2 gap-x-4 text-xs font-medium text-slate-300">
-              <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>{dict.hero.trustBadge1}</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>{dict.hero.trustBadge2}</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>{dict.hero.trustBadge3}</span>
-              </div>
-            </div>
+        {/* Button-in-Button Centered Action Cluster */}
+        <motion.div 
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.24 }}
+          className="mt-8 sm:mt-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4"
+        >
+          {/* Primary: Nested Button-in-Button Emerald Pill */}
+          <a
+            href="#apply"
+            className="btn-nested group pl-7 sm:pl-8 pr-3.5 py-2.5 sm:py-3 text-xs sm:text-sm text-white bg-emerald-600 hover:bg-emerald-500 shadow-emerald-glow active:scale-95 transition-all focus-visible:outline-2 focus-visible:outline-emerald-400"
+          >
+            <span>{dict.hero.ctaRegister}</span>
+            <span className="btn-nested-icon bg-white/20 text-white border border-white/25 group-hover:translate-x-0.5 transition-transform">
+              <ArrowRight className="w-4 h-4" />
+            </span>
+          </a>
 
-            {/* Action Buttons */}
-            <div className="pt-4 flex flex-wrap items-center gap-3 sm:gap-4">
-              <a
-                href="#apply"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl text-sm font-bold text-white bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 shadow-lg shadow-emerald-900/30 transition-all focus-visible:outline-2 focus-visible:outline-emerald-400"
+          {/* Secondary: Nested Button-in-Button Glass Pill */}
+          <a
+            href="#packages"
+            className="btn-nested group pl-6 sm:pl-7 pr-3 py-2.5 sm:py-3 text-xs sm:text-sm text-slate-900 dark:text-white bg-white/80 dark:bg-slate-900/80 hover:bg-white dark:hover:bg-slate-800 border border-slate-300/90 dark:border-slate-700 shadow-xs hover:border-emerald-500/80 active:scale-95 transition-all focus-visible:outline-2 focus-visible:outline-emerald-400"
+          >
+            <span>{dict.hero.viewCourses}</span>
+            <span className="btn-nested-icon bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 group-hover:bg-emerald-50 dark:group-hover:bg-emerald-950/60 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all">
+              <ArrowUpRight className="w-4 h-4" />
+            </span>
+          </a>
+        </motion.div>
+
+        {/* Interactive Vehicle Category Chips */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mt-7 flex flex-wrap items-center justify-center gap-2 sm:gap-2.5"
+        >
+          {VEHICLE_PRESETS.map((preset) => {
+            const isSelected = selectedPreset === preset.id;
+            return (
+              <button
+                key={preset.id}
+                type="button"
+                onClick={() => scrollToPackage(preset.id)}
+                className={`px-4 py-2 rounded-full text-xs font-bold transition-all duration-300 border flex items-center gap-2 cursor-pointer active:scale-95 ${
+                  isSelected
+                    ? "bg-slate-900 dark:bg-white text-white dark:text-slate-900 border-slate-900 dark:border-white shadow-md"
+                    : "bg-white/80 dark:bg-slate-900/80 text-slate-700 dark:text-slate-300 border-slate-200/90 dark:border-slate-800 hover:border-emerald-400/80 hover:text-emerald-700 dark:hover:text-emerald-400 shadow-xs"
+                }`}
               >
-                <span>{dict.hero.ctaRegister}</span>
-                <ArrowRight className="w-4 h-4" />
-              </a>
+                <span>{preset.label[locale]}</span>
+                {isSelected && <ChevronRight className="w-3.5 h-3.5" />}
+              </button>
+            );
+          })}
+        </motion.div>
 
-              <a
-                href={siteConfig.contact.whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl text-sm font-semibold text-emerald-300 bg-slate-800/90 hover:bg-slate-800 border border-slate-700 transition-colors focus-visible:outline-2 focus-visible:outline-emerald-400"
-              >
-                <MessageSquare className="w-4 h-4 text-emerald-400" />
-                <span>{dict.hero.ctaWhatsApp}</span>
-              </a>
-
-              <a
-                href={siteConfig.contact.googleMapsDirectionsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-3.5 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-colors"
-                title={`Directions to ${siteConfig.contact.address[locale]}`}
-              >
-                <Navigation className="w-4 h-4 text-amber-400" />
-                <span>{dict.common.getDirections}</span>
-              </a>
-            </div>
-
-            {/* Address & Hours Footnote */}
-            <div className="pt-2 text-xs text-slate-400 flex items-center gap-2">
-              <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-              <span className="truncate">{siteConfig.contact.address[locale]}</span>
+        {/* Dedicated Hero Visual Showcase Card with High-Res Fleet & Floating Proof Badges */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.35 }}
+          className="mt-10 sm:mt-12 relative max-w-4xl mx-auto rounded-3xl overflow-hidden border border-slate-200/90 dark:border-slate-800 bg-slate-900 shadow-2xl group"
+        >
+          <div className="relative aspect-[16/8] sm:aspect-[21/9] w-full overflow-hidden">
+            <Image
+              src="/images/hero-training-car.jpg"
+              alt="Wenasa Driving Training Session with certified instructor"
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 900px"
+              priority
+              className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+            />
+            {/* Soft cinematic gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/25 to-transparent" />
+            
+            {/* Floating credentials overlay */}
+            <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 flex flex-wrap items-center justify-between gap-3">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-500/95 backdrop-blur-md text-white text-xs font-bold shadow-lg">
+                  <Sparkles className="w-3.5 h-3.5" />
+                  98% First-Attempt Pass Rate
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900/90 backdrop-blur-md border border-slate-700/80 text-slate-200 text-xs font-bold shadow-lg">
+                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+                  Suzuki Dual-Control Fleet
+                </span>
+              </div>
+              <span className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-500/95 backdrop-blur-md text-slate-950 text-xs font-bold shadow-lg">
+                <Users className="w-3.5 h-3.5" />
+                5,000+ Alumni
+              </span>
             </div>
           </div>
+        </motion.div>
 
-          {/* Right Column: Visual Focal Carrier with Automotive & Training Illustration */}
-          <div className="lg:col-span-5">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6 }}
-              className="relative rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 p-6 sm:p-8 border border-slate-700/80 shadow-2xl overflow-hidden"
+        {/* HopeRise Full-Width Authority & Partner Ticker Ribbon */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.36 }}
+          className="mt-14 sm:mt-18 pt-6 sm:pt-8 border-t border-slate-200/80 dark:border-slate-800/80"
+        >
+          <div className="flex flex-wrap items-center justify-between gap-y-4 gap-x-6 text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-widest">
+            {/* Left: Quick Action badge */}
+            <a
+              href="#apply"
+              className="flex items-center gap-2 text-slate-900 dark:text-white hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
             >
-              {/* Corner Watermark Card */}
-              <div className="flex items-center justify-between pb-6 border-b border-slate-700/60">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-600 flex items-center justify-center text-white font-black text-lg">
-                    W
-                  </div>
-                  <div>
-                    <div className="text-sm font-bold text-white tracking-wide">
-                      {siteConfig.name.en}
-                    </div>
-                    <div className="text-xs text-emerald-400 font-medium">
-                      {siteConfig.name.si}
-                    </div>
-                  </div>
-                </div>
-
-                {/* "L" plate badge for authentic driving school branding */}
-                <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-md">
-                  <span className="text-red-600 font-black text-2xl leading-none">L</span>
-                </div>
+              <div className="w-7 h-7 rounded-lg bg-emerald-100 dark:bg-emerald-950/70 flex items-center justify-center text-emerald-700 dark:text-emerald-400">
+                <ShieldCheck className="w-4 h-4" />
               </div>
+              <span className="font-extrabold">{dict.hero.quickEnroll}</span>
+            </a>
 
-              {/* Graphic Stage: Dual-Control Car & Road Environment */}
-              <div className="my-6 relative py-4">
-                <svg
-                  viewBox="0 0 420 220"
-                  className="w-full h-auto drop-shadow-lg"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  role="img"
-                  aria-label="Wenasa dual-control driving school training car on roadway"
-                >
-                  {/* Road Asphalt */}
-                  <rect x="10" y="160" width="400" height="50" rx="8" fill="#1e293b" />
-                  {/* Road Markings */}
-                  <line x1="30" y1="185" x2="80" y2="185" stroke="#f8fafc" strokeWidth="3" strokeDasharray="12 12" />
-                  <line x1="120" y1="185" x2="170" y2="185" stroke="#f8fafc" strokeWidth="3" strokeDasharray="12 12" />
-                  <line x1="210" y1="185" x2="260" y2="185" stroke="#f8fafc" strokeWidth="3" strokeDasharray="12 12" />
-                  <line x1="300" y1="185" x2="350" y2="185" stroke="#f8fafc" strokeWidth="3" strokeDasharray="12 12" />
-                  <line x1="390" y1="185" x2="410" y2="185" stroke="#f8fafc" strokeWidth="3" strokeDasharray="12 12" />
-
-                  {/* Dual-Control Training Car Body */}
-                  <path
-                    d="M 60 155 L 90 100 L 170 85 L 260 85 L 310 115 L 350 125 L 360 155 Z"
-                    fill="#f8fafc"
-                  />
-                  {/* Car Roof & Windows */}
-                  <path
-                    d="M 100 102 L 165 90 L 255 90 L 295 115 L 100 115 Z"
-                    fill="#0f172a"
-                    opacity="0.85"
-                  />
-                  {/* Center Pillar */}
-                  <line x1="195" y1="90" x2="195" y2="115" stroke="#f8fafc" strokeWidth="4" />
-                  
-                  {/* Instructor & Student Silhouettes */}
-                  <circle cx="155" cy="104" r="7" fill="#10b981" />
-                  <circle cx="230" cy="104" r="7" fill="#60a5fa" />
-
-                  {/* Dual Control Roof Sign ("LEARNER DRIVER - WENASA") */}
-                  <rect x="150" y="65" width="110" height="20" rx="3" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1" />
-                  <rect x="153" y="68" width="15" height="14" rx="2" fill="#ef4444" />
-                  <text x="156" y="80" fill="#ffffff" fontSize="11" fontWeight="bold" fontFamily="sans-serif">L</text>
-                  <text x="174" y="79" fill="#0f172a" fontSize="9" fontWeight="bold" fontFamily="sans-serif">WENASA</text>
-
-                  {/* Car Headlights & Taillights */}
-                  <path d="M 350 130 L 360 135 L 358 145 L 348 140 Z" fill="#fef08a" />
-                  <path d="M 60 135 L 68 135 L 66 145 L 60 145 Z" fill="#ef4444" />
-
-                  {/* Car Wheels */}
-                  <circle cx="115" cy="155" r="22" fill="#0f172a" stroke="#64748b" strokeWidth="4" />
-                  <circle cx="115" cy="155" r="9" fill="#e2e8f0" />
-                  <circle cx="295" cy="155" r="22" fill="#0f172a" stroke="#64748b" strokeWidth="4" />
-                  <circle cx="295" cy="155" r="9" fill="#e2e8f0" />
-
-                  {/* Dual Pedal Indicator (Instructor Brake + Clutch System) */}
-                  <g transform="translate(18, 20)">
-                    <rect x="0" y="0" width="105" height="34" rx="6" fill="#0f172a" opacity="0.9" stroke="#10b981" strokeWidth="1" />
-                    <text x="8" y="14" fill="#34d399" fontSize="8" fontWeight="bold" fontFamily="sans-serif">DUAL CONTROLS</text>
-                    <text x="8" y="26" fill="#cbd5e1" fontSize="7" fontFamily="sans-serif">Active Dual Pedals</text>
-                  </g>
-
-                  {/* Traffic Signal Icon */}
-                  <g transform="translate(365, 30)">
-                    <rect x="0" y="0" width="18" height="45" rx="4" fill="#020617" />
-                    <circle cx="9" cy="9" r="4" fill="#ef4444" opacity="0.3" />
-                    <circle cx="9" cy="22" r="4" fill="#f59e0b" opacity="0.3" />
-                    <circle cx="9" cy="35" r="4" fill="#10b981" />
-                    <rect x="7" y="45" width="4" height="40" fill="#475569" />
-                  </g>
-                </svg>
+            {/* Center: Partner & Authority Proof Points */}
+            <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10">
+              <div className="flex items-center gap-2 text-slate-800 dark:text-slate-200 font-extrabold">
+                <Award className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                <span>DMT SRI LANKA</span>
               </div>
-
-              {/* Lower Specs Highlights */}
-              <div className="grid grid-cols-2 gap-3 pt-4 border-t border-slate-700/60 text-xs">
-                <div className="bg-slate-800/80 p-3 rounded-xl border border-slate-700">
-                  <div className="text-slate-400 text-[11px]">Training Standard</div>
-                  <div className="font-bold text-white mt-0.5 flex items-center gap-1">
-                    <Car className="w-3.5 h-3.5 text-emerald-400" />
-                    <span>Dual-Control Fleet</span>
-                  </div>
-                </div>
-
-                <div className="bg-slate-800/80 p-3 rounded-xl border border-slate-700">
-                  <div className="text-slate-400 text-[11px]">Kirindiwela Ground</div>
-                  <div className="font-bold text-white mt-0.5 flex items-center gap-1">
-                    <MapPin className="w-3.5 h-3.5 text-amber-400" />
-                    <span>DMT Reverse & Hill Bay</span>
-                  </div>
-                </div>
+              <div className="flex items-center gap-2 text-slate-800 dark:text-slate-200 font-extrabold">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                <span>NTMI MEDICALS</span>
               </div>
-            </motion.div>
+              <div className="flex items-center gap-2 text-slate-800 dark:text-slate-200 font-extrabold">
+                <Users className="w-4 h-4 text-amber-500" />
+                <span>5,000+ ALUMNI</span>
+              </div>
+              <div className="flex items-center gap-2 text-slate-800 dark:text-slate-200 font-extrabold">
+                <Sparkles className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                <span>98% PASS RATE</span>
+              </div>
+            </div>
+
+            {/* Right: Scroll Down Action with Arrow */}
+            <a
+              href="#services"
+              className="flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors group cursor-pointer"
+              aria-label="Scroll down to courses"
+            >
+              <span>{dict.hero.scrollDown}</span>
+              <span className="w-7 h-7 rounded-full border border-slate-300 dark:border-slate-700 group-hover:border-emerald-500 group-hover:bg-emerald-50 dark:group-hover:bg-emerald-950/40 flex items-center justify-center transition-all">
+                <ArrowDown className="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform" />
+              </span>
+            </a>
           </div>
-        </div>
+        </motion.div>
+
       </div>
     </section>
   );

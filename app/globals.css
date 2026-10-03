@@ -1,3 +1,182 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: var(--font-sans-en), "Noto Sans Sinhala", "Noto Sans Tamil", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --color-slate-850: #131d31;
+  --color-slate-925: #070b14;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+::selection {
+  background-color: #059669;
+  color: #ffffff;
+}
+
+/* HopeRise High-Trust Card & Surface Elevation */
+.shadow-hoperise {
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+}
+
+.shadow-hoperise-lg {
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.6), 0 8px 16px -4px rgba(0, 0, 0, 0.3);
+}
+
+.shadow-hoperise-emerald {
+  box-shadow: 0 20px 40px -12px rgba(16, 185, 129, 0.25), 0 8px 16px -4px rgba(16, 185, 129, 0.15);
+}
+
+.shadow-emerald-glow {
+  box-shadow: 0 16px 40px -10px rgba(16, 185, 129, 0.35), 0 0 0 1px rgba(16, 185, 129, 0.3);
+}
+
+/* Double-Bezel Concentric Hardware Enclosure */
+.double-bezel-outer {
+  padding: 0.375rem;
+  border-radius: 2rem;
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
+  transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1), box-shadow 0.4s ease;
+}
+
+.double-bezel-inner {
+  border-radius: calc(2rem - 0.375rem);
+  background: #0d1527;
+  border: 1px solid rgba(51, 65, 85, 0.65);
+  box-shadow: 0 14px 34px -10px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.06);
+}
+
+/* Button-in-Button Nested Micro-Interactions */
+.btn-nested {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  border-radius: 9999px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+  cursor: pointer;
+}
+
+.btn-nested:active {
+  transform: scale(0.97);
+}
+
+.btn-nested-icon {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1), background-color 0.2s ease;
+}
+
+.group:hover .btn-nested-icon,
+.btn-nested:hover .btn-nested-icon {
+  transform: translate(2px, -2px) scale(1.08);
+}
+
+/* Frosted Floating Pill Header */
+.glass-pill {
+  background: rgba(13, 21, 39, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(51, 65, 85, 0.7);
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.7), inset 0 1px 1px rgba(255, 255, 255, 0.08);
+}
+
+/* Floating Metric Badges */
+.floating-badge {
+  background: rgba(15, 23, 42, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(51, 65, 85, 0.7);
+  box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+}
+
+/* Subtle dot grid pattern for technical academy aesthetic */
+.bg-grid-subtle {
+  background-image: radial-gradient(rgba(15, 23, 42, 0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.dark .bg-grid-subtle {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+}
+
+/* HopeRise Stadium Capsule Cutout Window */
+.capsule-window {
+  border-radius: 9999px;
+  overflow: hidden;
+  display: inline-flex;
+  vertical-align: middle;
+  box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.25), inset 0 2px 4px rgba(255, 255, 255, 0.5);
+  border: 4px solid rgba(255, 255, 255, 0.95);
+  transition: transform 0.5s cubic-bezier(0.32, 0.72, 0, 1), box-shadow 0.5s ease;
+}
+
+.dark .capsule-window {
+  border-color: rgba(30, 41, 59, 0.95);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.8), inset 0 1px 2px rgba(255, 255, 255, 0.1);
+}
+
+.capsule-window:hover {
+  transform: scale(1.04);
+}
+
+/* Custom Hardware Tactile Range Slider */
+input[type="range"].tactile-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+input[type="range"].tactile-slider::-webkit-slider-runnable-track {
+  height: 8px;
+  border-radius: 9999px;
+  background: #e2e8f0;
+}
+
+.dark input[type="range"].tactile-slider::-webkit-slider-runnable-track {
+  background: #334155;
+}
+
+input[type="range"].tactile-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 9999px;
+  background: #059669;
+  border: 3px solid #ffffff;
+  box-shadow: 0 4px 10px rgba(5, 150, 105, 0.4), 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: -8px;
+  transition: transform 0.2s cubic-bezier(0.32, 0.72, 0, 1), background-color 0.2s ease;
+}
+
+.dark input[type="range"].tactile-slider::-webkit-slider-thumb {
+  border-color: #0f172a;
+  background: #10b981;
+}
+
+input[type="range"].tactile-slider:hover::-webkit-slider-thumb {
+  transform: scale(1.15);
+}
+
+input[type="range"].tactile-slider:active::-webkit-slider-thumb {
+  transform: scale(1.25);
+  background: #047857;
+}
+

@@ -18,21 +18,23 @@ export function Footer({ locale }: FooterProps) {
 
   return (
     <>
-      <footer className="bg-slate-950 text-white pt-16 pb-24 lg:pb-16 border-t border-slate-800">
+      <footer className="bg-slate-900 text-slate-300 pt-16 pb-24 lg:pb-16 border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-slate-800">
             {/* Column 1: School Identity & Bilingual Brand */}
             <div className="lg:col-span-4 space-y-4">
-              <div>
-                <span className="text-xl font-bold tracking-tight text-white block">
-                  {siteConfig.name.en}
-                </span>
-                <span className="text-sm font-semibold text-emerald-400 block mt-0.5">
-                  {siteConfig.name.si}
-                </span>
-                <span className="text-xs text-slate-400 block mt-0.5">
-                  {siteConfig.name.ta}
-                </span>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-emerald-600 flex items-center justify-center font-black text-base text-white shadow-hoperise-emerald shrink-0">
+                  W
+                </div>
+                <div>
+                  <span className="text-xl font-bold tracking-tight text-white block">
+                    {siteConfig.name.en}
+                  </span>
+                  <span className="text-xs font-semibold text-emerald-400 block mt-0.5">
+                    {siteConfig.name.si} · {siteConfig.name.ta}
+                  </span>
+                </div>
               </div>
 
               <p className="text-xs text-slate-400 leading-relaxed max-w-sm">
@@ -52,7 +54,7 @@ export function Footer({ locale }: FooterProps) {
 
             {/* Column 2: Quick Links */}
             <div className="lg:col-span-2 space-y-3">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-200">
                 {dict.footer.quickLinks}
               </h4>
               <ul className="space-y-2 text-xs text-slate-400">
@@ -96,7 +98,7 @@ export function Footer({ locale }: FooterProps) {
 
             {/* Column 3: Contact & Working Hours */}
             <div className="lg:col-span-3 space-y-3">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-200">
                 Kirindiwela Center
               </h4>
               <div className="space-y-2.5 text-xs text-slate-400">
@@ -127,8 +129,8 @@ export function Footer({ locale }: FooterProps) {
                 <div className="flex items-start gap-2 pt-1">
                   <Clock className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                   <div>
-                    <div>Mon – Sat: 7:30 AM – 6:00 PM</div>
-                    <div>Sunday: 7:30 AM – 2:00 PM</div>
+                    <div>Mon - Sat: 7:30 AM - 6:00 PM</div>
+                    <div>Sunday: 7:30 AM - 2:00 PM</div>
                   </div>
                 </div>
               </div>
@@ -136,7 +138,7 @@ export function Footer({ locale }: FooterProps) {
 
             {/* Column 4: Compliance & Legal Policies */}
             <div className="lg:col-span-3 space-y-3">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-200">
                 {dict.footer.legalPolicies}
               </h4>
               <p className="text-[11px] text-slate-400 leading-relaxed">
@@ -146,7 +148,7 @@ export function Footer({ locale }: FooterProps) {
                 <li>
                   <button
                     onClick={() => setActivePolicy("privacy")}
-                    className="hover:text-emerald-400 transition-colors text-left"
+                    className="hover:text-emerald-400 transition-colors text-left cursor-pointer"
                   >
                     Privacy Policy (PDPA Compliance)
                   </button>
@@ -154,7 +156,7 @@ export function Footer({ locale }: FooterProps) {
                 <li>
                   <button
                     onClick={() => setActivePolicy("terms")}
-                    className="hover:text-emerald-400 transition-colors text-left"
+                    className="hover:text-emerald-400 transition-colors text-left cursor-pointer"
                   >
                     Terms of Service & Training Rules
                   </button>
@@ -162,7 +164,7 @@ export function Footer({ locale }: FooterProps) {
                 <li>
                   <button
                     onClick={() => setActivePolicy("refund")}
-                    className="hover:text-emerald-400 transition-colors text-left"
+                    className="hover:text-emerald-400 transition-colors text-left cursor-pointer"
                   >
                     Refund & Lesson Cancellation Policy
                   </button>
@@ -170,7 +172,7 @@ export function Footer({ locale }: FooterProps) {
                 <li>
                   <button
                     onClick={() => setActivePolicy("cookie")}
-                    className="hover:text-emerald-400 transition-colors text-left"
+                    className="hover:text-emerald-400 transition-colors text-left cursor-pointer"
                   >
                     Cookie Notice & Consent
                   </button>

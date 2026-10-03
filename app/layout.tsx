@@ -1,25 +1,32 @@
-import type {Metadata} from 'next';
-import './globals.css'; // Global styles
+import type { Metadata } from "next";
+import { Plus_Jakarta_Sans } from "next/font/google";
+import "./globals.css";
+
+const plusJakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-sans-en",
+});
 
 export const metadata: Metadata = {
-  title: 'Wenasa Driving School - වෙනස රියැදුරු පාසල',
-  description: 'Government-approved driving school in Kirindiwela, Sri Lanka. Learn driving with confidence with certified instructors, dual-control vehicles, and DMT test prep.',
+  title: "Wenasa Driving School | වෙනස රියැදුරු පාසල - Kirindiwela",
+  description: "Government-approved driving school in Kirindiwela, Sri Lanka (DMT/WP/G/1174). Certified instructors, dual-control Suzuki fleet, and guaranteed DMT test guidance.",
   openGraph: {
-    title: 'Wenasa Driving School - වෙනස රියැදුරු පාසල',
-    description: 'Government-approved driving school in Kirindiwela, Sri Lanka. Learn driving with confidence with certified instructors, dual-control vehicles, and DMT test prep.',
-    type: 'website',
+    title: "Wenasa Driving School | වෙනස රියැදුරු පාසල - Kirindiwela",
+    description: "Government-approved driving school in Kirindiwela, Sri Lanka (DMT/WP/G/1174). Certified instructors, dual-control Suzuki fleet, and guaranteed DMT test guidance.",
+    type: "website",
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'Wenasa Driving School - වෙනස රියැදුරු පාසල',
-    description: 'Government-approved driving school in Kirindiwela, Sri Lanka. Learn driving with confidence with certified instructors, dual-control vehicles, and DMT test prep.',
+    card: "summary_large_image",
+    title: "Wenasa Driving School | වෙනස රියැදුරු පාසල - Kirindiwela",
+    description: "Government-approved driving school in Kirindiwela, Sri Lanka (DMT/WP/G/1174). Certified instructors, dual-control Suzuki fleet, and guaranteed DMT test guidance.",
   },
 };
 
-export default function RootLayout({children}: {children: React.ReactNode}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="si" className="scroll-smooth">
-      <body suppressHydrationWarning className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 antialiased font-sans">
+    <html lang="si" className={`dark scroll-smooth ${plusJakarta.variable}`}>
+      <body suppressHydrationWarning className="min-h-screen bg-[#070b14] text-slate-100 antialiased font-sans selection:bg-emerald-600 selection:text-white">
         {children}
       </body>
     </html>

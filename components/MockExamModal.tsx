@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { Locale } from "@/src/config/i18n";
-import { X, CheckCircle, AlertCircle, Clock, RotateCcw, Award } from "lucide-react";
+import { X, CheckCircle, AlertCircle, Clock, RotateCcw, Award, CheckCircle2, ChevronRight, Sparkles } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
 
 interface MockExamModalProps {
   locale: Locale;
@@ -17,7 +18,6 @@ interface Question {
   explanation: { en: string; si: string; ta: string };
 }
 
-// 10 Sample high-yield questions flagged "sample, verify before publishing"
 const SAMPLE_QUESTIONS: Question[] = [
   {
     id: 1,
@@ -88,64 +88,30 @@ const SAMPLE_QUESTIONS: Question[] = [
       ],
       si: [
         "ඔබේ වම්පසින් පැමිණෙන වාහනවලට",
-        "ඔබේ දකුණු පසින් දැනටමත් රවුම්මංසල තුළ ධාවනය වන වාහනවලට",
-        "වේගයෙන් ධාවනය වන වාහනයට",
-        "කෙළින්ම ඉදිරියට ගමන් කරන වාහනවලට",
+        "ඔබේ දකුණු පසින් රවුම්මංසල තුළ දැනටමත් ධාවනය වන වාහනවලට",
+        "වැඩිම වේගයෙන් පැමිණෙන වාහනයට",
+        "කෙලින්ම ඉදිරියට ධාවනය වන වාහනවලට",
       ],
       ta: [
-        "உங்கள் இடதுபுறத்தில் இருந்து வரும் வாகனங்களுக்கு",
-        "உங்கள் வலதுபுறத்தில் ஏற்கனவே சுற்றிக்கொண்டிருக்கும் வாகனங்களுக்கு",
+        "இடதுபுறத்தில் இருந்து வரும் வாகனங்களுக்கு",
+        "வலதுபுறத்தில் வட்டவடிவ சந்தியில் ஏற்கனவே சுற்றும் வாகனங்களுக்கு",
         "வேகமாக வரும் வாகனத்திற்கு",
-        "நேராக செல்லும் வாகனத்திற்கு",
+        "நேராக செல்லும் வாகனங்களுக்கு",
       ],
     },
     correctIndex: 1,
     explanation: {
-      en: "Sri Lanka follows left-hand traffic; at roundabouts, priority must always be given to traffic approaching from your immediate right.",
-      si: "ශ්‍රී ලංකාව වමෙන් ධාවනය වන රටක් බැවින්, රවුම්මංසලකදී සැමවිටම ඔබේ දකුණු පසින් එන වාහනවලට ප්‍රමුඛතාවය දිය යුතුය.",
-      ta: "இலங்கையில் வட்டவடிவ சந்திகளில் வலதுபுறத்தில் இருந்து வரும் போக்குவரத்துக்கு முன்னுரிமை அளிக்கப்பட வேண்டும்.",
+      en: "Traffic inside the roundabout circulating from the right has strict right of way over vehicles joining the roundabout.",
+      si: "රවුම්මංසල තුළ දකුණු පසින් ධාවනය වන වාහනවලට ප්‍රමුඛතාවය ලබාදී ඇතුළු විය යුතුය.",
+      ta: "வலதுபுறத்தில் இருந்து ஏற்கனவே சுற்றும் வாகனங்களுக்கே முன்னுரிமை அளிக்க வேண்டும்.",
     },
   },
   {
     id: 4,
     question: {
-      en: "What does a solid single unbroken white line along the center of the road indicate?",
-      si: "මාර්ගය මැද ඇති නොකැඩුණු තනි සුදු ඉරකින් (Single Continuous White Line) අදහස් වන්නේ කුමක්ද?",
-      ta: "வீதியின் நடுவே உள்ள தொடர்ச்சியான வெள்ளை கோடு எதனை குறிக்கிறது?",
-    },
-    options: {
-      en: [
-        "You may overtake if the road ahead is clear",
-        "You must never cross or straddle the line to overtake",
-        "Parking is permitted along the edge",
-        "Speed limit increases after this line",
-      ],
-      si: [
-        "ඉදිරියෙන් මාර්ගය පැහැදිලි නම් ඉස්සර කළ හැක",
-        "ඉස්සර කිරීම සඳහා කිසිවිටෙකත් එම ඉර කැපීම හෝ ඉර මතින් ධාවනය නොකළ යුතුය",
-        "මාර්ගය අයිනේ වාහන නැවැත්විය හැක",
-        "වේග සීමාව වැඩි කළ හැක",
-      ],
-      ta: [
-        "முன்னால் வீதி தெளிவாக இருந்தால் முந்தலாம்",
-        "முந்துவதற்காக ஒருபோதும் கோட்டை தாண்டவோ அல்லது அதன் மேல் செல்லவோ கூடாது",
-        "நிறுத்துவதற்கு அனுமதிக்கப்பட்டுள்ளது",
-        "வேகத்தை அதிகரிக்கலாம்",
-      ],
-    },
-    correctIndex: 1,
-    explanation: {
-      en: "A continuous center white line strictly prohibits crossing or straddling for overtaking due to restricted visibility or hazard ahead.",
-      si: "නොකැඩුණු සුදු ඉරක් ඇති ස්ථානයක අනතුරුදායක බව නිසා කිසිසේත්ම ඉස්සර කිරීමට ඉර කැපීම තහනම්ය.",
-      ta: "தொடர்ச்சியான வெள்ளை கோடு முந்துவதை முற்றாக தடை செய்கிறது.",
-    },
-  },
-  {
-    id: 5,
-    question: {
-      en: "What is the minimum legal tread depth requirement for motor car tyres in Sri Lanka?",
-      si: "ශ්‍රී ලංකාවේ මෝටර් කාර් රථයක ටයර් සඳහා අවශ්‍ය අවම නීත්‍යානුකූල මට්ටම (Tread Depth) කොපමණද?",
-      ta: "மோட்டார் கார் டயர்களுக்கான குறைந்தபட்ச சட்டபூர்வ ஆழம் (Tread depth) எவ்வளவு?",
+      en: "What is the minimum legal tyre tread depth requirement for passenger motor cars in Sri Lanka?",
+      si: "ශ්‍රී ලංකාවේ මෝටර් කාර් රථ සඳහා ටයරයක නීත්‍යානුකූලව තිබිය යුතු අවම කට්ට ගැඹුර කොපමණද?",
+      ta: "இலங்கையில் மோட்டார் கார்களுக்கான டயர் தேய்மானத்தின் குறைந்தபட்ச சட்டபூர்வ ஆழம் யாது?",
     },
     options: {
       en: ["1.6 mm", "0.5 mm", "3.0 mm", "5.0 mm"],
@@ -204,7 +170,7 @@ export function MockExamModal({ locale, onClose }: MockExamModalProps) {
 
   const score = calculateScore();
   const passPercentage = Math.round((score / totalQuestions) * 100);
-  const hasPassed = passPercentage >= 75; // 75% pass mark
+  const hasPassed = passPercentage >= 75;
 
   const formatTime = (secs: number) => {
     const m = Math.floor(secs / 60);
@@ -212,25 +178,43 @@ export function MockExamModal({ locale, onClose }: MockExamModalProps) {
     return `${m}:${s < 10 ? "0" : ""}${s}`;
   };
 
+  const labels = {
+    title: locale === "si" ? "DMT ආදර්ශ විභාග පද්ධතිය" : locale === "ta" ? "DMT மாதிரி தேர்வு தளம்" : "DMT Mock Examination",
+    simulator: locale === "si" ? "DMT පරිගණක විභාග අනුකරණය" : locale === "ta" ? "DMT கணினி மாதிரி தேர்வு" : "DMT Written Test Simulator",
+    passMark: locale === "si" ? "සමත් ලකුණු: 75%" : locale === "ta" ? "தேர்ச்சி: 75%" : "Pass mark: 75%",
+    question: locale === "si" ? "ප්‍රශ්න අංක" : locale === "ta" ? "கேள்வி" : "Question",
+    of: locale === "si" ? "/" : locale === "ta" ? "/" : "of",
+    previous: locale === "si" ? "පෙර ප්‍රශ්නය" : locale === "ta" ? "முந்தையது" : "Previous",
+    next: locale === "si" ? "මීළඟ ප්‍රශ්නය" : locale === "ta" ? "அடுத்தது" : "Next Question",
+    submit: locale === "si" ? "විභාගය අවසන් කරන්න" : locale === "ta" ? "தேர்வை முடிக்க" : "Submit Test",
+    retry: locale === "si" ? "නැවත උත්සාහ කරන්න" : locale === "ta" ? "மீண்டும் முயற்சி" : "Retry Test",
+    close: locale === "si" ? "වසන්න" : locale === "ta" ? "மூடுக" : "Close",
+    passedTitle: locale === "si" ? "සුබ පැතුම්! ඔබ සමත්!" : locale === "ta" ? "வாழ்த்துகள்! நீங்கள் தேர்ச்சி பெற்றீர்கள்!" : "Congratulations! You Passed!",
+    failedTitle: locale === "si" ? "නැවත උත්සාහ කරමු! දිගටම පුහුණු වන්න" : locale === "ta" ? "தொடர்ந்து பயிற்சி செய்யுங்கள்!" : "Good Try! Keep Practicing",
+    scoreText: locale === "si" ? `ඔබ ලකුණු ${totalQuestions} න් ${score} ක් ලබාගෙන ඇත (${passPercentage}%)` : `You scored ${score} out of ${totalQuestions} (${passPercentage}%)`,
+    reviewHeader: locale === "si" ? "ප්‍රශ්න හා නිවැරදි පිළිතුරු විශ්ලේෂණය:" : "Review Explanations:",
+  };
+
   return (
-    <div className="fixed inset-0 z-50 bg-slate-900/80 backdrop-blur-sm flex items-center justify-center p-4">
-      <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-2xl w-full border border-slate-200 dark:border-slate-800 shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+    <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+      <div className="bg-slate-900 rounded-3xl max-w-2xl w-full border border-slate-800 shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
         {/* Modal Header */}
-        <div className="p-4 sm:p-6 bg-slate-900 text-white flex items-center justify-between border-b border-slate-800">
+        <div className="p-4 sm:p-6 bg-slate-950 text-white flex items-center justify-between border-b border-slate-800">
           <div>
-            <div className="flex items-center gap-2 text-xs text-emerald-400 font-semibold uppercase">
-              <span>DMT Written Test Simulator</span>
-              <span aria-hidden="true">·</span>
-              <span>Pass mark: 75%</span>
+            <div className="flex items-center gap-2 text-xs text-emerald-400 font-bold uppercase tracking-wider">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>{labels.simulator}</span>
+              <span className="text-slate-600">·</span>
+              <span>{labels.passMark}</span>
             </div>
             <h3 className="text-lg sm:text-xl font-bold mt-1 text-white">
-              {locale === "si" ? "DMT ආදර්ශ විභාග පද්ධතිය" : locale === "ta" ? "DMT மாதிரி தேர்வு தளம்" : "DMT Mock Examination"}
+              {labels.title}
             </h3>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
             {!isSubmitted && (
-              <div className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-800 rounded-lg text-amber-400 font-mono text-xs font-semibold">
+              <div className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-900 border border-slate-700 rounded-xl text-amber-400 font-mono text-xs font-bold">
                 <Clock className="w-3.5 h-3.5" />
                 <span>{formatTime(secondsRemaining)}</span>
               </div>
@@ -238,7 +222,7 @@ export function MockExamModal({ locale, onClose }: MockExamModalProps) {
 
             <button
               onClick={onClose}
-              className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+              className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition-colors cursor-pointer"
               aria-label="Close modal"
             >
               <X className="w-5 h-5" />
@@ -246,68 +230,76 @@ export function MockExamModal({ locale, onClose }: MockExamModalProps) {
           </div>
         </div>
 
+        {/* Progress Bar */}
+        {!isSubmitted && (
+          <div className="w-full bg-slate-800 h-1.5">
+            <div
+              className="bg-emerald-500 h-1.5 transition-all duration-300 ease-out"
+              style={{ width: `${((currentIndex + 1) / totalQuestions) * 100}%` }}
+            />
+          </div>
+        )}
+
         {/* Modal Body */}
         <div className="p-6 overflow-y-auto flex-1">
-          {/* Sample disclaimer banner */}
-          <div className="mb-4 p-2.5 rounded-lg bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 text-[11px] text-amber-800 dark:text-amber-300 flex items-center gap-2">
-            <AlertCircle className="w-4 h-4 shrink-0" />
-            <span>Sample interactive questions based on Sri Lankan DMT syllabus (verify before publishing).</span>
-          </div>
-
           {!isSubmitted ? (
             <div>
               {/* Question Navigation Bubbles */}
-              <div className="flex items-center gap-1.5 overflow-x-auto pb-3 mb-4">
-                {SAMPLE_QUESTIONS.map((_, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setCurrentIndex(idx)}
-                    className={`w-7 h-7 rounded-md text-xs font-bold shrink-0 transition-colors ${
-                      idx === currentIndex
-                        ? "bg-emerald-600 text-white"
-                        : selectedAnswers[idx] !== undefined
-                        ? "bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300"
-                        : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"
-                    }`}
-                  >
-                    {idx + 1}
-                  </button>
-                ))}
+              <div className="flex items-center gap-2 overflow-x-auto pb-3 mb-5">
+                {SAMPLE_QUESTIONS.map((_, idx) => {
+                  const isCurrent = idx === currentIndex;
+                  const isAnswered = selectedAnswers[idx] !== undefined;
+                  return (
+                    <button
+                      key={idx}
+                      onClick={() => setCurrentIndex(idx)}
+                      className={`w-8 h-8 rounded-xl text-xs font-bold shrink-0 transition-all cursor-pointer ${
+                        isCurrent
+                          ? "bg-emerald-500 text-slate-950 font-black shadow-md shadow-emerald-950/50 scale-105"
+                          : isAnswered
+                          ? "bg-emerald-950/60 text-emerald-300 border border-emerald-700/60"
+                          : "bg-slate-800 text-slate-400 hover:bg-slate-700"
+                      }`}
+                    >
+                      {idx + 1}
+                    </button>
+                  );
+                })}
               </div>
 
               {/* Current Question */}
               <div className="space-y-4">
-                <div className="text-xs font-semibold text-emerald-600 dark:text-emerald-400">
-                  Question {currentIndex + 1} of {totalQuestions}
+                <div className="text-xs font-bold uppercase tracking-wider text-emerald-400">
+                  {labels.question} {currentIndex + 1} {labels.of} {totalQuestions}
                 </div>
-                <h4 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+                <h4 className="text-base sm:text-lg font-bold text-white leading-snug">
                   {currentQ.question[locale]}
                 </h4>
 
                 {/* Options List */}
-                <div className="space-y-2.5 pt-2">
+                <div className="space-y-3 pt-2">
                   {currentQ.options[locale].map((opt, optIdx) => {
                     const isSelected = selectedAnswers[currentIndex] === optIdx;
                     return (
                       <button
                         key={optIdx}
                         onClick={() => handleSelect(optIdx)}
-                        className={`w-full text-left p-3.5 rounded-xl border text-xs sm:text-sm font-medium transition-all flex items-start gap-3 ${
+                        className={`w-full text-left p-4 rounded-2xl border text-xs sm:text-sm font-medium transition-all flex items-start gap-3.5 cursor-pointer ${
                           isSelected
-                            ? "border-emerald-600 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-950 dark:text-emerald-200"
-                            : "border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200"
+                            ? "border-emerald-500 bg-emerald-950/40 text-emerald-200 shadow-sm"
+                            : "border-slate-800 hover:bg-slate-800/60 text-slate-200"
                         }`}
                       >
                         <span
-                          className={`w-5 h-5 rounded-full border flex items-center justify-center text-xs shrink-0 mt-0.5 ${
+                          className={`w-6 h-6 rounded-lg border flex items-center justify-center text-xs shrink-0 mt-0.5 font-bold ${
                             isSelected
-                              ? "border-emerald-600 bg-emerald-600 text-white font-bold"
-                              : "border-slate-400"
+                              ? "border-emerald-500 bg-emerald-500 text-slate-950 font-black"
+                              : "border-slate-700 text-slate-400"
                           }`}
                         >
                           {String.fromCharCode(65 + optIdx)}
                         </span>
-                        <span>{opt}</span>
+                        <span className="leading-relaxed">{opt}</span>
                       </button>
                     );
                   })}
@@ -318,32 +310,31 @@ export function MockExamModal({ locale, onClose }: MockExamModalProps) {
             /* Results Screen */
             <div className="text-center py-6 space-y-6">
               <div
-                className={`w-16 h-16 rounded-2xl mx-auto flex items-center justify-center ${
+                className={`w-20 h-20 rounded-3xl mx-auto flex items-center justify-center shadow-lg ${
                   hasPassed
-                    ? "bg-emerald-100 text-emerald-600 dark:bg-emerald-950/60 dark:text-emerald-400"
-                    : "bg-amber-100 text-amber-600 dark:bg-amber-950/60 dark:text-amber-400"
+                    ? "bg-emerald-950/80 text-emerald-400 border border-emerald-700/60"
+                    : "bg-amber-950/80 text-amber-400 border border-amber-700/60"
                 }`}
               >
-                <Award className="w-8 h-8" />
+                <Award className="w-10 h-10" />
               </div>
 
               <div>
-                <h4 className="text-2xl font-bold text-slate-900 dark:text-white">
-                  {hasPassed ? "Congratulations! You Passed!" : "Good Try! Keep Practicing"}
+                <h4 className="text-2xl font-extrabold text-white">
+                  {hasPassed ? labels.passedTitle : labels.failedTitle}
                 </h4>
-                <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">
-                  You scored <span className="font-bold text-slate-900 dark:text-white">{score}</span> out of{" "}
-                  {totalQuestions} ({passPercentage}%).
+                <p className="text-sm font-semibold text-slate-300 mt-1.5">
+                  {labels.scoreText}
                 </p>
-                <p className="text-xs text-slate-500 mt-1">
-                  Official DMT pass requirement is 30 out of 40 (75%).
+                <p className="text-xs text-slate-400 mt-1">
+                  Official DMT examination pass standard is 30 out of 40 (75%).
                 </p>
               </div>
 
-              {/* Review Answers Accordion */}
-              <div className="text-left space-y-3 pt-4 border-t border-slate-200 dark:border-slate-800">
-                <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">
-                  Review Explanations:
+              {/* Review Answers */}
+              <div className="text-left space-y-3 pt-4 border-t border-slate-800">
+                <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                  {labels.reviewHeader}
                 </div>
                 {SAMPLE_QUESTIONS.map((q, idx) => {
                   const userAnswer = selectedAnswers[idx];
@@ -351,26 +342,26 @@ export function MockExamModal({ locale, onClose }: MockExamModalProps) {
                   return (
                     <div
                       key={q.id}
-                      className={`p-3.5 rounded-xl border text-xs ${
+                      className={`p-4 rounded-2xl border text-xs ${
                         isCorrect
-                          ? "border-emerald-200 bg-emerald-50/50 dark:bg-emerald-950/20"
-                          : "border-red-200 bg-red-50/50 dark:bg-red-950/20"
+                          ? "border-emerald-800/60 bg-emerald-950/20"
+                          : "border-red-800/60 bg-red-950/20"
                       }`}
                     >
-                      <div className="flex items-start gap-2">
+                      <div className="flex items-start gap-2.5">
                         {isCorrect ? (
-                          <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                          <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                         ) : (
-                          <AlertCircle className="w-4 h-4 text-red-600 shrink-0 mt-0.5" />
+                          <AlertCircle className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
                         )}
                         <div>
-                          <div className="font-bold text-slate-900 dark:text-white">
+                          <div className="font-bold text-white">
                             {idx + 1}. {q.question[locale]}
                           </div>
-                          <div className="mt-1 text-slate-600 dark:text-slate-300">
-                            Correct: <span className="font-semibold">{q.options[locale][q.correctIndex]}</span>
+                          <div className="mt-1 text-slate-300">
+                            Correct: <span className="font-bold text-emerald-400">{q.options[locale][q.correctIndex]}</span>
                           </div>
-                          <div className="mt-1 text-[11px] text-slate-500 italic">
+                          <div className="mt-1 text-[11px] text-slate-400 italic">
                             {q.explanation[locale]}
                           </div>
                         </div>
@@ -384,31 +375,32 @@ export function MockExamModal({ locale, onClose }: MockExamModalProps) {
         </div>
 
         {/* Modal Footer Controls */}
-        <div className="p-4 bg-slate-50 dark:bg-slate-800/80 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+        <div className="p-4 bg-slate-950 border-t border-slate-800 flex items-center justify-between">
           {!isSubmitted ? (
             <>
               <button
                 onClick={() => setCurrentIndex((prev) => Math.max(0, prev - 1))}
                 disabled={currentIndex === 0}
-                className="px-3 py-1.5 rounded-lg text-xs font-medium text-slate-600 dark:text-slate-300 disabled:opacity-30"
+                className="px-4 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white disabled:opacity-30 cursor-pointer"
               >
-                Previous
+                {labels.previous}
               </button>
 
               <div className="flex items-center gap-2">
                 {currentIndex < totalQuestions - 1 ? (
                   <button
                     onClick={() => setCurrentIndex((prev) => Math.min(totalQuestions - 1, prev + 1))}
-                    className="px-4 py-2 bg-emerald-600 text-white rounded-lg text-xs font-semibold hover:bg-emerald-700"
+                    className="inline-flex items-center gap-1.5 px-5 py-2.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 rounded-xl text-xs font-bold transition-all cursor-pointer shadow-md"
                   >
-                    Next Question
+                    <span>{labels.next}</span>
+                    <ChevronRight className="w-3.5 h-3.5" />
                   </button>
                 ) : (
                   <button
                     onClick={() => setIsSubmitted(true)}
-                    className="px-4 py-2 bg-slate-900 text-white dark:bg-white dark:text-slate-900 rounded-lg text-xs font-bold hover:bg-slate-800"
+                    className="px-5 py-2.5 bg-amber-400 hover:bg-amber-300 text-slate-950 rounded-xl text-xs font-bold transition-all cursor-pointer shadow-md"
                   >
-                    Submit Test
+                    {labels.submit}
                   </button>
                 )}
               </div>
@@ -422,17 +414,17 @@ export function MockExamModal({ locale, onClose }: MockExamModalProps) {
                   setCurrentIndex(0);
                   setSecondsRemaining(600);
                 }}
-                className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg"
+                className="inline-flex items-center gap-1.5 px-4 py-2.5 text-xs font-bold text-slate-300 hover:bg-slate-800 rounded-xl transition-all cursor-pointer"
               >
                 <RotateCcw className="w-3.5 h-3.5" />
-                <span>Retry Test</span>
+                <span>{labels.retry}</span>
               </button>
 
               <button
                 onClick={onClose}
-                className="px-4 py-2 bg-emerald-600 text-white rounded-lg text-xs font-semibold"
+                className="px-5 py-2.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 rounded-xl text-xs font-bold transition-all cursor-pointer shadow-md"
               >
-                Close Simulator
+                {labels.close}
               </button>
             </div>
           )}

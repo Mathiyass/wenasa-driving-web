@@ -89,31 +89,35 @@ export function StatsBar({ locale }: StatsBarProps) {
   ];
 
   return (
-    <section className="relative -mt-8 z-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative mt-10 sm:mt-14 z-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xl shadow-slate-900/5 p-6 sm:p-8"
+        className="rounded-3xl border border-slate-800 bg-slate-900/90 backdrop-blur-xl shadow-2xl p-6 sm:p-8 relative overflow-hidden"
       >
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 divide-y lg:divide-y-0 lg:divide-x divide-slate-100 dark:divide-slate-800">
+        {/* Subtle ambient corner light */}
+        <div className="absolute -top-12 -right-12 w-48 h-48 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none" />
+        <div className="absolute -bottom-12 -left-12 w-48 h-48 bg-amber-500/10 rounded-full blur-2xl pointer-events-none" />
+
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 divide-y lg:divide-y-0 lg:divide-x divide-slate-800/80">
           {statItems.map((item, idx) => {
             const Icon = item.icon;
             return (
               <div
                 key={item.id}
-                className={`flex flex-col items-center text-center ${
+                className={`flex flex-col items-center text-center group transition-transform duration-300 hover:-translate-y-0.5 ${
                   idx > 0 && idx % 2 === 0 ? "pt-6 lg:pt-0" : ""
                 } ${idx > 1 ? "pt-6 lg:pt-0" : ""}`}
               >
-                <div className="p-2.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 mb-3">
+                <div className="p-3.5 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 mb-3.5 shadow-xs group-hover:scale-110 transition-transform">
                   <Icon className="w-5 h-5" />
                 </div>
-                <div className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+                <div className="text-3xl sm:text-4xl lg:text-[2.6rem] font-black text-white tracking-tight font-mono">
                   <AnimatedCounter endValue={item.value} suffix={item.suffix} />
                 </div>
-                <div className="mt-1 text-xs sm:text-sm font-medium text-slate-600 dark:text-slate-400 max-w-[200px]">
+                <div className="mt-1.5 text-xs sm:text-sm font-bold text-slate-300 max-w-[200px] leading-snug">
                   {item.label}
                 </div>
               </div>
@@ -121,9 +125,15 @@ export function StatsBar({ locale }: StatsBarProps) {
           })}
         </div>
 
-        {/* Audit Source & Verification Disclaimer */}
-        <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 text-center text-[11px] text-slate-400 dark:text-slate-500">
-          <span>{dict.stats.disclaimer}</span>
+        {/* Audit Source and Verification Disclaimer with Official Seal */}
+        <div className="mt-6 pt-4 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left text-[11px] text-slate-400">
+          <span className="flex items-center gap-1.5">
+            <span className="w-2 h-2 rounded-full bg-emerald-400" />
+            <span>{dict.stats.disclaimer}</span>
+          </span>
+          <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 font-semibold">
+            Verified Branch Audit 2026
+          </span>
         </div>
       </motion.div>
     </section>

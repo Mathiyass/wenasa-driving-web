@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { Locale } from "@/src/config/i18n";
 import { getDictionary } from "@/src/i18n";
-import { BookOpen, Calendar, Clock, ArrowRight, X } from "lucide-react";
+import { BookOpen, Calendar, Clock, ArrowRight, X, Sparkles } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
 
 interface BlogSectionProps {
   locale: Locale;
@@ -17,6 +19,7 @@ interface Article {
   readTime: string;
   publishedDate: string;
   category: string;
+  imageSrc: string;
   content: { en: string[]; si: string[]; ta: string[] };
 }
 
@@ -37,6 +40,7 @@ const ARTICLES: Article[] = [
     readTime: "6 min read",
     publishedDate: "2026-09-20",
     category: "Licensing Guide",
+    imageSrc: "/images/blog/licence-guide-cover.jpg",
     content: {
       en: [
         "Obtaining your driving licence in Sri Lanka is a proud milestone, but navigating government processes without guidance can lead to unexpected delays. The process starts with obtaining your official medical fitness certificate from the National Transport Medical Institute (NTMI).",
@@ -51,6 +55,7 @@ const ARTICLES: Article[] = [
       ta: [
         "இலங்கையில் சாரதி அனுமதிப்பத்திரம் பெறுவது ஒரு முக்கியமான படியாகும். முதலில் NTMI மருத்துவ சான்றிதழைப் பெற வேண்டும்.",
         "பின்னர் DMT கணினி தேர்வில் 40 கேள்விகளில் 30க்கு சரியாக விடையளித்து தேர்ச்சி பெற வேண்டும்.",
+        "நடைமுறைப் பயிற்சியை முடித்த பின்னர் உத்தியோகபூர்வ சோதனைக்கு தோற்றி அனுமதிப்பத்திரத்தைப் பெற்றுக் கொள்ளலாம்.",
       ],
     },
   },
@@ -70,6 +75,7 @@ const ARTICLES: Article[] = [
     readTime: "5 min read",
     publishedDate: "2026-09-18",
     category: "Exam Preparation",
+    imageSrc: "/images/blog/exam-prep-cover.jpg",
     content: {
       en: [
         "The DMT written examination comprises 40 multiple-choice questions with a pass threshold of 30 correct answers (75%). Candidates are allotted 60 minutes.",
@@ -79,9 +85,11 @@ const ARTICLES: Article[] = [
       si: [
         "DMT පරිගණක විභාගයේ ප්‍රශ්න 40ක් ඇති අතර ඉන් 30ක් (75%) නිවැරදිව පිළිතුරු සපයා සමත් විය යුතුය.",
         "වැඩිම ලකුණු සංඛ්‍යාවක් හිමිවන්නේ නියෝග හා අනතුරු ඇඟවීමේ මාර්ග සංඥා, රවුම්මංසල ප්‍රමුඛතා නීති සහ මංතීරු විනය පිළිබඳ ප්‍රශ්න සඳහාය.",
+        "වෙනස රියැදුරු පාසලේ පරිගණක ආදර්ශ විභාග ප්‍රශ්න පත්‍ර කට්ටලය මඟින් විභාගයට පෙර ඉහළ පුහුණුවක් ලබාගත හැක.",
       ],
       ta: [
         "DMT தேர்வில் 40 வினாக்களுக்கு 30 சரியான விடைகள் தேவை.",
+        "வீதி சமிக்ஞைகள் மற்றும் முன்னுரிமை விதிகள் பற்றிய கேள்விகள் முக்கியத்துவம் பெறுகின்றன.",
       ],
     },
   },
@@ -99,49 +107,21 @@ const ARTICLES: Article[] = [
       ta: "வட்ட, முக்கோண மற்றும் சதுர அடையாளங்களின் அர்த்தங்களை எளிதாக நினைவில் கொள்வது.",
     },
     readTime: "4 min read",
-    publishedDate: "2026-09-15",
+    publishedDate: "2026-09-12",
     category: "Road Safety",
+    imageSrc: "/images/blog/road-signs-cover.jpg",
     content: {
       en: [
-        "Road signs in Sri Lanka follow international standards: Red circles indicate Prohibitions or Mandatory limits (Stop, No Entry, Speed Limit).",
-        "Red-bordered triangles signify Danger Warnings (Pedestrian crossing ahead, sharp bend, slippery surface). Blue or green rectangles denote informative guidance.",
+        "Sri Lankan road traffic signs are harmonized with international Vienna Convention standards and categorized into three distinct geometrical classifications: Circular (Regulatory & Prohibitory), Triangular (Hazard & Warning), and Rectangular (Directional & Informative).",
+        "Red circular signs dictate mandatory prohibitions (e.g. Stop, Speed Limit, No Entry). Red triangles warn drivers of upcoming road conditions such as pedestrian crossings, steep descents, or roundabouts.",
+        "Blue circles indicate mandatory positive instructions (e.g., Turn Left Ahead), while rectangular blue or green signboards supply essential navigational guidance.",
       ],
       si: [
-        "රතු පැහැති වෘත්තාකාර සංඥා මඟින් නියෝග හා තහනම් කිරීම් දක්වයි (Stop, No Entry, වේග සීමා).",
-        "රතු මායිමක් සහිත ත්‍රිකෝණාකාර සංඥා මඟින් ඉදිරියෙන් ඇති අනතුරු ඇඟවීම් නිරූපණය කරයි.",
+        "ශ්‍රී ලංකාවේ මාර්ග සංඥා ප්‍රධාන කාණ්ඩ 3 කට වෙන්කර හඳුනාගත හැක: වෘත්තාකාර (නියෝග සංඥා), ත්‍රිකෝණාකාර (අනතුරු ඇඟවීමේ සංඥා) සහ සෘජුකෝණාස්‍රාකාර (තොරතුරු සංඥා).",
+        "රතු පැහැති වෘත්තාකාර සංඥා මඟින් අනිවාර්ය නීතිමය නියෝග (නැවතීම, වේග සීමා, ඇතුළුවීම තහනම්) නිරූපණය කරයි. රතු මායිම් සහිත ත්‍රිකෝණ මඟින් ඉදිරියේ ඇති අනතුරු පිළිබඳ අවවාද සපයයි.",
       ],
       ta: [
-        "சிவப்பு வட்டங்கள் தடைகளை குறிக்கின்றன, முக்கோணங்கள் எச்சரிக்கைகளை குறிக்கின்றன.",
-      ],
-    },
-  },
-  {
-    id: "art-4",
-    slug: "dmt-practical-trial-day-checklist",
-    title: {
-      en: "DMT Practical Trial Day: What Examiners Watch For",
-      si: "ට්‍රයල් විභාග දවසේ පරීක්ෂකවරුන් වැඩිපුරම බලන දේවල්",
-      ta: "நடைமுறை சோதனை நாளில் பரீட்சகர்கள் கவனிக்கும் விடயங்கள்",
-    },
-    excerpt: {
-      en: "Mirror checks, smooth clutch releases, handbrake application, and clear 30-meter indicator signaling.",
-      si: "කණ්ණාඩි බැලීම, හෑන්ඩ්බ්‍රේක් නිවැරදිව භාවිතය සහ සංඥා ලාම්පු නිවැරදි දුරින් දැල්වීම පිළිබඳ උපදෙස්.",
-      ta: "கண்ணாடிகளை கவனித்தல் மற்றும் சிக்னல் போடுதல் பற்றிய முக்கிய ஆலோசனைகள்.",
-    },
-    readTime: "7 min read",
-    publishedDate: "2026-09-10",
-    category: "Practical Driving",
-    content: {
-      en: [
-        "Practical test examiners look for disciplined habits rather than flashy speed. Always exaggerate head checks when looking at side mirrors.",
-        "Never forget to apply the handbrake and return the gear lever to neutral whenever the vehicle comes to a complete standstill.",
-      ],
-      si: [
-        "පරීක්ෂක නිලධාරීන් මූලිකවම නිරීක්ෂණය කරන්නේ ඔබේ විනය සහ ආරක්ෂිත පුරුදුයි. කණ්ණාඩි බලන විට හිස හරවා බලන්න.",
-        "වාහනය සම්පූර්ණයෙන්ම නතර කරන සෑම අවස්ථාවකම Handbrake යෙදීම සහ Neutral කිරීම අත්‍යවශ්‍ය වේ.",
-      ],
-      ta: [
-        "வாகனத்தை நிறுத்தும் போதெல்லாம் ஹேண்ட்பிரேக் போட மறக்காதீர்கள்.",
+        "இலங்கை வீதி அடையாளங்கள் வட்ட, முக்கோண மற்றும் செவ்வக வடிவங்களில் வகைப்படுத்தப்படுகின்றன.",
       ],
     },
   },
@@ -153,110 +133,139 @@ export function BlogSection({ locale }: BlogSectionProps) {
 
   return (
     <>
-      <section id="blog" className="py-20 bg-slate-50 dark:bg-slate-900/40 border-t border-slate-200 dark:border-slate-800 scroll-mt-20">
+      <section id="blog" className="py-16 sm:py-20 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="text-xs font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 mb-2">
-              Driver Education Hub
+          {/* Header */}
+          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-14">
+            <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-950/60 border border-emerald-800/80 text-xs font-semibold uppercase tracking-wider text-emerald-300 mb-3 shadow-xs">
+              <span>{dict.nav.blog}</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-slate-900 dark:text-white" style={{ textWrap: "balance" }}>
-              Expert Guides & Test Preparation Articles
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white" style={{ textWrap: "balance" }}>
+              {dict.resources.blogTitle}
             </h2>
-            <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-slate-400">
-              Clear, practical advice written by certified instructors to help you master Sri Lankan road regulations.
+            <p className="mt-3 text-sm sm:text-base text-slate-300 leading-relaxed">
+              {dict.resources.blogDesc}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {ARTICLES.map((art) => (
-              <div
-                key={art.id}
-                className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 flex flex-col justify-between hover:border-emerald-500/50 hover:shadow-md transition-all"
+          {/* Articles Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {ARTICLES.map((article, idx) => (
+              <motion.article
+                key={article.id}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.1 }}
+                className="bg-slate-900 rounded-3xl border border-slate-800 overflow-hidden shadow-xl hover:shadow-2xl hover:border-emerald-500/50 transition-all duration-300 flex flex-col justify-between group"
               >
                 <div>
-                  <div className="flex items-center gap-2 text-xs text-slate-400 mb-3">
-                    <span className="font-semibold text-emerald-700 dark:text-emerald-400">
-                      {art.category}
-                    </span>
-                    <span aria-hidden="true">·</span>
-                    <span className="flex items-center gap-1">
-                      <Clock className="w-3 h-3" />
-                      <span>{art.readTime}</span>
-                    </span>
+                  {/* Article Thumbnail */}
+                  <div className="relative aspect-[16/10] overflow-hidden bg-slate-950">
+                    <Image
+                      src={article.imageSrc}
+                      alt={article.title[locale]}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute top-3 left-3">
+                      <span className="text-[11px] font-bold px-3 py-1 rounded-full bg-slate-900/95 backdrop-blur-md text-emerald-300 border border-emerald-800/80 shadow-xs">
+                        {article.category}
+                      </span>
+                    </div>
                   </div>
 
-                  <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white leading-snug">
-                    {art.title[locale]}
-                  </h3>
-                  <p className="mt-2 text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                    {art.excerpt[locale]}
-                  </p>
+                  <div className="p-6">
+                    <div className="flex items-center gap-4 text-[11px] text-slate-400 mb-2">
+                      <div className="flex items-center gap-1">
+                        <Calendar className="w-3.5 h-3.5" />
+                        <span>{article.publishedDate}</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <Clock className="w-3.5 h-3.5" />
+                        <span>{article.readTime}</span>
+                      </div>
+                    </div>
+
+                    <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-emerald-400 transition-colors leading-snug">
+                      {article.title[locale]}
+                    </h3>
+
+                    <p className="mt-2.5 text-xs sm:text-sm text-slate-300 leading-relaxed line-clamp-3">
+                      {article.excerpt[locale]}
+                    </p>
+                  </div>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
-                  <div className="text-[11px] text-slate-400 flex items-center gap-1">
-                    <Calendar className="w-3 h-3" />
-                    <span>{art.publishedDate}</span>
-                  </div>
-
+                <div className="p-6 pt-0">
                   <button
-                    onClick={() => setActiveArticle(art)}
-                    className="inline-flex items-center gap-1 text-xs font-bold text-emerald-700 dark:text-emerald-400 hover:text-emerald-800 dark:hover:text-emerald-300 cursor-pointer"
+                    onClick={() => setActiveArticle(article)}
+                    className="w-full inline-flex items-center justify-between py-3 px-4 rounded-full text-xs font-bold text-emerald-300 bg-emerald-950/50 hover:bg-emerald-950/80 border border-emerald-800/80 transition-all cursor-pointer shadow-xs"
                   >
-                    <span>Read Article</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <span>{dict.common.learnMore}</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>
-              </div>
+              </motion.article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Article Reader Modal */}
-      {activeArticle && (
-        <div className="fixed inset-0 z-50 bg-slate-900/80 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-2xl w-full border border-slate-200 dark:border-slate-800 shadow-2xl overflow-hidden flex flex-col max-h-[85vh]">
-            <div className="p-4 sm:p-6 bg-slate-900 text-white flex items-center justify-between border-b border-slate-800">
-              <div className="flex items-center gap-2 text-xs text-emerald-400 font-semibold uppercase">
-                <BookOpen className="w-4 h-4" />
-                <span>{activeArticle.category}</span>
-              </div>
-              <button onClick={() => setActiveArticle(null)} className="p-1 rounded text-slate-400 hover:text-white">
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            <div className="p-6 overflow-y-auto space-y-4">
-              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
-                {activeArticle.title[locale]}
-              </h3>
-              <div className="text-xs text-slate-400 flex items-center gap-3 border-b border-slate-100 dark:border-slate-800 pb-3">
-                <span>By Wenasa Senior Driving Faculty</span>
-                <span>·</span>
-                <span>{activeArticle.readTime}</span>
-                <span>·</span>
-                <span>{activeArticle.publishedDate}</span>
-              </div>
-
-              <div className="space-y-4 text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed pt-2">
-                {activeArticle.content[locale].map((paragraph, i) => (
-                  <p key={i}>{paragraph}</p>
-                ))}
-              </div>
-            </div>
-
-            <div className="p-4 bg-slate-50 dark:bg-slate-800/80 border-t border-slate-200 dark:border-slate-800 flex justify-end">
+      {/* Article Detail Modal */}
+      <AnimatePresence>
+        {activeArticle && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md"
+            onClick={() => setActiveArticle(null)}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative max-w-2xl w-full max-h-[85vh] overflow-y-auto rounded-3xl bg-slate-900 border border-slate-800 p-6 sm:p-8 shadow-2xl"
+            >
               <button
                 onClick={() => setActiveArticle(null)}
-                className="px-4 py-2 bg-emerald-600 text-white rounded-lg text-xs font-semibold"
+                className="absolute top-4 right-4 p-2 rounded-full bg-slate-800 text-slate-300 hover:bg-slate-700 transition-colors cursor-pointer"
+                aria-label="Close article modal"
               >
-                Close Article
+                <X className="w-5 h-5" />
               </button>
-            </div>
+
+              <div className="relative aspect-[16/9] rounded-2xl overflow-hidden mb-6 bg-slate-950">
+                <Image
+                  src={activeArticle.imageSrc}
+                  alt={activeArticle.title[locale]}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              <div className="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-1">
+                {activeArticle.category}
+              </div>
+              <h2 className="text-xl sm:text-2xl font-bold text-white leading-tight">
+                {activeArticle.title[locale]}
+              </h2>
+
+              <div className="flex items-center gap-4 text-xs text-slate-400 my-4 pb-4 border-b border-slate-800">
+                <span>{activeArticle.publishedDate}</span>
+                <span>·</span>
+                <span>{activeArticle.readTime}</span>
+              </div>
+
+              <div className="space-y-4 text-sm text-slate-300 leading-relaxed">
+                {activeArticle.content[locale].map((para, i) => (
+                  <p key={i}>{para}</p>
+                ))}
+              </div>
+            </motion.div>
           </div>
-        </div>
-      )}
+        )}
+      </AnimatePresence>
     </>
   );
 }
