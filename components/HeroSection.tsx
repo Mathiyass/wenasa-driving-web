@@ -96,7 +96,7 @@ export function HeroSection({ locale }: HeroSectionProps) {
           {/* Primary Action: Warm Champagne Pill */}
           <a
             href="#apply"
-            className="group px-7 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#d0c5ab] hover:bg-[#e4dbc6] text-[#11100d] font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-xl hover:scale-105 active:scale-95 flex items-center gap-2.5"
+            className="btn-shimmer group px-7 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#d0c5ab] hover:bg-[#e4dbc6] text-[#11100d] font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-xl hover:scale-105 active:scale-95 flex items-center gap-2.5"
           >
             <Car className="w-4 h-4" />
             <span>{dict.hero.ctaRegister}</span>
@@ -113,7 +113,7 @@ export function HeroSection({ locale }: HeroSectionProps) {
           </a>
         </motion.div>
 
-        {/* Interactive Vehicle Category Chips */}
+        {/* Interactive Vehicle Category Chips with Spring Physics */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -123,11 +123,13 @@ export function HeroSection({ locale }: HeroSectionProps) {
           {VEHICLE_PRESETS.map((preset) => {
             const isSelected = selectedPreset === preset.id;
             return (
-              <button
+              <motion.button
                 key={preset.id}
                 type="button"
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.96 }}
                 onClick={() => scrollToPackage(preset.id)}
-                className={`px-4 py-2 rounded-full text-xs font-bold transition-all duration-300 border flex items-center gap-2 cursor-pointer active:scale-95 ${
+                className={`px-4 py-2 rounded-full text-xs font-bold transition-all duration-300 border flex items-center gap-2 cursor-pointer ${
                   isSelected
                     ? "bg-[#d0c5ab] text-[#11100d] border-[#d0c5ab] shadow-md"
                     : "bg-[#141310] text-[#c7c2b6] border-white/[0.08] hover:border-[#d0c5ab]/40 hover:text-white"
@@ -135,17 +137,17 @@ export function HeroSection({ locale }: HeroSectionProps) {
               >
                 <span>{preset.label[locale]}</span>
                 {isSelected && <ChevronRight className="w-3.5 h-3.5" />}
-              </button>
+              </motion.button>
             );
           })}
         </motion.div>
 
-        {/* Dedicated Hero Visual Showcase Card with High-Res Fleet & Floating Proof Badges */}
+        {/* Dedicated Hero Visual Showcase Card with High-Res Fleet & Interactive Driving HUD */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.65, delay: 0.35 }}
-          className="mt-12 sm:mt-16 relative max-w-5xl mx-auto rounded-3xl overflow-hidden border border-white/10 bg-[#141310] shadow-2xl group"
+          className="mt-12 sm:mt-16 relative max-w-5xl mx-auto rounded-3xl overflow-hidden border border-white/10 bg-[#141310] shadow-2xl group spotlight-card"
         >
           <div className="relative aspect-[16/8] sm:aspect-[21/9] w-full overflow-hidden">
             <Image
@@ -159,6 +161,20 @@ export function HeroSection({ locale }: HeroSectionProps) {
             {/* Cinematic dark gradient overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#0d0c0a] via-[#0d0c0a]/40 to-transparent" />
             
+            {/* Interactive Top Live Telemetry Bar */}
+            <div className="absolute top-4 left-4 right-4 sm:top-5 sm:left-6 sm:right-6 flex items-center justify-between pointer-events-none z-10">
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#0d0c0a]/85 backdrop-blur-md border border-white/10 text-[11px] font-mono text-[#d0c5ab] shadow-lg">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="font-bold text-white uppercase tracking-wider">DUAL CONTROL:</span>
+                <span className="text-emerald-400">ARMED</span>
+                <span className="text-[#a8a295] hidden sm:inline">· 0.08s OVERRIDE</span>
+              </div>
+              <div className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#0d0c0a]/85 backdrop-blur-md border border-white/10 text-[11px] font-mono text-[#fcc438] shadow-lg">
+                <span>DMT/WP/G/1174</span>
+                <span className="text-[#a8a295]">· SUZUKI FLEET</span>
+              </div>
+            </div>
+
             {/* Floating Credentials Overlay (Marcus Style Badges) */}
             <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 flex flex-wrap items-center justify-between gap-3">
               <div className="flex flex-wrap items-center gap-2">

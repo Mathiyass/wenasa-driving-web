@@ -7,6 +7,7 @@ import { getDictionary } from "@/src/i18n";
 import { siteConfig, getLiveBusinessStatus } from "@/src/config/site";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { Phone, Clock, ArrowUpRight, Car, Compass } from "lucide-react";
+import { motion, useScroll, useSpring } from "motion/react";
 
 interface NavbarProps {
   locale: Locale;
@@ -15,12 +16,42 @@ interface NavbarProps {
 export function Navbar({ locale }: NavbarProps) {
   const dict = getDictionary(locale);
   const [liveStatus, setLiveStatus] = useState(getLiveBusinessStatus());
+  const [activeSection, setActiveSection] = useState<string>("");
+
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 220,
+    damping: 28,
+    restDelta: 0.001,
+  });
 
   useEffect(() => {
     const interval = setInterval(() => {
       setLiveStatus(getLiveBusinessStatus());
     }, 60000);
     return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const sectionIds = ["journey", "services", "packages", "reviews", "faq"];
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 250;
+      for (const id of sectionIds) {
+        const el = document.getElementById(id);
+        if (el) {
+          const top = el.offsetTop;
+          const height = el.offsetHeight;
+          if (scrollPosition >= top && scrollPosition < top + height) {
+            setActiveSection(`#${id}`);
+            return;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const conciseNav = {
@@ -62,8 +93,14 @@ export function Navbar({ locale }: NavbarProps) {
 
   return (
     <>
+      {/* 0. Razor-Sharp Scroll Progress Bar with Gold Amber Glow */}
+      <motion.div
+        style={{ scaleX, transformOrigin: "0%" }}
+        className="fixed top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-[#d0c5ab] via-[#fcc438] to-[#ffd359] shadow-[0_0_12px_rgba(252,196,56,0.7)] z-50 pointer-events-none"
+      />
+
       {/* 1. Minimalist Editorial Top Status Bar */}
-      <header className="sticky top-0 z-40 w-full bg-[#0d0c0a]/80 backdrop-blur-xl border-b border-white/[0.06] transition-all">
+      <header className="sticky top-0 z-40 w-full bg-[#0d0c0a]/85 backdrop-blur-xl border-b border-white/[0.06] transition-all">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between gap-4">
           
           {/* Brand Mark & Legal DMT Accreditation */}
@@ -124,23 +161,30 @@ export function Navbar({ locale }: NavbarProps) {
         <div className="marcus-dock rounded-full px-2 sm:px-3 py-1.5 sm:py-2 flex items-center gap-1 sm:gap-2">
           {/* Section Anchor Links */}
           <div className="flex items-center gap-0.5 sm:gap-1 text-[11px] font-bold uppercase tracking-wider text-[#9e988a]">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="px-2.5 sm:px-3.5 py-1.5 rounded-full hover:text-[#f5f5f3] hover:bg-white/[0.06] transition-all whitespace-nowrap active:scale-95"
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href;
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className={`px-2.5 sm:px-3.5 py-1.5 rounded-full transition-all whitespace-nowrap active:scale-95 ${
+                    isActive
+                      ? "text-[#fcc438] bg-white/[0.08] shadow-inner"
+                      : "hover:text-[#f5f5f3] hover:bg-white/[0.06]"
+                  }`}
+                >
+                  {link.label}
+                </a>
+              );
+            })}
           </div>
 
           <div className="w-[1px] h-4 bg-white/10 mx-0.5 sm:mx-1" />
 
-          {/* Standout Warm Champagne Action Pill (Marcus Signature CTA) */}
+          {/* Standout Warm Champagne Action Pill with Shimmer (Marcus Signature CTA) */}
           <a
             href="#apply"
-            className="flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#d0c5ab] hover:bg-[#e4dbc6] text-[#11100d] font-black text-[11px] sm:text-xs uppercase tracking-wider transition-all duration-300 shadow-md hover:scale-[1.03] active:scale-95 shrink-0"
+            className="btn-shimmer flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#d0c5ab] hover:bg-[#e4dbc6] text-[#11100d] font-black text-[11px] sm:text-xs uppercase tracking-wider transition-all duration-300 shadow-md hover:scale-[1.03] active:scale-95 shrink-0"
           >
             <Car className="w-3.5 h-3.5" />
             <span>{nav.applyNow}</span>

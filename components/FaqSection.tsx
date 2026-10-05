@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Locale } from "@/src/config/i18n";
 import { getDictionary } from "@/src/i18n";
 import { ChevronDown } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
 
 interface FaqSectionProps {
   locale: Locale;
@@ -171,11 +172,22 @@ export function FaqSection({ locale }: FaqSectionProps) {
                   />
                 </button>
 
-                {isOpen && (
-                  <div className="px-5 pb-5 sm:px-6 sm:pb-6 text-xs sm:text-sm text-[#c7c2b6] leading-relaxed pt-2 border-t border-white/[0.06] pl-11">
-                    {item.a[locale]}
-                  </div>
-                )}
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      key="accordion-body"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.32, ease: [0.16, 1, 0.3, 1] }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-5 pb-5 sm:px-6 sm:pb-6 text-xs sm:text-sm text-[#c7c2b6] leading-relaxed pt-2 border-t border-white/[0.06] pl-11">
+                        {item.a[locale]}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             );
           })}

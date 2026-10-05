@@ -215,7 +215,7 @@ export function PackagesSection({ locale }: PackagesSectionProps) {
             <button
               type="button"
               onClick={() => setShowFinder(true)}
-              className="group shrink-0 px-6 py-3.5 rounded-full bg-[#d0c5ab] hover:bg-[#e4dbc6] text-[#11100d] font-black text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2 transition-all shadow-md active:scale-95 cursor-pointer z-10"
+              className="btn-shimmer group shrink-0 px-6 py-3.5 rounded-full bg-[#d0c5ab] hover:bg-[#e4dbc6] text-[#11100d] font-black text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2 transition-all shadow-md active:scale-95 cursor-pointer z-10 hover:scale-105"
             >
               <span>{dict.packages.packageFinderBtn}</span>
               <HelpCircle className="w-4 h-4" />
@@ -290,7 +290,7 @@ export function PackagesSection({ locale }: PackagesSectionProps) {
                       <div className="mt-8 pt-4 border-t border-white/[0.06]">
                         <a
                           href="#apply"
-                          className="w-full group py-3 px-4 rounded-full text-xs font-black uppercase tracking-wider bg-[#d0c5ab] text-[#11100d] hover:bg-[#e4dbc6] shadow-md active:scale-95 transition-all flex items-center justify-center gap-2"
+                          className="btn-shimmer w-full group py-3 px-4 rounded-full text-xs font-black uppercase tracking-wider bg-[#d0c5ab] text-[#11100d] hover:bg-[#e4dbc6] shadow-md active:scale-95 transition-all flex items-center justify-center gap-2"
                         >
                           <span>{dict.packages.enrollBtn}</span>
                           <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
@@ -304,7 +304,7 @@ export function PackagesSection({ locale }: PackagesSectionProps) {
               return (
                 <div
                   key={pkg.id}
-                  className="rounded-3xl marcus-card hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between p-6 sm:p-7 relative shadow-xl group"
+                  className="rounded-3xl marcus-card spotlight-card hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between p-6 sm:p-7 relative shadow-xl group"
                 >
                   <div>
                     <div className="text-[10px] font-mono text-[#a8a295] uppercase tracking-wider mb-1">
@@ -354,7 +354,7 @@ export function PackagesSection({ locale }: PackagesSectionProps) {
                   <div className="mt-8 pt-4 border-t border-white/[0.06]">
                     <a
                       href="#apply"
-                      className="w-full group py-3 px-4 rounded-full text-xs font-black uppercase tracking-wider bg-[#1c1a17] hover:bg-[#25231f] text-[#d0c5ab] hover:text-white border border-white/10 active:scale-95 transition-all flex items-center justify-center gap-2"
+                      className="btn-shimmer w-full group py-3 px-4 rounded-full text-xs font-black uppercase tracking-wider bg-[#1c1a17] hover:bg-[#25231f] text-[#d0c5ab] hover:text-white border border-white/10 active:scale-95 transition-all flex items-center justify-center gap-2"
                     >
                       <span>{dict.packages.enrollBtn}</span>
                       <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />

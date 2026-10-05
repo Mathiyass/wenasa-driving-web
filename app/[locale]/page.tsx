@@ -21,6 +21,7 @@ import { Footer } from "@/components/Footer";
 import { MobileActionBar } from "@/components/MobileActionBar";
 import { CookieConsent } from "@/components/CookieConsent";
 import { SchemaJsonLd } from "@/components/SchemaJsonLd";
+import { AmbientBackground } from "@/components/AmbientBackground";
 import type { Metadata } from "next";
 
 export async function generateStaticParams() {
@@ -92,7 +93,10 @@ export default async function LocalizedHomePage({
   const currentLocale: Locale = locale;
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#0d0c0a] text-[#f5f5f3] font-sans antialiased selection:bg-[#fcc438] selection:text-[#0d0c0a]">
+    <div className="min-h-screen flex flex-col bg-[#0d0c0a] text-[#f5f5f3] font-sans antialiased selection:bg-[#fcc438] selection:text-[#0d0c0a] relative">
+      {/* Dynamic Ambient Background & Cursor Spotlight */}
+      <AmbientBackground />
+
       {/* Schema.org Structured Data */}
       <SchemaJsonLd locale={currentLocale} />
 

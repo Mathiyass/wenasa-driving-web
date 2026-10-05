@@ -121,7 +121,7 @@ export function WhyWenasa({ locale }: WhyWenasaProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7 items-stretch">
           
           {/* SPOTLIGHT HERO 1: Dual-Control Safety Fleet (2 Cols) */}
-          <div className="col-span-1 md:col-span-2 rounded-3xl marcus-card p-6 sm:p-8 flex flex-col justify-between overflow-hidden relative group">
+          <div className="col-span-1 md:col-span-2 rounded-3xl marcus-card spotlight-card p-6 sm:p-8 flex flex-col justify-between overflow-hidden relative group">
             <div className="absolute -top-16 -right-16 w-60 h-60 bg-[#fcc438]/5 rounded-full blur-3xl pointer-events-none" />
 
             <div>
@@ -181,7 +181,7 @@ export function WhyWenasa({ locale }: WhyWenasaProps) {
           </div>
 
           {/* SPOTLIGHT HERO 2: Private Practical Grounds (2 Cols) */}
-          <div className="col-span-1 md:col-span-2 rounded-3xl marcus-card p-6 sm:p-8 flex flex-col justify-between overflow-hidden relative group">
+          <div className="col-span-1 md:col-span-2 rounded-3xl marcus-card spotlight-card p-6 sm:p-8 flex flex-col justify-between overflow-hidden relative group">
             <div className="absolute -top-16 -right-16 w-60 h-60 bg-[#d0c5ab]/5 rounded-full blur-3xl pointer-events-none" />
 
             <div>
@@ -239,7 +239,7 @@ export function WhyWenasa({ locale }: WhyWenasaProps) {
           </div>
 
           {/* COMPANION PILLAR 3: DMT Certified Instructors (1 Col) */}
-          <div className="col-span-1 rounded-3xl marcus-card p-6 shadow-xl flex flex-col justify-between group">
+          <div className="col-span-1 rounded-3xl marcus-card spotlight-card p-6 shadow-xl flex flex-col justify-between group">
             <div>
               <div className="flex items-center justify-between mb-4">
                 <div className="w-11 h-11 rounded-2xl bg-[#1c1a17] border border-white/10 text-[#fcc438] flex items-center justify-center">
@@ -279,7 +279,7 @@ export function WhyWenasa({ locale }: WhyWenasaProps) {
           </div>
 
           {/* COMPANION PILLAR 4: Flexible Timing & Hours (1 Col) */}
-          <div className="col-span-1 rounded-3xl marcus-card p-6 shadow-xl flex flex-col justify-between group">
+          <div className="col-span-1 rounded-3xl marcus-card spotlight-card p-6 shadow-xl flex flex-col justify-between group">
             <div>
               <div className="flex items-center justify-between mb-4">
                 <div className="w-11 h-11 rounded-2xl bg-[#1c1a17] border border-white/10 text-[#d0c5ab] flex items-center justify-center">
@@ -319,7 +319,7 @@ export function WhyWenasa({ locale }: WhyWenasaProps) {
           </div>
 
           {/* COMPANION PILLAR 5: Female Instructor Option (1 Col) */}
-          <div className="col-span-1 rounded-3xl marcus-card p-6 shadow-xl flex flex-col justify-between group">
+          <div className="col-span-1 rounded-3xl marcus-card spotlight-card p-6 shadow-xl flex flex-col justify-between group">
             <div>
               <div className="flex items-center justify-between mb-4">
                 <div className="w-11 h-11 rounded-2xl bg-[#1c1a17] border border-white/10 text-[#d0c5ab] flex items-center justify-center">
@@ -359,7 +359,7 @@ export function WhyWenasa({ locale }: WhyWenasaProps) {
           </div>
 
           {/* COMPANION PILLAR 6: Complete Admin Support (1 Col) */}
-          <div className="col-span-1 rounded-3xl marcus-card p-6 shadow-xl flex flex-col justify-between group">
+          <div className="col-span-1 rounded-3xl marcus-card spotlight-card p-6 shadow-xl flex flex-col justify-between group">
             <div>
               <div className="flex items-center justify-between mb-4">
                 <div className="w-11 h-11 rounded-2xl bg-[#1c1a17] border border-white/10 text-emerald-400 flex items-center justify-center">
@@ -408,7 +408,7 @@ export function WhyWenasa({ locale }: WhyWenasaProps) {
           </div>
           <a
             href="#apply"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#d0c5ab] hover:bg-[#e4dbc6] text-[#11100d] font-black text-xs uppercase tracking-wider cursor-pointer transition-all active:scale-95 shrink-0 shadow-md"
+            className="btn-shimmer inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#d0c5ab] hover:bg-[#e4dbc6] text-[#11100d] font-black text-xs uppercase tracking-wider cursor-pointer transition-all active:scale-95 shrink-0 shadow-md hover:scale-105"
           >
             <span>{m.ctaBtn}</span>
             <ArrowRight className="w-3.5 h-3.5" />

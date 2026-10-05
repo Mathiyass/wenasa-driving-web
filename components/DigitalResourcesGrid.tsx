@@ -247,7 +247,7 @@ export function DigitalResourcesGrid({ locale }: DigitalResourcesGridProps) {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7 items-stretch">
             
             {/* TIER 1 - HERO 1: DMT Mock Exam Simulator (2 Cols) */}
-            <div className="col-span-1 md:col-span-2 relative p-6 sm:p-8 rounded-3xl marcus-card shadow-2xl flex flex-col justify-between overflow-hidden group">
+            <div className="col-span-1 md:col-span-2 relative p-6 sm:p-8 rounded-3xl marcus-card spotlight-card shadow-2xl flex flex-col justify-between overflow-hidden group">
               <div className="absolute -top-16 -right-16 w-64 h-64 bg-[#fcc438]/5 rounded-full blur-3xl pointer-events-none" />
 
               <div>
@@ -283,7 +283,7 @@ export function DigitalResourcesGrid({ locale }: DigitalResourcesGridProps) {
                 <button
                   type="button"
                   onClick={() => setActiveModal("exam")}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#d0c5ab] hover:bg-[#e4dbc6] text-[#11100d] font-black text-xs sm:text-sm uppercase tracking-wider shadow-md active:scale-95 transition-all cursor-pointer"
+                  className="btn-shimmer w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#d0c5ab] hover:bg-[#e4dbc6] text-[#11100d] font-black text-xs sm:text-sm uppercase tracking-wider shadow-md active:scale-95 transition-all cursor-pointer hover:scale-105"
                 >
                   <span>{t.examBtn}</span>
                   <ArrowRight className="w-4 h-4" />
@@ -292,7 +292,7 @@ export function DigitalResourcesGrid({ locale }: DigitalResourcesGridProps) {
             </div>
 
             {/* TIER 1 - HERO 2: Road Signs Directory (2 Cols) */}
-            <div className="col-span-1 md:col-span-2 relative p-6 sm:p-8 rounded-3xl marcus-card shadow-2xl flex flex-col justify-between overflow-hidden group">
+            <div className="col-span-1 md:col-span-2 relative p-6 sm:p-8 rounded-3xl marcus-card spotlight-card shadow-2xl flex flex-col justify-between overflow-hidden group">
               <div className="absolute -top-16 -right-16 w-64 h-64 bg-[#d0c5ab]/5 rounded-full blur-3xl pointer-events-none" />
 
               <div>
@@ -328,7 +328,7 @@ export function DigitalResourcesGrid({ locale }: DigitalResourcesGridProps) {
                 <button
                   type="button"
                   onClick={() => setActiveModal("signs")}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#1c1a17] hover:bg-[#25231f] text-[#d0c5ab] hover:text-white border border-white/10 font-black text-xs sm:text-sm uppercase tracking-wider active:scale-95 transition-all cursor-pointer"
+                  className="btn-shimmer w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#1c1a17] hover:bg-[#25231f] text-[#d0c5ab] hover:text-white border border-white/10 font-black text-xs sm:text-sm uppercase tracking-wider active:scale-95 transition-all cursor-pointer hover:scale-105"
                 >
                   <span>{t.signsBtn}</span>
                   <ArrowRight className="w-4 h-4" />
@@ -337,7 +337,7 @@ export function DigitalResourcesGrid({ locale }: DigitalResourcesGridProps) {
             </div>
 
             {/* TIER 2 - CARD 3: Licence Information Guide (1 Col) */}
-            <div className="col-span-1 rounded-3xl marcus-card p-5 sm:p-6 shadow-xl flex flex-col justify-between group">
+            <div className="col-span-1 rounded-3xl marcus-card spotlight-card hover:-translate-y-1 transition-all duration-300 p-5 sm:p-6 shadow-xl flex flex-col justify-between group">
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <div className="w-10 h-10 rounded-xl bg-[#1c1a17] border border-white/10 text-[#d0c5ab] flex items-center justify-center">
@@ -375,7 +375,7 @@ export function DigitalResourcesGrid({ locale }: DigitalResourcesGridProps) {
             </div>
 
             {/* TIER 2 - CARD 4: Training Packages & Finder (1 Col) */}
-            <div className="col-span-1 rounded-3xl marcus-card p-5 sm:p-6 shadow-xl flex flex-col justify-between group">
+            <div className="col-span-1 rounded-3xl marcus-card spotlight-card hover:-translate-y-1 transition-all duration-300 p-5 sm:p-6 shadow-xl flex flex-col justify-between group">
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <div className="w-10 h-10 rounded-xl bg-[#1c1a17] border border-white/10 text-[#fcc438] flex items-center justify-center">
@@ -413,7 +413,7 @@ export function DigitalResourcesGrid({ locale }: DigitalResourcesGridProps) {
             </div>
 
             {/* TIER 2 - CARD 5: Practical Video Lessons (1 Col) */}
-            <div className="col-span-1 rounded-3xl marcus-card p-5 sm:p-6 shadow-xl flex flex-col justify-between group">
+            <div className="col-span-1 rounded-3xl marcus-card spotlight-card hover:-translate-y-1 transition-all duration-300 p-5 sm:p-6 shadow-xl flex flex-col justify-between group">
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <div className="w-10 h-10 rounded-xl bg-[#1c1a17] border border-white/10 text-[#d0c5ab] flex items-center justify-center">
@@ -451,7 +451,7 @@ export function DigitalResourcesGrid({ locale }: DigitalResourcesGridProps) {
             </div>
 
             {/* TIER 2 - CARD 6: Student Portal Desk (1 Col) */}
-            <div className="col-span-1 rounded-3xl marcus-card p-5 sm:p-6 shadow-xl flex flex-col justify-between group">
+            <div className="col-span-1 rounded-3xl marcus-card spotlight-card hover:-translate-y-1 transition-all duration-300 p-5 sm:p-6 shadow-xl flex flex-col justify-between group">
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <div className="w-10 h-10 rounded-xl bg-[#1c1a17] border border-white/10 text-[#d0c5ab] flex items-center justify-center">
@@ -489,7 +489,7 @@ export function DigitalResourcesGrid({ locale }: DigitalResourcesGridProps) {
             </div>
 
             {/* TIER 3 - CARD 7: Educational Blog & Trial Secrets (2 Cols) */}
-            <div className="col-span-1 md:col-span-2 rounded-3xl marcus-card p-6 sm:p-7 shadow-xl flex flex-col justify-between group">
+            <div className="col-span-1 md:col-span-2 rounded-3xl marcus-card spotlight-card hover:-translate-y-1 transition-all duration-300 p-6 sm:p-7 shadow-xl flex flex-col justify-between group">
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <div className="w-11 h-11 rounded-2xl bg-[#1c1a17] border border-white/10 text-[#fcc438] flex items-center justify-center">
@@ -529,7 +529,7 @@ export function DigitalResourcesGrid({ locale }: DigitalResourcesGridProps) {
             </div>
 
             {/* TIER 3 - CARD 8: Student Shop & Starter Kits (2 Cols) */}
-            <div className="col-span-1 md:col-span-2 rounded-3xl marcus-card p-6 sm:p-7 shadow-xl flex flex-col justify-between group">
+            <div className="col-span-1 md:col-span-2 rounded-3xl marcus-card spotlight-card hover:-translate-y-1 transition-all duration-300 p-6 sm:p-7 shadow-xl flex flex-col justify-between group">
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <div className="w-11 h-11 rounded-2xl bg-[#1c1a17] border border-white/10 text-[#d0c5ab] flex items-center justify-center">

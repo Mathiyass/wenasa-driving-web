@@ -272,7 +272,7 @@ export function ServicesGrid({ locale }: ServicesGridProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 items-stretch">
           
           {/* FEATURED HERO CARD: Dual Purpose & Car (Auto / Manual) */}
-          <div className="lg:col-span-2 lg:row-span-2 relative p-6 sm:p-8 lg:p-9 rounded-3xl border border-[#d0c5ab]/30 bg-[#141310] shadow-2xl flex flex-col justify-between overflow-hidden group hover:border-[#fcc438]/50 transition-all duration-300">
+          <div className="lg:col-span-2 lg:row-span-2 relative p-6 sm:p-8 lg:p-9 rounded-3xl border border-[#d0c5ab]/30 bg-[#141310] shadow-2xl flex flex-col justify-between overflow-hidden group hover:border-[#fcc438]/50 transition-all duration-300 spotlight-card">
             {/* Ambient glow */}
             <div className="absolute -top-16 -right-16 w-80 h-80 bg-[#fcc438]/5 rounded-full blur-3xl pointer-events-none" />
 
@@ -368,7 +368,7 @@ export function ServicesGrid({ locale }: ServicesGridProps) {
               <button
                 type="button"
                 onClick={handleEnrollClassB}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#d0c5ab] hover:bg-[#e4dbc6] text-[#11100d] font-black text-xs sm:text-sm uppercase tracking-wider active:scale-95 transition-all cursor-pointer shadow-lg hover:scale-105"
+                className="btn-shimmer w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#d0c5ab] hover:bg-[#e4dbc6] text-[#11100d] font-black text-xs sm:text-sm uppercase tracking-wider active:scale-95 transition-all cursor-pointer shadow-lg hover:scale-105"
               >
                 <span>{bMeta.enrollBtn}</span>
                 <ArrowRight className="w-4 h-4" />
@@ -400,11 +400,12 @@ export function ServicesGrid({ locale }: ServicesGridProps) {
             const yearsToWait = item.minimumAge - parsedAge;
 
             return (
-              <div
+              <motion.div
                 key={item.code}
-                className={`lg:col-span-1 rounded-3xl marcus-card transition-all duration-300 flex flex-col justify-between p-5 sm:p-6 ${
+                whileHover={{ y: -3, transition: { duration: 0.2 } }}
+                className={`lg:col-span-1 rounded-3xl marcus-card spotlight-card transition-all duration-300 flex flex-col justify-between p-5 sm:p-6 ${
                   isEligible
-                    ? "hover:border-[#d0c5ab]/30 hover:scale-[1.01]"
+                    ? "hover:border-[#d0c5ab]/40"
                     : "opacity-90"
                 }`}
               >
@@ -475,7 +476,7 @@ export function ServicesGrid({ locale }: ServicesGridProps) {
                     <ExternalLink className="w-2.5 h-2.5" />
                   </a>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>
