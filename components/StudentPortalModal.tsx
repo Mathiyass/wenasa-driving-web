@@ -147,7 +147,7 @@ export function StudentPortalModal({ locale, onClose }: StudentPortalModalProps)
           <button
             type="button"
             onClick={onClose}
-            className="p-2 rounded-xl text-[#78756c] hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
+            className="p-2 rounded-xl text-[#a8a295] hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
             aria-label="Close modal"
           >
             <X className="w-5 h-5" />
@@ -159,13 +159,13 @@ export function StudentPortalModal({ locale, onClose }: StudentPortalModalProps)
           {/* Search Box */}
           <form onSubmit={handleSearch} className="flex flex-col sm:flex-row gap-2.5">
             <div className="relative flex-1">
-              <Search className="w-4 h-4 text-[#78756c] absolute left-3.5 top-1/2 -translate-y-1/2" />
+              <Search className="w-4 h-4 text-[#a8a295] absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder={t.searchPlaceholder}
-                className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#0d0c0a] border border-white/10 text-[#f5f2eb] placeholder-[#78756c] text-xs sm:text-sm focus:outline-none focus:border-[#fcc438] focus:ring-1 focus:ring-[#fcc438]/30 font-mono"
+                className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#0d0c0a] border border-white/10 text-[#f5f2eb] placeholder-[#a8a295] text-xs sm:text-sm focus:outline-none focus:border-[#fcc438] focus:ring-1 focus:ring-[#fcc438]/30 font-mono"
               />
             </div>
             <button
@@ -194,7 +194,7 @@ export function StudentPortalModal({ locale, onClose }: StudentPortalModalProps)
                           ACTIVE
                         </span>
                       </div>
-                      <p className="text-xs text-[#78756c] font-mono mt-0.5">
+                      <p className="text-xs text-[#a8a295] font-mono mt-0.5">
                         ID: {t.studentId} · {t.branch}
                       </p>
                     </div>
@@ -207,7 +207,7 @@ export function StudentPortalModal({ locale, onClose }: StudentPortalModalProps)
                 {/* 4 Status Metric Tiles */}
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
                   <div className="p-3 rounded-xl bg-[#141310] border border-white/10">
-                    <span className="text-[11px] font-mono text-[#78756c] block mb-1">{t.statHours}</span>
+                    <span className="text-[11px] font-mono text-[#a8a295] block mb-1">{t.statHours}</span>
                     <span className="text-base font-extrabold text-[#f5f2eb] font-mono">14 / 20 hrs</span>
                     <div className="w-full bg-white/10 rounded-full h-1 mt-2">
                       <div className="bg-[#fcc438] h-full w-[70%] rounded-full" />
@@ -215,7 +215,7 @@ export function StudentPortalModal({ locale, onClose }: StudentPortalModalProps)
                   </div>
 
                   <div className="p-3 rounded-xl bg-[#141310] border border-white/10">
-                    <span className="text-[11px] font-mono text-[#78756c] block mb-1">{t.statTheory}</span>
+                    <span className="text-[11px] font-mono text-[#a8a295] block mb-1">{t.statTheory}</span>
                     <span className="text-xs font-bold text-[#fcc438] flex items-center gap-1 mt-1 font-mono">
                       <CheckCircle2 className="w-3.5 h-3.5" />
                       {t.passed}
@@ -223,14 +223,14 @@ export function StudentPortalModal({ locale, onClose }: StudentPortalModalProps)
                   </div>
 
                   <div className="p-3 rounded-xl bg-[#141310] border border-white/10">
-                    <span className="text-[11px] font-mono text-[#78756c] block mb-1">{t.statStatus}</span>
+                    <span className="text-[11px] font-mono text-[#a8a295] block mb-1">{t.statStatus}</span>
                     <span className="text-xs font-bold text-[#d0c5ab] block mt-1 font-mono">
                       {t.permitActive}
                     </span>
                   </div>
 
                   <div className="p-3 rounded-xl bg-[#141310] border border-white/10">
-                    <span className="text-[11px] font-mono text-[#78756c] block mb-1">{t.statTrial}</span>
+                    <span className="text-[11px] font-mono text-[#a8a295] block mb-1">{t.statTrial}</span>
                     <span className="text-xs font-bold text-[#fcc438] block mt-1 font-mono">
                       {t.trialDate}
                     </span>
@@ -247,7 +247,7 @@ export function StudentPortalModal({ locale, onClose }: StudentPortalModalProps)
                   <p className="font-bold text-[#f5f2eb] text-xs sm:text-sm">
                     {t.nextLessonDetails}
                   </p>
-                  <p className="text-[#78756c] mt-0.5 text-[11px]">
+                  <p className="text-[#a8a295] mt-0.5 text-[11px]">
                     {t.instructorLabel}: <span className="text-[#d0c5ab] font-semibold">{t.instructorName}</span>
                   </p>
                 </div>
@@ -267,7 +267,7 @@ export function StudentPortalModal({ locale, onClose }: StudentPortalModalProps)
 
         {/* Modal Footer */}
         <div className="p-4 sm:p-5 bg-[#0d0c0a] border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
-          <p className="text-[#78756c] text-center sm:text-left text-[11px] sm:text-xs">
+          <p className="text-[#a8a295] text-center sm:text-left text-[11px] sm:text-xs">
             {t.helpNotice}
           </p>
           <a

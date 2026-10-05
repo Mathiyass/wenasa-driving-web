@@ -206,10 +206,10 @@ export function ReviewsSection({ locale }: ReviewsSectionProps) {
 
                     <div>
                       <div className="flex items-center gap-2">
-                        <h4 className="text-base sm:text-lg font-black text-[#f5f5f3]">
+                        <h3 className="text-base sm:text-lg font-black text-[#f5f5f3]">
                           {currentReview.name}
-                        </h4>
-                        <span className="text-[11px] font-mono text-[#8c877a]">
+                        </h3>
+                        <span className="text-[11px] font-mono text-[#a8a295]">
                           ({currentReview.location[locale]})
                         </span>
                       </div>
@@ -226,7 +226,7 @@ export function ReviewsSection({ locale }: ReviewsSectionProps) {
                     <span className="px-3 py-1 rounded-xl bg-[#0d0c0a] border border-white/[0.06] text-xs font-semibold text-[#c7c2b6]">
                       {currentReview.outcomeTag[locale]}
                     </span>
-                    <span className="text-[11px] font-mono text-[#8c877a]">
+                    <span className="text-[11px] font-mono text-[#a8a295]">
                       {currentReview.date[locale]}
                     </span>
                   </div>
@@ -268,7 +268,7 @@ export function ReviewsSection({ locale }: ReviewsSectionProps) {
                 </div>
                 <div className="text-xs">
                   <div className="font-bold text-[#f5f5f3]">Wenasa Driving School Kirindiwela</div>
-                  <div className="text-[11px] text-[#8c877a]">100% Genuine Student Reviews</div>
+                  <div className="text-[11px] text-[#a8a295]">100% Genuine Student Reviews</div>
                 </div>
               </div>
             </div>
@@ -294,7 +294,7 @@ export function ReviewsSection({ locale }: ReviewsSectionProps) {
                   <MessageSquareHeart className="w-4 h-4 text-[#fcc438]" />
                   <span>Direct Feedback</span>
                 </div>
-                <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-[#1c1a17] text-[#8c877a]">
+                <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-[#1c1a17] text-[#a8a295]">
                   Alumni Form
                 </span>
               </div>
@@ -321,7 +321,7 @@ export function ReviewsSection({ locale }: ReviewsSectionProps) {
                       placeholder={dict.reviews.namePlaceholder}
                       value={studentName}
                       onChange={(e) => setStudentName(e.target.value)}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-white/10 bg-[#0d0c0a] text-xs text-[#f5f5f3] placeholder-[#8c877a] focus:outline-[#fcc438]"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-white/10 bg-[#0d0c0a] text-xs text-[#f5f5f3] placeholder-[#a8a295] focus:outline-[#fcc438]"
                     />
                   </div>
                   <div>
@@ -331,7 +331,7 @@ export function ReviewsSection({ locale }: ReviewsSectionProps) {
                       placeholder={dict.reviews.feedbackPlaceholder}
                       value={feedbackMsg}
                       onChange={(e) => setFeedbackMsg(e.target.value)}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-white/10 bg-[#0d0c0a] text-xs text-[#f5f5f3] placeholder-[#8c877a] focus:outline-[#fcc438] resize-none"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-white/10 bg-[#0d0c0a] text-xs text-[#f5f5f3] placeholder-[#a8a295] focus:outline-[#fcc438] resize-none"
                     />
                   </div>
                   <button

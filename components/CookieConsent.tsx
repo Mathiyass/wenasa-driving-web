@@ -77,9 +77,9 @@ export function CookieConsent({ locale = "si" }: CookieConsentProps) {
 
         <div className="space-y-1.5 flex-1">
           <div className="flex items-center justify-between">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-400">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-emerald-400">
               {dict.cookie.title}
-            </h4>
+            </h3>
             <button
               onClick={() => setIsVisible(false)}
               className="text-slate-400 hover:text-white p-1 rounded-full transition-colors cursor-pointer"
@@ -113,10 +113,12 @@ export function CookieConsent({ locale = "si" }: CookieConsentProps) {
               <span className="text-[11px] text-slate-400">Anonymous visitor metrics</span>
             </div>
             <input
+              id="pdpa-analytics-toggle"
+              aria-label="Allow anonymous analytics"
               type="checkbox"
               checked={analyticsAllowed}
               onChange={(e) => setAnalyticsAllowed(e.target.checked)}
-              className="w-4 h-4 rounded text-emerald-600 focus:ring-emerald-500 border-slate-700 bg-slate-900"
+              className="w-4 h-4 rounded text-[#fcc438] focus:ring-[#fcc438] border-slate-700 bg-slate-900"
             />
           </div>
 
@@ -136,7 +138,7 @@ export function CookieConsent({ locale = "si" }: CookieConsentProps) {
         <div className="flex items-center gap-2">
           <button
             onClick={handleAcceptAll}
-            className="px-4 py-2 rounded-full text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-500 active:scale-95 transition-all cursor-pointer shadow-lg"
+            className="px-4 py-2 rounded-full text-xs font-bold text-[#0d0c0a] bg-[#fcc438] hover:bg-[#fdd867] active:scale-95 transition-all cursor-pointer shadow-lg"
           >
             {dict.cookie.acceptAll}
           </button>

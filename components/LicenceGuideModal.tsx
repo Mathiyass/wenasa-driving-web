@@ -26,7 +26,7 @@ export function LicenceGuideModal({ locale, onClose }: LicenceGuideModalProps) {
 
           <button
             onClick={onClose}
-            className="p-2 rounded-xl text-[#78756c] hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
+            className="p-2 rounded-xl text-[#a8a295] hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
             aria-label="Close modal"
           >
             <X className="w-5 h-5" />
@@ -76,19 +76,19 @@ export function LicenceGuideModal({ locale, onClose }: LicenceGuideModalProps) {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
               <div className="p-3.5 rounded-xl border border-white/10 bg-[#0d0c0a]">
                 <span className="font-bold text-[#f5f2eb] block mb-0.5">NTMI Medical Certificate:</span>
-                <span className="text-[#78756c]">Valid strictly for 6 months from issue date.</span>
+                <span className="text-[#a8a295]">Valid strictly for 6 months from issue date.</span>
               </div>
               <div className="p-3.5 rounded-xl border border-white/10 bg-[#0d0c0a]">
                 <span className="font-bold text-[#f5f2eb] block mb-0.5">Learner&apos;s Permit (L-Plate):</span>
-                <span className="text-[#78756c]">Valid for 6 months; minimum 3 months hold period before trial.</span>
+                <span className="text-[#a8a295]">Valid for 6 months; minimum 3 months hold period before trial.</span>
               </div>
               <div className="p-3.5 rounded-xl border border-white/10 bg-[#0d0c0a]">
                 <span className="font-bold text-[#f5f2eb] block mb-0.5">Written Theory Test:</span>
-                <span className="text-[#78756c]">40 Questions, 60 minutes duration, 30 correct to pass.</span>
+                <span className="text-[#a8a295]">40 Questions, 60 minutes duration, 30 correct to pass.</span>
               </div>
               <div className="p-3.5 rounded-xl border border-white/10 bg-[#0d0c0a]">
                 <span className="font-bold text-[#f5f2eb] block mb-0.5">Driving Licence Renewal:</span>
-                <span className="text-[#78756c]">Standard smart cards valid for 8 years from issue date.</span>
+                <span className="text-[#a8a295]">Standard smart cards valid for 8 years from issue date.</span>
               </div>
             </div>
           </div>

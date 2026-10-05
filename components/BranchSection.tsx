@@ -78,7 +78,7 @@ export function BranchSection({ locale }: BranchSectionProps) {
                     {liveStatus.statusText[locale]}
                   </span>
                 </div>
-                <span className="text-xs text-[#8c877a] font-mono">
+                <span className="text-xs text-[#a8a295] font-mono">
                   {liveStatus.nextChangeText[locale]}
                 </span>
               </div>
@@ -86,7 +86,7 @@ export function BranchSection({ locale }: BranchSectionProps) {
               {/* Address with 1-Click Copy */}
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
-                  <div className="text-xs font-bold text-[#8c877a] uppercase tracking-wider flex items-center gap-1.5">
+                  <div className="text-xs font-bold text-[#a8a295] uppercase tracking-wider flex items-center gap-1.5">
                     <MapPin className="w-3.5 h-3.5 text-[#fcc438]" />
                     <span>{dict.branch.addressTitle}</span>
                   </div>
@@ -102,7 +102,7 @@ export function BranchSection({ locale }: BranchSectionProps) {
                       </>
                     ) : (
                       <>
-                        <Copy className="w-3 h-3 text-[#8c877a]" />
+                        <Copy className="w-3 h-3 text-[#a8a295]" />
                         <span>Copy Address</span>
                       </>
                     )}
@@ -111,7 +111,7 @@ export function BranchSection({ locale }: BranchSectionProps) {
                 <p className="text-sm font-bold text-[#f5f5f3] leading-relaxed">
                   {siteConfig.contact.address[locale]}
                 </p>
-                <p className="text-xs text-[#8c877a]">
+                <p className="text-xs text-[#a8a295]">
                   {locale === "si" ? "සළකුණ" : locale === "ta" ? "அடையாளம்" : "Landmark"}: <span className="text-[#c7c2b6]">{siteConfig.contact.landmark}</span>
                 </p>
               </div>
@@ -126,7 +126,7 @@ export function BranchSection({ locale }: BranchSectionProps) {
 
               {/* Phone & Direct Desk */}
               <div className="space-y-1.5 pt-4 border-t border-white/[0.06]">
-                <div className="text-xs font-bold text-[#8c877a] uppercase tracking-wider flex items-center gap-1.5">
+                <div className="text-xs font-bold text-[#a8a295] uppercase tracking-wider flex items-center gap-1.5">
                   <Phone className="w-3.5 h-3.5 text-[#fcc438]" />
                   <span>{dict.branch.phoneTitle}</span>
                 </div>
@@ -145,19 +145,19 @@ export function BranchSection({ locale }: BranchSectionProps) {
 
               {/* Opening Hours Schedule */}
               <div className="space-y-2 pt-4 border-t border-white/[0.06]">
-                <div className="text-xs font-bold text-[#8c877a] uppercase tracking-wider flex items-center gap-1.5">
+                <div className="text-xs font-bold text-[#a8a295] uppercase tracking-wider flex items-center gap-1.5">
                   <Clock className="w-3.5 h-3.5 text-[#fcc438]" />
                   <span>{dict.branch.hoursTitle}</span>
                 </div>
                 <div className="text-xs space-y-1.5">
                   <div className={`p-2 rounded-xl flex items-center justify-between transition-colors ${
-                    !isSunday ? "bg-[#1c1a17] border border-white/10 text-[#d0c5ab] font-bold" : "text-[#8c877a]"
+                    !isSunday ? "bg-[#1c1a17] border border-white/10 text-[#d0c5ab] font-bold" : "text-[#a8a295]"
                   }`}>
                     <span>{dict.branch.hoursWeekday}</span>
                     {!isSunday && <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded bg-[#fcc438]/20 text-[#fcc438]">Today</span>}
                   </div>
                   <div className={`p-2 rounded-xl flex items-center justify-between transition-colors ${
-                    isSunday ? "bg-[#1c1a17] border border-white/10 text-[#d0c5ab] font-bold" : "text-[#8c877a]"
+                    isSunday ? "bg-[#1c1a17] border border-white/10 text-[#d0c5ab] font-bold" : "text-[#a8a295]"
                   }`}>
                     <span>{dict.branch.hoursSunday}</span>
                     {isSunday && <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded bg-[#fcc438]/20 text-[#fcc438]">Today</span>}
@@ -171,7 +171,7 @@ export function BranchSection({ locale }: BranchSectionProps) {
                   <CheckCircle className="w-3.5 h-3.5 text-[#fcc438]" />
                   <span>{dict.branch.servingTitle}</span>
                 </div>
-                <p className="text-xs text-[#8c877a] leading-relaxed">
+                <p className="text-xs text-[#a8a295] leading-relaxed">
                   {dict.branch.servingAreas}
                 </p>
               </div>

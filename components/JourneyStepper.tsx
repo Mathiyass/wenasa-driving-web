@@ -172,7 +172,7 @@ export function JourneyStepper({ locale }: JourneyStepperProps) {
                             ? "bg-[#d0c5ab] text-[#11100d] shadow-lg ring-4 ring-[#fcc438]/25 scale-110"
                             : isCompleted
                             ? "bg-[#1c1a17] text-[#fcc438] border border-white/10"
-                            : "bg-[#141310] text-[#8c877a] border border-white/[0.08] group-hover:border-white/20 group-hover:text-white"
+                            : "bg-[#141310] text-[#a8a295] border border-white/[0.08] group-hover:border-white/20 group-hover:text-white"
                         }`}
                       >
                         {isCompleted ? (
@@ -184,7 +184,7 @@ export function JourneyStepper({ locale }: JourneyStepperProps) {
 
                       {/* Step Number Tag */}
                       <span className={`mt-3 text-[10px] font-black uppercase tracking-wider transition-colors ${
-                        isCurrent ? "text-[#fcc438]" : "text-[#8c877a] group-hover:text-[#c7c2b6]"
+                        isCurrent ? "text-[#fcc438]" : "text-[#a8a295] group-hover:text-[#c7c2b6]"
                       }`}>
                         {dict.journey.stepLabel} 0{step.stepNumber}
                       </span>
@@ -241,11 +241,11 @@ export function JourneyStepper({ locale }: JourneyStepperProps) {
                     <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
                     <span>{dict.common.verifiedBadge}</span>
                   </div>
-                  <div className="text-[#8c877a] text-[11px] mt-0.5 flex items-center sm:justify-end gap-1">
+                  <div className="text-[#a8a295] text-[11px] mt-0.5 flex items-center sm:justify-end gap-1">
                     <Calendar className="w-3 h-3" />
                     <span>{dict.common.lastVerified}: {activeStep.lastVerifiedDate}</span>
                   </div>
-                  <div className="text-[10px] text-[#8c877a] mt-1 max-w-[200px]">
+                  <div className="text-[10px] text-[#a8a295] mt-1 max-w-[200px]">
                     {activeStep.verificationNotice}
                   </div>
                 </div>
@@ -329,7 +329,7 @@ export function JourneyStepper({ locale }: JourneyStepperProps) {
                     disabled={activeStepIndex === 0}
                     className={`inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-xs font-semibold transition-colors cursor-pointer ${
                       activeStepIndex === 0
-                        ? "opacity-30 cursor-not-allowed text-[#8c877a]"
+                        ? "opacity-30 cursor-not-allowed text-[#a8a295]"
                         : "text-[#c7c2b6] hover:bg-[#1a1916] hover:text-white"
                     }`}
                   >
@@ -337,7 +337,7 @@ export function JourneyStepper({ locale }: JourneyStepperProps) {
                     <span>{dict.journey.previousStep}</span>
                   </button>
 
-                  <div className="text-xs font-mono font-bold text-[#8c877a]">
+                  <div className="text-xs font-mono font-bold text-[#a8a295]">
                     [ PHASE 0{activeStep.stepNumber} / 0{steps.length} ]
                   </div>
 
@@ -346,7 +346,7 @@ export function JourneyStepper({ locale }: JourneyStepperProps) {
                     disabled={activeStepIndex === steps.length - 1}
                     className={`inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-xs font-black uppercase tracking-wider transition-colors cursor-pointer ${
                       activeStepIndex === steps.length - 1
-                        ? "opacity-30 cursor-not-allowed text-[#8c877a]"
+                        ? "opacity-30 cursor-not-allowed text-[#a8a295]"
                         : "bg-[#d0c5ab] text-[#11100d] hover:bg-[#e4dbc6] shadow-md active:scale-95"
                     }`}
                   >

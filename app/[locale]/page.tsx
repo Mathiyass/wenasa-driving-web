@@ -37,23 +37,35 @@ export async function generateMetadata({
   const dict = getDictionary(currentLocale);
 
   const title = `${siteConfig.name.en} | ${siteConfig.name.si} - Kirindiwela`;
-  const description = `${dict.hero.subheadline} Serving Kirindiwela, Urapola, Wathurugama & Gampaha District.`;
+  const description = `${dict.hero.subheadline} Serving Kirindiwela, Urapola, Wathurugama & Gampaha District (Reg. DMT/WP/G/1174).`;
 
   return {
     title,
     description,
+    keywords: [
+      siteConfig.name.en,
+      siteConfig.name.si,
+      siteConfig.name.ta,
+      "Driving School Kirindiwela",
+      "DMT Driving License Sri Lanka",
+      "Suzuki Alto Driving Lessons",
+      "Dual Control Vehicle Training",
+      "Motorcycle Riding Lessons Gampaha",
+      "Heavy Vehicle Driving School",
+    ],
     alternates: {
-      canonical: `${siteConfig.appUrl}/${currentLocale}`,
+      canonical: `https://wenasadrivingschool.com/${currentLocale}/`,
       languages: {
-        si: `${siteConfig.appUrl}/si`,
-        en: `${siteConfig.appUrl}/en`,
-        ta: `${siteConfig.appUrl}/ta`,
+        si: `https://wenasadrivingschool.com/si/`,
+        en: `https://wenasadrivingschool.com/en/`,
+        ta: `https://wenasadrivingschool.com/ta/`,
+        "x-default": `https://wenasadrivingschool.com/en/`,
       },
     },
     openGraph: {
       title,
       description,
-      url: `${siteConfig.appUrl}/${currentLocale}`,
+      url: `https://wenasadrivingschool.com/${currentLocale}/`,
       siteName: `${siteConfig.name.en} - ${siteConfig.name.si}`,
       locale: currentLocale === "si" ? "si_LK" : currentLocale === "ta" ? "ta_LK" : "en_LK",
       type: "website",

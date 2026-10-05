@@ -182,7 +182,7 @@ export function StudentKitModal({ locale, onClose }: StudentKitModalProps) {
           <button
             type="button"
             onClick={onClose}
-            className="p-2 rounded-xl text-[#78756c] hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
+            className="p-2 rounded-xl text-[#a8a295] hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
             aria-label="Close modal"
           >
             <X className="w-5 h-5" />
@@ -230,7 +230,7 @@ export function StudentKitModal({ locale, onClose }: StudentKitModalProps) {
                 </div>
 
                 <div className="mt-5 pt-3.5 border-t border-white/10 flex items-center justify-between">
-                  <span className="text-[11px] text-[#78756c] font-mono">Kirindiwela Stock</span>
+                  <span className="text-[11px] text-[#a8a295] font-mono">Kirindiwela Stock</span>
                   <a
                     href={`https://wa.me/94707076029?text=Hello%20Wenasa,%20I%20would%20like%20to%20reserve%20item:%20${encodeURIComponent(item.title)}%20(${item.price})`}
                     target="_blank"
@@ -248,7 +248,7 @@ export function StudentKitModal({ locale, onClose }: StudentKitModalProps) {
 
         {/* Modal Footer */}
         <div className="p-4 sm:p-5 bg-[#0d0c0a] border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
-          <div className="flex items-center gap-2 text-[#78756c] text-xs font-mono">
+          <div className="flex items-center gap-2 text-[#a8a295] text-xs font-mono">
             <MapPin className="w-4 h-4 text-[#d0c5ab] shrink-0" />
             <span>No. 12/5, Hanwella-Kirindiwela-Urapola Rd, Kirindiwela</span>
           </div>

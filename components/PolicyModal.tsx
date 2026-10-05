@@ -29,7 +29,7 @@ export function PolicyModal({ policyType, onClose }: PolicyModalProps) {
               {titles[policyType]}
             </h3>
           </div>
-          <button onClick={onClose} className="p-2 rounded-xl text-[#78756c] hover:text-white hover:bg-white/5 transition-colors cursor-pointer" aria-label="Close legal modal">
+          <button onClick={onClose} className="p-2 rounded-xl text-[#a8a295] hover:text-white hover:bg-white/5 transition-colors cursor-pointer" aria-label="Close legal modal">
             <X className="w-5 h-5" />
           </button>
         </div>

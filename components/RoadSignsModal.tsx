@@ -515,7 +515,7 @@ export function RoadSignsModal({ locale, onClose }: RoadSignsModalProps) {
 
               <button
                 onClick={onClose}
-                className="p-2.5 rounded-full text-[#78756c] hover:text-white hover:bg-white/5 transition-colors cursor-pointer active:scale-95"
+                className="p-2.5 rounded-full text-[#a8a295] hover:text-white hover:bg-white/5 transition-colors cursor-pointer active:scale-95"
                 aria-label="Close modal"
               >
                 <X className="w-5 h-5" />
@@ -586,13 +586,13 @@ export function RoadSignsModal({ locale, onClose }: RoadSignsModalProps) {
 
             {/* Search bar */}
             <div className="relative">
-              <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-[#78756c]" />
+              <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-[#a8a295]" />
               <input
                 type="text"
                 placeholder={labels.searchPlaceholder}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 text-xs font-medium rounded-xl border border-white/10 bg-[#0d0c0a] text-[#f5f2eb] placeholder-[#78756c] focus:outline-none focus:border-[#fcc438] focus:ring-1 focus:ring-[#fcc438]/30 transition-all"
+                className="w-full pl-10 pr-4 py-2.5 text-xs font-medium rounded-xl border border-white/10 bg-[#0d0c0a] text-[#f5f2eb] placeholder-[#a8a295] focus:outline-none focus:border-[#fcc438] focus:ring-1 focus:ring-[#fcc438]/30 transition-all"
               />
             </div>
           </div>
@@ -651,14 +651,14 @@ export function RoadSignsModal({ locale, onClose }: RoadSignsModalProps) {
                 })}
               </div>
             ) : (
-              <div className="text-center py-16 text-[#78756c] text-xs font-semibold">
+              <div className="text-center py-16 text-[#a8a295] text-xs font-semibold">
                 {labels.noResults}
               </div>
             )}
           </div>
 
           {/* Modal Footer Tip */}
-          <div className="p-3.5 bg-[#0d0c0a] border-t border-white/10 text-center text-[11px] font-mono text-[#78756c] flex items-center justify-center gap-2">
+          <div className="p-3.5 bg-[#0d0c0a] border-t border-white/10 text-center text-[11px] font-mono text-[#a8a295] flex items-center justify-center gap-2">
             <CheckCircle2 className="w-3.5 h-3.5 text-[#fcc438]" />
             <span>Sri Lanka Department of Motor Traffic (DMT) Official Theory Test Curriculum</span>
           </div>

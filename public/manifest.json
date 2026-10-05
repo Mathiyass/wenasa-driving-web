@@ -1,0 +1,18 @@
+{
+  "name": "Wenasa Driving School | වෙනස රියැදුරු පාසල",
+  "short_name": "Wenasa Driving",
+  "description": "Government-approved driving school in Kirindiwela, Sri Lanka (DMT/WP/G/1174). Certified instructors, dual-control Suzuki fleet, and guaranteed DMT test guidance.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d0c0a",
+  "theme_color": "#0d0c0a",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

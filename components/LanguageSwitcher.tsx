@@ -58,11 +58,11 @@ export function LanguageSwitcher({ currentLocale, variant = "header" }: Language
   if (variant === "footer") {
     return (
       <div className="flex flex-wrap items-center gap-2">
-        <span className="text-xs text-slate-400 flex items-center gap-1.5">
-          <Globe className="w-3.5 h-3.5" />
+        <span className="text-xs text-[#a8a295] flex items-center gap-1.5">
+          <Globe className="w-3.5 h-3.5 text-[#fcc438]" aria-hidden="true" />
           <span>Language:</span>
         </span>
-        <div className="flex items-center gap-1 p-1 bg-slate-800/80 rounded-lg border border-slate-700">
+        <div className="flex items-center gap-1 p-1 bg-[#141310] rounded-xl border border-white/10">
           {locales.map((loc) => {
             const info = localeDetails[loc];
             const isActive = loc === currentLocale;
@@ -70,12 +70,12 @@ export function LanguageSwitcher({ currentLocale, variant = "header" }: Language
               <button
                 key={loc}
                 onClick={() => switchLocale(loc)}
-                className={`px-2.5 py-1 text-xs font-medium rounded transition-colors whitespace-nowrap ${
+                aria-current={isActive ? "page" : undefined}
+                className={`px-2.5 py-1 text-xs font-semibold rounded-lg transition-colors whitespace-nowrap cursor-pointer ${
                   isActive
-                    ? "bg-emerald-600 text-white shadow-xs"
-                    : "text-slate-300 hover:text-white hover:bg-slate-700/60"
+                    ? "bg-[#fcc438] text-[#0d0c0a] shadow-xs"
+                    : "text-[#d0c5ab] hover:text-white hover:bg-white/5"
                 }`}
-                aria-label={`Switch to ${info.name}`}
               >
                 {info.nativeName}
               </button>
@@ -93,15 +93,15 @@ export function LanguageSwitcher({ currentLocale, variant = "header" }: Language
         className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/10 bg-[#161513]/90 hover:bg-[#1f1e1a] text-xs font-semibold text-[#d0c5ab] hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-[#fcc438] whitespace-nowrap shrink-0 cursor-pointer"
         aria-expanded={isOpen}
         aria-haspopup="true"
-        aria-label="Select language"
+        aria-label={`${currentInfo.nativeName} - Select Language`}
       >
-        <Globe className="w-3.5 h-3.5 text-[#fcc438] shrink-0" />
+        <Globe className="w-3.5 h-3.5 text-[#fcc438] shrink-0" aria-hidden="true" />
         <span className="font-semibold text-[11px] sm:text-xs">{currentInfo.nativeName}</span>
       </button>
 
       {isOpen && (
         <div className="absolute right-0 mt-2 w-44 rounded-2xl bg-[#141310] shadow-2xl border border-white/10 py-1.5 z-50 animate-in fade-in zoom-in-95 duration-100">
-          <div className="px-3 py-1 text-[10px] font-bold text-[#8c877a] uppercase tracking-wider">
+          <div className="px-3 py-1 text-[10px] font-bold text-[#a8a295] uppercase tracking-wider">
             Select Language
           </div>
           {locales.map((loc) => {
@@ -121,7 +121,7 @@ export function LanguageSwitcher({ currentLocale, variant = "header" }: Language
                   <span>{info.flag}</span>
                   <div>
                     <div className="text-xs">{info.nativeName}</div>
-                    <div className="text-[10px] text-[#8c877a] font-normal">{info.name}</div>
+                    <div className="text-[10px] text-[#a8a295] font-normal">{info.name}</div>
                   </div>
                 </div>
                 {isSelected && <Check className="w-3.5 h-3.5 text-[#fcc438]" />}

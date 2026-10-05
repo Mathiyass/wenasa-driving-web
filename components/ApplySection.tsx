@@ -105,25 +105,28 @@ export function ApplySection({ locale }: ApplySectionProps) {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   {/* Full Name */}
                   <div>
-                    <label className="text-[11px] font-mono font-bold tracking-wider uppercase text-[#d0c5ab] block mb-2">
+                    <label htmlFor="apply-fullname" className="text-[11px] font-mono font-bold tracking-wider uppercase text-[#d0c5ab] block mb-2 cursor-pointer">
                       {dict.apply.fullName}
                     </label>
                     <input
+                      id="apply-fullname"
                       type="text"
                       required
                       placeholder={dict.apply.fullNamePlaceholder}
                       value={fullName}
                       onChange={(e) => setFullName(e.target.value)}
-                      className="w-full px-4 py-3.5 text-xs sm:text-sm rounded-xl bg-[#0d0c0a] border border-white/10 text-[#f5f2eb] placeholder-[#6b675e] focus:outline-none focus:border-[#fcc438] focus:ring-1 focus:ring-[#fcc438]/40 transition-all"
+                      aria-label={dict.apply.fullName}
+                      className="w-full px-4 py-3.5 text-xs sm:text-sm rounded-xl bg-[#0d0c0a] border border-white/10 text-[#f5f2eb] placeholder-[#a8a295] focus:outline-none focus:border-[#fcc438] focus:ring-1 focus:ring-[#fcc438]/40 transition-all"
                     />
                   </div>
 
                   {/* NIC Number */}
                   <div>
-                    <label className="text-[11px] font-mono font-bold tracking-wider uppercase text-[#d0c5ab] block mb-2">
+                    <label htmlFor="apply-nic" className="text-[11px] font-mono font-bold tracking-wider uppercase text-[#d0c5ab] block mb-2 cursor-pointer">
                       {dict.apply.nic}
                     </label>
                     <input
+                      id="apply-nic"
                       type="text"
                       required
                       placeholder={dict.apply.nicPlaceholder}
@@ -132,7 +135,8 @@ export function ApplySection({ locale }: ApplySectionProps) {
                         setNicNumber(e.target.value);
                         validateNic(e.target.value);
                       }}
-                      className={`w-full px-4 py-3.5 text-xs sm:text-sm rounded-xl bg-[#0d0c0a] border text-[#f5f2eb] placeholder-[#6b675e] focus:outline-none focus:border-[#fcc438] focus:ring-1 focus:ring-[#fcc438]/40 transition-all font-mono ${
+                      aria-label={dict.apply.nic}
+                      className={`w-full px-4 py-3.5 text-xs sm:text-sm rounded-xl bg-[#0d0c0a] border text-[#f5f2eb] placeholder-[#a8a295] focus:outline-none focus:border-[#fcc438] focus:ring-1 focus:ring-[#fcc438]/40 transition-all font-mono ${
                         nicError ? "border-red-500/80 focus:border-red-500 focus:ring-red-500/20" : "border-white/10"
                       }`}
                     />
@@ -146,41 +150,47 @@ export function ApplySection({ locale }: ApplySectionProps) {
 
                   {/* Phone */}
                   <div>
-                    <label className="text-[11px] font-mono font-bold tracking-wider uppercase text-[#d0c5ab] block mb-2">
+                    <label htmlFor="apply-phone" className="text-[11px] font-mono font-bold tracking-wider uppercase text-[#d0c5ab] block mb-2 cursor-pointer">
                       {dict.apply.phone}
                     </label>
                     <input
+                      id="apply-phone"
                       type="tel"
                       required
                       placeholder="07X XXX XXXX"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
-                      className="w-full px-4 py-3.5 text-xs sm:text-sm rounded-xl bg-[#0d0c0a] border border-white/10 text-[#f5f2eb] placeholder-[#6b675e] focus:outline-none focus:border-[#fcc438] focus:ring-1 focus:ring-[#fcc438]/40 transition-all font-mono"
+                      aria-label={dict.apply.phone}
+                      className="w-full px-4 py-3.5 text-xs sm:text-sm rounded-xl bg-[#0d0c0a] border border-white/10 text-[#f5f2eb] placeholder-[#a8a295] focus:outline-none focus:border-[#fcc438] focus:ring-1 focus:ring-[#fcc438]/40 transition-all font-mono"
                     />
                   </div>
 
                   {/* WhatsApp */}
                   <div>
-                    <label className="text-[11px] font-mono font-bold tracking-wider uppercase text-[#d0c5ab] block mb-2">
+                    <label htmlFor="apply-whatsapp" className="text-[11px] font-mono font-bold tracking-wider uppercase text-[#d0c5ab] block mb-2 cursor-pointer">
                       {dict.apply.whatsapp}
                     </label>
                     <input
+                      id="apply-whatsapp"
                       type="tel"
                       placeholder="07X XXX XXXX"
                       value={whatsapp}
                       onChange={(e) => setWhatsapp(e.target.value)}
-                      className="w-full px-4 py-3.5 text-xs sm:text-sm rounded-xl bg-[#0d0c0a] border border-white/10 text-[#f5f2eb] placeholder-[#6b675e] focus:outline-none focus:border-[#fcc438] focus:ring-1 focus:ring-[#fcc438]/40 transition-all font-mono"
+                      aria-label={dict.apply.whatsapp}
+                      className="w-full px-4 py-3.5 text-xs sm:text-sm rounded-xl bg-[#0d0c0a] border border-white/10 text-[#f5f2eb] placeholder-[#a8a295] focus:outline-none focus:border-[#fcc438] focus:ring-1 focus:ring-[#fcc438]/40 transition-all font-mono"
                     />
                   </div>
 
                   {/* Licence Class */}
                   <div>
-                    <label className="text-[11px] font-mono font-bold tracking-wider uppercase text-[#d0c5ab] block mb-2">
+                    <label htmlFor="apply-class" className="text-[11px] font-mono font-bold tracking-wider uppercase text-[#d0c5ab] block mb-2 cursor-pointer">
                       {dict.apply.licenceClass}
                     </label>
                     <select
+                      id="apply-class"
                       value={selectedClass}
                       onChange={(e) => setSelectedClass(e.target.value)}
+                      aria-label={dict.apply.licenceClass}
                       className="w-full px-4 py-3.5 text-xs sm:text-sm rounded-xl bg-[#0d0c0a] border border-white/10 text-[#f5f2eb] focus:outline-none focus:border-[#fcc438] focus:ring-1 focus:ring-[#fcc438]/40 transition-all cursor-pointer"
                     >
                       <option value="B" className="bg-[#141310] text-[#f5f2eb]">{dict.apply.classOptions.B}</option>
@@ -193,12 +203,14 @@ export function ApplySection({ locale }: ApplySectionProps) {
 
                   {/* Practice Slot */}
                   <div>
-                    <label className="text-[11px] font-mono font-bold tracking-wider uppercase text-[#d0c5ab] block mb-2">
+                    <label htmlFor="apply-slot" className="text-[11px] font-mono font-bold tracking-wider uppercase text-[#d0c5ab] block mb-2 cursor-pointer">
                       {dict.apply.preferredSlot}
                     </label>
                     <select
+                      id="apply-slot"
                       value={preferredSlot}
                       onChange={(e) => setPreferredSlot(e.target.value)}
+                      aria-label={dict.apply.preferredSlot}
                       className="w-full px-4 py-3.5 text-xs sm:text-sm rounded-xl bg-[#0d0c0a] border border-white/10 text-[#f5f2eb] focus:outline-none focus:border-[#fcc438] focus:ring-1 focus:ring-[#fcc438]/40 transition-all cursor-pointer"
                     >
                       <option value="morning" className="bg-[#141310] text-[#f5f2eb]">{dict.apply.slots.morning}</option>
@@ -211,12 +223,14 @@ export function ApplySection({ locale }: ApplySectionProps) {
 
                 {/* PDPA Consent Checkbox */}
                 <div className="pt-2">
-                  <label className="flex items-start gap-3 cursor-pointer group">
+                  <label htmlFor="apply-pdpa-consent" className="flex items-start gap-3 cursor-pointer group">
                     <input
+                      id="apply-pdpa-consent"
                       type="checkbox"
                       required
                       checked={pdpaConsent}
                       onChange={(e) => setPdpaConsent(e.target.checked)}
+                      aria-label={dict.apply.pdpaConsent}
                       className="mt-1 w-4 h-4 rounded border-white/20 bg-[#0d0c0a] text-[#fcc438] focus:ring-[#fcc438] accent-[#fcc438] cursor-pointer"
                     />
                     <span className="text-xs text-[#a39e93] leading-relaxed group-hover:text-[#f5f2eb] transition-colors">
@@ -227,7 +241,7 @@ export function ApplySection({ locale }: ApplySectionProps) {
 
                 {/* Submit Row */}
                 <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                  <div className="flex items-center gap-2 text-xs text-[#78756c]">
+                  <div className="flex items-center gap-2 text-xs text-[#a8a295]">
                     <ShieldCheck className="w-4 h-4 text-[#d0c5ab] shrink-0" />
                     <span>{dict.apply.encryptedNote}</span>
                   </div>

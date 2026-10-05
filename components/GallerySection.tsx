@@ -171,7 +171,7 @@ export function GallerySection({ locale }: GallerySectionProps) {
                     <Sparkles className="w-3 h-3 text-[#fcc438]" />
                     <span>{item.tag}</span>
                   </span>
-                  <span className="text-xs font-mono text-[#8c877a] px-2 py-0.5 rounded-full bg-[#0d0c0a]/80 border border-white/[0.06]">
+                  <span className="text-xs font-mono text-[#a8a295] px-2 py-0.5 rounded-full bg-[#0d0c0a]/80 border border-white/[0.06]">
                     0{idx + 1}
                   </span>
                 </div>

@@ -179,22 +179,24 @@ export function ServicesGrid({ locale }: ServicesGridProps) {
                       }}
                       className="w-16 px-2.5 py-1.5 rounded-xl border border-white/10 bg-[#161513] text-[#f5f5f3] font-mono font-black text-center text-sm focus:outline-[#fcc438] shadow-xs"
                     />
-                    <span className="text-xs font-semibold text-[#8c877a]">{dict.modals.yearsOld}</span>
+                    <span className="text-xs font-semibold text-[#a8a295]">{dict.modals.yearsOld}</span>
                   </div>
                 </div>
 
                 {/* Hardware Tactile Range Slider */}
                 <div className="flex-1 max-w-sm flex items-center gap-3">
-                  <span className="text-[11px] font-mono font-bold text-[#8c877a]">15</span>
+                  <span className="text-[11px] font-mono font-bold text-[#a8a295]">15</span>
                   <input
+                    id="student-age-slider"
                     type="range"
                     min="15"
                     max="75"
                     value={userAge}
                     onChange={(e) => setUserAge(parseInt(e.target.value, 10))}
-                    className="tactile-slider w-full"
+                    className="tactile-slider w-full cursor-pointer focus-visible:outline-2 focus-visible:outline-[#fcc438]"
+                    aria-label={dict.services.ageInputLabel || "Student age in years"}
                   />
-                  <span className="text-[11px] font-mono font-bold text-[#8c877a]">75</span>
+                  <span className="text-[11px] font-mono font-bold text-[#a8a295]">75</span>
                 </div>
 
                 {/* Quick Preset Buttons */}
@@ -312,7 +314,7 @@ export function ServicesGrid({ locale }: ServicesGridProps) {
               </h3>
               <div className="text-xs sm:text-sm font-bold text-[#d0c5ab] mt-1 flex items-center gap-2">
                 <span>{classB.category}</span>
-                <span className="text-[#8c877a]">·</span>
+                <span className="text-[#a8a295]">·</span>
                 <span>{bMeta.fleetTag}</span>
               </div>
 
@@ -332,7 +334,7 @@ export function ServicesGrid({ locale }: ServicesGridProps) {
                     <CheckCircle2 className="w-4 h-4 text-[#fcc438] shrink-0 mt-0.5" />
                     <div>
                       <div className="text-xs font-bold text-[#f5f5f3] leading-tight">{feat.title}</div>
-                      <div className="text-[11px] text-[#8c877a] mt-0.5 leading-relaxed">{feat.desc}</div>
+                      <div className="text-[11px] text-[#a8a295] mt-0.5 leading-relaxed">{feat.desc}</div>
                     </div>
                   </div>
                 ))}
@@ -341,19 +343,19 @@ export function ServicesGrid({ locale }: ServicesGridProps) {
               {/* Key Specs Bar */}
               <div className="mt-6 pt-5 border-t border-white/[0.06] grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs">
                 <div className="p-3 rounded-xl bg-[#0d0c0a] border border-white/[0.06]">
-                  <span className="text-[#8c877a] block text-[11px] font-semibold">{dict.services.ageRequirement}:</span>
+                  <span className="text-[#a8a295] block text-[11px] font-semibold">{dict.services.ageRequirement}:</span>
                   <span className="font-bold text-[#f5f5f3] text-sm font-mono mt-0.5 block">
                     {classB.minimumAge} {dict.modals.yearsOld}
                   </span>
                 </div>
                 <div className="p-3 rounded-xl bg-[#0d0c0a] border border-white/[0.06]">
-                  <span className="text-[#8c877a] block text-[11px] font-semibold">{dict.services.transmission}:</span>
+                  <span className="text-[#a8a295] block text-[11px] font-semibold">{dict.services.transmission}:</span>
                   <span className="font-bold text-[#d0c5ab] text-xs sm:text-sm mt-0.5 block truncate">
                     Manual & Auto
                   </span>
                 </div>
                 <div className="col-span-2 sm:col-span-1 p-3 rounded-xl bg-[#0d0c0a] border border-white/[0.06]">
-                  <span className="text-[#8c877a] block text-[11px] font-semibold">Training Grounds:</span>
+                  <span className="text-[#a8a295] block text-[11px] font-semibold">Training Grounds:</span>
                   <span className="font-bold text-[#f5f5f3] text-xs mt-0.5 block truncate">
                     Kirindiwela DMT Track
                   </span>
@@ -372,9 +374,9 @@ export function ServicesGrid({ locale }: ServicesGridProps) {
                 <ArrowRight className="w-4 h-4" />
               </button>
 
-              <div className="flex items-center gap-4 text-[11px] text-[#8c877a]">
+              <div className="flex items-center gap-4 text-[11px] text-[#a8a295]">
                 <div className="flex items-center gap-1 font-mono">
-                  <Calendar className="w-3.5 h-3.5 text-[#8c877a]" />
+                  <Calendar className="w-3.5 h-3.5 text-[#a8a295]" />
                   <span>{dict.common.lastVerified}: {classB.lastVerifiedDate}</span>
                 </div>
 
@@ -428,7 +430,7 @@ export function ServicesGrid({ locale }: ServicesGridProps) {
                     </div>
                   </div>
 
-                  <div className="text-[10px] font-mono text-[#8c877a] uppercase tracking-wider mb-1">
+                  <div className="text-[10px] font-mono text-[#a8a295] uppercase tracking-wider mb-1">
                     [ 0{index + 2} · COURSE ]
                   </div>
 
@@ -444,22 +446,22 @@ export function ServicesGrid({ locale }: ServicesGridProps) {
                   </p>
 
                   <div className="mt-3.5 pt-3 border-t border-white/[0.06] space-y-1.5 text-[11px]">
-                    <div className="flex items-center justify-between text-[#8c877a]">
+                    <div className="flex items-center justify-between text-[#a8a295]">
                       <span>{dict.services.ageRequirement}:</span>
                       <span className="font-bold text-[#f5f5f3] font-mono">
                         {item.minimumAge} {dict.modals.yearsOld}
                       </span>
                     </div>
-                    <div className="flex items-center justify-between text-[#8c877a]">
+                    <div className="flex items-center justify-between text-[#a8a295]">
                       <span>{dict.services.transmission}:</span>
                       <span className="font-bold text-[#d0c5ab] truncate max-w-[130px] text-right">{item.transmission}</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="mt-4 pt-3 border-t border-white/[0.06] flex items-center justify-between text-[11px] text-[#8c877a]">
+                <div className="mt-4 pt-3 border-t border-white/[0.06] flex items-center justify-between text-[11px] text-[#a8a295]">
                   <div className="flex items-center gap-1 font-mono text-[10px]">
-                    <Calendar className="w-3 h-3 text-[#8c877a]" />
+                    <Calendar className="w-3 h-3 text-[#a8a295]" />
                     <span>{item.lastVerifiedDate}</span>
                   </div>
 

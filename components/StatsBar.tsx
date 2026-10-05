@@ -126,7 +126,7 @@ export function StatsBar({ locale }: StatsBarProps) {
         </div>
 
         {/* Audit Source and Verification Disclaimer with Official Seal */}
-        <div className="mt-6 pt-4 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left text-[11px] text-[#8c877a]">
+        <div className="mt-6 pt-4 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left text-[11px] text-[#a8a295]">
           <span className="flex items-center gap-1.5">
             <span className="w-1.5 h-1.5 rounded-full bg-[#fcc438]" />
             <span className="text-[#c7c2b6]">{dict.stats.disclaimer}</span>

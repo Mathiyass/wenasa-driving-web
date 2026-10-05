@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://wenasadrivingschool.com/</loc>
+    <xhtml:link rel="alternate" hreflang="si" href="https://wenasadrivingschool.com/si/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://wenasadrivingschool.com/en/" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://wenasadrivingschool.com/ta/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wenasadrivingschool.com/en/" />
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://wenasadrivingschool.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="si" href="https://wenasadrivingschool.com/si/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://wenasadrivingschool.com/en/" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://wenasadrivingschool.com/ta/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wenasadrivingschool.com/en/" />
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://wenasadrivingschool.com/si/</loc>
+    <xhtml:link rel="alternate" hreflang="si" href="https://wenasadrivingschool.com/si/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://wenasadrivingschool.com/en/" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://wenasadrivingschool.com/ta/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wenasadrivingschool.com/en/" />
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://wenasadrivingschool.com/ta/</loc>
+    <xhtml:link rel="alternate" hreflang="si" href="https://wenasadrivingschool.com/si/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://wenasadrivingschool.com/en/" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://wenasadrivingschool.com/ta/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wenasadrivingschool.com/en/" />
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+</urlset>

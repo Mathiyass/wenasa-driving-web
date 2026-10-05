@@ -348,13 +348,13 @@ export function DigitalResourcesGrid({ locale }: DigitalResourcesGridProps) {
                   </span>
                 </div>
 
-                <div className="text-[10px] font-mono text-[#8c877a] uppercase tracking-wider mb-1">
+                <div className="text-[10px] font-mono text-[#a8a295] uppercase tracking-wider mb-1">
                   [ 01 · GUIDE ]
                 </div>
 
-                <h4 className="text-base font-bold text-[#f5f5f3] group-hover:text-[#d0c5ab] transition-colors">
+                <h3 className="text-base font-bold text-[#f5f5f3] group-hover:text-[#d0c5ab] transition-colors">
                   {t.guideTitle}
-                </h4>
+                </h3>
                 <p className="mt-2 text-xs text-[#c7c2b6] leading-relaxed">
                   {t.guideDesc}
                 </p>
@@ -386,13 +386,13 @@ export function DigitalResourcesGrid({ locale }: DigitalResourcesGridProps) {
                   </span>
                 </div>
 
-                <div className="text-[10px] font-mono text-[#8c877a] uppercase tracking-wider mb-1">
+                <div className="text-[10px] font-mono text-[#a8a295] uppercase tracking-wider mb-1">
                   [ 02 · MATCH ]
                 </div>
 
-                <h4 className="text-base font-bold text-[#f5f5f3] group-hover:text-[#fcc438] transition-colors">
+                <h3 className="text-base font-bold text-[#f5f5f3] group-hover:text-[#fcc438] transition-colors">
                   {t.finderTitle}
-                </h4>
+                </h3>
                 <p className="mt-2 text-xs text-[#c7c2b6] leading-relaxed">
                   {t.finderDesc}
                 </p>
@@ -424,13 +424,13 @@ export function DigitalResourcesGrid({ locale }: DigitalResourcesGridProps) {
                   </span>
                 </div>
 
-                <div className="text-[10px] font-mono text-[#8c877a] uppercase tracking-wider mb-1">
+                <div className="text-[10px] font-mono text-[#a8a295] uppercase tracking-wider mb-1">
                   [ 03 · VIDEO ]
                 </div>
 
-                <h4 className="text-base font-bold text-[#f5f5f3] group-hover:text-[#d0c5ab] transition-colors">
+                <h3 className="text-base font-bold text-[#f5f5f3] group-hover:text-[#d0c5ab] transition-colors">
                   {t.videoTitle}
-                </h4>
+                </h3>
                 <p className="mt-2 text-xs text-[#c7c2b6] leading-relaxed">
                   {t.videoDesc}
                 </p>
@@ -462,13 +462,13 @@ export function DigitalResourcesGrid({ locale }: DigitalResourcesGridProps) {
                   </span>
                 </div>
 
-                <div className="text-[10px] font-mono text-[#8c877a] uppercase tracking-wider mb-1">
+                <div className="text-[10px] font-mono text-[#a8a295] uppercase tracking-wider mb-1">
                   [ 04 · DESK ]
                 </div>
 
-                <h4 className="text-base font-bold text-[#f5f5f3] group-hover:text-[#d0c5ab] transition-colors">
+                <h3 className="text-base font-bold text-[#f5f5f3] group-hover:text-[#d0c5ab] transition-colors">
                   {t.portalTitle}
-                </h4>
+                </h3>
                 <p className="mt-2 text-xs text-[#c7c2b6] leading-relaxed">
                   {t.portalDesc}
                 </p>
@@ -500,9 +500,9 @@ export function DigitalResourcesGrid({ locale }: DigitalResourcesGridProps) {
                   </span>
                 </div>
 
-                <h4 className="text-lg sm:text-xl font-bold text-[#f5f5f3] group-hover:text-[#fcc438] transition-colors">
+                <h3 className="text-lg sm:text-xl font-bold text-[#f5f5f3] group-hover:text-[#fcc438] transition-colors">
                   {t.blogTitle}
-                </h4>
+                </h3>
                 <p className="mt-2 text-xs sm:text-sm text-[#c7c2b6] leading-relaxed">
                   {t.blogDesc}
                 </p>
@@ -540,9 +540,9 @@ export function DigitalResourcesGrid({ locale }: DigitalResourcesGridProps) {
                   </span>
                 </div>
 
-                <h4 className="text-lg sm:text-xl font-bold text-[#f5f5f3] group-hover:text-[#d0c5ab] transition-colors">
+                <h3 className="text-lg sm:text-xl font-bold text-[#f5f5f3] group-hover:text-[#d0c5ab] transition-colors">
                   {t.shopTitle}
-                </h4>
+                </h3>
                 <p className="mt-2 text-xs sm:text-sm text-[#c7c2b6] leading-relaxed">
                   {t.shopDesc}
                 </p>

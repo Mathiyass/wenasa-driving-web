@@ -176,7 +176,7 @@ export function BlogSection({ locale }: BlogSectionProps) {
                   </div>
 
                   <div className="p-6">
-                    <div className="flex items-center gap-4 text-[11px] text-[#8c877a] mb-2 font-mono">
+                    <div className="flex items-center gap-4 text-[11px] text-[#a8a295] mb-2 font-mono">
                       <div className="flex items-center gap-1">
                         <Calendar className="w-3.5 h-3.5" />
                         <span>{article.publishedDate}</span>
@@ -234,7 +234,7 @@ export function BlogSection({ locale }: BlogSectionProps) {
                 <X className="w-4 h-4" />
               </button>
 
-              <div className="flex items-center gap-3 text-xs text-[#8c877a] mb-2 font-mono">
+              <div className="flex items-center gap-3 text-xs text-[#a8a295] mb-2 font-mono">
                 <span className="text-[#d0c5ab] font-bold">{activeArticle.category}</span>
                 <span>·</span>
                 <span>{activeArticle.readTime}</span>
@@ -251,7 +251,7 @@ export function BlogSection({ locale }: BlogSectionProps) {
               </div>
 
               <div className="mt-8 pt-5 border-t border-white/[0.06] flex items-center justify-between">
-                <span className="text-[11px] font-mono text-[#8c877a]">
+                <span className="text-[11px] font-mono text-[#a8a295]">
                   Published by Wenasa Editorial
                 </span>
                 <button

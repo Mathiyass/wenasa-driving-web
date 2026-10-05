@@ -247,7 +247,7 @@ export function PackageFinderModal({ locale, onClose }: PackageFinderModalProps)
           </div>
           <button
             onClick={onClose}
-            className="p-2 rounded-xl text-[#78756c] hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
+            className="p-2 rounded-xl text-[#a8a295] hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
             aria-label={t.closeBtn}
           >
             <X className="w-5 h-5" />
@@ -295,12 +295,12 @@ export function PackageFinderModal({ locale, onClose }: PackageFinderModalProps)
                             </span>
                           )}
                           <div className="flex items-center gap-2 mb-1.5">
-                            <Icon className={`w-4 h-4 ${isSelected ? "text-[#fcc438]" : "text-[#78756c]"}`} />
+                            <Icon className={`w-4 h-4 ${isSelected ? "text-[#fcc438]" : "text-[#a8a295]"}`} />
                             <span className={`text-xs font-bold ${isSelected ? "text-[#f5f2eb]" : "text-[#a39e93]"}`}>
                               {item.data.label}
                             </span>
                           </div>
-                          <p className="text-[11px] text-[#78756c] line-clamp-2 leading-relaxed">
+                          <p className="text-[11px] text-[#a8a295] line-clamp-2 leading-relaxed">
                             {item.data.desc}
                           </p>
                         </button>
@@ -334,7 +334,7 @@ export function PackageFinderModal({ locale, onClose }: PackageFinderModalProps)
                           <div className={`text-xs font-bold mb-1 ${isSelected ? "text-[#f5f2eb]" : "text-[#a39e93]"}`}>
                             {item.data.label}
                           </div>
-                          <p className="text-[11px] text-[#78756c] leading-relaxed">
+                          <p className="text-[11px] text-[#a8a295] leading-relaxed">
                             {item.data.desc}
                           </p>
                         </button>
@@ -369,7 +369,7 @@ export function PackageFinderModal({ locale, onClose }: PackageFinderModalProps)
                             <div className={`text-xs font-bold mb-1 ${isSelected ? "text-[#f5f2eb]" : "text-[#a39e93]"}`}>
                               {item.data.label}
                             </div>
-                            <p className="text-[11px] text-[#78756c] leading-relaxed">
+                            <p className="text-[11px] text-[#a8a295] leading-relaxed">
                               {item.data.desc}
                             </p>
                           </button>
@@ -422,7 +422,7 @@ export function PackageFinderModal({ locale, onClose }: PackageFinderModalProps)
 
                   <div className="pt-4 border-t border-white/10 flex items-center justify-between gap-4">
                     <div>
-                      <div className="text-[10px] uppercase font-mono font-bold tracking-wider text-[#78756c]">
+                      <div className="text-[10px] uppercase font-mono font-bold tracking-wider text-[#a8a295]">
                         {t.results.manual.duration ? "Estimated Plan" : "Plan"}
                       </div>
                       <div className="text-xs text-[#d0c5ab] font-medium mt-0.5">
@@ -430,7 +430,7 @@ export function PackageFinderModal({ locale, onClose }: PackageFinderModalProps)
                       </div>
                     </div>
                     <div className="text-right">
-                      <div className="text-[10px] uppercase font-mono font-bold tracking-wider text-[#78756c]">
+                      <div className="text-[10px] uppercase font-mono font-bold tracking-wider text-[#a8a295]">
                         Course Fee
                       </div>
                       <div className="text-base sm:text-lg font-mono font-bold text-[#fcc438]">

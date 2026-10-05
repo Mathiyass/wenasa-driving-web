@@ -222,7 +222,7 @@ export function MockExamModal({ locale, onClose }: MockExamModalProps) {
 
             <button
               onClick={onClose}
-              className="p-2 rounded-xl text-[#78756c] hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
+              className="p-2 rounded-xl text-[#a8a295] hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
               aria-label="Close modal"
             >
               <X className="w-5 h-5" />
@@ -258,7 +258,7 @@ export function MockExamModal({ locale, onClose }: MockExamModalProps) {
                           ? "bg-[#d0c5ab] text-[#0d0c0a] font-black shadow-md scale-105"
                           : isAnswered
                           ? "bg-[#1c1a17] text-[#d0c5ab] border border-white/15"
-                          : "bg-white/5 text-[#78756c] hover:bg-white/10 hover:text-white border border-transparent"
+                          : "bg-white/5 text-[#a8a295] hover:bg-white/10 hover:text-white border border-transparent"
                       }`}
                     >
                       {idx + 1}
@@ -294,7 +294,7 @@ export function MockExamModal({ locale, onClose }: MockExamModalProps) {
                           className={`w-6 h-6 rounded-lg border flex items-center justify-center text-xs shrink-0 mt-0.5 font-mono font-bold ${
                             isSelected
                               ? "border-[#fcc438] bg-[#fcc438] text-[#0d0c0a] font-black"
-                              : "border-white/15 text-[#78756c]"
+                              : "border-white/15 text-[#a8a295]"
                           }`}
                         >
                           {String.fromCharCode(65 + optIdx)}
@@ -326,7 +326,7 @@ export function MockExamModal({ locale, onClose }: MockExamModalProps) {
                 <p className="text-sm font-mono font-semibold text-[#d0c5ab] mt-2">
                   {labels.scoreText}
                 </p>
-                <p className="text-xs text-[#78756c] mt-1">
+                <p className="text-xs text-[#a8a295] mt-1">
                   Official DMT examination pass standard is 30 out of 40 (75%).
                 </p>
               </div>
@@ -361,7 +361,7 @@ export function MockExamModal({ locale, onClose }: MockExamModalProps) {
                           <div className="mt-1 text-[#a39e93]">
                             Correct: <span className="font-bold text-[#fcc438]">{q.options[locale][q.correctIndex]}</span>
                           </div>
-                          <div className="mt-1 text-[11px] text-[#78756c] italic">
+                          <div className="mt-1 text-[11px] text-[#a8a295] italic">
                             {q.explanation[locale]}
                           </div>
                         </div>
@@ -381,7 +381,7 @@ export function MockExamModal({ locale, onClose }: MockExamModalProps) {
               <button
                 onClick={() => setCurrentIndex((prev) => Math.max(0, prev - 1))}
                 disabled={currentIndex === 0}
-                className="px-4 py-2 rounded-xl text-xs font-mono font-bold uppercase tracking-wider text-[#78756c] hover:text-[#f5f2eb] disabled:opacity-30 cursor-pointer"
+                className="px-4 py-2 rounded-xl text-xs font-mono font-bold uppercase tracking-wider text-[#a8a295] hover:text-[#f5f2eb] disabled:opacity-30 cursor-pointer"
               >
                 {labels.previous}
               </button>

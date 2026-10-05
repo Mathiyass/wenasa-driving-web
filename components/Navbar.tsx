@@ -70,7 +70,6 @@ export function Navbar({ locale }: NavbarProps) {
           <Link
             href={`/${locale}`}
             className="flex items-center gap-2.5 group focus-visible:outline-2 focus-visible:outline-[#fcc438] rounded-lg py-1"
-            aria-label="Wenasa Driving School Home"
           >
             <div className="w-8 h-8 rounded-lg bg-[#1a1916] border border-white/10 flex items-center justify-center font-black text-xs text-[#d0c5ab] group-hover:border-[#fcc438]/50 group-hover:text-[#fcc438] transition-colors">
               <span>W</span>
@@ -79,7 +78,7 @@ export function Navbar({ locale }: NavbarProps) {
               <span className="text-xs sm:text-sm font-black tracking-wider uppercase text-[#f5f5f3] group-hover:text-[#d0c5ab] transition-colors">
                 {siteConfig.name[locale] || siteConfig.name.en}
               </span>
-              <span className="text-[9px] text-[#8c877a] font-semibold tracking-wider uppercase">
+              <span className="text-[9px] text-[#a8a295] font-semibold tracking-wider uppercase">
                 DMT/WP/G/1174 · Kirindiwela
               </span>
             </div>
@@ -97,16 +96,18 @@ export function Navbar({ locale }: NavbarProps) {
               <span className="font-medium text-[11px] text-[#d0c5ab]">
                 {liveStatus.statusText[locale]}
               </span>
-              <span className="text-[#8c877a] text-[10px]">· {liveStatus.nextChangeText[locale]}</span>
+              <span className="text-[#a8a295] text-[10px]">· {liveStatus.nextChangeText[locale]}</span>
             </div>
 
             {/* Direct Call Link */}
             <a
               href={`tel:${siteConfig.contact.phoneE164}`}
-              className="flex items-center gap-1.5 text-[#d0c5ab] hover:text-[#fcc438] transition-colors text-xs font-semibold"
+              className="flex items-center gap-1.5 text-[#d0c5ab] hover:text-[#fcc438] transition-colors text-xs font-semibold focus-visible:outline-2 focus-visible:outline-[#fcc438] rounded-md"
+              aria-label={`Call Wenasa Driving School at ${siteConfig.contact.phoneDisplay}`}
             >
-              <Phone className="w-3.5 h-3.5 text-[#fcc438]" />
+              <Phone className="w-3.5 h-3.5 text-[#fcc438]" aria-hidden="true" />
               <span className="hidden md:inline font-mono text-[11px]">{siteConfig.contact.phoneDisplay}</span>
+              <span className="sr-only md:hidden">Call {siteConfig.contact.phoneDisplay}</span>
             </a>
 
             {/* Language Switcher */}

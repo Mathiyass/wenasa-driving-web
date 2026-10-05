@@ -223,7 +223,7 @@ export function VideoLessonsModal({ locale, onClose }: VideoLessonsModalProps) {
           <button
             type="button"
             onClick={onClose}
-            className="p-2 rounded-xl text-[#78756c] hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
+            className="p-2 rounded-xl text-[#a8a295] hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
             aria-label="Close modal"
           >
             <X className="w-5 h-5" />
@@ -286,7 +286,7 @@ export function VideoLessonsModal({ locale, onClose }: VideoLessonsModalProps) {
                     <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-white/5 text-[#d0c5ab]">
                       Lesson {idx + 1}
                     </span>
-                    <span className="text-[11px] font-mono text-[#78756c]">{lesson.duration}</span>
+                    <span className="text-[11px] font-mono text-[#a8a295]">{lesson.duration}</span>
                   </div>
                   <h5 className="text-xs sm:text-sm font-bold line-clamp-2 leading-snug">
                     {lesson.title}
@@ -326,7 +326,7 @@ export function VideoLessonsModal({ locale, onClose }: VideoLessonsModalProps) {
                 </p>
               </div>
 
-              <div className="mt-4 pt-4 border-t border-white/10 text-[11px] text-[#78756c] font-mono">
+              <div className="mt-4 pt-4 border-t border-white/10 text-[11px] text-[#a8a295] font-mono">
                 Wenasa Master Driving Academy · Kirindiwela
               </div>
             </div>
@@ -335,7 +335,7 @@ export function VideoLessonsModal({ locale, onClose }: VideoLessonsModalProps) {
 
         {/* Modal Footer */}
         <div className="p-4 sm:p-5 bg-[#0d0c0a] border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
-          <p className="text-[#78756c] text-center sm:text-left text-[11px] sm:text-xs">
+          <p className="text-[#a8a295] text-center sm:text-left text-[11px] sm:text-xs">
             {t.needSupport}
           </p>
           <a

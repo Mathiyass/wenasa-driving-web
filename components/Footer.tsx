@@ -20,8 +20,12 @@ export function Footer({ locale }: FooterProps) {
     <>
       <footer className="bg-[#0a0908] text-[#a39e93] pt-20 pb-28 sm:pb-24 lg:pb-20 border-t border-white/10 relative overflow-hidden">
         {/* Giant subtle background watermark */}
-        <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 select-none pointer-events-none opacity-[0.03] whitespace-nowrap font-black text-[130px] sm:text-[200px] lg:text-[260px] tracking-tighter text-[#f5f2eb]">
-          WENASA · වෙනස
+        <div aria-hidden="true" className="absolute -bottom-10 left-1/2 -translate-x-1/2 select-none pointer-events-none opacity-[0.03] overflow-hidden w-full max-w-[1400px] h-[280px] flex items-center justify-center">
+          <svg className="w-full h-full" viewBox="0 0 1200 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <text x="50%" y="65%" dominantBaseline="middle" textAnchor="middle" fill="#f5f2eb" fontSize="160" fontWeight="900" letterSpacing="-0.05em">
+              WENASA · වෙනස
+            </text>
+          </svg>
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -42,7 +46,7 @@ export function Footer({ locale }: FooterProps) {
                 </div>
               </div>
 
-              <p className="text-xs text-[#78756c] leading-relaxed max-w-sm">
+              <p className="text-xs text-[#a8a295] leading-relaxed max-w-sm">
                 {dict.footer.about}
               </p>
 
@@ -146,7 +150,7 @@ export function Footer({ locale }: FooterProps) {
               <div className="text-[11px] font-mono font-bold uppercase tracking-widest text-[#d0c5ab]">
                 [ REGULATORY ]
               </div>
-              <p className="text-[11px] text-[#78756c] leading-relaxed">
+              <p className="text-[11px] text-[#a8a295] leading-relaxed">
                 Wenasa operates in compliance with the Sri Lanka Motor Traffic Act and Personal Data Protection Act (PDPA No. 9 of 2022).
               </p>
               <ul className="space-y-2 text-xs text-[#a39e93]">
@@ -187,12 +191,12 @@ export function Footer({ locale }: FooterProps) {
           </div>
 
           {/* Bottom Bar: Copyright & Regulatory Notice */}
-          <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#78756c] text-center md:text-left">
+          <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#a8a295] text-center md:text-left">
             <div className="font-mono">
               <span>{dict.footer.copyright}</span>
             </div>
 
-            <div className="text-[11px] max-w-xl text-[#78756c] leading-relaxed">
+            <div className="text-[11px] max-w-xl text-[#a8a295] leading-relaxed">
               {dict.footer.dmtDisclaimer}
             </div>
           </div>

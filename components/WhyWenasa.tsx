@@ -144,7 +144,7 @@ export function WhyWenasa({ locale }: WhyWenasaProps) {
 
               {/* Interactive Dual-Control Dashboard Simulation */}
               <div className="mt-6 p-4 rounded-2xl bg-[#0d0c0a] border border-white/[0.06] shadow-inner">
-                <div className="flex items-center justify-between text-xs font-mono font-bold text-[#8c877a] mb-3 border-b border-white/[0.06] pb-2.5">
+                <div className="flex items-center justify-between text-xs font-mono font-bold text-[#a8a295] mb-3 border-b border-white/[0.06] pb-2.5">
                   <span className="text-[#f5f5f3] flex items-center gap-2">
                     <Car className="w-4 h-4 text-[#fcc438]" />
                     <span>{m.metricFleetTitle}</span>
@@ -154,27 +154,27 @@ export function WhyWenasa({ locale }: WhyWenasaProps) {
 
                 <div className="grid grid-cols-2 gap-3 text-xs">
                   <div className="p-3 rounded-xl bg-[#141310] border border-white/[0.06]">
-                    <span className="text-[11px] text-[#8c877a] block mb-0.5">Student Pedals</span>
+                    <span className="text-[11px] text-[#a8a295] block mb-0.5">Student Pedals</span>
                     <span className="text-xs font-bold text-[#f5f5f3] flex items-center gap-1.5">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
                       Throttle · Brake · Clutch
                     </span>
                   </div>
                   <div className="p-3 rounded-xl bg-[#141310] border border-white/10">
-                    <span className="text-[11px] text-[#8c877a] block mb-0.5">Instructor Pedals</span>
+                    <span className="text-[11px] text-[#a8a295] block mb-0.5">Instructor Pedals</span>
                     <span className="text-xs font-bold text-[#d0c5ab] flex items-center gap-1.5">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#fcc438] animate-pulse" />
                       Dual Brake & Clutch Sync
                     </span>
                   </div>
                 </div>
-                <p className="mt-3 text-[11px] text-[#8c877a] leading-relaxed">
+                <p className="mt-3 text-[11px] text-[#a8a295] leading-relaxed">
                   {m.metricFleetDesc}
                 </p>
               </div>
             </div>
 
-            <div className="mt-6 pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs text-[#8c877a]">
+            <div className="mt-6 pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs text-[#a8a295]">
               <span className="font-semibold text-[#c7c2b6]">Suzuki Wagon R & Alto Fleet</span>
               <span className="text-[#d0c5ab] font-bold">100% Dual-Pedal Equipped</span>
             </div>
@@ -204,7 +204,7 @@ export function WhyWenasa({ locale }: WhyWenasaProps) {
 
               {/* Practical Trial Track Simulator Preview */}
               <div className="mt-6 p-4 rounded-2xl bg-[#0d0c0a] border border-white/[0.06] shadow-inner">
-                <div className="flex items-center justify-between text-xs font-mono font-bold text-[#8c877a] mb-3 border-b border-white/[0.06] pb-2.5">
+                <div className="flex items-center justify-between text-xs font-mono font-bold text-[#a8a295] mb-3 border-b border-white/[0.06] pb-2.5">
                   <span className="text-[#f5f5f3] flex items-center gap-2">
                     <Gauge className="w-4 h-4 text-[#fcc438]" />
                     <span>{m.metricTrackTitle}</span>
@@ -226,13 +226,13 @@ export function WhyWenasa({ locale }: WhyWenasaProps) {
                     <span className="text-[11px] text-[#c7c2b6]">Parallel Parking</span>
                   </div>
                 </div>
-                <p className="mt-3 text-[11px] text-[#8c877a] leading-relaxed">
+                <p className="mt-3 text-[11px] text-[#a8a295] leading-relaxed">
                   {m.metricTrackDesc}
                 </p>
               </div>
             </div>
 
-            <div className="mt-6 pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs text-[#8c877a]">
+            <div className="mt-6 pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs text-[#a8a295]">
               <span className="font-semibold text-[#c7c2b6]">Private Closed Facility</span>
               <span className="text-[#d0c5ab] font-bold">Hanwella - Urapola Road</span>
             </div>
@@ -250,13 +250,13 @@ export function WhyWenasa({ locale }: WhyWenasaProps) {
                 </span>
               </div>
 
-              <div className="text-[10px] font-mono text-[#8c877a] uppercase tracking-wider mb-1">
+              <div className="text-[10px] font-mono text-[#a8a295] uppercase tracking-wider mb-1">
                 [ 01 · EXPERTISE ]
               </div>
 
-              <h4 className="text-base sm:text-lg font-bold text-[#f5f5f3] group-hover:text-[#fcc438] transition-colors">
+              <h3 className="text-base sm:text-lg font-bold text-[#f5f5f3] group-hover:text-[#fcc438] transition-colors">
                 {dict.why.point2Title}
-              </h4>
+              </h3>
               <p className="mt-2 text-xs text-[#c7c2b6] leading-relaxed">
                 {dict.why.point2Desc}
               </p>
@@ -273,7 +273,7 @@ export function WhyWenasa({ locale }: WhyWenasaProps) {
               </div>
             </div>
 
-            <div className="mt-5 pt-3.5 border-t border-white/[0.06] text-[11px] text-[#8c877a] font-mono">
+            <div className="mt-5 pt-3.5 border-t border-white/[0.06] text-[11px] text-[#a8a295] font-mono">
               Govt Licenced Staff
             </div>
           </div>
@@ -290,13 +290,13 @@ export function WhyWenasa({ locale }: WhyWenasaProps) {
                 </span>
               </div>
 
-              <div className="text-[10px] font-mono text-[#8c877a] uppercase tracking-wider mb-1">
+              <div className="text-[10px] font-mono text-[#a8a295] uppercase tracking-wider mb-1">
                 [ 02 · FLEXIBILITY ]
               </div>
 
-              <h4 className="text-base sm:text-lg font-bold text-[#f5f5f3] group-hover:text-[#d0c5ab] transition-colors">
+              <h3 className="text-base sm:text-lg font-bold text-[#f5f5f3] group-hover:text-[#d0c5ab] transition-colors">
                 {dict.why.point4Title}
-              </h4>
+              </h3>
               <p className="mt-2 text-xs text-[#c7c2b6] leading-relaxed">
                 {dict.why.point4Desc}
               </p>
@@ -313,7 +313,7 @@ export function WhyWenasa({ locale }: WhyWenasaProps) {
               </div>
             </div>
 
-            <div className="mt-5 pt-3.5 border-t border-white/[0.06] text-[11px] text-[#8c877a] font-mono">
+            <div className="mt-5 pt-3.5 border-t border-white/[0.06] text-[11px] text-[#a8a295] font-mono">
               7 Days · Zero Conflict
             </div>
           </div>
@@ -330,13 +330,13 @@ export function WhyWenasa({ locale }: WhyWenasaProps) {
                 </span>
               </div>
 
-              <div className="text-[10px] font-mono text-[#8c877a] uppercase tracking-wider mb-1">
+              <div className="text-[10px] font-mono text-[#a8a295] uppercase tracking-wider mb-1">
                 [ 03 · INCLUSION ]
               </div>
 
-              <h4 className="text-base sm:text-lg font-bold text-[#f5f5f3] group-hover:text-[#d0c5ab] transition-colors">
+              <h3 className="text-base sm:text-lg font-bold text-[#f5f5f3] group-hover:text-[#d0c5ab] transition-colors">
                 {dict.why.point5Title}
-              </h4>
+              </h3>
               <p className="mt-2 text-xs text-[#c7c2b6] leading-relaxed">
                 {dict.why.point5Desc}
               </p>
@@ -353,7 +353,7 @@ export function WhyWenasa({ locale }: WhyWenasaProps) {
               </div>
             </div>
 
-            <div className="mt-5 pt-3.5 border-t border-white/[0.06] text-[11px] text-[#8c877a] font-mono">
+            <div className="mt-5 pt-3.5 border-t border-white/[0.06] text-[11px] text-[#a8a295] font-mono">
               Empowering & Safe
             </div>
           </div>
@@ -370,13 +370,13 @@ export function WhyWenasa({ locale }: WhyWenasaProps) {
                 </span>
               </div>
 
-              <div className="text-[10px] font-mono text-[#8c877a] uppercase tracking-wider mb-1">
+              <div className="text-[10px] font-mono text-[#a8a295] uppercase tracking-wider mb-1">
                 [ 04 · SUPPORT ]
               </div>
 
-              <h4 className="text-base sm:text-lg font-bold text-[#f5f5f3] group-hover:text-emerald-400 transition-colors">
+              <h3 className="text-base sm:text-lg font-bold text-[#f5f5f3] group-hover:text-emerald-400 transition-colors">
                 {dict.why.point6Title}
-              </h4>
+              </h3>
               <p className="mt-2 text-xs text-[#c7c2b6] leading-relaxed">
                 {dict.why.point6Desc}
               </p>
@@ -393,7 +393,7 @@ export function WhyWenasa({ locale }: WhyWenasaProps) {
               </div>
             </div>
 
-            <div className="mt-5 pt-3.5 border-t border-white/[0.06] text-[11px] text-[#8c877a] font-mono">
+            <div className="mt-5 pt-3.5 border-t border-white/[0.06] text-[11px] text-[#a8a295] font-mono">
               Zero Queue Hassle
             </div>
           </div>

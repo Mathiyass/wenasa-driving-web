@@ -208,7 +208,7 @@ export function InstructorsSection({ locale }: InstructorsSectionProps) {
                   <span>{CHIEF_INSTRUCTOR.highlightTag?.[locale] || t.chiefTag}</span>
                 </span>
                 
-                <div className="flex items-center gap-1.5 text-xs text-[#8c877a] bg-[#0d0c0a] border border-white/[0.06] px-3 py-1 rounded-full">
+                <div className="flex items-center gap-1.5 text-xs text-[#a8a295] bg-[#0d0c0a] border border-white/[0.06] px-3 py-1 rounded-full">
                   <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
                   <span className="font-mono font-bold text-[#f5f5f3]">{CHIEF_INSTRUCTOR.licenceNo}</span>
                 </div>
@@ -264,7 +264,7 @@ export function InstructorsSection({ locale }: InstructorsSectionProps) {
 
               {/* Specialties */}
               <div className="mt-5 pt-4 border-t border-white/[0.06]">
-                <span className="text-[11px] font-mono text-[#8c877a] uppercase tracking-wider block mb-2 font-bold">
+                <span className="text-[11px] font-mono text-[#a8a295] uppercase tracking-wider block mb-2 font-bold">
                   {dict.instructors.specialty}
                 </span>
                 <div className="flex flex-wrap gap-1.5">
@@ -282,7 +282,7 @@ export function InstructorsSection({ locale }: InstructorsSectionProps) {
 
             {/* Bottom Action Bar */}
             <div className="mt-8 pt-5 border-t border-white/[0.06] flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
-              <div className="text-xs text-[#8c877a]">
+              <div className="text-xs text-[#a8a295]">
                 <span>{dict.instructors.languages}: </span>
                 <span className="font-bold text-[#f5f5f3]">{CHIEF_INSTRUCTOR.languages.join(", ")}</span>
               </div>
@@ -308,7 +308,7 @@ export function InstructorsSection({ locale }: InstructorsSectionProps) {
                 <h4 className="text-sm sm:text-base font-black text-[#f5f5f3]">
                   {t.sliderTitle}
                 </h4>
-                <p className="text-[11px] text-[#8c877a]">
+                <p className="text-[11px] text-[#a8a295]">
                   {t.sliderSubtitle}
                 </p>
               </div>
@@ -357,7 +357,7 @@ export function InstructorsSection({ locale }: InstructorsSectionProps) {
                         {currentAssociate.highlightTag?.[locale]}
                       </span>
 
-                      <div className="flex items-center gap-1.5 text-xs text-[#8c877a] bg-[#0d0c0a] px-3 py-1 rounded-full border border-white/[0.06]">
+                      <div className="flex items-center gap-1.5 text-xs text-[#a8a295] bg-[#0d0c0a] px-3 py-1 rounded-full border border-white/[0.06]">
                         <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
                         <span className="font-mono text-[#f5f5f3] font-bold">{currentAssociate.licenceNo}</span>
                       </div>
@@ -382,7 +382,7 @@ export function InstructorsSection({ locale }: InstructorsSectionProps) {
                         <div className="text-xs text-[#d0c5ab] font-semibold mt-0.5">
                           {currentAssociate.role[locale]}
                         </div>
-                        <div className="text-xs font-mono text-[#8c877a] mt-1 font-bold">
+                        <div className="text-xs font-mono text-[#a8a295] mt-1 font-bold">
                           {dict.instructors.experience}: <span className="text-[#f5f5f3]">{currentAssociate.experience}</span>
                         </div>
                       </div>
@@ -394,7 +394,7 @@ export function InstructorsSection({ locale }: InstructorsSectionProps) {
 
                     {/* Specialties */}
                     <div className="mt-5 pt-4 border-t border-white/[0.06]">
-                      <span className="text-[10px] font-mono text-[#8c877a] uppercase tracking-wider block mb-2 font-bold">
+                      <span className="text-[10px] font-mono text-[#a8a295] uppercase tracking-wider block mb-2 font-bold">
                         {dict.instructors.specialty}
                       </span>
                       <div className="flex flex-wrap gap-1.5">
@@ -412,7 +412,7 @@ export function InstructorsSection({ locale }: InstructorsSectionProps) {
 
                   {/* Slide Action Bar */}
                   <div className="mt-6 pt-4 border-t border-white/[0.06] flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
-                    <div className="text-xs text-[#8c877a]">
+                    <div className="text-xs text-[#a8a295]">
                       <span>{dict.instructors.languages}: </span>
                       <span className="font-semibold text-[#c7c2b6]">{currentAssociate.languages.join(", ")}</span>
                     </div>
@@ -451,7 +451,7 @@ export function InstructorsSection({ locale }: InstructorsSectionProps) {
         </div>
 
         {/* Mandatory Accreditation Footer */}
-        <div className="mt-12 text-center text-xs text-[#8c877a] flex items-center justify-center gap-2">
+        <div className="mt-12 text-center text-xs text-[#a8a295] flex items-center justify-center gap-2">
           <Award className="w-4 h-4 text-[#fcc438] shrink-0" />
           <span>{t.footerNotice}</span>
         </div>

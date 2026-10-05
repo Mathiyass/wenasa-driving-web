@@ -242,7 +242,7 @@ export function PackagesSection({ locale }: PackagesSectionProps) {
                       </div>
 
                       <div>
-                        <div className="text-[10px] font-mono text-[#8c877a] uppercase tracking-wider mb-1">
+                        <div className="text-[10px] font-mono text-[#a8a295] uppercase tracking-wider mb-1">
                           [ 02 · FEATURED TIER ]
                         </div>
 
@@ -307,11 +307,11 @@ export function PackagesSection({ locale }: PackagesSectionProps) {
                   className="rounded-3xl marcus-card hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between p-6 sm:p-7 relative shadow-xl group"
                 >
                   <div>
-                    <div className="text-[10px] font-mono text-[#8c877a] uppercase tracking-wider mb-1">
+                    <div className="text-[10px] font-mono text-[#a8a295] uppercase tracking-wider mb-1">
                       [ 0{idx + 1} · COURSE ]
                     </div>
 
-                    <div className="text-xs font-black uppercase tracking-wider text-[#8c877a] group-hover:text-[#d0c5ab] transition-colors">
+                    <div className="text-xs font-black uppercase tracking-wider text-[#a8a295] group-hover:text-[#d0c5ab] transition-colors">
                       {pkg.category}
                     </div>
 
@@ -324,7 +324,7 @@ export function PackagesSection({ locale }: PackagesSectionProps) {
                       <div className="text-2xl sm:text-3xl font-black text-[#f5f5f3] font-mono tabular-nums tracking-tight">
                         {pkg.priceLkr}
                       </div>
-                      <div className="text-[11px] font-medium text-[#8c877a] mt-1">
+                      <div className="text-[11px] font-medium text-[#a8a295] mt-1">
                         {dict.modals.standardFee}
                       </div>
                     </div>
@@ -365,7 +365,7 @@ export function PackagesSection({ locale }: PackagesSectionProps) {
             })}
           </div>
 
-          <div className="mt-10 text-center text-xs text-[#8c877a] max-w-2xl mx-auto leading-relaxed">
+          <div className="mt-10 text-center text-xs text-[#a8a295] max-w-2xl mx-auto leading-relaxed">
             Note: Government DMT test fees and NTMI medical test fees are paid directly to government authorities or included via official receipt upon enrollment.
           </div>
         </div>

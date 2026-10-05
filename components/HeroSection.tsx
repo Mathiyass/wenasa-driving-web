@@ -186,7 +186,7 @@ export function HeroSection({ locale }: HeroSectionProps) {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-14 sm:mt-18 pt-6 sm:pt-8 border-t border-white/[0.08]"
         >
-          <div className="flex flex-wrap items-center justify-between gap-y-4 gap-x-6 text-xs font-bold uppercase tracking-widest text-[#8c877a]">
+          <div className="flex flex-wrap items-center justify-between gap-y-4 gap-x-6 text-xs font-bold uppercase tracking-widest text-[#a8a295]">
             {/* Left: Authority Points */}
             <div className="flex flex-wrap items-center gap-6 sm:gap-8">
               <div className="flex items-center gap-2 text-[#d0c5ab]">
@@ -206,12 +206,11 @@ export function HeroSection({ locale }: HeroSectionProps) {
             {/* Right: Marcus Lorenzet "Pixel by pixel / Scroll" indicator */}
             <a
               href="#services"
-              className="flex items-center gap-3 text-[#c7c2b6] hover:text-[#fcc438] transition-colors group cursor-pointer"
-              aria-label="Scroll down to explore courses"
+              className="flex items-center gap-3 text-[#c7c2b6] hover:text-[#fcc438] transition-colors group cursor-pointer focus-visible:outline-2 focus-visible:outline-[#fcc438] rounded-full"
             >
               <span className="text-[11px] tracking-widest uppercase">Explore Courses · Scroll</span>
               <span className="w-7 h-7 rounded-full border border-white/10 group-hover:border-[#fcc438] group-hover:bg-[#1a1916] flex items-center justify-center transition-all">
-                <ArrowDown className="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform" />
+                <ArrowDown className="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform" aria-hidden="true" />
               </span>
             </a>
           </div>

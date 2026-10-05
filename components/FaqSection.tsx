@@ -9,13 +9,13 @@ interface FaqSectionProps {
   locale: Locale;
 }
 
-interface FaqItem {
+export interface FaqItem {
   id: string;
   q: { en: string; si: string; ta: string };
   a: { en: string; si: string; ta: string };
 }
 
-const FAQ_ITEMS: FaqItem[] = [
+export const FAQ_ITEMS: FaqItem[] = [
   {
     id: "faq-1",
     q: {
@@ -157,7 +157,7 @@ export function FaqSection({ locale }: FaqSectionProps) {
                   aria-expanded={isOpen}
                 >
                   <div className="flex items-center gap-3.5">
-                    <span className="text-xs font-mono font-bold text-[#8c877a]">
+                    <span className="text-xs font-mono font-bold text-[#a8a295]">
                       0{idx + 1}
                     </span>
                     <span className="text-sm sm:text-base font-bold text-[#f5f5f3]">
@@ -165,7 +165,7 @@ export function FaqSection({ locale }: FaqSectionProps) {
                     </span>
                   </div>
                   <ChevronDown
-                    className={`w-4 h-4 text-[#8c877a] shrink-0 transition-transform duration-300 ${
+                    className={`w-4 h-4 text-[#a8a295] shrink-0 transition-transform duration-300 ${
                       isOpen ? "rotate-180 text-[#fcc438]" : ""
                     }`}
                   />
