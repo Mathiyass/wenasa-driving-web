@@ -13,7 +13,6 @@ import {
   ExternalLink, 
   Copy, 
   Check, 
-  Sparkles,
   Compass
 } from "lucide-react";
 
@@ -43,19 +42,20 @@ export function BranchSection({ locale }: BranchSectionProps) {
   const isSunday = new Date().getDay() === 0;
 
   return (
-    <section id="branch" className="py-20 sm:py-24 scroll-mt-20 relative overflow-hidden">
+    <section id="branch" className="py-20 sm:py-28 scroll-mt-20 bg-[#0d0c0a] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-950/60 border border-emerald-800/80 text-xs font-semibold uppercase tracking-wider text-emerald-300 mb-3.5 shadow-xs">
-            <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
-            <span>{dict.nav.branch}</span>
+        {/* Section Header with Marcus Lorenzet Editorial Style */}
+        <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-18">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#161513] border border-white/[0.08] text-xs font-semibold mb-4">
+            <span className="editorial-bracket text-[10px] sm:text-[11px] text-[#d0c5ab]">
+              [ 07 · HEADQUARTERS & TEST TRACK ]
+            </span>
           </div>
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white" style={{ textWrap: "balance" }}>
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-[#f5f5f3] uppercase leading-tight" style={{ textWrap: "balance" }}>
             {dict.branch.title}
           </h2>
-          <p className="mt-3.5 text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p className="mt-4 text-sm sm:text-base text-[#c7c2b6] leading-relaxed">
             {dict.branch.subtitle}
           </p>
         </div>
@@ -63,22 +63,22 @@ export function BranchSection({ locale }: BranchSectionProps) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
           {/* Branch Details Card (5 Cols) */}
-          <div className="lg:col-span-5 bg-slate-900 rounded-[2.25rem] border border-slate-800 p-6 sm:p-8 space-y-6 shadow-2xl flex flex-col justify-between">
+          <div className="lg:col-span-5 marcus-card rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xl flex flex-col justify-between">
             <div className="space-y-6">
               
               {/* Live Open / Closed Indicator */}
-              <div className="flex items-center justify-between p-3.5 rounded-2xl bg-slate-950/80 border border-slate-800">
+              <div className="flex items-center justify-between p-3.5 rounded-2xl bg-[#0d0c0a] border border-white/[0.06]">
                 <div className="flex items-center gap-2.5">
                   <span
-                    className={`w-3 h-3 rounded-full ${
-                      liveStatus.isOpen ? "bg-emerald-500 animate-pulse ring-4 ring-emerald-500/20" : "bg-amber-500"
+                    className={`w-2.5 h-2.5 rounded-full ${
+                      liveStatus.isOpen ? "bg-emerald-400 animate-pulse ring-4 ring-emerald-500/20" : "bg-amber-400"
                     }`}
                   />
-                  <span className="text-xs sm:text-sm font-bold text-white">
+                  <span className="text-xs sm:text-sm font-bold text-[#f5f5f3]">
                     {liveStatus.statusText[locale]}
                   </span>
                 </div>
-                <span className="text-xs text-slate-400 font-mono">
+                <span className="text-xs text-[#8c877a] font-mono">
                   {liveStatus.nextChangeText[locale]}
                 </span>
               </div>
@@ -86,92 +86,92 @@ export function BranchSection({ locale }: BranchSectionProps) {
               {/* Address with 1-Click Copy */}
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
-                  <div className="text-xs font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
-                    <MapPin className="w-3.5 h-3.5 text-emerald-400" />
+                  <div className="text-xs font-bold text-[#8c877a] uppercase tracking-wider flex items-center gap-1.5">
+                    <MapPin className="w-3.5 h-3.5 text-[#fcc438]" />
                     <span>{dict.branch.addressTitle}</span>
                   </div>
                   <button
                     type="button"
                     onClick={handleCopyAddress}
-                    className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-[11px] font-semibold border border-slate-700 transition-colors cursor-pointer active:scale-95"
+                    className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-[#1c1a17] hover:bg-[#25231f] text-[#d0c5ab] text-[11px] font-semibold border border-white/10 transition-colors cursor-pointer active:scale-95"
                   >
                     {copied ? (
                       <>
-                        <Check className="w-3 h-3 text-emerald-400" />
-                        <span className="text-emerald-400">Copied!</span>
+                        <Check className="w-3 h-3 text-[#fcc438]" />
+                        <span className="text-[#fcc438]">Copied!</span>
                       </>
                     ) : (
                       <>
-                        <Copy className="w-3 h-3 text-slate-400" />
+                        <Copy className="w-3 h-3 text-[#8c877a]" />
                         <span>Copy Address</span>
                       </>
                     )}
                   </button>
                 </div>
-                <p className="text-sm font-bold text-white leading-relaxed">
+                <p className="text-sm font-bold text-[#f5f5f3] leading-relaxed">
                   {siteConfig.contact.address[locale]}
                 </p>
-                <p className="text-xs text-slate-400">
-                  {locale === "si" ? "සළකුණ" : locale === "ta" ? "அடையாளம்" : "Landmark"}: <span className="text-slate-200">{siteConfig.contact.landmark}</span>
+                <p className="text-xs text-[#8c877a]">
+                  {locale === "si" ? "සළකුණ" : locale === "ta" ? "அடையாளம்" : "Landmark"}: <span className="text-[#c7c2b6]">{siteConfig.contact.landmark}</span>
                 </p>
               </div>
 
               {/* Practice Track Proximity Pill */}
-              <div className="p-3.5 rounded-2xl bg-emerald-950/30 border border-emerald-800/40 flex items-start gap-2.5 text-xs text-emerald-200">
-                <Compass className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+              <div className="p-3.5 rounded-2xl bg-[#0d0c0a] border border-white/[0.06] flex items-start gap-2.5 text-xs text-[#c7c2b6]">
+                <Compass className="w-4 h-4 text-[#fcc438] shrink-0 mt-0.5" />
                 <p className="leading-relaxed">
-                  <strong className="text-white">Kirindiwela Practice Track:</strong> Private closed testing grounds located just 400m along Hanwella-Urapola Rd.
+                  <strong className="text-[#f5f5f3]">Kirindiwela Practice Track:</strong> Private closed testing grounds located just 400m along Hanwella-Urapola Rd.
                 </p>
               </div>
 
               {/* Phone & Direct Desk */}
-              <div className="space-y-1.5 pt-4 border-t border-slate-800">
-                <div className="text-xs font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
-                  <Phone className="w-3.5 h-3.5 text-emerald-400" />
+              <div className="space-y-1.5 pt-4 border-t border-white/[0.06]">
+                <div className="text-xs font-bold text-[#8c877a] uppercase tracking-wider flex items-center gap-1.5">
+                  <Phone className="w-3.5 h-3.5 text-[#fcc438]" />
                   <span>{dict.branch.phoneTitle}</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <a
                     href={`tel:${siteConfig.contact.phoneE164}`}
-                    className="text-base sm:text-lg font-black text-white font-mono hover:text-emerald-400 transition-colors"
+                    className="text-base sm:text-lg font-black text-[#f5f5f3] font-mono hover:text-[#fcc438] transition-colors"
                   >
                     {siteConfig.contact.phoneDisplay}
                   </a>
-                  <span className="text-xs text-emerald-300 bg-emerald-950/70 px-2.5 py-0.5 rounded-full border border-emerald-800/80 font-bold shadow-xs">
+                  <span className="text-xs text-[#d0c5ab] bg-[#1c1a17] px-2.5 py-0.5 rounded-full border border-white/10 font-bold shadow-xs">
                     {locale === "si" ? "ක්ෂණික ඇමතුම්" : locale === "ta" ? "நேரடி அழைப்பு" : "Direct Hotline"}
                   </span>
                 </div>
               </div>
 
-              {/* Opening Hours Schedule with Today Highlight */}
-              <div className="space-y-2 pt-4 border-t border-slate-800">
-                <div className="text-xs font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
-                  <Clock className="w-3.5 h-3.5 text-emerald-400" />
+              {/* Opening Hours Schedule */}
+              <div className="space-y-2 pt-4 border-t border-white/[0.06]">
+                <div className="text-xs font-bold text-[#8c877a] uppercase tracking-wider flex items-center gap-1.5">
+                  <Clock className="w-3.5 h-3.5 text-[#fcc438]" />
                   <span>{dict.branch.hoursTitle}</span>
                 </div>
                 <div className="text-xs space-y-1.5">
                   <div className={`p-2 rounded-xl flex items-center justify-between transition-colors ${
-                    !isSunday ? "bg-emerald-950/40 border border-emerald-800/50 text-emerald-200 font-bold" : "text-slate-300"
+                    !isSunday ? "bg-[#1c1a17] border border-white/10 text-[#d0c5ab] font-bold" : "text-[#8c877a]"
                   }`}>
                     <span>{dict.branch.hoursWeekday}</span>
-                    {!isSunday && <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300">Today</span>}
+                    {!isSunday && <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded bg-[#fcc438]/20 text-[#fcc438]">Today</span>}
                   </div>
                   <div className={`p-2 rounded-xl flex items-center justify-between transition-colors ${
-                    isSunday ? "bg-emerald-950/40 border border-emerald-800/50 text-emerald-200 font-bold" : "text-slate-300"
+                    isSunday ? "bg-[#1c1a17] border border-white/10 text-[#d0c5ab] font-bold" : "text-[#8c877a]"
                   }`}>
                     <span>{dict.branch.hoursSunday}</span>
-                    {isSunday && <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300">Today</span>}
+                    {isSunday && <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded bg-[#fcc438]/20 text-[#fcc438]">Today</span>}
                   </div>
                 </div>
               </div>
 
               {/* Local Communities Served */}
-              <div className="p-3.5 rounded-2xl bg-slate-950/60 border border-slate-800">
-                <div className="text-xs font-bold text-slate-200 mb-1 flex items-center gap-1.5">
-                  <CheckCircle className="w-3.5 h-3.5 text-emerald-400" />
+              <div className="p-3.5 rounded-2xl bg-[#0d0c0a] border border-white/[0.06]">
+                <div className="text-xs font-bold text-[#d0c5ab] mb-1 flex items-center gap-1.5">
+                  <CheckCircle className="w-3.5 h-3.5 text-[#fcc438]" />
                   <span>{dict.branch.servingTitle}</span>
                 </div>
-                <p className="text-xs text-slate-400 leading-relaxed">
+                <p className="text-xs text-[#8c877a] leading-relaxed">
                   {dict.branch.servingAreas}
                 </p>
               </div>
@@ -179,26 +179,22 @@ export function BranchSection({ locale }: BranchSectionProps) {
             </div>
 
             {/* Navigation Action Button */}
-            <div className="pt-4 border-t border-slate-800">
+            <div className="pt-4 border-t border-white/[0.06]">
               <a
                 href={siteConfig.contact.googleMapsDirectionsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-nested w-full group py-3.5 px-5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-extrabold transition-all shadow-emerald-glow active:scale-95"
+                className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-5 rounded-full bg-[#d0c5ab] hover:bg-[#e4dbc6] text-[#11100d] text-xs font-black uppercase tracking-wider transition-all shadow-md active:scale-95"
               >
-                <span className="flex items-center gap-2">
-                  <Navigation className="w-4 h-4 text-emerald-200" />
-                  <span>{dict.branch.directionsBtn}</span>
-                </span>
-                <span className="btn-nested-icon bg-white/20 text-white group-hover:translate-x-0.5 transition-transform">
-                  <ExternalLink className="w-3.5 h-3.5" />
-                </span>
+                <Navigation className="w-4 h-4" />
+                <span>{dict.branch.directionsBtn}</span>
+                <ExternalLink className="w-3.5 h-3.5" />
               </a>
             </div>
           </div>
 
           {/* Interactive Google Map Embed (7 Cols) */}
-          <div className="lg:col-span-7 bg-slate-900 rounded-[2.25rem] border border-slate-800 overflow-hidden shadow-2xl flex flex-col min-h-[480px]">
+          <div className="lg:col-span-7 rounded-3xl border border-white/10 overflow-hidden shadow-2xl flex flex-col min-h-[480px] bg-[#141310]">
             <iframe
               title="Wenasa Driving School Kirindiwela Location Map"
               src={siteConfig.contact.googleMapsEmbedUrl}
@@ -208,7 +204,7 @@ export function BranchSection({ locale }: BranchSectionProps) {
               allowFullScreen={false}
               loading="lazy"
               referrerPolicy="no-referrer"
-              className="w-full h-full grayscale-[15%] contrast-[1.05]"
+              className="w-full h-full grayscale-[25%] contrast-[1.1] opacity-90 hover:opacity-100 transition-opacity"
             />
           </div>
 

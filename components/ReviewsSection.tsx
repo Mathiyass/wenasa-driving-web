@@ -14,7 +14,6 @@ import {
   Star, 
   ChevronLeft, 
   ChevronRight, 
-  Sparkles,
   Check
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
@@ -111,296 +110,239 @@ export function ReviewsSection({ locale }: ReviewsSectionProps) {
   };
 
   return (
-    <section id="reviews" className="py-20 sm:py-24 scroll-mt-20 relative overflow-hidden">
+    <section id="reviews" className="py-20 sm:py-28 scroll-mt-20 bg-[#0d0c0a] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-950/60 border border-emerald-800/80 text-xs font-semibold uppercase tracking-wider text-emerald-300 mb-3.5 shadow-xs">
-            <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
-            <span>{dict.nav.reviews}</span>
+        {/* Section Header with Marcus Lorenzet Editorial Style */}
+        <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-18">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#161513] border border-white/[0.08] text-xs font-semibold mb-4">
+            <span className="editorial-bracket text-[10px] sm:text-[11px] text-[#d0c5ab]">
+              [ 06 · TESTIMONIALS ]
+            </span>
           </div>
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white" style={{ textWrap: "balance" }}>
-            {dict.reviews.title}
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-[#f5f5f3] uppercase leading-tight" style={{ textWrap: "balance" }}>
+            RESULTS SPEAK LOUDER
           </h2>
-          <p className="mt-3.5 text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p className="mt-4 text-sm sm:text-base text-[#c7c2b6] leading-relaxed">
             {dict.reviews.subtitle}
           </p>
         </div>
 
         {/* Feature 1: Verified Student Testimonial Spotlight Card */}
-        <div className="max-w-4xl mx-auto mb-14">
-          <div className="rounded-[2.25rem] p-1.5 sm:p-2 bg-gradient-to-br from-emerald-500/35 via-slate-800/50 to-slate-900 border border-emerald-500/40 shadow-2xl relative overflow-hidden">
-            <div className="rounded-[calc(2.25rem-0.5rem)] bg-gradient-to-br from-slate-900 via-slate-900/98 to-emerald-950/25 p-6 sm:p-9 relative shadow-[inset_0_1px_1px_rgba(255,255,255,0.08)]">
+        <div className="max-w-4xl mx-auto mb-14 sm:mb-18">
+          <div className="rounded-3xl marcus-card p-6 sm:p-9 relative shadow-2xl overflow-hidden">
+            <div className="absolute -top-16 -right-16 w-64 h-64 bg-[#fcc438]/5 rounded-full blur-3xl pointer-events-none" />
+
+            {/* Top Trust Header Bar */}
+            <div className="flex flex-wrap items-center justify-between gap-4 mb-6 border-b border-white/[0.06] pb-4">
               
-              {/* Top Trust Header Bar */}
-              <div className="flex flex-wrap items-center justify-between gap-4 mb-6 border-b border-slate-800/80 pb-4">
-                
-                {/* Google Logo & Rating */}
-                <div className="flex flex-wrap items-center gap-3">
-                  <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-slate-950 border border-slate-800">
-                    {/* Google G Brand Icon */}
-                    <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24">
-                      <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                      <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                      <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
-                      <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
-                    </svg>
-                    <div className="flex items-center gap-1 text-amber-400">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                      ))}
-                    </div>
-                    <span className="text-xs font-mono font-bold text-white">5.0</span>
+              {/* Google Logo & Rating */}
+              <div className="flex flex-wrap items-center gap-3">
+                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-[#0d0c0a] border border-white/10">
+                  <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24">
+                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                  </svg>
+                  <div className="flex items-center gap-1 text-[#fcc438]">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-3.5 h-3.5 fill-[#fcc438] text-[#fcc438]" />
+                    ))}
                   </div>
-
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-[11px] font-bold">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    <span>Verified DMT Licence Holder</span>
-                  </span>
+                  <span className="text-xs font-mono font-bold text-[#f5f5f3]">5.0</span>
                 </div>
 
-                {/* Slider Controls */}
-                <div className="flex items-center gap-2">
-                  <button
-                    type="button"
-                    onClick={handlePrevReview}
-                    className="w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 flex items-center justify-center transition-all cursor-pointer active:scale-95"
-                    aria-label="Previous review"
-                  >
-                    <ChevronLeft className="w-4 h-4" />
-                  </button>
-                  <span className="text-xs font-mono font-bold text-emerald-400 px-1">
-                    0{activeReviewIdx + 1} / 0{totalReviews}
-                  </span>
-                  <button
-                    type="button"
-                    onClick={handleNextReview}
-                    className="w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 flex items-center justify-center transition-all cursor-pointer active:scale-95"
-                    aria-label="Next review"
-                  >
-                    <ChevronRight className="w-4 h-4" />
-                  </button>
-                </div>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1c1a17] border border-white/10 text-[#d0c5ab] text-[11px] font-bold">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#fcc438] animate-pulse" />
+                  <span>Verified DMT Licence Holder</span>
+                </span>
               </div>
 
-              {/* Animated Quote Body */}
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={currentReview.id}
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -12 }}
-                  transition={{ duration: 0.35, ease: [0.32, 0.72, 0, 1] }}
-                  className="space-y-6"
+              {/* Slider Controls */}
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={handlePrevReview}
+                  className="w-8 h-8 rounded-full bg-[#1c1a17] hover:bg-[#25231f] text-[#c7c2b6] hover:text-white border border-white/10 flex items-center justify-center transition-all cursor-pointer active:scale-95"
+                  aria-label="Previous review"
                 >
-                  {/* Clean, Non-colliding Review Text */}
-                  <p className="text-base sm:text-lg text-slate-100 font-medium leading-relaxed">
-                    &ldquo;{currentReview.text[locale]}&rdquo;
-                  </p>
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+                <span className="text-xs font-mono font-bold text-[#fcc438] px-1">
+                  0{activeReviewIdx + 1} / 0{totalReviews}
+                </span>
+                <button
+                  type="button"
+                  onClick={handleNextReview}
+                  className="w-8 h-8 rounded-full bg-[#1c1a17] hover:bg-[#25231f] text-[#c7c2b6] hover:text-white border border-white/10 flex items-center justify-center transition-all cursor-pointer active:scale-95"
+                  aria-label="Next review"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
 
-                  {/* Student Profile & Result Attribution */}
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-5 border-t border-slate-800/80">
-                    <div className="flex items-center gap-3.5">
-                      {/* Avatar Circle with Student Initials */}
-                      <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-500/20 via-slate-800 to-teal-500/20 border-2 border-emerald-500/60 text-emerald-300 font-black text-sm flex items-center justify-center shadow-lg shrink-0">
-                        {currentReview.initials}
-                      </div>
+            {/* Animated Quote Body */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentReview.id}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.35, ease: [0.32, 0.72, 0, 1] }}
+                className="space-y-6"
+              >
+                <p className="text-base sm:text-xl text-[#f5f5f3] font-medium leading-relaxed italic">
+                  &ldquo;{currentReview.text[locale]}&rdquo;
+                </p>
 
-                      <div>
-                        <div className="flex items-center gap-2">
-                          <h4 className="text-base sm:text-lg font-black text-white">
-                            {currentReview.name}
-                          </h4>
-                          <span className="text-[11px] font-mono text-slate-400">
-                            ({currentReview.location[locale]})
-                          </span>
-                        </div>
-
-                        <div className="flex items-center gap-1.5 text-xs text-emerald-400 font-semibold mt-0.5">
-                          <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                          <span>{currentReview.licenceClass[locale]}</span>
-                        </div>
-                      </div>
+                {/* Student Profile & Result Attribution */}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-5 border-t border-white/[0.06]">
+                  <div className="flex items-center gap-3.5">
+                    <div className="w-12 h-12 rounded-2xl bg-[#1c1a17] border border-white/10 text-[#d0c5ab] font-black text-sm flex items-center justify-center shadow-lg shrink-0">
+                      {currentReview.initials}
                     </div>
 
-                    {/* Result Tag & Date */}
-                    <div className="flex flex-col sm:items-end gap-1">
-                      <span className="px-3 py-1 rounded-xl bg-slate-950 border border-slate-800 text-xs font-semibold text-slate-200">
-                        {currentReview.outcomeTag[locale]}
-                      </span>
-                      <span className="text-[11px] font-mono text-slate-400">
-                        {currentReview.date[locale]}
-                      </span>
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <h4 className="text-base sm:text-lg font-black text-[#f5f5f3]">
+                          {currentReview.name}
+                        </h4>
+                        <span className="text-[11px] font-mono text-[#8c877a]">
+                          ({currentReview.location[locale]})
+                        </span>
+                      </div>
+
+                      <div className="flex items-center gap-1.5 text-xs text-[#d0c5ab] font-semibold mt-0.5">
+                        <Check className="w-3.5 h-3.5 text-[#fcc438] shrink-0" />
+                        <span>{currentReview.licenceClass[locale]}</span>
+                      </div>
                     </div>
                   </div>
-                </motion.div>
-              </AnimatePresence>
 
-            </div>
-          </div>
+                  {/* Result Tag & Date */}
+                  <div className="flex flex-col sm:items-end gap-1">
+                    <span className="px-3 py-1 rounded-xl bg-[#0d0c0a] border border-white/[0.06] text-xs font-semibold text-[#c7c2b6]">
+                      {currentReview.outcomeTag[locale]}
+                    </span>
+                    <span className="text-[11px] font-mono text-[#8c877a]">
+                      {currentReview.date[locale]}
+                    </span>
+                  </div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
 
-          {/* Pagination Dots */}
-          <div className="flex items-center justify-center gap-2 mt-4">
-            {TESTIMONIALS.map((_, idx) => (
-              <button
-                key={idx}
-                type="button"
-                onClick={() => setActiveReviewIdx(idx)}
-                className={`h-2 rounded-full transition-all cursor-pointer ${
-                  idx === activeReviewIdx ? "w-8 bg-emerald-400" : "w-2 bg-slate-700 hover:bg-slate-600"
-                }`}
-                aria-label={`Go to review ${idx + 1}`}
-              />
-            ))}
           </div>
         </div>
 
-        {/* Transparency Banner: Strict compliance with no fake reviews */}
-        <div className="max-w-4xl mx-auto mb-10 p-5 sm:p-6 rounded-3xl bg-slate-900/90 border border-slate-800 shadow-xl flex items-start gap-4">
-          <div className="p-3 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 shrink-0 shadow-xs">
-            <ShieldCheck className="w-5 h-5" />
-          </div>
-          <div>
-            <h3 className="text-sm font-bold text-white">
-              {dict.reviews.commitmentTitle}
-            </h3>
-            <p className="text-xs text-slate-300 mt-1 leading-relaxed">
-              {dict.reviews.transparencyNotice}
-            </p>
-          </div>
-        </div>
-
-        {/* Feature 2: Dual Desk (Google Review QR + Student Feedback Form) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        {/* Feature 2: Authentic Google Reviews & Direct Student Feedback Collection Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
           
-          {/* Card 1: Review Collection via QR Code & Google Button */}
-          <div className="bg-slate-900 rounded-3xl border border-slate-800 p-6 sm:p-8 flex flex-col justify-between text-center shadow-xl hover:border-amber-500/40 transition-colors">
+          {/* Card A: Official Google Profile & QR Review Card */}
+          <div className="rounded-3xl marcus-card p-6 sm:p-7 flex flex-col justify-between shadow-xl">
             <div>
-              <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 mx-auto flex items-center justify-center mb-4 shadow-xs">
-                <QrCode className="w-6 h-6" />
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-[#d0c5ab]">
+                  <QrCode className="w-4 h-4 text-[#fcc438]" />
+                  <span>Google Maps Review</span>
+                </div>
+                <div className="flex items-center gap-1 text-[#fcc438]">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-3.5 h-3.5 fill-[#fcc438] text-[#fcc438]" />
+                  ))}
+                </div>
               </div>
-              <h3 className="text-base sm:text-lg font-bold text-white">
+
+              <h3 className="text-lg font-black text-[#f5f5f3]">
                 {dict.reviews.leaveReviewTitle}
               </h3>
-              <p className="text-xs text-slate-300 mt-1.5 leading-relaxed">
+              <p className="mt-1.5 text-xs sm:text-sm text-[#c7c2b6] leading-relaxed">
                 {dict.reviews.leaveReviewDesc}
               </p>
 
-              {/* Vector Simulated QR Code */}
-              <div className="my-6 inline-block p-4 bg-white rounded-2xl shadow-sm border border-slate-700">
-                <svg viewBox="0 0 100 100" className="w-32 h-32 mx-auto">
-                  <rect width="100" height="100" fill="#ffffff" />
-                  <rect x="10" y="10" width="28" height="28" fill="#0f172a" rx="2" />
-                  <rect x="14" y="14" width="20" height="20" fill="#ffffff" rx="1" />
-                  <rect x="18" y="18" width="12" height="12" fill="#059669" rx="1" />
-
-                  <rect x="62" y="10" width="28" height="28" fill="#0f172a" rx="2" />
-                  <rect x="66" y="14" width="20" height="20" fill="#ffffff" rx="1" />
-                  <rect x="70" y="18" width="12" height="12" fill="#059669" rx="1" />
-
-                  <rect x="10" y="62" width="28" height="28" fill="#0f172a" rx="2" />
-                  <rect x="14" y="66" width="20" height="20" fill="#ffffff" rx="1" />
-                  <rect x="18" y="70" width="12" height="12" fill="#059669" rx="1" />
-
-                  <rect x="44" y="12" width="6" height="6" fill="#0f172a" />
-                  <rect x="52" y="12" width="6" height="6" fill="#0f172a" />
-                  <rect x="44" y="24" width="6" height="6" fill="#0f172a" />
-                  <rect x="52" y="30" width="6" height="6" fill="#0f172a" />
-                  <rect x="20" y="44" width="6" height="6" fill="#0f172a" />
-                  <rect x="32" y="44" width="6" height="6" fill="#0f172a" />
-                  <rect x="44" y="44" width="12" height="12" fill="#059669" rx="2" />
-                  <rect x="62" y="44" width="6" height="6" fill="#0f172a" />
-                  <rect x="74" y="44" width="6" height="6" fill="#0f172a" />
-                  <rect x="44" y="62" width="6" height="6" fill="#0f172a" />
-                  <rect x="52" y="70" width="6" height="6" fill="#0f172a" />
-                  <rect x="62" y="62" width="6" height="6" fill="#0f172a" />
-                  <rect x="74" y="70" width="6" height="6" fill="#0f172a" />
-                  <rect x="68" y="80" width="14" height="6" fill="#0f172a" />
-                </svg>
-                <div className="text-[10px] text-slate-500 mt-1 font-mono font-medium">
-                  {dict.reviews.qrCodeLabel}
+              <div className="mt-5 p-3.5 rounded-2xl bg-[#0d0c0a] border border-white/[0.06] flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-[#1c1a17] border border-white/10 flex items-center justify-center text-[#d0c5ab] shrink-0 font-bold text-xs">
+                  5.0 ★
+                </div>
+                <div className="text-xs">
+                  <div className="font-bold text-[#f5f5f3]">Wenasa Driving School Kirindiwela</div>
+                  <div className="text-[11px] text-[#8c877a]">100% Genuine Student Reviews</div>
                 </div>
               </div>
             </div>
 
-            <a
-              href={siteConfig.contact.googleReviewUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 py-3 px-5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-xs transition-all active:scale-95 shadow-lg cursor-pointer"
-            >
-              <span>{dict.reviews.googleReviewBtn}</span>
-              <ExternalLink className="w-3.5 h-3.5" />
-            </a>
+            <div className="mt-6 pt-4 border-t border-white/[0.06]">
+              <a
+                href={siteConfig.contact.googleReviewUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-[#1c1a17] hover:bg-[#25231f] text-[#d0c5ab] hover:text-white font-black text-xs uppercase tracking-wider transition-all border border-white/10 active:scale-95 shadow-sm"
+              >
+                <span>{dict.reviews.googleReviewBtn}</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            </div>
           </div>
 
-          {/* Card 2: Internal Student Feedback Form */}
-          <div className="bg-slate-900 rounded-3xl border border-slate-800 p-6 sm:p-8 flex flex-col justify-between shadow-xl hover:border-emerald-500/40 transition-colors">
+          {/* Card B: In-House Direct Feedback Collection Form */}
+          <div className="rounded-3xl marcus-card p-6 sm:p-7 flex flex-col justify-between shadow-xl">
             <div>
-              <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mb-4 shadow-xs">
-                <MessageSquareHeart className="w-6 h-6" />
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-[#d0c5ab]">
+                  <MessageSquareHeart className="w-4 h-4 text-[#fcc438]" />
+                  <span>Direct Feedback</span>
+                </div>
+                <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-[#1c1a17] text-[#8c877a]">
+                  Alumni Form
+                </span>
               </div>
-              <h3 className="text-base sm:text-lg font-bold text-white">
+
+              <h3 className="text-lg font-black text-[#f5f5f3]">
                 {dict.reviews.deskTitle}
               </h3>
-              <p className="text-xs text-slate-300 mt-1.5 leading-relaxed">
+              <p className="mt-1.5 text-xs sm:text-sm text-[#c7c2b6] leading-relaxed">
                 {dict.reviews.deskSubtitle}
               </p>
 
-              {!feedbackSent ? (
-                <form onSubmit={handleSubmitFeedback} className="mt-6 space-y-3.5">
+              {feedbackSent ? (
+                <div className="mt-6 p-4 rounded-2xl bg-[#1c1a17] border border-white/10 text-center animate-in fade-in duration-300">
+                  <CheckCircle2 className="w-8 h-8 text-[#fcc438] mx-auto mb-2" />
+                  <div className="text-sm font-bold text-[#f5f5f3]">{dict.reviews.thankYou}</div>
+                  <div className="text-xs text-[#c7c2b6] mt-1">{dict.reviews.thankYouDesc}</div>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmitFeedback} className="mt-4 space-y-3">
                   <div>
-                    <label className="text-[11px] font-semibold text-slate-300 block mb-1">
-                      {dict.reviews.nameLabel}
-                    </label>
                     <input
                       type="text"
                       required
                       placeholder={dict.reviews.namePlaceholder}
                       value={studentName}
                       onChange={(e) => setStudentName(e.target.value)}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-700 bg-slate-950 text-white text-xs placeholder:text-slate-500 focus:outline-none focus:border-emerald-500"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-white/10 bg-[#0d0c0a] text-xs text-[#f5f5f3] placeholder-[#8c877a] focus:outline-[#fcc438]"
                     />
                   </div>
-
                   <div>
-                    <label className="text-[11px] font-semibold text-slate-300 block mb-1">
-                      {dict.reviews.feedbackLabel}
-                    </label>
                     <textarea
                       required
                       rows={3}
                       placeholder={dict.reviews.feedbackPlaceholder}
                       value={feedbackMsg}
                       onChange={(e) => setFeedbackMsg(e.target.value)}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-700 bg-slate-950 text-white text-xs placeholder:text-slate-500 focus:outline-none focus:border-emerald-500 resize-none"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-white/10 bg-[#0d0c0a] text-xs text-[#f5f5f3] placeholder-[#8c877a] focus:outline-[#fcc438] resize-none"
                     />
                   </div>
-
                   <button
                     type="submit"
-                    className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs transition-all active:scale-95 shadow-emerald-glow cursor-pointer"
+                    className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-[#d0c5ab] hover:bg-[#e4dbc6] text-[#11100d] font-black text-xs uppercase tracking-wider transition-all active:scale-95 cursor-pointer shadow-md"
                   >
-                    <Send className="w-3.5 h-3.5" />
                     <span>{dict.reviews.submitBtn}</span>
+                    <Send className="w-3.5 h-3.5" />
                   </button>
                 </form>
-              ) : (
-                <div className="my-8 p-6 text-center space-y-2 rounded-2xl bg-emerald-950/40 border border-emerald-800/80">
-                  <CheckCircle2 className="w-8 h-8 text-emerald-400 mx-auto" />
-                  <div className="text-sm font-bold text-white">
-                    {dict.reviews.thankYou}, {studentName}!
-                  </div>
-                  <p className="text-xs text-slate-300">
-                    {dict.reviews.thankYouDesc}
-                  </p>
-                </div>
               )}
-            </div>
-
-            <div className="mt-6 pt-4 border-t border-slate-800 text-[11px] text-slate-400 text-center font-mono">
-              Wenasa Student Relations Desk · Kirindiwela
             </div>
           </div>
 

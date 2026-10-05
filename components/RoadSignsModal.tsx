@@ -481,18 +481,18 @@ export function RoadSignsModal({ locale, onClose }: RoadSignsModalProps) {
   });
 
   return (
-    <div className="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-5 animate-in fade-in duration-200">
-      <div className="double-bezel-outer max-w-4xl w-full max-h-[92vh] flex flex-col shadow-2xl">
-        <div className="double-bezel-inner bg-slate-950 text-white flex flex-col overflow-hidden max-h-[90vh] border-slate-800">
+    <div className="fixed inset-0 z-50 bg-[#0d0c0a]/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-5 animate-in fade-in duration-200">
+      <div className="max-w-4xl w-full max-h-[92vh] flex flex-col shadow-2xl">
+        <div className="bg-[#141310] text-white flex flex-col overflow-hidden max-h-[90vh] rounded-3xl border border-white/10">
           
           {/* Modal Header */}
-          <div className="p-4 sm:p-6 bg-slate-900/90 text-white flex items-center justify-between border-b border-slate-800">
+          <div className="p-5 sm:p-6 bg-[#0d0c0a] text-white flex items-center justify-between border-b border-white/10">
             <div>
-              <div className="flex items-center gap-1.5 text-xs text-amber-400 font-black uppercase tracking-widest">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>{labels.badge}</span>
+              <div className="flex items-center gap-2 text-[11px] font-mono text-[#d0c5ab] font-bold uppercase tracking-wider">
+                <span className="text-[#fcc438]">■</span>
+                <span>[ {labels.badge} ]</span>
               </div>
-              <h3 className="text-lg sm:text-2xl font-black mt-1 text-white tracking-tight">
+              <h3 className="text-lg sm:text-2xl font-black mt-1 text-[#f5f2eb] tracking-tight">
                 {labels.title}
               </h3>
             </div>
@@ -502,10 +502,10 @@ export function RoadSignsModal({ locale, onClose }: RoadSignsModalProps) {
               <button
                 type="button"
                 onClick={() => setStudyMode(!studyMode)}
-                className={`hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
+                className={`hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer ${
                   studyMode
-                    ? "bg-amber-400 text-slate-950 shadow-xs"
-                    : "bg-slate-800 text-slate-300 hover:text-white border border-slate-700"
+                    ? "bg-[#fcc438] text-[#0d0c0a] shadow-xs"
+                    : "bg-[#1c1a17] text-[#a39e93] hover:text-white border border-white/10"
                 }`}
                 title="Toggle flashcard study mode"
               >
@@ -515,7 +515,7 @@ export function RoadSignsModal({ locale, onClose }: RoadSignsModalProps) {
 
               <button
                 onClick={onClose}
-                className="p-2.5 rounded-full text-slate-400 hover:text-white hover:bg-slate-800 transition-colors cursor-pointer active:scale-95"
+                className="p-2.5 rounded-full text-[#78756c] hover:text-white hover:bg-white/5 transition-colors cursor-pointer active:scale-95"
                 aria-label="Close modal"
               >
                 <X className="w-5 h-5" />
@@ -524,28 +524,28 @@ export function RoadSignsModal({ locale, onClose }: RoadSignsModalProps) {
           </div>
 
           {/* Filter Controls & Search */}
-          <div className="p-4 sm:p-5 bg-slate-900/60 border-b border-slate-800/80 space-y-3">
+          <div className="p-4 sm:p-5 bg-[#0d0c0a]/60 border-b border-white/10 space-y-3">
             {/* Segmented Category Buttons with Counts */}
             <div className="flex flex-wrap items-center gap-2">
               <button
                 onClick={() => setSelectedCategory("ALL")}
-                className={`px-3.5 py-1.5 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-1.5 ${
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer flex items-center gap-1.5 ${
                   selectedCategory === "ALL"
-                    ? "bg-white text-slate-950 shadow-sm"
-                    : "bg-slate-900 border border-slate-800 text-slate-300 hover:border-slate-700"
+                    ? "bg-[#d0c5ab] text-[#0d0c0a] shadow-sm"
+                    : "bg-[#141310] border border-white/10 text-[#a39e93] hover:text-white hover:border-white/20"
                 }`}
               >
                 <span>{labels.all}</span>
-                <span className="text-[10px] px-1.5 py-0.2 rounded-md bg-slate-800 text-slate-300 font-mono">
+                <span className="text-[10px] px-1.5 py-0.2 rounded-md bg-white/10 text-[#f5f2eb] font-mono">
                   {counts.all}
                 </span>
               </button>
               <button
                 onClick={() => setSelectedCategory("REGULATORY")}
-                className={`px-3.5 py-1.5 rounded-xl text-xs font-black flex items-center gap-1.5 transition-all cursor-pointer ${
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-mono font-bold uppercase tracking-wider flex items-center gap-1.5 transition-all cursor-pointer ${
                   selectedCategory === "REGULATORY"
                     ? "bg-red-500 text-white shadow-sm"
-                    : "bg-slate-900 border border-slate-800 text-slate-300 hover:border-slate-700"
+                    : "bg-[#141310] border border-white/10 text-[#a39e93] hover:text-white hover:border-white/20"
                 }`}
               >
                 <ShieldAlert className="w-3.5 h-3.5" />
@@ -556,10 +556,10 @@ export function RoadSignsModal({ locale, onClose }: RoadSignsModalProps) {
               </button>
               <button
                 onClick={() => setSelectedCategory("WARNING")}
-                className={`px-3.5 py-1.5 rounded-xl text-xs font-black flex items-center gap-1.5 transition-all cursor-pointer ${
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-mono font-bold uppercase tracking-wider flex items-center gap-1.5 transition-all cursor-pointer ${
                   selectedCategory === "WARNING"
-                    ? "bg-amber-500 text-slate-950 shadow-sm"
-                    : "bg-slate-900 border border-slate-800 text-slate-300 hover:border-slate-700"
+                    ? "bg-[#fcc438] text-[#0d0c0a] shadow-sm"
+                    : "bg-[#141310] border border-white/10 text-[#a39e93] hover:text-white hover:border-white/20"
                 }`}
               >
                 <AlertTriangle className="w-3.5 h-3.5" />
@@ -570,10 +570,10 @@ export function RoadSignsModal({ locale, onClose }: RoadSignsModalProps) {
               </button>
               <button
                 onClick={() => setSelectedCategory("INFORMATION")}
-                className={`px-3.5 py-1.5 rounded-xl text-xs font-black flex items-center gap-1.5 transition-all cursor-pointer ${
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-mono font-bold uppercase tracking-wider flex items-center gap-1.5 transition-all cursor-pointer ${
                   selectedCategory === "INFORMATION"
                     ? "bg-sky-500 text-white shadow-sm"
-                    : "bg-slate-900 border border-slate-800 text-slate-300 hover:border-slate-700"
+                    : "bg-[#141310] border border-white/10 text-[#a39e93] hover:text-white hover:border-white/20"
                 }`}
               >
                 <Info className="w-3.5 h-3.5" />
@@ -586,13 +586,13 @@ export function RoadSignsModal({ locale, onClose }: RoadSignsModalProps) {
 
             {/* Search bar */}
             <div className="relative">
-              <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
+              <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-[#78756c]" />
               <input
                 type="text"
                 placeholder={labels.searchPlaceholder}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 text-xs font-medium rounded-xl border border-slate-800 bg-slate-950/90 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all"
+                className="w-full pl-10 pr-4 py-2.5 text-xs font-medium rounded-xl border border-white/10 bg-[#0d0c0a] text-[#f5f2eb] placeholder-[#78756c] focus:outline-none focus:border-[#fcc438] focus:ring-1 focus:ring-[#fcc438]/30 transition-all"
               />
             </div>
           </div>
@@ -608,40 +608,40 @@ export function RoadSignsModal({ locale, onClose }: RoadSignsModalProps) {
                     <div
                       key={sign.id}
                       onClick={() => studyMode && toggleReveal(sign.id)}
-                      className={`p-4 sm:p-5 rounded-2xl border bg-slate-900/60 flex items-start gap-4 transition-all duration-200 ${
-                        studyMode ? "cursor-pointer hover:border-amber-500/60" : "hover:border-slate-700"
-                      } border-slate-800/80 shadow-xs`}
+                      className={`p-4 sm:p-5 rounded-2xl border bg-[#0d0c0a] flex items-start gap-4 transition-all duration-200 ${
+                        studyMode ? "cursor-pointer hover:border-[#fcc438]/60" : "hover:border-white/20"
+                      } border-white/10 shadow-xs`}
                     >
                       <RenderSignGraphic type={sign.signType} />
                       <div className="flex-1">
                         <div className="flex items-center justify-between">
-                          <span className={`text-[10px] font-black uppercase tracking-wider ${
+                          <span className={`text-[10px] font-mono font-bold uppercase tracking-wider ${
                             sign.category === "REGULATORY"
                               ? "text-red-400"
                               : sign.category === "WARNING"
-                              ? "text-amber-400"
+                              ? "text-[#fcc438]"
                               : "text-sky-400"
                           }`}>
                             {sign.category}
                           </span>
                           {studyMode && (
-                            <span className="text-[10px] text-amber-400 font-bold flex items-center gap-1">
+                            <span className="text-[10px] text-[#fcc438] font-bold flex items-center gap-1">
                               {isRevealed ? <Eye className="w-3 h-3" /> : <EyeOff className="w-3 h-3" />}
                             </span>
                           )}
                         </div>
 
-                        <h4 className="text-sm font-black text-white mt-1">
+                        <h4 className="text-sm font-black text-[#f5f2eb] mt-1">
                           {sign.name[locale]}
                         </h4>
 
                         {isRevealed ? (
-                          <p className="mt-1.5 text-xs text-slate-300 leading-relaxed animate-in fade-in duration-200">
+                          <p className="mt-1.5 text-xs text-[#a39e93] leading-relaxed animate-in fade-in duration-200">
                             {sign.meaning[locale]}
                           </p>
                         ) : (
-                          <div className="mt-2 py-2 px-3 rounded-lg bg-slate-950/80 border border-slate-800 text-[11px] text-amber-300/80 font-semibold flex items-center gap-1.5">
-                            <BookOpen className="w-3 h-3" />
+                          <div className="mt-2 py-2 px-3 rounded-lg bg-[#141310] border border-white/10 text-[11px] text-[#d0c5ab] font-mono flex items-center gap-1.5">
+                            <BookOpen className="w-3 h-3 text-[#fcc438]" />
                             <span>{labels.revealHint}</span>
                           </div>
                         )}
@@ -651,15 +651,15 @@ export function RoadSignsModal({ locale, onClose }: RoadSignsModalProps) {
                 })}
               </div>
             ) : (
-              <div className="text-center py-16 text-slate-400 text-xs font-semibold">
+              <div className="text-center py-16 text-[#78756c] text-xs font-semibold">
                 {labels.noResults}
               </div>
             )}
           </div>
 
           {/* Modal Footer Tip */}
-          <div className="p-3.5 bg-slate-900 border-t border-slate-800 text-center text-[11px] text-slate-400 flex items-center justify-center gap-2">
-            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+          <div className="p-3.5 bg-[#0d0c0a] border-t border-white/10 text-center text-[11px] font-mono text-[#78756c] flex items-center justify-center gap-2">
+            <CheckCircle2 className="w-3.5 h-3.5 text-[#fcc438]" />
             <span>Sri Lanka Department of Motor Traffic (DMT) Official Theory Test Curriculum</span>
           </div>
 

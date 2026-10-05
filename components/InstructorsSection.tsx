@@ -11,8 +11,6 @@ import {
   ChevronRight, 
   Sparkles, 
   MessageCircle, 
-  CheckCircle2, 
-  GraduationCap,
   Quote
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
@@ -177,19 +175,20 @@ export function InstructorsSection({ locale }: InstructorsSectionProps) {
   };
 
   return (
-    <section id="instructors" className="py-20 sm:py-24 scroll-mt-20 relative overflow-hidden">
+    <section id="instructors" className="py-20 sm:py-28 scroll-mt-20 bg-[#0d0c0a] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-950/60 border border-emerald-800/80 text-xs font-semibold uppercase tracking-wider text-emerald-300 mb-3 shadow-xs">
-            <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
-            <span>{t.badge}</span>
+        {/* Section Header with Marcus Lorenzet Editorial Style */}
+        <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-18">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#161513] border border-white/[0.08] text-xs font-semibold mb-4">
+            <span className="editorial-bracket text-[10px] sm:text-[11px] text-[#d0c5ab]">
+              [ 05 · CERTIFIED FACULTY ]
+            </span>
           </div>
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white" style={{ textWrap: "balance" }}>
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-[#f5f5f3] uppercase leading-tight" style={{ textWrap: "balance" }}>
             {dict.instructors.title}
           </h2>
-          <p className="mt-3.5 text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p className="mt-4 text-sm sm:text-base text-[#c7c2b6] leading-relaxed">
             {dict.instructors.subtitle}
           </p>
         </div>
@@ -197,126 +196,119 @@ export function InstructorsSection({ locale }: InstructorsSectionProps) {
         {/* Master Asymmetric Stage: Highlighted Chief + Associate Slider */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
-          {/* ======================================================== */}
           {/* HIGHLIGHTED HERO CARD: Chief Instructor & Founder (7 Col) */}
-          {/* ======================================================== */}
-          <div className="lg:col-span-7 rounded-[2.25rem] p-1.5 sm:p-2 bg-gradient-to-br from-emerald-500/35 via-slate-800/50 to-slate-900 border-2 border-emerald-500/60 shadow-2xl relative overflow-hidden group">
-            <div className="rounded-[calc(2.25rem-0.5rem)] bg-gradient-to-br from-slate-900 via-slate-900/95 to-emerald-950/30 p-6 sm:p-8 h-full flex flex-col justify-between overflow-hidden relative shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]">
-              {/* Atmospheric emerald halo */}
-              <div className="absolute -top-16 -right-16 w-64 h-64 bg-emerald-500/20 rounded-full blur-3xl pointer-events-none" />
+          <div className="lg:col-span-7 rounded-3xl marcus-card p-6 sm:p-8 flex flex-col justify-between overflow-hidden relative group">
+            <div className="absolute -top-16 -right-16 w-64 h-64 bg-[#fcc438]/5 rounded-full blur-3xl pointer-events-none" />
 
-              <div>
-                {/* Header Badge Row */}
-                <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
-                  <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/40 text-emerald-300 text-xs font-black uppercase tracking-wider shadow-xs">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                    <span>{CHIEF_INSTRUCTOR.highlightTag?.[locale] || t.chiefTag}</span>
-                  </span>
-                  
-                  <div className="flex items-center gap-1.5 text-xs text-slate-400 bg-slate-950/70 border border-slate-800 px-3 py-1 rounded-full">
-                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-                    <span className="font-mono font-bold text-white">{CHIEF_INSTRUCTOR.licenceNo}</span>
-                  </div>
-                </div>
-
-                {/* Profile Identity */}
-                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-6 mb-6">
-                  <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden bg-slate-950 border-2 border-emerald-500/80 shadow-xl shrink-0">
-                    <Image
-                      src={CHIEF_INSTRUCTOR.imageSrc}
-                      alt={CHIEF_INSTRUCTOR.name}
-                      fill
-                      sizes="112px"
-                      priority
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-
-                  <div>
-                    <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
-                      {CHIEF_INSTRUCTOR.name}
-                    </h3>
-                    <div className="text-sm sm:text-base text-emerald-400 font-bold mt-1">
-                      {CHIEF_INSTRUCTOR.role[locale]}
-                    </div>
-                    
-                    {/* Trust Metrics Chips */}
-                    <div className="flex flex-wrap gap-2 mt-3 text-xs font-mono">
-                      <span className="px-2.5 py-1 rounded-lg bg-slate-950 border border-slate-800 text-slate-300 font-bold">
-                        {CHIEF_INSTRUCTOR.experience}
-                      </span>
-                      <span className="px-2.5 py-1 rounded-lg bg-emerald-950/60 border border-emerald-800/60 text-emerald-300 font-bold">
-                        {t.chiefStudents}
-                      </span>
-                      <span className="px-2.5 py-1 rounded-lg bg-teal-950/60 border border-teal-800/60 text-teal-300 font-bold">
-                        {t.chiefPassRate}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                <p className="text-xs sm:text-sm text-slate-200 leading-relaxed max-w-2xl font-normal">
-                  {CHIEF_INSTRUCTOR.bio[locale]}
-                </p>
-
-                {/* Founder Quote Card */}
-                <div className="mt-5 p-4 rounded-2xl bg-slate-950/80 border border-emerald-900/40 relative">
-                  <Quote className="w-5 h-5 text-emerald-400/40 absolute top-3.5 right-3.5" />
-                  <p className="text-xs text-slate-300 italic leading-relaxed pr-6">
-                    &ldquo;{t.chiefQuote}&rdquo;
-                  </p>
-                </div>
-
-                {/* Specialties */}
-                <div className="mt-5 pt-4 border-t border-slate-800/80">
-                  <span className="text-[11px] font-mono text-slate-400 uppercase tracking-wider block mb-2 font-bold">
-                    {dict.instructors.specialty}
-                  </span>
-                  <div className="flex flex-wrap gap-1.5">
-                    {CHIEF_INSTRUCTOR.vehicleSpecialties.map((spec, i) => (
-                      <span
-                        key={i}
-                        className="text-[11px] font-semibold text-emerald-200 bg-emerald-950/40 px-3 py-1 rounded-full border border-emerald-800/50"
-                      >
-                        {spec}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Bottom Action Bar */}
-              <div className="mt-8 pt-5 border-t border-slate-800/80 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
-                <div className="text-xs text-slate-400">
-                  <span>{dict.instructors.languages}: </span>
-                  <span className="font-bold text-white">{CHIEF_INSTRUCTOR.languages.join(", ")}</span>
-                </div>
+            <div>
+              {/* Header Badge Row */}
+              <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
+                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1c1a17] border border-white/10 text-[#d0c5ab] text-xs font-black uppercase tracking-wider shadow-xs">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#fcc438] animate-pulse" />
+                  <span>{CHIEF_INSTRUCTOR.highlightTag?.[locale] || t.chiefTag}</span>
+                </span>
                 
-                <a
-                  href={`https://wa.me/94707076029?text=Hello%20Wenasa,%20I%20would%20like%20to%20request%20driving%20lessons%20with%20Chief%20Instructor%20Mr.%20Sunil%20Jayawardena.`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs sm:text-sm shadow-emerald-glow active:scale-95 transition-all cursor-pointer"
-                >
-                  <MessageCircle className="w-4 h-4" />
-                  <span>{t.requestChiefBtn}</span>
-                </a>
+                <div className="flex items-center gap-1.5 text-xs text-[#8c877a] bg-[#0d0c0a] border border-white/[0.06] px-3 py-1 rounded-full">
+                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+                  <span className="font-mono font-bold text-[#f5f5f3]">{CHIEF_INSTRUCTOR.licenceNo}</span>
+                </div>
               </div>
+
+              {/* Profile Identity */}
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-6 mb-6">
+                <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden bg-[#0d0c0a] border border-white/10 shadow-xl shrink-0">
+                  <Image
+                    src={CHIEF_INSTRUCTOR.imageSrc}
+                    alt={CHIEF_INSTRUCTOR.name}
+                    fill
+                    sizes="112px"
+                    priority
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+
+                <div>
+                  <h3 className="text-2xl sm:text-3xl font-black text-[#f5f5f3] tracking-tight">
+                    {CHIEF_INSTRUCTOR.name}
+                  </h3>
+                  <div className="text-sm sm:text-base text-[#d0c5ab] font-bold mt-1">
+                    {CHIEF_INSTRUCTOR.role[locale]}
+                  </div>
+                  
+                  {/* Trust Metrics Chips */}
+                  <div className="flex flex-wrap gap-2 mt-3 text-xs font-mono">
+                    <span className="px-2.5 py-1 rounded-lg bg-[#0d0c0a] border border-white/[0.06] text-[#c7c2b6] font-bold">
+                      {CHIEF_INSTRUCTOR.experience}
+                    </span>
+                    <span className="px-2.5 py-1 rounded-lg bg-[#1c1a17] border border-white/10 text-[#fcc438] font-bold">
+                      {t.chiefStudents}
+                    </span>
+                    <span className="px-2.5 py-1 rounded-lg bg-[#1c1a17] border border-white/10 text-[#d0c5ab] font-bold">
+                      {t.chiefPassRate}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <p className="text-xs sm:text-sm text-[#c7c2b6] leading-relaxed max-w-2xl font-normal">
+                {CHIEF_INSTRUCTOR.bio[locale]}
+              </p>
+
+              {/* Founder Quote Card */}
+              <div className="mt-5 p-4 rounded-2xl bg-[#0d0c0a] border border-white/[0.06] relative">
+                <Quote className="w-5 h-5 text-[#fcc438]/20 absolute top-3.5 right-3.5" />
+                <p className="text-xs text-[#d0c5ab] italic leading-relaxed pr-6">
+                  &ldquo;{t.chiefQuote}&rdquo;
+                </p>
+              </div>
+
+              {/* Specialties */}
+              <div className="mt-5 pt-4 border-t border-white/[0.06]">
+                <span className="text-[11px] font-mono text-[#8c877a] uppercase tracking-wider block mb-2 font-bold">
+                  {dict.instructors.specialty}
+                </span>
+                <div className="flex flex-wrap gap-1.5">
+                  {CHIEF_INSTRUCTOR.vehicleSpecialties.map((spec, i) => (
+                    <span
+                      key={i}
+                      className="text-[11px] font-semibold text-[#eae3d2] bg-[#1a1916] px-3 py-1 rounded-full border border-white/10"
+                    >
+                      {spec}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom Action Bar */}
+            <div className="mt-8 pt-5 border-t border-white/[0.06] flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+              <div className="text-xs text-[#8c877a]">
+                <span>{dict.instructors.languages}: </span>
+                <span className="font-bold text-[#f5f5f3]">{CHIEF_INSTRUCTOR.languages.join(", ")}</span>
+              </div>
+              
+              <a
+                href={`https://wa.me/94707076029?text=Hello%20Wenasa,%20I%20would%20like%20to%20request%20driving%20lessons%20with%20Chief%20Instructor%20Mr.%20Sunil%20Jayawardena.`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#d0c5ab] hover:bg-[#e4dbc6] text-[#11100d] font-black text-xs uppercase tracking-wider active:scale-95 transition-all cursor-pointer shadow-md"
+              >
+                <MessageCircle className="w-4 h-4" />
+                <span>{t.requestChiefBtn}</span>
+              </a>
             </div>
           </div>
 
-          {/* ======================================================== */}
-          {/* ASSOCIATE INSTRUCTORS SLIDER (5 Col - "Simply Slide")    */}
-          {/* ======================================================== */}
+          {/* ASSOCIATE INSTRUCTORS SLIDER (5 Col) */}
           <div className="lg:col-span-5 flex flex-col justify-between space-y-4">
             
             {/* Slider Top Bar Controls */}
-            <div className="p-4 sm:p-5 rounded-3xl bg-slate-900 border border-slate-800 flex items-center justify-between shadow-lg">
+            <div className="p-4 sm:p-5 rounded-3xl marcus-card flex items-center justify-between shadow-lg">
               <div>
-                <h4 className="text-sm sm:text-base font-black text-white">
+                <h4 className="text-sm sm:text-base font-black text-[#f5f5f3]">
                   {t.sliderTitle}
                 </h4>
-                <p className="text-[11px] text-slate-400">
+                <p className="text-[11px] text-[#8c877a]">
                   {t.sliderSubtitle}
                 </p>
               </div>
@@ -326,20 +318,20 @@ export function InstructorsSection({ locale }: InstructorsSectionProps) {
                 <button
                   type="button"
                   onClick={handlePrev}
-                  className="w-9 h-9 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white border border-slate-700 flex items-center justify-center transition-all cursor-pointer active:scale-95"
+                  className="w-9 h-9 rounded-full bg-[#1c1a17] hover:bg-[#25231f] text-[#c7c2b6] hover:text-white border border-white/10 flex items-center justify-center transition-all cursor-pointer active:scale-95"
                   aria-label="Previous instructor"
                 >
                   <ChevronLeft className="w-4 h-4" />
                 </button>
                 
-                <span className="text-xs font-mono font-bold text-emerald-400 px-2">
+                <span className="text-xs font-mono font-bold text-[#fcc438] px-2">
                   0{slideIndex + 1} / 0{totalSlides}
                 </span>
 
                 <button
                   type="button"
                   onClick={handleNext}
-                  className="w-9 h-9 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white border border-slate-700 flex items-center justify-center transition-all cursor-pointer active:scale-95"
+                  className="w-9 h-9 rounded-full bg-[#1c1a17] hover:bg-[#25231f] text-[#c7c2b6] hover:text-white border border-white/10 flex items-center justify-center transition-all cursor-pointer active:scale-95"
                   aria-label="Next instructor"
                 >
                   <ChevronRight className="w-4 h-4" />
@@ -356,24 +348,24 @@ export function InstructorsSection({ locale }: InstructorsSectionProps) {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -slideDirection * 40 }}
                   transition={{ duration: 0.35, ease: [0.32, 0.72, 0, 1] }}
-                  className="h-full rounded-[2.25rem] border border-slate-800 bg-slate-900/95 p-6 sm:p-7 flex flex-col justify-between shadow-2xl hover:border-emerald-500/40 transition-colors"
+                  className="h-full rounded-3xl marcus-card p-6 sm:p-7 flex flex-col justify-between shadow-2xl hover:border-[#d0c5ab]/30 transition-colors"
                 >
                   <div>
                     {/* Badge & DMT License */}
                     <div className="flex items-center justify-between gap-2 mb-5">
-                      <span className="text-[11px] font-mono font-bold px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-300">
+                      <span className="text-[11px] font-mono font-bold px-3 py-1 rounded-full bg-[#1c1a17] border border-white/10 text-[#d0c5ab]">
                         {currentAssociate.highlightTag?.[locale]}
                       </span>
 
-                      <div className="flex items-center gap-1.5 text-xs text-slate-400 bg-slate-950 px-3 py-1 rounded-full border border-slate-800">
+                      <div className="flex items-center gap-1.5 text-xs text-[#8c877a] bg-[#0d0c0a] px-3 py-1 rounded-full border border-white/[0.06]">
                         <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-                        <span className="font-mono text-white font-bold">{currentAssociate.licenceNo}</span>
+                        <span className="font-mono text-[#f5f5f3] font-bold">{currentAssociate.licenceNo}</span>
                       </div>
                     </div>
 
                     {/* Instructor Portrait & Details */}
                     <div className="flex items-center gap-4 mb-4">
-                      <div className="relative w-20 h-20 sm:w-22 sm:h-22 rounded-2xl overflow-hidden bg-slate-950 border-2 border-emerald-500/60 shadow-lg shrink-0">
+                      <div className="relative w-20 h-20 sm:w-22 sm:h-22 rounded-2xl overflow-hidden bg-[#0d0c0a] border border-white/10 shadow-lg shrink-0">
                         <Image
                           src={currentAssociate.imageSrc}
                           alt={currentAssociate.name}
@@ -384,32 +376,32 @@ export function InstructorsSection({ locale }: InstructorsSectionProps) {
                       </div>
 
                       <div>
-                        <h4 className="text-xl font-black text-white">
+                        <h4 className="text-xl font-black text-[#f5f5f3]">
                           {currentAssociate.name}
                         </h4>
-                        <div className="text-xs text-emerald-400 font-semibold mt-0.5">
+                        <div className="text-xs text-[#d0c5ab] font-semibold mt-0.5">
                           {currentAssociate.role[locale]}
                         </div>
-                        <div className="text-xs font-mono text-slate-300 mt-1 font-bold">
-                          {dict.instructors.experience}: <span className="text-white">{currentAssociate.experience}</span>
+                        <div className="text-xs font-mono text-[#8c877a] mt-1 font-bold">
+                          {dict.instructors.experience}: <span className="text-[#f5f5f3]">{currentAssociate.experience}</span>
                         </div>
                       </div>
                     </div>
 
-                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mt-3">
+                    <p className="text-xs sm:text-sm text-[#c7c2b6] leading-relaxed mt-3">
                       {currentAssociate.bio[locale]}
                     </p>
 
                     {/* Specialties */}
-                    <div className="mt-5 pt-4 border-t border-slate-800">
-                      <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider block mb-2 font-bold">
+                    <div className="mt-5 pt-4 border-t border-white/[0.06]">
+                      <span className="text-[10px] font-mono text-[#8c877a] uppercase tracking-wider block mb-2 font-bold">
                         {dict.instructors.specialty}
                       </span>
                       <div className="flex flex-wrap gap-1.5">
                         {currentAssociate.vehicleSpecialties.map((spec, i) => (
                           <span
                             key={i}
-                            className="text-[11px] font-medium text-slate-300 bg-slate-800/80 px-2.5 py-0.5 rounded-full border border-slate-700"
+                            className="text-[11px] font-medium text-[#eae3d2] bg-[#1a1916] px-2.5 py-0.5 rounded-full border border-white/10"
                           >
                             {spec}
                           </span>
@@ -419,19 +411,19 @@ export function InstructorsSection({ locale }: InstructorsSectionProps) {
                   </div>
 
                   {/* Slide Action Bar */}
-                  <div className="mt-6 pt-4 border-t border-slate-800 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
-                    <div className="text-xs text-slate-400">
+                  <div className="mt-6 pt-4 border-t border-white/[0.06] flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+                    <div className="text-xs text-[#8c877a]">
                       <span>{dict.instructors.languages}: </span>
-                      <span className="font-semibold text-slate-200">{currentAssociate.languages.join(", ")}</span>
+                      <span className="font-semibold text-[#c7c2b6]">{currentAssociate.languages.join(", ")}</span>
                     </div>
 
                     <a
                       href={`https://wa.me/94707076029?text=Hello%20Wenasa,%20I%20would%20like%20to%20request%20lessons%20with%20Instructor%20${encodeURIComponent(currentAssociate.name)}.`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-emerald-400 hover:text-white border border-emerald-500/40 text-xs font-bold transition-all cursor-pointer active:scale-95"
+                      className="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-full bg-[#1c1a17] hover:bg-[#25231f] text-[#d0c5ab] hover:text-white border border-white/10 text-xs font-bold transition-all cursor-pointer active:scale-95"
                     >
-                      <MessageCircle className="w-3.5 h-3.5" />
+                      <MessageCircle className="w-3.5 h-3.5 text-[#fcc438]" />
                       <span>{t.requestInstructorBtn} {currentAssociate.name.split(" ")[0]}</span>
                     </a>
                   </div>
@@ -446,8 +438,8 @@ export function InstructorsSection({ locale }: InstructorsSectionProps) {
                   key={idx}
                   type="button"
                   onClick={() => goToSlide(idx)}
-                  className={`h-2 rounded-full transition-all cursor-pointer ${
-                    idx === slideIndex ? "w-8 bg-emerald-400" : "w-2 bg-slate-700 hover:bg-slate-600"
+                  className={`h-1.5 rounded-full transition-all cursor-pointer ${
+                    idx === slideIndex ? "w-8 bg-[#fcc438]" : "w-2 bg-[#25231f] hover:bg-[#33302a]"
                   }`}
                   aria-label={`Go to slide ${idx + 1}`}
                 />
@@ -459,8 +451,8 @@ export function InstructorsSection({ locale }: InstructorsSectionProps) {
         </div>
 
         {/* Mandatory Accreditation Footer */}
-        <div className="mt-12 text-center text-xs text-slate-400 flex items-center justify-center gap-2">
-          <Award className="w-4 h-4 text-emerald-400 shrink-0" />
+        <div className="mt-12 text-center text-xs text-[#8c877a] flex items-center justify-center gap-2">
+          <Award className="w-4 h-4 text-[#fcc438] shrink-0" />
           <span>{t.footerNotice}</span>
         </div>
 

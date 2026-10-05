@@ -223,31 +223,31 @@ export function PackageFinderModal({ locale, onClose }: PackageFinderModalProps)
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
+    <div className="fixed inset-0 z-50 bg-[#0d0c0a]/85 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
       <motion.div
         initial={{ opacity: 0, scale: 0.96 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.96 }}
-        className="bg-slate-900 border border-slate-800 rounded-3xl max-w-xl w-full shadow-2xl overflow-hidden my-auto"
+        className="bg-[#141310] border border-white/10 rounded-3xl max-w-xl w-full shadow-2xl overflow-hidden my-auto"
       >
         {/* Header */}
-        <div className="p-5 sm:p-6 bg-slate-950 border-b border-slate-800 flex items-center justify-between">
+        <div className="p-5 sm:p-6 bg-[#0d0c0a] border-b border-white/10 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
+            <div className="w-9 h-9 rounded-xl bg-[#fcc438]/10 border border-[#fcc438]/30 flex items-center justify-center text-[#fcc438]">
               <Sparkles className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="text-base sm:text-lg font-bold text-white tracking-tight">
+              <h3 className="text-base sm:text-lg font-black text-[#f5f2eb] tracking-tight">
                 {t.modalTitle}
               </h3>
-              <p className="text-xs text-slate-400 hidden sm:block">
+              <p className="text-xs text-[#a39e93] hidden sm:block">
                 {t.modalSubtitle}
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+            className="p-2 rounded-xl text-[#78756c] hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
             aria-label={t.closeBtn}
           >
             <X className="w-5 h-5" />
@@ -267,8 +267,8 @@ export function PackageFinderModal({ locale, onClose }: PackageFinderModalProps)
               >
                 {/* Question 1: Vehicle */}
                 <div>
-                  <label className="text-xs font-bold uppercase tracking-wider text-slate-300 block mb-3">
-                    {t.step1Title}
+                  <label className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#d0c5ab] block mb-3">
+                    [ {t.step1Title} ]
                   </label>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
                     {[
@@ -283,24 +283,24 @@ export function PackageFinderModal({ locale, onClose }: PackageFinderModalProps)
                           key={item.id}
                           type="button"
                           onClick={() => setVehicleChoice(item.id as any)}
-                          className={`relative p-3.5 rounded-2xl border text-left transition-all ${
+                          className={`relative p-3.5 rounded-2xl border text-left transition-all cursor-pointer ${
                             isSelected
-                              ? "border-emerald-500 bg-emerald-950/40 shadow-lg shadow-emerald-950/50"
-                              : "border-slate-800 bg-slate-950/60 hover:border-slate-700"
+                              ? "border-[#fcc438] bg-[#fcc438]/10 shadow-lg"
+                              : "border-white/10 bg-[#0d0c0a] hover:border-white/20"
                           }`}
                         >
                           {item.popular && (
-                            <span className="absolute -top-2 right-2 px-2 py-0.5 rounded-full bg-amber-500 text-slate-950 text-[9px] font-black uppercase tracking-wider">
+                            <span className="absolute -top-2 right-2 px-2 py-0.5 rounded-full bg-[#fcc438] text-[#0d0c0a] text-[9px] font-mono font-black uppercase tracking-wider">
                               Popular
                             </span>
                           )}
                           <div className="flex items-center gap-2 mb-1.5">
-                            <Icon className={`w-4 h-4 ${isSelected ? "text-emerald-400" : "text-slate-400"}`} />
-                            <span className={`text-xs font-bold ${isSelected ? "text-white" : "text-slate-300"}`}>
+                            <Icon className={`w-4 h-4 ${isSelected ? "text-[#fcc438]" : "text-[#78756c]"}`} />
+                            <span className={`text-xs font-bold ${isSelected ? "text-[#f5f2eb]" : "text-[#a39e93]"}`}>
                               {item.data.label}
                             </span>
                           </div>
-                          <p className="text-[11px] text-slate-400 line-clamp-2 leading-relaxed">
+                          <p className="text-[11px] text-[#78756c] line-clamp-2 leading-relaxed">
                             {item.data.desc}
                           </p>
                         </button>
@@ -311,8 +311,8 @@ export function PackageFinderModal({ locale, onClose }: PackageFinderModalProps)
 
                 {/* Question 2: Experience */}
                 <div>
-                  <label className="text-xs font-bold uppercase tracking-wider text-slate-300 block mb-3">
-                    {t.step2Title}
+                  <label className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#d0c5ab] block mb-3">
+                    [ {t.step2Title} ]
                   </label>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                     {[
@@ -325,16 +325,16 @@ export function PackageFinderModal({ locale, onClose }: PackageFinderModalProps)
                           key={item.id}
                           type="button"
                           onClick={() => setExperienceChoice(item.id as any)}
-                          className={`p-3.5 rounded-2xl border text-left transition-all ${
+                          className={`p-3.5 rounded-2xl border text-left transition-all cursor-pointer ${
                             isSelected
-                              ? "border-emerald-500 bg-emerald-950/40 shadow-lg shadow-emerald-950/50"
-                              : "border-slate-800 bg-slate-950/60 hover:border-slate-700"
+                              ? "border-[#fcc438] bg-[#fcc438]/10 shadow-lg"
+                              : "border-white/10 bg-[#0d0c0a] hover:border-white/20"
                           }`}
                         >
-                          <div className={`text-xs font-bold mb-1 ${isSelected ? "text-white" : "text-slate-300"}`}>
+                          <div className={`text-xs font-bold mb-1 ${isSelected ? "text-[#f5f2eb]" : "text-[#a39e93]"}`}>
                             {item.data.label}
                           </div>
-                          <p className="text-[11px] text-slate-400 leading-relaxed">
+                          <p className="text-[11px] text-[#78756c] leading-relaxed">
                             {item.data.desc}
                           </p>
                         </button>
@@ -346,8 +346,8 @@ export function PackageFinderModal({ locale, onClose }: PackageFinderModalProps)
                 {/* Question 3: Transmission (if not bike-only) */}
                 {vehicleChoice !== "bike" && (
                   <div>
-                    <label className="text-xs font-bold uppercase tracking-wider text-slate-300 block mb-3">
-                      {t.step3Title}
+                    <label className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#d0c5ab] block mb-3">
+                      [ {t.step3Title} ]
                     </label>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                       {[
@@ -360,16 +360,16 @@ export function PackageFinderModal({ locale, onClose }: PackageFinderModalProps)
                             key={item.id}
                             type="button"
                             onClick={() => setTransmissionChoice(item.id as any)}
-                            className={`p-3.5 rounded-2xl border text-left transition-all ${
+                            className={`p-3.5 rounded-2xl border text-left transition-all cursor-pointer ${
                               isSelected
-                                ? "border-emerald-500 bg-emerald-950/40 shadow-lg shadow-emerald-950/50"
-                                : "border-slate-800 bg-slate-950/60 hover:border-slate-700"
+                                ? "border-[#fcc438] bg-[#fcc438]/10 shadow-lg"
+                                : "border-white/10 bg-[#0d0c0a] hover:border-white/20"
                             }`}
                           >
-                            <div className={`text-xs font-bold mb-1 ${isSelected ? "text-white" : "text-slate-300"}`}>
+                            <div className={`text-xs font-bold mb-1 ${isSelected ? "text-[#f5f2eb]" : "text-[#a39e93]"}`}>
                               {item.data.label}
                             </div>
-                            <p className="text-[11px] text-slate-400 leading-relaxed">
+                            <p className="text-[11px] text-[#78756c] leading-relaxed">
                               {item.data.desc}
                             </p>
                           </button>
@@ -383,9 +383,9 @@ export function PackageFinderModal({ locale, onClose }: PackageFinderModalProps)
                 <button
                   type="button"
                   onClick={() => setHasCalculated(true)}
-                  className="w-full py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs sm:text-sm font-bold shadow-lg shadow-emerald-900/40 transition-colors flex items-center justify-center gap-2"
+                  className="w-full py-3.5 px-4 rounded-xl bg-[#d0c5ab] hover:bg-[#e4dcce] text-[#0d0c0a] text-xs sm:text-sm font-mono font-bold uppercase tracking-wider shadow-lg transition-colors flex items-center justify-center gap-2 cursor-pointer"
                 >
-                  <Sparkles className="w-4 h-4 text-emerald-200" />
+                  <Sparkles className="w-4 h-4 text-[#0d0c0a]" />
                   <span>{t.calculateBtn}</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
@@ -399,41 +399,41 @@ export function PackageFinderModal({ locale, onClose }: PackageFinderModalProps)
                 className="space-y-6"
               >
                 {/* Result Card */}
-                <div className="p-6 rounded-2xl bg-gradient-to-br from-slate-950 to-slate-900 border border-emerald-500/40 shadow-xl relative overflow-hidden">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none" />
+                <div className="p-6 rounded-2xl bg-[#0d0c0a] border border-[#fcc438]/40 shadow-xl relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-[#fcc438]/10 rounded-full blur-2xl pointer-events-none" />
 
                   <div className="flex items-center justify-between gap-2 mb-3">
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-950 text-emerald-400 border border-emerald-500/30 text-[10px] font-bold uppercase tracking-wider">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#fcc438]/10 text-[#fcc438] border border-[#fcc438]/30 text-[10px] font-mono font-bold uppercase tracking-wider">
                       <ShieldCheck className="w-3.5 h-3.5" />
                       {t.recommendedBadge}
                     </span>
-                    <span className="px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-300 text-[11px] font-mono font-semibold">
+                    <span className="px-2.5 py-0.5 rounded-full bg-white/10 text-[#d0c5ab] text-[11px] font-mono font-semibold">
                       {result.badge}
                     </span>
                   </div>
 
-                  <h4 className="text-base sm:text-xl font-bold text-white tracking-tight mb-2">
+                  <h4 className="text-base sm:text-xl font-black text-[#f5f2eb] tracking-tight mb-2">
                     {result.title}
                   </h4>
 
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  <p className="text-xs sm:text-sm text-[#a39e93] leading-relaxed mb-4">
                     {result.description}
                   </p>
 
-                  <div className="pt-4 border-t border-slate-800 flex items-center justify-between gap-4">
+                  <div className="pt-4 border-t border-white/10 flex items-center justify-between gap-4">
                     <div>
-                      <div className="text-[10px] uppercase font-bold tracking-wider text-slate-400">
+                      <div className="text-[10px] uppercase font-mono font-bold tracking-wider text-[#78756c]">
                         {t.results.manual.duration ? "Estimated Plan" : "Plan"}
                       </div>
-                      <div className="text-xs text-slate-300 font-medium mt-0.5">
+                      <div className="text-xs text-[#d0c5ab] font-medium mt-0.5">
                         {result.duration}
                       </div>
                     </div>
                     <div className="text-right">
-                      <div className="text-[10px] uppercase font-bold tracking-wider text-slate-400">
+                      <div className="text-[10px] uppercase font-mono font-bold tracking-wider text-[#78756c]">
                         Course Fee
                       </div>
-                      <div className="text-base sm:text-lg font-mono font-bold text-emerald-400">
+                      <div className="text-base sm:text-lg font-mono font-bold text-[#fcc438]">
                         {result.price}
                       </div>
                     </div>
@@ -445,7 +445,7 @@ export function PackageFinderModal({ locale, onClose }: PackageFinderModalProps)
                   <button
                     type="button"
                     onClick={() => setHasCalculated(false)}
-                    className="w-full sm:w-auto px-4 py-3 rounded-xl border border-slate-800 bg-slate-950 hover:bg-slate-800 text-slate-300 text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors"
+                    className="w-full sm:w-auto px-4 py-3 rounded-xl border border-white/10 bg-[#0d0c0a] hover:bg-white/5 text-[#a39e93] hover:text-white text-xs font-mono font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
                   >
                     <RotateCcw className="w-4 h-4" />
                     <span>{t.resetBtn}</span>
@@ -454,7 +454,7 @@ export function PackageFinderModal({ locale, onClose }: PackageFinderModalProps)
                   <button
                     type="button"
                     onClick={handleEnroll}
-                    className="w-full sm:flex-1 py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs sm:text-sm font-bold shadow-lg shadow-emerald-900/40 transition-colors flex items-center justify-center gap-2"
+                    className="w-full sm:flex-1 py-3 px-4 rounded-xl bg-[#d0c5ab] hover:bg-[#e4dcce] text-[#0d0c0a] text-xs sm:text-sm font-mono font-bold uppercase tracking-wider shadow-lg transition-colors flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <span>{t.enrollBtn}</span>
                     <ArrowRight className="w-4 h-4" />

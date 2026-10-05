@@ -202,28 +202,28 @@ export function VideoLessonsModal({ locale, onClose }: VideoLessonsModalProps) {
 
   return (
     <div 
-      className="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-4 animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 bg-[#0d0c0a]/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-4 animate-in fade-in duration-200"
       onClick={onClose}
     >
       <div 
-        className="bg-slate-900 border border-slate-800 rounded-3xl max-w-4xl w-full max-h-[92vh] flex flex-col shadow-2xl overflow-hidden"
+        className="bg-[#141310] border border-white/10 rounded-3xl max-w-4xl w-full max-h-[92vh] flex flex-col shadow-2xl overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Header */}
-        <div className="p-5 sm:p-6 bg-slate-950 border-b border-slate-800 flex items-center justify-between">
+        <div className="p-5 sm:p-6 bg-[#0d0c0a] border-b border-white/10 flex items-center justify-between">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-rose-500/15 border border-rose-500/30 text-rose-300 text-[11px] font-bold uppercase tracking-wider mb-1">
-              <Sparkles className="w-3 h-3 text-rose-400" />
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#fcc438]/10 border border-[#fcc438]/30 text-[#fcc438] text-[11px] font-mono font-bold uppercase tracking-wider mb-1">
+              <Sparkles className="w-3 h-3 text-[#fcc438]" />
               <span>{t.headerBadge}</span>
             </div>
-            <h3 className="text-lg sm:text-xl font-black text-white tracking-tight">
+            <h3 className="text-lg sm:text-xl font-black text-[#f5f2eb] tracking-tight">
               {t.title}
             </h3>
           </div>
           <button
             type="button"
             onClick={onClose}
-            className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition-colors cursor-pointer"
+            className="p-2 rounded-xl text-[#78756c] hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
             aria-label="Close modal"
           >
             <X className="w-5 h-5" />
@@ -233,36 +233,36 @@ export function VideoLessonsModal({ locale, onClose }: VideoLessonsModalProps) {
         {/* Modal Body */}
         <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-6">
           {/* Main Video Viewport Mockup */}
-          <div className="relative rounded-2xl overflow-hidden border border-slate-800 bg-slate-950 shadow-inner aspect-video flex flex-col justify-between p-4 sm:p-6">
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent pointer-events-none" />
+          <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-[#0d0c0a] shadow-inner aspect-video flex flex-col justify-between p-4 sm:p-6">
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0d0c0a] via-[#0d0c0a]/60 to-transparent pointer-events-none" />
             
             <div className="relative z-10 flex items-center justify-between">
-              <span className="px-3 py-1 rounded-full bg-rose-600/90 text-white text-[11px] font-extrabold uppercase tracking-wide flex items-center gap-1.5 shadow-md">
+              <span className="px-3 py-1 rounded-full bg-[#d0c5ab] text-[#0d0c0a] text-[11px] font-mono font-extrabold uppercase tracking-wide flex items-center gap-1.5 shadow-md">
                 <Play className="w-3 h-3 fill-current" />
                 <span>{t.playPreview}</span>
               </span>
-              <span className="px-2.5 py-1 rounded-lg bg-slate-900/80 backdrop-blur-md border border-slate-800 text-slate-300 text-xs font-mono font-bold flex items-center gap-1.5">
-                <Clock className="w-3 h-3 text-rose-400" />
+              <span className="px-2.5 py-1 rounded-lg bg-[#141310]/90 backdrop-blur-md border border-white/10 text-[#d0c5ab] text-xs font-mono font-bold flex items-center gap-1.5">
+                <Clock className="w-3 h-3 text-[#fcc438]" />
                 <span>{current.duration}</span>
               </span>
             </div>
 
             <div className="relative z-10">
-              <span className="text-xs font-mono uppercase tracking-wider text-rose-400 font-bold block mb-1">
+              <span className="text-xs font-mono uppercase tracking-wider text-[#fcc438] font-bold block mb-1">
                 {current.level}
               </span>
-              <h4 className="text-lg sm:text-2xl font-black text-white tracking-tight">
+              <h4 className="text-lg sm:text-2xl font-black text-[#f5f2eb] tracking-tight">
                 {current.title}
               </h4>
-              <p className="mt-1.5 text-xs sm:text-sm text-slate-300 leading-relaxed max-w-2xl">
+              <p className="mt-1.5 text-xs sm:text-sm text-[#a39e93] leading-relaxed max-w-2xl">
                 {current.summary}
               </p>
             </div>
 
             {/* Play Bar Mockup */}
             <div className="relative z-10 pt-3">
-              <div className="w-full bg-slate-800 rounded-full h-1.5 overflow-hidden">
-                <div className="bg-rose-500 h-full w-2/5 rounded-full" />
+              <div className="w-full bg-white/10 rounded-full h-1 overflow-hidden">
+                <div className="bg-[#fcc438] h-full w-2/5 rounded-full" />
               </div>
             </div>
           </div>
@@ -278,15 +278,15 @@ export function VideoLessonsModal({ locale, onClose }: VideoLessonsModalProps) {
                   onClick={() => setSelectedIdx(idx)}
                   className={`p-3.5 rounded-2xl text-left border transition-all cursor-pointer flex flex-col justify-between ${
                     active 
-                      ? "bg-rose-950/30 border-rose-500/60 text-white shadow-md shadow-rose-950/50" 
-                      : "bg-slate-950/60 border-slate-800 text-slate-300 hover:border-slate-700 hover:bg-slate-800/40"
+                      ? "bg-[#fcc438]/10 border-[#fcc438] text-[#f5f2eb] shadow-md" 
+                      : "bg-[#0d0c0a] border-white/10 text-[#a39e93] hover:border-white/20 hover:text-white"
                   }`}
                 >
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-slate-800 text-rose-300">
+                    <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-white/5 text-[#d0c5ab]">
                       Lesson {idx + 1}
                     </span>
-                    <span className="text-[11px] font-mono text-slate-400">{lesson.duration}</span>
+                    <span className="text-[11px] font-mono text-[#78756c]">{lesson.duration}</span>
                   </div>
                   <h5 className="text-xs sm:text-sm font-bold line-clamp-2 leading-snug">
                     {lesson.title}
@@ -298,15 +298,15 @@ export function VideoLessonsModal({ locale, onClose }: VideoLessonsModalProps) {
 
           {/* Checkpoints & Tips */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 pt-2">
-            <div className="lg:col-span-2 p-5 rounded-2xl bg-slate-950/60 border border-slate-800">
-              <h5 className="text-xs sm:text-sm font-black text-white flex items-center gap-2 mb-3.5">
-                <CheckCircle2 className="w-4 h-4 text-rose-400" />
-                <span>{t.keyCheckpoints}</span>
+            <div className="lg:col-span-2 p-5 rounded-2xl bg-[#0d0c0a] border border-white/10">
+              <h5 className="text-xs sm:text-sm font-black text-[#f5f2eb] flex items-center gap-2 mb-3.5 font-mono uppercase tracking-wider">
+                <CheckCircle2 className="w-4 h-4 text-[#fcc438]" />
+                <span>[ {t.keyCheckpoints} ]</span>
               </h5>
               <ul className="space-y-2.5">
                 {current.checkpoints.map((pt, i) => (
-                  <li key={i} className="flex items-start gap-2.5 text-xs text-slate-300">
-                    <span className="w-4 h-4 rounded-full bg-rose-500/20 text-rose-400 font-bold text-[10px] flex items-center justify-center shrink-0 mt-0.5">
+                  <li key={i} className="flex items-start gap-2.5 text-xs text-[#a39e93]">
+                    <span className="w-4 h-4 rounded-full bg-[#fcc438]/15 text-[#fcc438] font-bold text-[10px] font-mono flex items-center justify-center shrink-0 mt-0.5">
                       {i + 1}
                     </span>
                     <span className="leading-relaxed">{pt}</span>
@@ -315,18 +315,18 @@ export function VideoLessonsModal({ locale, onClose }: VideoLessonsModalProps) {
               </ul>
             </div>
 
-            <div className="p-5 rounded-2xl bg-gradient-to-br from-rose-950/30 to-slate-950 border border-rose-900/50 flex flex-col justify-between">
+            <div className="p-5 rounded-2xl bg-[#1c1a17] border border-white/10 flex flex-col justify-between">
               <div>
-                <div className="inline-flex items-center gap-1.5 text-xs font-bold text-rose-400 mb-2">
+                <div className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-[#fcc438] uppercase tracking-wider mb-2">
                   <AlertCircle className="w-4 h-4" />
                   <span>Pro Examiner Tip</span>
                 </div>
-                <p className="text-xs text-slate-200 leading-relaxed italic">
+                <p className="text-xs text-[#d0c5ab] leading-relaxed italic">
                   &ldquo;{current.instructorTip}&rdquo;
                 </p>
               </div>
 
-              <div className="mt-4 pt-4 border-t border-rose-950/60 text-[11px] text-slate-400 font-medium">
+              <div className="mt-4 pt-4 border-t border-white/10 text-[11px] text-[#78756c] font-mono">
                 Wenasa Master Driving Academy · Kirindiwela
               </div>
             </div>
@@ -334,15 +334,15 @@ export function VideoLessonsModal({ locale, onClose }: VideoLessonsModalProps) {
         </div>
 
         {/* Modal Footer */}
-        <div className="p-4 sm:p-5 bg-slate-950 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
-          <p className="text-slate-400 text-center sm:text-left text-[11px] sm:text-xs">
+        <div className="p-4 sm:p-5 bg-[#0d0c0a] border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+          <p className="text-[#78756c] text-center sm:text-left text-[11px] sm:text-xs">
             {t.needSupport}
           </p>
           <a
             href="https://wa.me/94707076029?text=Hello%20Wenasa,%20I%20would%20like%20to%20book%20a%20track%20practice%20session%20at%20Kirindiwela."
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-bold cursor-pointer transition-all active:scale-95"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#d0c5ab] hover:bg-[#e4dcce] text-[#0d0c0a] font-mono font-bold uppercase tracking-wider cursor-pointer transition-all active:scale-95 shadow-md"
           >
             <span>{t.bookTrial}</span>
             <ChevronRight className="w-4 h-4" />

@@ -100,7 +100,6 @@ export function FaqSection({ locale }: FaqSectionProps) {
   const dict = getDictionary(locale);
   const [openId, setOpenId] = useState<string | null>("faq-1");
 
-  // Schema.org FAQPage structured data
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -115,7 +114,7 @@ export function FaqSection({ locale }: FaqSectionProps) {
   };
 
   return (
-    <section id="faq" className="py-16 sm:py-20 scroll-mt-20">
+    <section id="faq" className="py-20 sm:py-28 scroll-mt-20 bg-[#0d0c0a]">
       {/* Inject FAQPage Structured Data */}
       <script
         type="application/ld+json"
@@ -123,48 +122,57 @@ export function FaqSection({ locale }: FaqSectionProps) {
       />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-14">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-950/60 border border-emerald-800/80 text-xs font-semibold uppercase tracking-wider text-emerald-300 mb-3 shadow-xs">
-            <span>{dict.nav.faq}</span>
+        
+        {/* Header with Marcus Lorenzet Editorial Style */}
+        <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-18">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#161513] border border-white/[0.08] text-xs font-semibold mb-4">
+            <span className="editorial-bracket text-[10px] sm:text-[11px] text-[#d0c5ab]">
+              [ 09 · FREQUENTLY ASKED QUESTIONS ]
+            </span>
           </div>
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white" style={{ textWrap: "balance" }}>
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-[#f5f5f3] uppercase leading-tight" style={{ textWrap: "balance" }}>
             {dict.faq.title}
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p className="mt-4 text-sm sm:text-base text-[#c7c2b6] leading-relaxed">
             {dict.faq.subtitle}
           </p>
         </div>
 
         {/* Accordion */}
-        <div className="space-y-3.5">
-          {FAQ_ITEMS.map((item) => {
+        <div className="space-y-4">
+          {FAQ_ITEMS.map((item, idx) => {
             const isOpen = openId === item.id;
             return (
               <div
                 key={item.id}
-                className={`rounded-3xl border transition-all duration-200 overflow-hidden ${
+                className={`rounded-3xl border transition-all duration-300 overflow-hidden ${
                   isOpen
-                    ? "border-emerald-500/50 bg-slate-900 shadow-xl"
-                    : "border-slate-800 bg-slate-900/60 hover:border-slate-700 shadow-xs"
+                    ? "border-[#d0c5ab]/30 bg-[#141310] shadow-2xl"
+                    : "border-white/[0.06] bg-[#141310]/60 hover:border-white/10"
                 }`}
               >
                 <button
                   onClick={() => setOpenId(isOpen ? null : item.id)}
-                  className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 focus-visible:outline-2 focus-visible:outline-emerald-500 cursor-pointer"
+                  className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 focus-visible:outline-2 focus-visible:outline-[#fcc438] cursor-pointer"
                   aria-expanded={isOpen}
                 >
-                  <span className="text-sm sm:text-base font-bold text-white">
-                    {item.q[locale]}
-                  </span>
+                  <div className="flex items-center gap-3.5">
+                    <span className="text-xs font-mono font-bold text-[#8c877a]">
+                      0{idx + 1}
+                    </span>
+                    <span className="text-sm sm:text-base font-bold text-[#f5f5f3]">
+                      {item.q[locale]}
+                    </span>
+                  </div>
                   <ChevronDown
-                    className={`w-4 h-4 text-slate-400 shrink-0 transition-transform duration-200 ${
-                      isOpen ? "rotate-180 text-emerald-400" : ""
+                    className={`w-4 h-4 text-[#8c877a] shrink-0 transition-transform duration-300 ${
+                      isOpen ? "rotate-180 text-[#fcc438]" : ""
                     }`}
                   />
                 </button>
 
                 {isOpen && (
-                  <div className="px-5 pb-5 sm:px-6 sm:pb-6 text-xs sm:text-sm text-slate-300 leading-relaxed pt-2 border-t border-slate-800">
+                  <div className="px-5 pb-5 sm:px-6 sm:pb-6 text-xs sm:text-sm text-[#c7c2b6] leading-relaxed pt-2 border-t border-white/[0.06] pl-11">
                     {item.a[locale]}
                   </div>
                 )}

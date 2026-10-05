@@ -1,7 +1,10 @@
 node_modules/
 .next/
+out/
+.playwright-mcp/
 coverage/
-.DS_Store
 *.log
+.DS_Store
 .env*
 !.env.example
+

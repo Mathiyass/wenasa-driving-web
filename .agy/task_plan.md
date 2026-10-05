@@ -1,0 +1,38 @@
+# Task Plan: Marcus Lorenzet Modern UI Redesign
+
+- [x] Phase 1: Style Foundation & Global Tokens <!-- id: 0 -->
+  - [x] Configure Obsidian canvas `#0d0c0a`, warm card `#141310`, champagne `#d0c5ab`, and amber spotlight `#fcc438` tokens in `app/globals.css` <!-- id: 1 -->
+  - [x] Update `app/layout.tsx` and `app/[locale]/page.tsx` base backgrounds <!-- id: 2 -->
+- [x] Phase 2: Navigation & Floating Dock <!-- id: 3 -->
+  - [x] Restyle `Navbar.tsx` with top status bar & pinned floating bottom dock with warm champagne action pill <!-- id: 4 -->
+  - [x] Restyle `MobileActionBar.tsx` with floating frosted dark island dock <!-- id: 5 -->
+  - [x] Restyle `LanguageSwitcher.tsx` with minimalist dark popover & gold checkmarks <!-- id: 6 -->
+- [x] Phase 3: Core Landing Sections Overhaul <!-- id: 7 -->
+  - [x] `HeroSection.tsx`: Monumental typography, ambient radial glow, fleet card <!-- id: 8 -->
+  - [x] `StatsBar.tsx`: Bento grid metrics with gold iconography and DMT accreditation tag <!-- id: 9 -->
+  - [x] `ServicesGrid.tsx`: Numbered courses with tactile age eligibility slider <!-- id: 10 -->
+  - [x] `JourneyStepper.tsx`: 7-step roadmap with amber timeline connectors <!-- id: 11 -->
+  - [x] `PackagesSection.tsx`: Luxury pricing tiers & package finder trigger <!-- id: 12 -->
+  - [x] `WhyWenasa.tsx`: Asymmetric bento grid with simulator & dual-pedal showcase <!-- id: 13 -->
+  - [x] `InstructorsSection.tsx`: Editorial founder card + credentials <!-- id: 14 -->
+  - [x] `ReviewsSection.tsx`: Real-review commitment, Google Maps card & alumni desk <!-- id: 15 -->
+  - [x] `BranchSection.tsx`: Real-time status, dark map embed & 1-click address copy <!-- id: 16 -->
+  - [x] `DigitalResourcesGrid.tsx`: 3-tier study suite hub <!-- id: 17 -->
+  - [x] `FaqSection.tsx`: Numbered accordion in obsidian & warm sand <!-- id: 18 -->
+  - [x] `GallerySection.tsx`: Dark fleet showcase with lightbox <!-- id: 19 -->
+  - [x] `BlogSection.tsx`: Editorial knowledge base cards <!-- id: 20 -->
+  - [x] `ApplySection.tsx`: Obsidian input fields, warm sand labels & champagne CTA <!-- id: 21 -->
+  - [x] `Footer.tsx`: Subtle giant watermark `WENASA · වෙනස`, mono directory headers, regulatory strip <!-- id: 22 -->
+- [x] Phase 4: Modal Modernization <!-- id: 23 -->
+  - [x] `PolicyModal.tsx` <!-- id: 24 -->
+  - [x] `MockExamModal.tsx` <!-- id: 25 -->
+  - [x] `RoadSignsModal.tsx` <!-- id: 26 -->
+  - [x] `PackageFinderModal.tsx` <!-- id: 27 -->
+  - [x] `StudentKitModal.tsx` <!-- id: 28 -->
+  - [x] `StudentPortalModal.tsx` <!-- id: 29 -->
+  - [x] `LicenceGuideModal.tsx` <!-- id: 30 -->
+  - [x] `VideoLessonsModal.tsx` <!-- id: 31 -->
+- [x] Phase 5: Build Verification & Visual QA <!-- id: 32 -->
+  - [x] Run `npm run build` to verify 0 type/syntax errors <!-- id: 33 -->
+  - [x] Visual verification via Playwright screenshots (Desktop & Mobile) <!-- id: 34 -->
+  - [x] Create comprehensive walkthrough artifact <!-- id: 35 -->

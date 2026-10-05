@@ -80,7 +80,7 @@ export default async function LocalizedHomePage({
   const currentLocale: Locale = locale;
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#faf8f2] text-slate-900 dark:bg-[#090d16] dark:text-slate-100 font-sans antialiased selection:bg-emerald-600 selection:text-white">
+    <div className="min-h-screen flex flex-col bg-[#0d0c0a] text-[#f5f5f3] font-sans antialiased selection:bg-[#fcc438] selection:text-[#0d0c0a]">
       {/* Schema.org Structured Data */}
       <SchemaJsonLd locale={currentLocale} />
 

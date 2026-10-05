@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { Locale } from "@/src/config/i18n";
 import { getDictionary } from "@/src/i18n";
-import { X, ZoomIn, Camera, Sparkles } from "lucide-react";
+import { X, ZoomIn, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
 interface GallerySectionProps {
@@ -98,23 +98,26 @@ export function GallerySection({ locale }: GallerySectionProps) {
   });
 
   return (
-    <section id="gallery" className="py-16 sm:py-20 scroll-mt-20">
+    <section id="gallery" className="py-20 sm:py-28 scroll-mt-20 bg-[#0d0c0a]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-950/60 border border-emerald-800/80 text-xs font-semibold uppercase tracking-wider text-emerald-300 mb-3 shadow-xs">
-            <span>{locale === "si" ? "පුහුණු පරිශ්‍රය" : locale === "ta" ? "படத்தொகுப்பு" : "Gallery"}</span>
+        
+        {/* Header with Marcus Lorenzet Editorial Style */}
+        <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-18">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#161513] border border-white/[0.08] text-xs font-semibold mb-4">
+            <span className="editorial-bracket text-[10px] sm:text-[11px] text-[#d0c5ab]">
+              [ 10 · FLEET & GROUNDS PORTFOLIO ]
+            </span>
           </div>
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white" style={{ textWrap: "balance" }}>
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-[#f5f5f3] uppercase leading-tight" style={{ textWrap: "balance" }}>
             {dict.gallery.title}
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p className="mt-4 text-sm sm:text-base text-[#c7c2b6] leading-relaxed">
             {dict.gallery.subtitle}
           </p>
         </div>
 
         {/* Filter Tabs */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
           {[
             { key: "ALL", label: dict.common.filterAll },
             { key: "FLEET", label: "Fleet" },
@@ -127,8 +130,8 @@ export function GallerySection({ locale }: GallerySectionProps) {
               onClick={() => setSelectedFilter(tab.key as any)}
               className={`px-5 py-2 rounded-full text-xs font-bold transition-all cursor-pointer ${
                 selectedFilter === tab.key
-                  ? "bg-emerald-600 text-white shadow-emerald-glow"
-                  : "bg-slate-900 border border-slate-800 text-slate-300 hover:border-emerald-500 hover:text-white shadow-xs"
+                  ? "bg-[#d0c5ab] text-[#11100d] shadow-md"
+                  : "bg-[#141310] border border-white/[0.08] text-[#c7c2b6] hover:border-white/20 hover:text-white"
               }`}
             >
               {tab.label}
@@ -138,7 +141,7 @@ export function GallerySection({ locale }: GallerySectionProps) {
 
         {/* Gallery Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {filteredItems.map((item) => (
+          {filteredItems.map((item, idx) => (
             <motion.div
               key={item.id}
               layout
@@ -146,11 +149,11 @@ export function GallerySection({ locale }: GallerySectionProps) {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.96 }}
               transition={{ duration: 0.4 }}
-              className="group relative rounded-3xl overflow-hidden bg-slate-900 border border-slate-800 shadow-xl hover:shadow-2xl cursor-pointer hover:border-emerald-500/50 transition-all"
+              className="group relative rounded-3xl overflow-hidden marcus-card cursor-pointer shadow-xl"
               onClick={() => setLightboxItem(item)}
             >
               {/* Image Frame */}
-              <div className="relative aspect-[16/10] overflow-hidden bg-slate-950">
+              <div className="relative aspect-[16/10] overflow-hidden bg-[#0d0c0a]">
                 <Image
                   src={item.imageSrc}
                   alt={item.title[locale]}
@@ -160,27 +163,30 @@ export function GallerySection({ locale }: GallerySectionProps) {
                 />
                 
                 {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent opacity-85" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0d0c0a] via-[#0d0c0a]/40 to-transparent opacity-90" />
 
-                {/* Top Tag */}
-                <div className="absolute top-4 left-4">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-slate-950/80 backdrop-blur-md border border-white/10 text-white text-xs font-bold shadow-md">
-                    <Sparkles className="w-3 h-3 text-emerald-400" />
+                {/* Top Tag & Number */}
+                <div className="absolute top-4 left-4 flex items-center gap-2">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#161513]/90 backdrop-blur-md border border-white/10 text-[#d0c5ab] text-xs font-bold shadow-md">
+                    <Sparkles className="w-3 h-3 text-[#fcc438]" />
                     <span>{item.tag}</span>
+                  </span>
+                  <span className="text-xs font-mono text-[#8c877a] px-2 py-0.5 rounded-full bg-[#0d0c0a]/80 border border-white/[0.06]">
+                    0{idx + 1}
                   </span>
                 </div>
 
                 {/* Zoom Icon Hover Cue */}
-                <div className="absolute top-4 right-4 w-9 h-9 rounded-xl bg-slate-950/70 backdrop-blur-md border border-white/10 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity">
-                  <ZoomIn className="w-4 h-4 text-emerald-400" />
+                <div className="absolute top-4 right-4 w-9 h-9 rounded-full bg-[#161513]/90 backdrop-blur-md border border-white/10 flex items-center justify-center text-[#d0c5ab] opacity-0 group-hover:opacity-100 transition-opacity">
+                  <ZoomIn className="w-4 h-4 text-[#fcc438]" />
                 </div>
 
                 {/* Content Overlay */}
-                <div className="absolute bottom-4 left-4 right-4">
-                  <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-emerald-300 transition-colors">
+                <div className="absolute bottom-5 left-5 right-5">
+                  <h3 className="text-base sm:text-xl font-black text-[#f5f5f3] group-hover:text-[#d0c5ab] transition-colors">
                     {item.title[locale]}
                   </h3>
-                  <p className="mt-1 text-xs text-slate-300 leading-relaxed line-clamp-2">
+                  <p className="mt-1 text-xs text-[#c7c2b6] leading-relaxed line-clamp-2">
                     {item.caption[locale]}
                   </p>
                 </div>
@@ -194,7 +200,7 @@ export function GallerySection({ locale }: GallerySectionProps) {
       <AnimatePresence>
         {lightboxItem && (
           <div
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/90 backdrop-blur-md"
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0d0c0a]/90 backdrop-blur-xl"
             onClick={() => setLightboxItem(null)}
           >
             <motion.div
@@ -202,17 +208,17 @@ export function GallerySection({ locale }: GallerySectionProps) {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative max-w-4xl w-full rounded-3xl overflow-hidden bg-slate-900 border border-slate-700 shadow-2xl"
+              className="relative max-w-4xl w-full rounded-3xl overflow-hidden marcus-card shadow-2xl"
             >
               <button
                 onClick={() => setLightboxItem(null)}
-                className="absolute top-4 right-4 z-10 p-2.5 rounded-full bg-slate-950/80 hover:bg-slate-950 text-white transition-colors cursor-pointer"
+                className="absolute top-4 right-4 z-10 p-2.5 rounded-full bg-[#1c1a17] hover:bg-[#25231f] text-[#d0c5ab] hover:text-white transition-colors cursor-pointer border border-white/10"
                 aria-label="Close image preview"
               >
                 <X className="w-5 h-5" />
               </button>
 
-              <div className="relative aspect-[16/10] w-full bg-slate-950">
+              <div className="relative aspect-[16/10] w-full bg-[#0d0c0a]">
                 <Image
                   src={lightboxItem.imageSrc}
                   alt={lightboxItem.title[locale]}
@@ -222,14 +228,14 @@ export function GallerySection({ locale }: GallerySectionProps) {
                 />
               </div>
 
-              <div className="p-6 bg-slate-900 text-white">
-                <div className="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-1">
+              <div className="p-6 bg-[#141310] text-[#f5f5f3] border-t border-white/[0.06]">
+                <div className="text-xs font-bold text-[#fcc438] uppercase tracking-wider mb-1">
                   {lightboxItem.tag}
                 </div>
-                <h3 className="text-lg font-bold text-white">
+                <h3 className="text-lg font-black text-[#f5f5f3]">
                   {lightboxItem.title[locale]}
                 </h3>
-                <p className="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <p className="mt-2 text-xs sm:text-sm text-[#c7c2b6] leading-relaxed">
                   {lightboxItem.caption[locale]}
                 </p>
               </div>

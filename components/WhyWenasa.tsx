@@ -10,7 +10,6 @@ import {
   Users, 
   FileCheck, 
   CheckCircle2, 
-  Sparkles, 
   ArrowRight,
   Gauge,
   Car
@@ -100,19 +99,20 @@ export function WhyWenasa({ locale }: WhyWenasaProps) {
   const m = localizedMeta[locale] || localizedMeta.en;
 
   return (
-    <section id="why-us" className="py-20 sm:py-24 scroll-mt-20 relative overflow-hidden">
+    <section id="why-us" className="py-20 sm:py-28 scroll-mt-20 bg-[#0d0c0a] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-950/60 border border-emerald-800/80 text-xs font-semibold uppercase tracking-wider text-emerald-300 mb-3.5 shadow-xs">
-            <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
-            <span>{m.eyebrow}</span>
+        {/* Section Header with Marcus Lorenzet Editorial Style */}
+        <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-18">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#161513] border border-white/[0.08] text-xs font-semibold mb-4">
+            <span className="editorial-bracket text-[10px] sm:text-[11px] text-[#d0c5ab]">
+              [ 04 · WHY CHOOSE WENASA ]
+            </span>
           </div>
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white" style={{ textWrap: "balance" }}>
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-[#f5f5f3] uppercase leading-tight" style={{ textWrap: "balance" }}>
             {dict.why.title}
           </h2>
-          <p className="mt-3.5 text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p className="mt-4 text-sm sm:text-base text-[#c7c2b6] leading-relaxed">
             {dict.why.subtitle}
           </p>
         </div>
@@ -120,270 +120,268 @@ export function WhyWenasa({ locale }: WhyWenasaProps) {
         {/* Bento Trust Architecture */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7 items-stretch">
           
-          {/* ======================================================== */}
-          {/* SPOTLIGHT HERO 1: Dual-Control Safety Fleet (2 Cols)     */}
-          {/* ======================================================== */}
-          <div className="col-span-1 md:col-span-2 rounded-[2.25rem] p-1.5 sm:p-2 bg-gradient-to-br from-emerald-500/25 via-slate-800/40 to-slate-900/80 border border-emerald-500/30 shadow-2xl transition-all duration-300 hover:border-emerald-400/80 group">
-            <div className="rounded-[calc(2.25rem-0.5rem)] bg-gradient-to-br from-slate-900 via-slate-900/95 to-emerald-950/20 p-6 sm:p-8 h-full flex flex-col justify-between overflow-hidden relative shadow-[inset_0_1px_1px_rgba(255,255,255,0.08)]">
-              {/* Atmospheric emerald glow */}
-              <div className="absolute -top-16 -right-16 w-60 h-60 bg-emerald-500/15 rounded-full blur-3xl pointer-events-none" />
+          {/* SPOTLIGHT HERO 1: Dual-Control Safety Fleet (2 Cols) */}
+          <div className="col-span-1 md:col-span-2 rounded-3xl marcus-card p-6 sm:p-8 flex flex-col justify-between overflow-hidden relative group">
+            <div className="absolute -top-16 -right-16 w-60 h-60 bg-[#fcc438]/5 rounded-full blur-3xl pointer-events-none" />
 
-              <div>
-                <div className="flex items-center justify-between mb-5">
-                  <div className="w-13 h-13 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center shadow-lg shadow-emerald-950/40">
-                    <ShieldCheck className="w-7 h-7" />
-                  </div>
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/40 text-emerald-300 text-[11px] font-black uppercase tracking-wider shadow-xs">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    <span>{m.badge1}</span>
+            <div>
+              <div className="flex items-center justify-between mb-5">
+                <div className="w-13 h-13 rounded-2xl bg-[#1c1a17] border border-white/10 text-[#fcc438] flex items-center justify-center shadow-lg">
+                  <ShieldCheck className="w-7 h-7" />
+                </div>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1c1a17] border border-white/10 text-[#d0c5ab] text-[11px] font-black uppercase tracking-wider shadow-xs">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#fcc438] animate-pulse" />
+                  <span>{m.badge1}</span>
+                </span>
+              </div>
+
+              <h3 className="text-xl sm:text-2xl font-black text-[#f5f5f3] tracking-tight">
+                {dict.why.point1Title}
+              </h3>
+              <p className="mt-2 text-xs sm:text-sm text-[#c7c2b6] leading-relaxed max-w-xl">
+                {dict.why.point1Desc}
+              </p>
+
+              {/* Interactive Dual-Control Dashboard Simulation */}
+              <div className="mt-6 p-4 rounded-2xl bg-[#0d0c0a] border border-white/[0.06] shadow-inner">
+                <div className="flex items-center justify-between text-xs font-mono font-bold text-[#8c877a] mb-3 border-b border-white/[0.06] pb-2.5">
+                  <span className="text-[#f5f5f3] flex items-center gap-2">
+                    <Car className="w-4 h-4 text-[#fcc438]" />
+                    <span>{m.metricFleetTitle}</span>
                   </span>
+                  <span className="text-[#d0c5ab]">DMT/WP/G/1174</span>
                 </div>
 
-                <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight">
-                  {dict.why.point1Title}
-                </h3>
-                <p className="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed max-w-xl">
-                  {dict.why.point1Desc}
-                </p>
-
-                {/* Interactive Dual-Control Dashboard Simulation */}
-                <div className="mt-6 p-4 rounded-2xl bg-slate-950/80 border border-slate-800/80 shadow-inner">
-                  <div className="flex items-center justify-between text-xs font-mono font-bold text-slate-400 mb-3 border-b border-slate-800/80 pb-2.5">
-                    <span className="text-white flex items-center gap-2">
-                      <Car className="w-4 h-4 text-emerald-400" />
-                      <span>{m.metricFleetTitle}</span>
+                <div className="grid grid-cols-2 gap-3 text-xs">
+                  <div className="p-3 rounded-xl bg-[#141310] border border-white/[0.06]">
+                    <span className="text-[11px] text-[#8c877a] block mb-0.5">Student Pedals</span>
+                    <span className="text-xs font-bold text-[#f5f5f3] flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                      Throttle · Brake · Clutch
                     </span>
-                    <span className="text-emerald-400">DMT/WP/G/1174</span>
                   </div>
-
-                  <div className="grid grid-cols-2 gap-3 text-xs">
-                    <div className="p-3 rounded-xl bg-slate-900 border border-slate-800">
-                      <span className="text-[11px] text-slate-400 block mb-0.5">Student Pedals</span>
-                      <span className="text-xs font-bold text-white flex items-center gap-1.5">
-                        <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                        Throttle · Brake · Clutch
-                      </span>
-                    </div>
-                    <div className="p-3 rounded-xl bg-slate-900 border border-emerald-900/50">
-                      <span className="text-[11px] text-slate-400 block mb-0.5">Instructor Pedals</span>
-                      <span className="text-xs font-bold text-emerald-300 flex items-center gap-1.5">
-                        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                        Dual Brake & Clutch Sync
-                      </span>
-                    </div>
+                  <div className="p-3 rounded-xl bg-[#141310] border border-white/10">
+                    <span className="text-[11px] text-[#8c877a] block mb-0.5">Instructor Pedals</span>
+                    <span className="text-xs font-bold text-[#d0c5ab] flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#fcc438] animate-pulse" />
+                      Dual Brake & Clutch Sync
+                    </span>
                   </div>
-                  <p className="mt-3 text-[11px] text-slate-400 leading-relaxed">
-                    {m.metricFleetDesc}
-                  </p>
                 </div>
+                <p className="mt-3 text-[11px] text-[#8c877a] leading-relaxed">
+                  {m.metricFleetDesc}
+                </p>
               </div>
+            </div>
 
-              <div className="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
-                <span className="font-semibold text-slate-300">Suzuki Wagon R & Alto Fleet</span>
-                <span className="text-emerald-400 font-bold">100% Dual-Pedal Equipped</span>
-              </div>
+            <div className="mt-6 pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs text-[#8c877a]">
+              <span className="font-semibold text-[#c7c2b6]">Suzuki Wagon R & Alto Fleet</span>
+              <span className="text-[#d0c5ab] font-bold">100% Dual-Pedal Equipped</span>
             </div>
           </div>
 
-          {/* ======================================================== */}
-          {/* SPOTLIGHT HERO 2: Private Practical Grounds (2 Cols)     */}
-          {/* ======================================================== */}
-          <div className="col-span-1 md:col-span-2 rounded-[2.25rem] p-1.5 sm:p-2 bg-gradient-to-br from-teal-500/25 via-slate-800/40 to-slate-900/80 border border-teal-500/30 shadow-2xl transition-all duration-300 hover:border-teal-400/80 group">
-            <div className="rounded-[calc(2.25rem-0.5rem)] bg-gradient-to-br from-slate-900 via-slate-900/95 to-teal-950/20 p-6 sm:p-8 h-full flex flex-col justify-between overflow-hidden relative shadow-[inset_0_1px_1px_rgba(255,255,255,0.08)]">
-              {/* Atmospheric teal glow */}
-              <div className="absolute -top-16 -right-16 w-60 h-60 bg-teal-500/15 rounded-full blur-3xl pointer-events-none" />
+          {/* SPOTLIGHT HERO 2: Private Practical Grounds (2 Cols) */}
+          <div className="col-span-1 md:col-span-2 rounded-3xl marcus-card p-6 sm:p-8 flex flex-col justify-between overflow-hidden relative group">
+            <div className="absolute -top-16 -right-16 w-60 h-60 bg-[#d0c5ab]/5 rounded-full blur-3xl pointer-events-none" />
 
-              <div>
-                <div className="flex items-center justify-between mb-5">
-                  <div className="w-13 h-13 rounded-2xl bg-teal-500/15 border border-teal-500/30 text-teal-400 flex items-center justify-center shadow-lg shadow-teal-950/40">
-                    <MapPin className="w-7 h-7" />
-                  </div>
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-500/15 border border-teal-500/40 text-teal-300 text-[11px] font-black uppercase tracking-wider shadow-xs">
-                    <span className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse" />
-                    <span>{m.badge2}</span>
+            <div>
+              <div className="flex items-center justify-between mb-5">
+                <div className="w-13 h-13 rounded-2xl bg-[#1c1a17] border border-white/10 text-[#d0c5ab] flex items-center justify-center shadow-lg">
+                  <MapPin className="w-7 h-7" />
+                </div>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1c1a17] border border-white/10 text-[#d0c5ab] text-[11px] font-black uppercase tracking-wider shadow-xs">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  <span>{m.badge2}</span>
+                </span>
+              </div>
+
+              <h3 className="text-xl sm:text-2xl font-black text-[#f5f5f3] tracking-tight">
+                {dict.why.point3Title}
+              </h3>
+              <p className="mt-2 text-xs sm:text-sm text-[#c7c2b6] leading-relaxed max-w-xl">
+                {dict.why.point3Desc}
+              </p>
+
+              {/* Practical Trial Track Simulator Preview */}
+              <div className="mt-6 p-4 rounded-2xl bg-[#0d0c0a] border border-white/[0.06] shadow-inner">
+                <div className="flex items-center justify-between text-xs font-mono font-bold text-[#8c877a] mb-3 border-b border-white/[0.06] pb-2.5">
+                  <span className="text-[#f5f5f3] flex items-center gap-2">
+                    <Gauge className="w-4 h-4 text-[#fcc438]" />
+                    <span>{m.metricTrackTitle}</span>
                   </span>
+                  <span className="text-[#d0c5ab]">Kirindiwela Ground</span>
                 </div>
 
-                <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight">
-                  {dict.why.point3Title}
-                </h3>
-                <p className="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed max-w-xl">
-                  {dict.why.point3Desc}
+                <div className="grid grid-cols-3 gap-2.5 text-center text-xs">
+                  <div className="p-2.5 rounded-xl bg-[#141310] border border-white/[0.06]">
+                    <span className="text-[#fcc438] font-bold block text-sm">Zone 1</span>
+                    <span className="text-[11px] text-[#c7c2b6]">Hill Start Ramp</span>
+                  </div>
+                  <div className="p-2.5 rounded-xl bg-[#141310] border border-white/[0.06]">
+                    <span className="text-[#fcc438] font-bold block text-sm">Zone 2</span>
+                    <span className="text-[11px] text-[#c7c2b6]">Reverse &lsquo;S&rsquo; Track</span>
+                  </div>
+                  <div className="p-2.5 rounded-xl bg-[#141310] border border-white/[0.06]">
+                    <span className="text-[#fcc438] font-bold block text-sm">Zone 3</span>
+                    <span className="text-[11px] text-[#c7c2b6]">Parallel Parking</span>
+                  </div>
+                </div>
+                <p className="mt-3 text-[11px] text-[#8c877a] leading-relaxed">
+                  {m.metricTrackDesc}
                 </p>
-
-                {/* Practical Trial Track Simulator Preview */}
-                <div className="mt-6 p-4 rounded-2xl bg-slate-950/80 border border-slate-800/80 shadow-inner">
-                  <div className="flex items-center justify-between text-xs font-mono font-bold text-slate-400 mb-3 border-b border-slate-800/80 pb-2.5">
-                    <span className="text-white flex items-center gap-2">
-                      <Gauge className="w-4 h-4 text-teal-400" />
-                      <span>{m.metricTrackTitle}</span>
-                    </span>
-                    <span className="text-teal-400">Kirindiwela Ground</span>
-                  </div>
-
-                  <div className="grid grid-cols-3 gap-2.5 text-center text-xs">
-                    <div className="p-2.5 rounded-xl bg-slate-900 border border-slate-800">
-                      <span className="text-teal-400 font-bold block text-sm">Zone 1</span>
-                      <span className="text-[11px] text-slate-300">Hill Start Ramp</span>
-                    </div>
-                    <div className="p-2.5 rounded-xl bg-slate-900 border border-slate-800">
-                      <span className="text-teal-400 font-bold block text-sm">Zone 2</span>
-                      <span className="text-[11px] text-slate-300">Reverse &lsquo;S&rsquo; Track</span>
-                    </div>
-                    <div className="p-2.5 rounded-xl bg-slate-900 border border-slate-800">
-                      <span className="text-teal-400 font-bold block text-sm">Zone 3</span>
-                      <span className="text-[11px] text-slate-300">Parallel Parking</span>
-                    </div>
-                  </div>
-                  <p className="mt-3 text-[11px] text-slate-400 leading-relaxed">
-                    {m.metricTrackDesc}
-                  </p>
-                </div>
               </div>
+            </div>
 
-              <div className="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
-                <span className="font-semibold text-slate-300">Private Closed Facility</span>
-                <span className="text-teal-400 font-bold">Hanwella - Urapola Road</span>
-              </div>
+            <div className="mt-6 pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs text-[#8c877a]">
+              <span className="font-semibold text-[#c7c2b6]">Private Closed Facility</span>
+              <span className="text-[#d0c5ab] font-bold">Hanwella - Urapola Road</span>
             </div>
           </div>
 
-          {/* ======================================================== */}
-          {/* COMPANION PILLAR 3: DMT Certified Instructors (1 Col)    */}
-          {/* ======================================================== */}
-          <div className="col-span-1 rounded-3xl border border-slate-800 bg-slate-900 p-6 shadow-xl flex flex-col justify-between hover:border-amber-500/50 hover:-translate-y-1 transition-all duration-300 group">
+          {/* COMPANION PILLAR 3: DMT Certified Instructors (1 Col) */}
+          <div className="col-span-1 rounded-3xl marcus-card p-6 shadow-xl flex flex-col justify-between group">
             <div>
               <div className="flex items-center justify-between mb-4">
-                <div className="w-11 h-11 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center">
+                <div className="w-11 h-11 rounded-2xl bg-[#1c1a17] border border-white/10 text-[#fcc438] flex items-center justify-center">
                   <Award className="w-5 h-5" />
                 </div>
-                <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-slate-800 text-amber-300 border border-amber-900/50">
+                <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-[#1c1a17] text-[#d0c5ab] border border-white/10">
                   {m.tag3}
                 </span>
               </div>
 
-              <h4 className="text-base sm:text-lg font-bold text-white group-hover:text-amber-400 transition-colors">
+              <div className="text-[10px] font-mono text-[#8c877a] uppercase tracking-wider mb-1">
+                [ 01 · EXPERTISE ]
+              </div>
+
+              <h4 className="text-base sm:text-lg font-bold text-[#f5f5f3] group-hover:text-[#fcc438] transition-colors">
                 {dict.why.point2Title}
               </h4>
-              <p className="mt-2 text-xs text-slate-300 leading-relaxed">
+              <p className="mt-2 text-xs text-[#c7c2b6] leading-relaxed">
                 {dict.why.point2Desc}
               </p>
 
-              <div className="mt-4 space-y-1.5 border-t border-slate-800/80 pt-3 text-[11px] text-slate-300">
+              <div className="mt-4 space-y-1.5 border-t border-white/[0.06] pt-3 text-[11px] text-[#c7c2b6]">
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#fcc438] shrink-0" />
                   <span>{m.chip3a}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#fcc438] shrink-0" />
                   <span>{m.chip3b}</span>
                 </div>
               </div>
             </div>
 
-            <div className="mt-5 pt-3.5 border-t border-slate-800 text-[11px] text-slate-400 font-mono">
+            <div className="mt-5 pt-3.5 border-t border-white/[0.06] text-[11px] text-[#8c877a] font-mono">
               Govt Licenced Staff
             </div>
           </div>
 
-          {/* ======================================================== */}
-          {/* COMPANION PILLAR 4: Flexible Timing & Hours (1 Col)      */}
-          {/* ======================================================== */}
-          <div className="col-span-1 rounded-3xl border border-slate-800 bg-slate-900 p-6 shadow-xl flex flex-col justify-between hover:border-sky-500/50 hover:-translate-y-1 transition-all duration-300 group">
+          {/* COMPANION PILLAR 4: Flexible Timing & Hours (1 Col) */}
+          <div className="col-span-1 rounded-3xl marcus-card p-6 shadow-xl flex flex-col justify-between group">
             <div>
               <div className="flex items-center justify-between mb-4">
-                <div className="w-11 h-11 rounded-2xl bg-sky-500/10 border border-sky-500/20 text-sky-400 flex items-center justify-center">
+                <div className="w-11 h-11 rounded-2xl bg-[#1c1a17] border border-white/10 text-[#d0c5ab] flex items-center justify-center">
                   <Clock className="w-5 h-5" />
                 </div>
-                <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-slate-800 text-sky-300 border border-sky-900/50">
+                <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-[#1c1a17] text-[#d0c5ab] border border-white/10">
                   {m.tag4}
                 </span>
               </div>
 
-              <h4 className="text-base sm:text-lg font-bold text-white group-hover:text-sky-400 transition-colors">
+              <div className="text-[10px] font-mono text-[#8c877a] uppercase tracking-wider mb-1">
+                [ 02 · FLEXIBILITY ]
+              </div>
+
+              <h4 className="text-base sm:text-lg font-bold text-[#f5f5f3] group-hover:text-[#d0c5ab] transition-colors">
                 {dict.why.point4Title}
               </h4>
-              <p className="mt-2 text-xs text-slate-300 leading-relaxed">
+              <p className="mt-2 text-xs text-[#c7c2b6] leading-relaxed">
                 {dict.why.point4Desc}
               </p>
 
-              <div className="mt-4 space-y-1.5 border-t border-slate-800/80 pt-3 text-[11px] text-slate-300">
+              <div className="mt-4 space-y-1.5 border-t border-white/[0.06] pt-3 text-[11px] text-[#c7c2b6]">
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-sky-400 shrink-0" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
                   <span>{m.chip4a}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-sky-400 shrink-0" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
                   <span>{m.chip4b}</span>
                 </div>
               </div>
             </div>
 
-            <div className="mt-5 pt-3.5 border-t border-slate-800 text-[11px] text-slate-400 font-mono">
+            <div className="mt-5 pt-3.5 border-t border-white/[0.06] text-[11px] text-[#8c877a] font-mono">
               7 Days · Zero Conflict
             </div>
           </div>
 
-          {/* ======================================================== */}
-          {/* COMPANION PILLAR 5: Female Instructor Option (1 Col)     */}
-          {/* ======================================================== */}
-          <div className="col-span-1 rounded-3xl border border-slate-800 bg-slate-900 p-6 shadow-xl flex flex-col justify-between hover:border-rose-500/50 hover:-translate-y-1 transition-all duration-300 group">
+          {/* COMPANION PILLAR 5: Female Instructor Option (1 Col) */}
+          <div className="col-span-1 rounded-3xl marcus-card p-6 shadow-xl flex flex-col justify-between group">
             <div>
               <div className="flex items-center justify-between mb-4">
-                <div className="w-11 h-11 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-rose-400 flex items-center justify-center">
+                <div className="w-11 h-11 rounded-2xl bg-[#1c1a17] border border-white/10 text-[#d0c5ab] flex items-center justify-center">
                   <Users className="w-5 h-5" />
                 </div>
-                <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-slate-800 text-rose-300 border border-rose-900/50">
+                <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-[#1c1a17] text-[#d0c5ab] border border-white/10">
                   {m.tag5}
                 </span>
               </div>
 
-              <h4 className="text-base sm:text-lg font-bold text-white group-hover:text-rose-400 transition-colors">
+              <div className="text-[10px] font-mono text-[#8c877a] uppercase tracking-wider mb-1">
+                [ 03 · INCLUSION ]
+              </div>
+
+              <h4 className="text-base sm:text-lg font-bold text-[#f5f5f3] group-hover:text-[#d0c5ab] transition-colors">
                 {dict.why.point5Title}
               </h4>
-              <p className="mt-2 text-xs text-slate-300 leading-relaxed">
+              <p className="mt-2 text-xs text-[#c7c2b6] leading-relaxed">
                 {dict.why.point5Desc}
               </p>
 
-              <div className="mt-4 space-y-1.5 border-t border-slate-800/80 pt-3 text-[11px] text-slate-300">
+              <div className="mt-4 space-y-1.5 border-t border-white/[0.06] pt-3 text-[11px] text-[#c7c2b6]">
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-rose-400 shrink-0" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#fcc438] shrink-0" />
                   <span>{m.chip5a}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-rose-400 shrink-0" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#fcc438] shrink-0" />
                   <span>{m.chip5b}</span>
                 </div>
               </div>
             </div>
 
-            <div className="mt-5 pt-3.5 border-t border-slate-800 text-[11px] text-slate-400 font-mono">
+            <div className="mt-5 pt-3.5 border-t border-white/[0.06] text-[11px] text-[#8c877a] font-mono">
               Empowering & Safe
             </div>
           </div>
 
-          {/* ======================================================== */}
-          {/* COMPANION PILLAR 6: Complete Admin Support (1 Col)       */}
-          {/* ======================================================== */}
-          <div className="col-span-1 rounded-3xl border border-slate-800 bg-slate-900 p-6 shadow-xl flex flex-col justify-between hover:border-emerald-500/50 hover:-translate-y-1 transition-all duration-300 group">
+          {/* COMPANION PILLAR 6: Complete Admin Support (1 Col) */}
+          <div className="col-span-1 rounded-3xl marcus-card p-6 shadow-xl flex flex-col justify-between group">
             <div>
               <div className="flex items-center justify-between mb-4">
-                <div className="w-11 h-11 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center">
+                <div className="w-11 h-11 rounded-2xl bg-[#1c1a17] border border-white/10 text-emerald-400 flex items-center justify-center">
                   <FileCheck className="w-5 h-5" />
                 </div>
-                <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-slate-800 text-emerald-300 border border-emerald-900/50">
+                <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-[#1c1a17] text-emerald-300 border border-white/10">
                   {m.tag6}
                 </span>
               </div>
 
-              <h4 className="text-base sm:text-lg font-bold text-white group-hover:text-emerald-400 transition-colors">
+              <div className="text-[10px] font-mono text-[#8c877a] uppercase tracking-wider mb-1">
+                [ 04 · SUPPORT ]
+              </div>
+
+              <h4 className="text-base sm:text-lg font-bold text-[#f5f5f3] group-hover:text-emerald-400 transition-colors">
                 {dict.why.point6Title}
               </h4>
-              <p className="mt-2 text-xs text-slate-300 leading-relaxed">
+              <p className="mt-2 text-xs text-[#c7c2b6] leading-relaxed">
                 {dict.why.point6Desc}
               </p>
 
-              <div className="mt-4 space-y-1.5 border-t border-slate-800/80 pt-3 text-[11px] text-slate-300">
+              <div className="mt-4 space-y-1.5 border-t border-white/[0.06] pt-3 text-[11px] text-[#c7c2b6]">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
                   <span>{m.chip6a}</span>
@@ -395,7 +393,7 @@ export function WhyWenasa({ locale }: WhyWenasaProps) {
               </div>
             </div>
 
-            <div className="mt-5 pt-3.5 border-t border-slate-800 text-[11px] text-slate-400 font-mono">
+            <div className="mt-5 pt-3.5 border-t border-white/[0.06] text-[11px] text-[#8c877a] font-mono">
               Zero Queue Hassle
             </div>
           </div>
@@ -403,14 +401,14 @@ export function WhyWenasa({ locale }: WhyWenasaProps) {
         </div>
 
         {/* Bottom Institutional Trust Banner */}
-        <div className="mt-10 sm:mt-12 p-4 sm:p-5 rounded-2xl bg-slate-950/80 border border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-3 text-xs text-slate-300 text-center sm:text-left">
-            <span className="font-bold text-emerald-400 shrink-0">{m.trustBarPrefix}</span>
+        <div className="mt-10 sm:mt-14 p-5 sm:p-6 rounded-3xl marcus-card flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-3 text-xs text-[#c7c2b6] text-center sm:text-left">
+            <span className="font-bold text-[#fcc438] shrink-0">{m.trustBarPrefix}</span>
             <span>{m.trustBarText}</span>
           </div>
           <a
             href="#apply"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs cursor-pointer transition-all active:scale-95 shrink-0"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#d0c5ab] hover:bg-[#e4dbc6] text-[#11100d] font-black text-xs uppercase tracking-wider cursor-pointer transition-all active:scale-95 shrink-0 shadow-md"
           >
             <span>{m.ctaBtn}</span>
             <ArrowRight className="w-3.5 h-3.5" />

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Locale } from "@/src/config/i18n";
 import { getDictionary } from "@/src/i18n";
-import { Check, HelpCircle, ArrowRight, Sparkles, Award } from "lucide-react";
+import { Check, HelpCircle, ArrowRight, Sparkles } from "lucide-react";
 import { PackageFinderModal } from "./PackageFinderModal";
 
 interface PackagesSectionProps {
@@ -177,32 +177,37 @@ export function PackagesSection({ locale }: PackagesSectionProps) {
 
   return (
     <>
-      <section id="packages" className="py-16 sm:py-20 scroll-mt-20">
+      <section id="packages" className="py-20 sm:py-28 scroll-mt-20 bg-[#0d0c0a]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Header */}
-          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-14">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-950/60 border border-emerald-800/80 text-emerald-300 text-xs font-semibold tracking-wide shadow-xs mb-3">
-              <span>{dict.nav.packages}</span>
+          
+          {/* Header with Marcus Lorenzet Editorial Style */}
+          <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-18">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#161513] border border-white/[0.08] text-xs font-semibold mb-4">
+              <span className="editorial-bracket text-[10px] sm:text-[11px] text-[#d0c5ab]">
+                [ 03 · TRANSPARENT TUITION ]
+              </span>
             </div>
-            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white" style={{ textWrap: "balance" }}>
+            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-[#f5f5f3] uppercase leading-tight" style={{ textWrap: "balance" }}>
               {dict.packages.title}
             </h2>
-            <p className="mt-3 text-sm sm:text-base text-slate-300 leading-relaxed">
+            <p className="mt-4 text-sm sm:text-base text-[#c7c2b6] leading-relaxed">
               {dict.packages.subtitle}
             </p>
           </div>
 
           {/* Interactive Package Finder Banner */}
-          <div className="rounded-3xl border border-emerald-800/60 bg-gradient-to-r from-slate-900 via-emerald-950/30 to-slate-900 p-6 sm:p-9 mb-14 sm:mb-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-2xl relative overflow-hidden">
+          <div className="rounded-3xl marcus-card p-6 sm:p-9 mb-14 sm:mb-18 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-2xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-80 h-80 bg-[#fcc438]/5 rounded-full blur-3xl pointer-events-none" />
+
             <div className="space-y-1.5 z-10">
-              <div className="flex items-center gap-2 text-xs font-black text-emerald-400 uppercase tracking-widest">
-                <Sparkles className="w-4 h-4 text-emerald-400" />
+              <div className="flex items-center gap-2 text-xs font-black text-[#fcc438] uppercase tracking-widest">
+                <Sparkles className="w-4 h-4 text-[#fcc438]" />
                 <span>{dict.modals.smartRecommendation}</span>
               </div>
-              <h3 className="text-xl sm:text-2xl font-black text-white">
+              <h3 className="text-xl sm:text-2xl font-black text-[#f5f5f3]">
                 {dict.packages.packageFinderTitle}
               </h3>
-              <p className="text-xs sm:text-sm text-slate-300 max-w-xl leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#c7c2b6] max-w-xl leading-relaxed">
                 {dict.packages.packageFinderDesc}
               </p>
             </div>
@@ -210,85 +215,85 @@ export function PackagesSection({ locale }: PackagesSectionProps) {
             <button
               type="button"
               onClick={() => setShowFinder(true)}
-              className="btn-nested group shrink-0 pl-6 pr-3.5 py-3 text-xs sm:text-sm text-slate-950 bg-amber-400 hover:bg-amber-300 shadow-sm z-10 cursor-pointer"
+              className="group shrink-0 px-6 py-3.5 rounded-full bg-[#d0c5ab] hover:bg-[#e4dbc6] text-[#11100d] font-black text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2 transition-all shadow-md active:scale-95 cursor-pointer z-10"
             >
               <span>{dict.packages.packageFinderBtn}</span>
-              <span className="btn-nested-icon bg-slate-950/10 text-slate-950 border border-slate-950/15">
-                <HelpCircle className="w-4 h-4" />
-              </span>
+              <HelpCircle className="w-4 h-4" />
             </button>
           </div>
 
           {/* Packages Comparison Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7 items-stretch">
-            {PACKAGES_DATA.map((pkg) => {
+            {PACKAGES_DATA.map((pkg, idx) => {
               if (pkg.isPopular) {
                 return (
                   <div
                     key={pkg.id}
-                    className="rounded-[2.25rem] p-1.5 sm:p-2 bg-gradient-to-br from-emerald-500/40 via-slate-800/60 to-emerald-950/40 border-2 border-emerald-500/80 shadow-2xl relative lg:-translate-y-2.5 transition-all duration-300 group z-10"
+                    className="rounded-3xl p-1 bg-gradient-to-b from-[#d0c5ab]/60 via-white/10 to-[#fcc438]/20 shadow-2xl relative lg:-translate-y-3 transition-all duration-300 group z-10"
                   >
-                    <div className="rounded-[calc(2.25rem-0.5rem)] bg-gradient-to-br from-slate-900 via-slate-900/98 to-emerald-950/30 p-6 sm:p-7 h-full flex flex-col justify-between relative overflow-hidden shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]">
-                      {/* Subtle emerald glow */}
-                      <div className="absolute -top-12 -right-12 w-48 h-48 bg-emerald-500/15 rounded-full blur-3xl pointer-events-none" />
+                    <div className="rounded-[calc(1.5rem-4px)] bg-[#141310] p-6 sm:p-7 h-full flex flex-col justify-between relative overflow-hidden">
+                      {/* Ambient glow */}
+                      <div className="absolute -top-12 -right-12 w-48 h-48 bg-[#fcc438]/10 rounded-full blur-3xl pointer-events-none" />
 
                       {/* Floating Popular Badge */}
-                      <div className="absolute top-4 right-4 bg-emerald-500 text-white text-[10px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider shadow-md flex items-center gap-1.5">
-                        <Sparkles className="w-3 h-3 text-white" />
+                      <div className="absolute top-4 right-4 bg-[#fcc438] text-[#11100d] text-[10px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider shadow-md flex items-center gap-1.5">
+                        <Sparkles className="w-3 h-3 text-[#11100d]" />
                         <span>{dict.packages.popularBadge}</span>
                       </div>
 
                       <div>
-                        <div className="text-xs font-black uppercase tracking-wider text-emerald-400">
+                        <div className="text-[10px] font-mono text-[#8c877a] uppercase tracking-wider mb-1">
+                          [ 02 · FEATURED TIER ]
+                        </div>
+
+                        <div className="text-xs font-black uppercase tracking-wider text-[#d0c5ab]">
                           {pkg.category}
                         </div>
 
-                        <h3 className="text-lg sm:text-xl font-black text-white mt-1 pr-16 tracking-tight">
+                        <h3 className="text-lg sm:text-xl font-black text-[#f5f5f3] mt-1 pr-16 tracking-tight">
                           {pkg.name[locale]}
                         </h3>
 
                         {/* Price with tabular numerals */}
-                        <div className="mt-4 pt-4 border-t border-slate-800">
-                          <div className="text-3xl sm:text-4xl font-black text-white font-mono tabular-nums tracking-tight">
+                        <div className="mt-4 pt-4 border-t border-white/[0.06]">
+                          <div className="text-3xl sm:text-4xl font-black text-[#f5f5f3] font-mono tabular-nums tracking-tight">
                             {pkg.priceLkr}
                           </div>
-                          <div className="text-[11px] font-medium text-emerald-400/90 mt-1 flex items-center gap-1.5">
-                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                          <div className="text-[11px] font-medium text-[#d0c5ab] mt-1 flex items-center gap-1.5">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#fcc438]" />
                             <span>{dict.modals.standardFee} · All-Inclusive</span>
                           </div>
                         </div>
 
-                        <div className="mt-4 p-3 rounded-2xl bg-emerald-950/40 border border-emerald-800/60 space-y-1 text-xs">
-                          <div className="font-bold text-white flex items-center justify-between">
+                        <div className="mt-4 p-3 rounded-2xl bg-[#1c1a17] border border-white/10 space-y-1 text-xs">
+                          <div className="font-bold text-[#f5f5f3] flex items-center justify-between">
                             <span>Duration:</span>
-                            <span className="font-mono text-emerald-300">{pkg.duration}</span>
+                            <span className="font-mono text-[#d0c5ab]">{pkg.duration}</span>
                           </div>
-                          <div className="font-bold text-emerald-300 flex items-center justify-between">
+                          <div className="font-bold text-[#fcc438] flex items-center justify-between">
                             <span>Practical:</span>
                             <span className="font-mono">{pkg.practicalHours}</span>
                           </div>
                         </div>
 
                         {/* Features list */}
-                        <ul className="mt-5 space-y-2.5 pt-4 border-t border-slate-800">
+                        <ul className="mt-5 space-y-2.5 pt-4 border-t border-white/[0.06]">
                           {pkg.features[locale].map((feat, i) => (
-                            <li key={i} className="flex items-start gap-2.5 text-xs text-slate-200 leading-snug">
-                              <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                            <li key={i} className="flex items-start gap-2.5 text-xs text-[#c7c2b6] leading-snug">
+                              <Check className="w-3.5 h-3.5 text-[#fcc438] shrink-0 mt-0.5" />
                               <span>{feat}</span>
                             </li>
                           ))}
                         </ul>
                       </div>
 
-                      <div className="mt-8 pt-4 border-t border-slate-800">
+                      <div className="mt-8 pt-4 border-t border-white/[0.06]">
                         <a
                           href="#apply"
-                          className="btn-nested w-full group py-3 px-4 text-xs font-black bg-emerald-600 text-white hover:bg-emerald-500 shadow-emerald-glow active:scale-95 transition-all"
+                          className="w-full group py-3 px-4 rounded-full text-xs font-black uppercase tracking-wider bg-[#d0c5ab] text-[#11100d] hover:bg-[#e4dbc6] shadow-md active:scale-95 transition-all flex items-center justify-center gap-2"
                         >
                           <span>{dict.packages.enrollBtn}</span>
-                          <span className="btn-nested-icon bg-white/20 text-white group-hover:translate-x-0.5 transition-transform">
-                            <ArrowRight className="w-3.5 h-3.5" />
-                          </span>
+                          <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                         </a>
                       </div>
                     </div>
@@ -299,58 +304,60 @@ export function PackagesSection({ locale }: PackagesSectionProps) {
               return (
                 <div
                   key={pkg.id}
-                  className="rounded-3xl border border-slate-800 bg-slate-900 hover:border-slate-700 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between p-6 sm:p-7 relative shadow-xl group"
+                  className="rounded-3xl marcus-card hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between p-6 sm:p-7 relative shadow-xl group"
                 >
                   <div>
-                    <div className="text-xs font-black uppercase tracking-wider text-slate-400 group-hover:text-emerald-400 transition-colors">
+                    <div className="text-[10px] font-mono text-[#8c877a] uppercase tracking-wider mb-1">
+                      [ 0{idx + 1} · COURSE ]
+                    </div>
+
+                    <div className="text-xs font-black uppercase tracking-wider text-[#8c877a] group-hover:text-[#d0c5ab] transition-colors">
                       {pkg.category}
                     </div>
 
-                    <h3 className="text-base sm:text-lg font-black text-white mt-1.5">
+                    <h3 className="text-base sm:text-lg font-black text-[#f5f5f3] mt-1.5">
                       {pkg.name[locale]}
                     </h3>
 
                     {/* Price with tabular numerals */}
-                    <div className="mt-4 pt-4 border-t border-slate-800">
-                      <div className="text-2xl sm:text-3xl font-black text-white font-mono tabular-nums tracking-tight">
+                    <div className="mt-4 pt-4 border-t border-white/[0.06]">
+                      <div className="text-2xl sm:text-3xl font-black text-[#f5f5f3] font-mono tabular-nums tracking-tight">
                         {pkg.priceLkr}
                       </div>
-                      <div className="text-[11px] font-medium text-slate-400 mt-1">
+                      <div className="text-[11px] font-medium text-[#8c877a] mt-1">
                         {dict.modals.standardFee}
                       </div>
                     </div>
 
-                    <div className="mt-4 p-3 rounded-2xl bg-slate-950/60 border border-slate-800 space-y-1 text-xs">
-                      <div className="font-bold text-white flex items-center justify-between">
+                    <div className="mt-4 p-3 rounded-2xl bg-[#0d0c0a] border border-white/[0.06] space-y-1 text-xs">
+                      <div className="font-bold text-[#f5f5f3] flex items-center justify-between">
                         <span>Duration:</span>
-                        <span className="font-mono text-slate-300">{pkg.duration}</span>
+                        <span className="font-mono text-[#c7c2b6]">{pkg.duration}</span>
                       </div>
-                      <div className="font-semibold text-emerald-400 flex items-center justify-between">
+                      <div className="font-semibold text-[#d0c5ab] flex items-center justify-between">
                         <span>Practical:</span>
                         <span className="font-mono">{pkg.practicalHours}</span>
                       </div>
                     </div>
 
                     {/* Features list */}
-                    <ul className="mt-5 space-y-2.5 pt-4 border-t border-slate-800">
+                    <ul className="mt-5 space-y-2.5 pt-4 border-t border-white/[0.06]">
                       {pkg.features[locale].map((feat, i) => (
-                        <li key={i} className="flex items-start gap-2.5 text-xs text-slate-300 leading-snug">
-                          <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                        <li key={i} className="flex items-start gap-2.5 text-xs text-[#c7c2b6] leading-snug">
+                          <Check className="w-3.5 h-3.5 text-[#fcc438] shrink-0 mt-0.5" />
                           <span>{feat}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  <div className="mt-8 pt-4 border-t border-slate-800">
+                  <div className="mt-8 pt-4 border-t border-white/[0.06]">
                     <a
                       href="#apply"
-                      className="btn-nested w-full group py-3 px-4 text-xs font-black bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 active:scale-95 transition-all"
+                      className="w-full group py-3 px-4 rounded-full text-xs font-black uppercase tracking-wider bg-[#1c1a17] hover:bg-[#25231f] text-[#d0c5ab] hover:text-white border border-white/10 active:scale-95 transition-all flex items-center justify-center gap-2"
                     >
                       <span>{dict.packages.enrollBtn}</span>
-                      <span className="btn-nested-icon bg-slate-700 text-slate-200 group-hover:translate-x-0.5 transition-transform">
-                        <ArrowRight className="w-3.5 h-3.5" />
-                      </span>
+                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                     </a>
                   </div>
                 </div>
@@ -358,7 +365,7 @@ export function PackagesSection({ locale }: PackagesSectionProps) {
             })}
           </div>
 
-          <div className="mt-10 text-center text-xs text-slate-400 max-w-2xl mx-auto leading-relaxed">
+          <div className="mt-10 text-center text-xs text-[#8c877a] max-w-2xl mx-auto leading-relaxed">
             Note: Government DMT test fees and NTMI medical test fees are paid directly to government authorities or included via official receipt upon enrollment.
           </div>
         </div>

@@ -196,25 +196,25 @@ export function MockExamModal({ locale, onClose }: MockExamModalProps) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
-      <div className="bg-slate-900 rounded-3xl max-w-2xl w-full border border-slate-800 shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+    <div className="fixed inset-0 z-50 bg-[#0d0c0a]/85 backdrop-blur-md flex items-center justify-center p-4">
+      <div className="bg-[#141310] rounded-3xl max-w-2xl w-full border border-white/10 shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
         {/* Modal Header */}
-        <div className="p-4 sm:p-6 bg-slate-950 text-white flex items-center justify-between border-b border-slate-800">
+        <div className="p-5 sm:p-6 bg-[#0d0c0a] text-white flex items-center justify-between border-b border-white/10">
           <div>
-            <div className="flex items-center gap-2 text-xs text-emerald-400 font-bold uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5" />
+            <div className="flex items-center gap-2 text-[11px] font-mono text-[#d0c5ab] font-bold uppercase tracking-wider">
+              <span className="text-[#fcc438]">■</span>
               <span>{labels.simulator}</span>
-              <span className="text-slate-600">·</span>
-              <span>{labels.passMark}</span>
+              <span className="text-white/20">·</span>
+              <span className="text-[#fcc438]">{labels.passMark}</span>
             </div>
-            <h3 className="text-lg sm:text-xl font-bold mt-1 text-white">
+            <h3 className="text-lg sm:text-xl font-black mt-1 text-[#f5f2eb]">
               {labels.title}
             </h3>
           </div>
 
           <div className="flex items-center gap-3">
             {!isSubmitted && (
-              <div className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-900 border border-slate-700 rounded-xl text-amber-400 font-mono text-xs font-bold">
+              <div className="flex items-center gap-1.5 px-3 py-1.5 bg-[#1c1a17] border border-white/10 rounded-xl text-[#fcc438] font-mono text-xs font-bold">
                 <Clock className="w-3.5 h-3.5" />
                 <span>{formatTime(secondsRemaining)}</span>
               </div>
@@ -222,7 +222,7 @@ export function MockExamModal({ locale, onClose }: MockExamModalProps) {
 
             <button
               onClick={onClose}
-              className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition-colors cursor-pointer"
+              className="p-2 rounded-xl text-[#78756c] hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
               aria-label="Close modal"
             >
               <X className="w-5 h-5" />
@@ -232,9 +232,9 @@ export function MockExamModal({ locale, onClose }: MockExamModalProps) {
 
         {/* Progress Bar */}
         {!isSubmitted && (
-          <div className="w-full bg-slate-800 h-1.5">
+          <div className="w-full bg-white/5 h-1">
             <div
-              className="bg-emerald-500 h-1.5 transition-all duration-300 ease-out"
+              className="bg-[#fcc438] h-1 transition-all duration-300 ease-out"
               style={{ width: `${((currentIndex + 1) / totalQuestions) * 100}%` }}
             />
           </div>
@@ -253,12 +253,12 @@ export function MockExamModal({ locale, onClose }: MockExamModalProps) {
                     <button
                       key={idx}
                       onClick={() => setCurrentIndex(idx)}
-                      className={`w-8 h-8 rounded-xl text-xs font-bold shrink-0 transition-all cursor-pointer ${
+                      className={`w-8 h-8 rounded-xl text-xs font-mono font-bold shrink-0 transition-all cursor-pointer ${
                         isCurrent
-                          ? "bg-emerald-500 text-slate-950 font-black shadow-md shadow-emerald-950/50 scale-105"
+                          ? "bg-[#d0c5ab] text-[#0d0c0a] font-black shadow-md scale-105"
                           : isAnswered
-                          ? "bg-emerald-950/60 text-emerald-300 border border-emerald-700/60"
-                          : "bg-slate-800 text-slate-400 hover:bg-slate-700"
+                          ? "bg-[#1c1a17] text-[#d0c5ab] border border-white/15"
+                          : "bg-white/5 text-[#78756c] hover:bg-white/10 hover:text-white border border-transparent"
                       }`}
                     >
                       {idx + 1}
@@ -269,10 +269,10 @@ export function MockExamModal({ locale, onClose }: MockExamModalProps) {
 
               {/* Current Question */}
               <div className="space-y-4">
-                <div className="text-xs font-bold uppercase tracking-wider text-emerald-400">
-                  {labels.question} {currentIndex + 1} {labels.of} {totalQuestions}
+                <div className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#d0c5ab]">
+                  [ {labels.question} {currentIndex + 1} {labels.of} {totalQuestions} ]
                 </div>
-                <h4 className="text-base sm:text-lg font-bold text-white leading-snug">
+                <h4 className="text-base sm:text-lg font-bold text-[#f5f2eb] leading-snug">
                   {currentQ.question[locale]}
                 </h4>
 
@@ -286,15 +286,15 @@ export function MockExamModal({ locale, onClose }: MockExamModalProps) {
                         onClick={() => handleSelect(optIdx)}
                         className={`w-full text-left p-4 rounded-2xl border text-xs sm:text-sm font-medium transition-all flex items-start gap-3.5 cursor-pointer ${
                           isSelected
-                            ? "border-emerald-500 bg-emerald-950/40 text-emerald-200 shadow-sm"
-                            : "border-slate-800 hover:bg-slate-800/60 text-slate-200"
+                            ? "border-[#fcc438] bg-[#fcc438]/10 text-[#f5f2eb] shadow-sm"
+                            : "border-white/10 hover:bg-white/5 text-[#a39e93] hover:text-[#f5f2eb]"
                         }`}
                       >
                         <span
-                          className={`w-6 h-6 rounded-lg border flex items-center justify-center text-xs shrink-0 mt-0.5 font-bold ${
+                          className={`w-6 h-6 rounded-lg border flex items-center justify-center text-xs shrink-0 mt-0.5 font-mono font-bold ${
                             isSelected
-                              ? "border-emerald-500 bg-emerald-500 text-slate-950 font-black"
-                              : "border-slate-700 text-slate-400"
+                              ? "border-[#fcc438] bg-[#fcc438] text-[#0d0c0a] font-black"
+                              : "border-white/15 text-[#78756c]"
                           }`}
                         >
                           {String.fromCharCode(65 + optIdx)}
@@ -312,29 +312,29 @@ export function MockExamModal({ locale, onClose }: MockExamModalProps) {
               <div
                 className={`w-20 h-20 rounded-3xl mx-auto flex items-center justify-center shadow-lg ${
                   hasPassed
-                    ? "bg-emerald-950/80 text-emerald-400 border border-emerald-700/60"
-                    : "bg-amber-950/80 text-amber-400 border border-amber-700/60"
+                    ? "bg-[#fcc438]/10 text-[#fcc438] border border-[#fcc438]/30"
+                    : "bg-white/5 text-[#d0c5ab] border border-white/10"
                 }`}
               >
                 <Award className="w-10 h-10" />
               </div>
 
               <div>
-                <h4 className="text-2xl font-extrabold text-white">
+                <h4 className="text-2xl font-black text-[#f5f2eb]">
                   {hasPassed ? labels.passedTitle : labels.failedTitle}
                 </h4>
-                <p className="text-sm font-semibold text-slate-300 mt-1.5">
+                <p className="text-sm font-mono font-semibold text-[#d0c5ab] mt-2">
                   {labels.scoreText}
                 </p>
-                <p className="text-xs text-slate-400 mt-1">
+                <p className="text-xs text-[#78756c] mt-1">
                   Official DMT examination pass standard is 30 out of 40 (75%).
                 </p>
               </div>
 
               {/* Review Answers */}
-              <div className="text-left space-y-3 pt-4 border-t border-slate-800">
-                <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-                  {labels.reviewHeader}
+              <div className="text-left space-y-3 pt-4 border-t border-white/10">
+                <div className="text-[11px] font-mono font-bold text-[#d0c5ab] uppercase tracking-wider">
+                  [ {labels.reviewHeader} ]
                 </div>
                 {SAMPLE_QUESTIONS.map((q, idx) => {
                   const userAnswer = selectedAnswers[idx];
@@ -344,24 +344,24 @@ export function MockExamModal({ locale, onClose }: MockExamModalProps) {
                       key={q.id}
                       className={`p-4 rounded-2xl border text-xs ${
                         isCorrect
-                          ? "border-emerald-800/60 bg-emerald-950/20"
-                          : "border-red-800/60 bg-red-950/20"
+                          ? "border-[#fcc438]/30 bg-[#fcc438]/5"
+                          : "border-red-500/30 bg-red-500/5"
                       }`}
                     >
                       <div className="flex items-start gap-2.5">
                         {isCorrect ? (
-                          <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                          <CheckCircle className="w-4 h-4 text-[#fcc438] shrink-0 mt-0.5" />
                         ) : (
                           <AlertCircle className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
                         )}
                         <div>
-                          <div className="font-bold text-white">
+                          <div className="font-bold text-[#f5f2eb]">
                             {idx + 1}. {q.question[locale]}
                           </div>
-                          <div className="mt-1 text-slate-300">
-                            Correct: <span className="font-bold text-emerald-400">{q.options[locale][q.correctIndex]}</span>
+                          <div className="mt-1 text-[#a39e93]">
+                            Correct: <span className="font-bold text-[#fcc438]">{q.options[locale][q.correctIndex]}</span>
                           </div>
-                          <div className="mt-1 text-[11px] text-slate-400 italic">
+                          <div className="mt-1 text-[11px] text-[#78756c] italic">
                             {q.explanation[locale]}
                           </div>
                         </div>
@@ -375,13 +375,13 @@ export function MockExamModal({ locale, onClose }: MockExamModalProps) {
         </div>
 
         {/* Modal Footer Controls */}
-        <div className="p-4 bg-slate-950 border-t border-slate-800 flex items-center justify-between">
+        <div className="p-4 sm:p-5 bg-[#0d0c0a] border-t border-white/10 flex items-center justify-between">
           {!isSubmitted ? (
             <>
               <button
                 onClick={() => setCurrentIndex((prev) => Math.max(0, prev - 1))}
                 disabled={currentIndex === 0}
-                className="px-4 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white disabled:opacity-30 cursor-pointer"
+                className="px-4 py-2 rounded-xl text-xs font-mono font-bold uppercase tracking-wider text-[#78756c] hover:text-[#f5f2eb] disabled:opacity-30 cursor-pointer"
               >
                 {labels.previous}
               </button>
@@ -390,7 +390,7 @@ export function MockExamModal({ locale, onClose }: MockExamModalProps) {
                 {currentIndex < totalQuestions - 1 ? (
                   <button
                     onClick={() => setCurrentIndex((prev) => Math.min(totalQuestions - 1, prev + 1))}
-                    className="inline-flex items-center gap-1.5 px-5 py-2.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 rounded-xl text-xs font-bold transition-all cursor-pointer shadow-md"
+                    className="inline-flex items-center gap-1.5 px-5 py-2.5 bg-[#d0c5ab] hover:bg-[#e4dcce] text-[#0d0c0a] rounded-xl text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer shadow-md"
                   >
                     <span>{labels.next}</span>
                     <ChevronRight className="w-3.5 h-3.5" />
@@ -398,7 +398,7 @@ export function MockExamModal({ locale, onClose }: MockExamModalProps) {
                 ) : (
                   <button
                     onClick={() => setIsSubmitted(true)}
-                    className="px-5 py-2.5 bg-amber-400 hover:bg-amber-300 text-slate-950 rounded-xl text-xs font-bold transition-all cursor-pointer shadow-md"
+                    className="px-5 py-2.5 bg-[#fcc438] hover:bg-[#fed36a] text-[#0d0c0a] rounded-xl text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer shadow-md"
                   >
                     {labels.submit}
                   </button>
@@ -414,7 +414,7 @@ export function MockExamModal({ locale, onClose }: MockExamModalProps) {
                   setCurrentIndex(0);
                   setSecondsRemaining(600);
                 }}
-                className="inline-flex items-center gap-1.5 px-4 py-2.5 text-xs font-bold text-slate-300 hover:bg-slate-800 rounded-xl transition-all cursor-pointer"
+                className="inline-flex items-center gap-1.5 px-4 py-2.5 text-xs font-mono font-bold uppercase tracking-wider text-[#a39e93] hover:text-white hover:bg-white/5 rounded-xl transition-all cursor-pointer"
               >
                 <RotateCcw className="w-3.5 h-3.5" />
                 <span>{labels.retry}</span>
@@ -422,7 +422,7 @@ export function MockExamModal({ locale, onClose }: MockExamModalProps) {
 
               <button
                 onClick={onClose}
-                className="px-5 py-2.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 rounded-xl text-xs font-bold transition-all cursor-pointer shadow-md"
+                className="px-5 py-2.5 bg-[#d0c5ab] hover:bg-[#e4dcce] text-[#0d0c0a] rounded-xl text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer shadow-md"
               >
                 {labels.close}
               </button>

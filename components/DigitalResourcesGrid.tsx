@@ -12,8 +12,7 @@ import {
   GraduationCap,
   ShoppingBag,
   CheckCircle2,
-  ArrowRight,
-  ExternalLink
+  ArrowRight
 } from "lucide-react";
 import { MockExamModal } from "./MockExamModal";
 import { RoadSignsModal } from "./RoadSignsModal";
@@ -33,7 +32,6 @@ const hubContent = {
     title: "Official DMT Exam & Learning Center",
     subtitle: "Everything you need to master your theory exam and practical road rules. Prepare anytime on your phone or computer.",
     
-    // Card 1: Mock Exams (Hero 2-col)
     examBadge: "Official DMT Computer Exam · 40 Questions",
     examTitle: "DMT Theory Mock Exam Simulator",
     examDesc: "Practice with authentic multiple-choice questions modeled exactly after the official Department of Motor Traffic computer test in Werahera and Gampaha.",
@@ -45,7 +43,6 @@ const hubContent = {
     ],
     examBtn: "Launch Mock Exam Simulator",
 
-    // Card 2: Road Signs (Hero 2-col)
     signsBadge: "21 DMT Vector Signs · Study Mode",
     signsTitle: "Official DMT Road Signs Directory",
     signsDesc: "Interactive visual catalog of Sri Lankan regulatory, warning, and informational road signs rendered with reflective enamel finish and flashcard test mode.",
@@ -57,31 +54,26 @@ const hubContent = {
     ],
     signsBtn: "Explore Road Signs Catalog",
 
-    // Card 3: Licence Guide (1-col)
     guideBadge: "7-Step Guide",
     guideTitle: "Licence Information Guide",
     guideDesc: "Official document checklists, NTMI medical requirements, L-plate hold timelines, and testing center details.",
     guideBtn: "Read Licence Guide",
 
-    // Card 4: Packages & Finder (1-col)
     finderBadge: "30-Sec Matcher",
     finderTitle: "Training Packages",
     finderDesc: "Compare beginner, refresher, manual, and automatic comprehensive course bundles or take our interactive quiz.",
     finderBtn: "Find My Package",
 
-    // Card 5: Video Lessons (1-col)
     videoBadge: "3 Masterclasses",
     videoTitle: "Video Lessons",
     videoDesc: "Step-by-step video tutorials on clutch bite point control, parallel parking between flags, and reverse 'S' tracks.",
     videoBtn: "Watch Video Lessons",
 
-    // Card 6: Student Portal (1-col)
     portalBadge: "Learner Desk",
     portalTitle: "Student Portal",
     portalDesc: "Track your driven hours, lesson schedules, skill scores, upcoming test dates, and contact your instructor.",
     portalBtn: "Open Student Desk",
 
-    // Card 7: Educational Blog (Wide 2-col)
     blogBadge: "Examiner Secrets",
     blogTitle: "Educational Blog & Practical Trial Secrets",
     blogDesc: "Expert articles written by senior DMT-certified instructors on passing your practical trial on the first attempt, hill starts, and defensive driving on Sri Lankan roads.",
@@ -89,7 +81,6 @@ const hubContent = {
     blogPreviewTag: "Featured Guide",
     blogPreviewTitle: "10 Common Mistakes on the DMT Practical Trial & How to Avoid Them",
 
-    // Card 8: Student Shop (Wide 2-col)
     shopBadge: "Kirindiwela Stock",
     shopTitle: "Student Shop & Test-Day Starter Kits",
     shopDesc: "Official magnetic DMT-regulation L-plates, highway code handbooks, driver logbooks, and test-day kits available at our Kirindiwela office or via courier.",
@@ -98,106 +89,106 @@ const hubContent = {
     shopPreviewTitle: "Official Weatherproof Magnetic L-Plates & Illustrated Highway Code Manuals",
   },
   si: {
-    badge: "ඩිජිටල් ඉගෙනුම් සහ තොරතුරු කේන්ද්‍රය",
-    title: "DMT විභාග සහ මාර්ග නීති පෙරහුරු මධ්‍යස්ථානය",
-    subtitle: "DMT ලිඛිත විභාගය සහ ප්‍රායෝගික පරීක්ෂණය පළමු වරින්ම විශිෂ්ට ලෙස සමත් වීමට අවශ්‍ය සියලුම ඩිජිටල් පහසුකම් මෙහිදී ලබාගන්න.",
-
+    badge: "ඩිජිටල් ඉගෙනුම් පද්ධතිය",
+    title: "නිල DMT විභාග සහ ඉගෙනුම් මධ්‍යස්ථානය",
+    subtitle: "ලිඛිත විභාගය සහ ප්‍රායෝගික මාර්ග නීති පහසුවෙන්ම ප්‍රගුණ කිරීමට අවශ්‍ය සියලුම ඩිජිටල් මෙවලම් මෙහිදී ලබාගන්න.",
+    
     examBadge: "නිල DMT පරිගණක විභාගය · ප්‍රශ්න 40",
-    examTitle: "DMT ලිඛිත පුහුණු විභාග පද්ධතිය",
-    examDesc: "වේරහැර සහ ගම්පහ DMT පරිගණක ප්‍රශ්න පත්‍ර ආකෘතියට අනුව සකස් කළ නිල බහුවරණ ප්‍රශ්නාවලිය සමගින් පෙරහුරු විභාගයට මුහුණ දෙන්න.",
+    examTitle: "DMT ලිඛිත ආදර්ශ විභාග පද්ධතිය",
+    examDesc: "වේරහැර සහ ගම්පහ දිස්ත්‍රික් කාර්යාලවල පවත්වන පරිගණක විභාගයට සමාන සැබෑ ප්‍රශ්න පත්‍රවලින් පුහුණු වන්න.",
     examChips: [
       "විනාඩි 60ක කාල ගණකය",
-      "30/40ක සමත් ලකුණු සීමාව",
-      "ක්ෂණික ප්‍රතිඵල සහ නිවැරදි කිරීම්",
-      "භාෂා ත්‍රිත්වයෙන්ම: සිංහල · දෙමළ · ඉංග්‍රීසි",
+      "සමත්වීමට ලකුණු 30/40",
+      "ක්ෂණික පිළිතුරු සහ විවරණ",
+      "භාෂා ත්‍රිත්වයෙන්ම: SI · EN · TA",
     ],
-    examBtn: "පෙරහුරු විභාගය ආරම්භ කරන්න",
+    examBtn: "ආදර්ශ විභාගය අරඹන්න",
 
-    signsBadge: "නිල මාර්ග සංඥා 21 · අධ්‍යයන පහසුකම",
-    signsTitle: "නිල DMT මාර්ග සංඥා නාමාවලිය",
-    signsDesc: "ශ්‍රී ලංකා DMT මාර්ග නීති සංග්‍රහයට අනුකූල පාලන, අනතුරු ඇඟවීමේ සහ තොරතුරු සංඥා 21ක් ෆ්ලෑෂ් කාඩ් ආකෘතියෙන් පහසුවෙන් අධ්‍යයනය කරන්න.",
+    signsBadge: "DMT මාර්ග සංඥා 21 · අධ්‍යයන ක්‍රමය",
+    signsTitle: "නිල මාර්ග සංඥා නාමාවලිය",
+    signsDesc: "ශ්‍රී ලංකාවේ නියෝග, අනතුරු ඇඟවීම් සහ තොරතුරු සංඥා සියල්ල සවිස්තරාත්මකව හා Flashcard ක්‍රමයෙන් ඉගෙන ගන්න.",
     signsChips: [
-      "නිල DMT දෛශික සංඥා 21ක්",
-      "ෆ්ලෑෂ් කාඩ් ස්වයං-පරීක්ෂණ ක්‍රමය",
-      "පාලන හා අනතුරු පෙරහන්",
-      "ද්විභාෂික මාර්ග නීති විස්තර",
+      "සැබෑ DMT දෛශික සංඥා 21ක්",
+      "Flashcard අභ්‍යාස ක්‍රමය",
+      "නියෝග සහ අනතුරු පෙරහන්",
+      "ද්විභාෂා නීති පැහැදිලි කිරීම්",
     ],
     signsBtn: "සංඥා නාමාවලිය බලන්න",
 
-    guideBadge: "පියවර 7ක මගපෙන්වීම",
-    guideTitle: "බලපත්‍ර තොරතුරු මාර්ගෝපදේශය",
-    guideDesc: "NTMI වෛද්‍ය සහතික අවශ්‍යතා, L-බෝඩ් කාලසීමා සහ MTA 30 අයදුම්පත් විස්තර.",
-    guideBtn: "මාර්ගෝපදේශය කියවන්න",
+    guideBadge: "පියවර 7ක මඟපෙන්වීම",
+    guideTitle: "බලපත්‍ර තොරතුරු අත්පොත",
+    guideDesc: "අවශ්‍ය ලියකියවිලි, NTMI වෛද්‍ය පරීක්ෂණ, L-තහඩු කාලසීමා සහ විභාග මධ්‍යස්ථාන තොරතුරු.",
+    guideBtn: "අත්පොත කියවන්න",
 
-    finderBadge: "තත්පර 30 ප්‍රශ්නාවලිය",
-    finderTitle: "පුහුණු පාඨමාලා පැකේජ",
-    finderDesc: "ආරම්භකයින්, පුහුණු වූවන්, මැනුවල් සහ ඔටෝ සියලුම පුහුණු පාඨමාලා ගාස්තු විනිවිදභාවයෙන් සසඳන්න.",
-    finderBtn: "පාඨමාලාව තෝරාගන්න",
+    finderBadge: "තත්පර 30 තේරීම",
+    finderTitle: "පාඨමාලා පැකේජ",
+    finderDesc: "ඔබට වඩාත් ගැළපෙන මෝටර් රථ හෝ යතුරුපැදි පාඨමාලාව පහසුවෙන්ම තෝරාගන්න.",
+    finderBtn: "පැකේජය සොයන්න",
 
-    videoBadge: "ප්‍රායෝගික පාඩම් 3ක්",
+    videoBadge: "ප්‍රායෝගික වීඩියෝ 3",
     videoTitle: "වීඩියෝ පාඩම් මාලාව",
-    videoDesc: "ක්ලච් පාලනය, සමාන්තර පාක් කිරීම සහ 'S' ධාවන පථය පිළිබඳ සවිස්තරාත්මක වීඩියෝ මගපෙන්වීම.",
-    videoBtn: "වීඩියෝ පාඩම් බලන්න",
+    videoDesc: "ක්ලච් පාලනය, කණු අතර පාක් කිරීම සහ රිවර්ස් S අභ්‍යාස පිළිබඳ වීඩියෝ මඟපෙන්වීම්.",
+    videoBtn: "වීඩියෝ නරඹන්න",
 
-    portalBadge: "ශිෂ්‍ය අංශය",
-    portalTitle: "ශිෂ්‍ය පෝටලය",
-    portalDesc: "ධාවනය කළ පැය ගණන, දින දර්ශනය, උපදේශක ලකුණු සහ විභාග දින පහසුවෙන් පරීක්ෂා කරන්න.",
-    portalBtn: "ශිෂ්‍ය පෝටලය අරින්න",
+    portalBadge: "සිසු පිවිසුම",
+    portalTitle: "ශිෂ්‍ය කළමනාකරණ පද්ධතිය",
+    portalDesc: "පුහුණු වූ පැය ගණන, ඉදිරි කාලසටහන සහ DMT විභාග දිනයන් පරීක්ෂා කරගන්න.",
+    portalBtn: "සිසු පිවිසුම විවෘත කරන්න",
 
     blogBadge: "විභාග රහස්",
-    blogTitle: "දැනුවත් කිරීමේ ලිපි සහ ට්‍රයල් විභාග රහස්",
-    blogDesc: "ට්‍රයල් එක පළමු වරෙන්ම පාස් කරගන්නා රහස්, කඳු ආරම්භය සහ ආරක්ෂිත රිය පැදවීම පිළිබඳ ජ්‍යෙෂ්ඨ උපදේශක ලිපි.",
-    blogBtn: "සියලුම ලිපි කියවන්න",
-    blogPreviewTag: "විශේෂාංග ලිපිය",
-    blogPreviewTitle: "DMT ප්‍රායෝගික ට්‍රයල් විභාගයේදී සිදුවන ප්‍රධාන වැරදි 10 සහ ඒවා වළක්වා ගන්නා අයුරු",
+    blogTitle: "අධ්‍යාපනික ලිපි සහ ට්‍රයල් රහස්",
+    blogDesc: "පළමු වරෙන්ම ප්‍රායෝගික පරීක්ෂණය සමත්වීමට සහ ආරක්ෂිත රිය පැදවීමට ජ්‍යෙෂ්ඨ උපදේශකවරුන්ගේ උපදෙස්.",
+    blogBtn: "ලිපි සියල්ල කියවන්න",
+    blogPreviewTag: "විශේෂ ලිපිය",
+    blogPreviewTitle: "DMT ප්‍රායෝගික පරීක්ෂණයේදී සිදුවන ප්‍රධාන වැරදි 10ක් සහ ඒවා මඟහරවා ගැනීම",
 
-    shopBadge: "කිරිඳිවැල සංචිතය",
-    shopTitle: "ශිෂ්‍ය අත්වැල සහ විභාග පුහුණු උපකරණ",
-    shopDesc: "නිල චුම්භක L-තහඩු, මාර්ග නීති අත්පොත්, රියැදුරු වාර්තා පොත් සහ විභාග ආරක්ෂිත උපාංග කිරිඳිවැල ශාඛාවෙන් ලබාගන්න.",
-    shopBtn: "ශිෂ්‍ය උපාංග බලන්න",
-    shopPreviewTag: "කාර්යාලයෙන් ලබාගැනීම",
-    shopPreviewTitle: "නිල කාලගුණ ප්‍රතිරෝධී චුම්භක L-තහඩු සහ මාර්ග නීති අත්පොත්",
+    shopBadge: "කිරිඳිවැල ගබඩාව",
+    shopTitle: "ශිෂ්‍ය අවශ්‍යතා සහ ආරක්ෂිත කට්ටල",
+    shopDesc: "නිල චුම්භක L-තහඩු, මාර්ග නීති සංග්‍රහ පොත් සහ විභාග කට්ටල කාර්යාලයෙන් හෝ නිවසටම ගෙන්වා ගන්න.",
+    shopBtn: "අවශ්‍ය දෑ බලන්න",
+    shopPreviewTag: "සෘජු බෙදාහැරීම",
+    shopPreviewTitle: "නියමිත ප්‍රමිතියෙන් යුත් චුම්භක L-තහඩු සහ වර්ණවත් මාර්ග සංඥා අත්පොත්",
   },
   ta: {
     badge: "டிஜிட்டல் கற்றல் தளம்",
-    title: "உத்தியோகபூர்வ DMT பரீட்சை மற்றும் வழிகாட்டல் மையம்",
-    subtitle: "DMT கோட்பாட்டு மற்றும் செய்முறைப் பரීட்சைகளில் முதல் முயற்சியிலேயே சித்தியடைவதற்கான முழுமையான டிஜிட்டல் கருவிகள்.",
-
-    examBadge: "உத்தியோகபூர்வ DMT கணினிப் பரீட்சை · 40 வினாக்கள்",
-    examTitle: "DMT கோட்பாட்டு மாதிரிப் பரීட்சை",
-    examDesc: "வேரஹெர மற்றும் கம்பஹா DMT கணினிப் பரீட்சை மாதிரியிலான 40 வினாக்களைக் கொண்ட மாதிரிப் பரீட்சையை எதிர்கொள்ளுங்கள்.",
+    title: "உத்தியோகபூர்வ DMT பரீட்சை மற்றும் கற்றல் மையம்",
+    subtitle: "கோட்பாட்டுப் பரீட்சை மற்றும் செய்முறைப் பயிற்சிகளுக்கு தேவையான அனைத்து டிஜிட்டல் வளங்களும் இங்கே.",
+    
+    examBadge: "உத்தியோகபூர்வ DMT கணினி பரீட்சை · 40 வினாக்கள்",
+    examTitle: "DMT கோட்பாட்டு மாதிரி பரீட்சை",
+    examDesc: "வேரஹெர மற்றும் கம்பஹா பரீட்சை நிலையங்களின் உத்தியோகபூர்வ வினாக்கள் போன்ற மாதிரி வினாத்தாள்கள் மூலம் பயிற்சி பெறுக.",
     examChips: [
       "60 நிமிட நேரக் கணிப்பான்",
-      "30/40 தேர்ச்சி புள்ளிகள்",
-      "உடனடி முடிவுகள் மற்றும் விளக்கங்கள்",
-      "மும்மொழிகளிலும்: தமிழ் · சிங்களம் · ஆங்கிலம்",
+      "30/40 தேர்ச்சி தரம்",
+      "உடனடி புள்ளிகள் மற்றும் விளக்கம்",
+      "மும்மொழி தெரிவு: TA · EN · SI",
     ],
-    examBtn: "மாதிரிப் பரீட்சையைத் தொடங்குக",
+    examBtn: "மாதிரிப் பரீட்சையைத் தொடங்க",
 
-    signsBadge: "21 உத்தியோகபூர்வ DMT சைகைகள்",
-    signsTitle: "உத்தியோகபூர்வ DMT வீதி சைகைகள்",
-    signsDesc: "இலங்கை DMT வீதி ஒழுங்குமுறை, எச்சரிக்கை மற்றும் தகவல் சைகைகள் அடங்கிய முழுமையான வழிகாட்டி.",
+    signsBadge: "21 DMT வீதி சமிக்ஞைகள் · கற்றல் முறை",
+    signsTitle: "உத்தியோகபூர்வ வீதி சமிக்ஞைகள் விபரம்",
+    signsDesc: "இலங்கையின் ஒழுங்குமுறை, எச்சரிக்கை மற்றும் தகவல் சமிக்ஞைகளை எளிதாகக் கற்றுக் கொள்ளுங்கள்.",
     signsChips: [
-      "21 துல்லியமான DMT சைகைகள்",
-      "சுய பரிசோதனை முறை",
-      "வகைப்படுத்தப்பட்ட சைகைகள்",
-      "விதிமுறை சுருக்கங்கள்",
+      "21 உத்தியோகபூர்வ DMT சமிக்ஞைகள்",
+      "Flashcard ஊடாடும் கற்றல்",
+      "ஒழுங்குமுறை & எச்சரிக்கை பிரிவுகள்",
+      "இருமொழி விதிமுறை விளக்கங்கள்",
     ],
-    signsBtn: "சைகைகள் வழிகாட்டியைப் பார்க்க",
+    signsBtn: "சமிக்ஞைகளைப் பார்வையிட",
 
     guideBadge: "7-படி வழிகாட்டி",
-    guideTitle: "அனுமதிப்பத்திர வழிகாட்டி",
-    guideDesc: "NTMI மருத்துவ பரிசோதனை விதிகள், L-Plate கால அவகாசம் மற்றும் சட்ட வழிகாட்டல்கள்.",
+    guideTitle: "அனுமதிப்பத்திர தகவல் வழிகாட்டி",
+    guideDesc: "தேவையான ஆவணங்கள், NTMI மருத்துவ பரிசோதனை விபரங்கள் மற்றும் கால அட்டவணைகள்.",
     guideBtn: "வழிகாட்டியைப் படிக்க",
 
-    finderBadge: "30 வினாடி வினாடி-வினா",
-    finderTitle: "பயிற்சிப் தொகுப்புகள்",
-    finderDesc: "ஆரம்ப, மேம்பட்ட, மெனுவல் மற்றும் ஒட்டோ பயிற்சிப் தொகுப்புகளின் கட்டணங்களை ஒப்பிட்டுப் பாருங்கள்.",
-    finderBtn: "பயிற்சியைத் தெரிவு செய்க",
+    finderBadge: "30-வினாடி தெரிவு",
+    finderTitle: "பயிற்சித் தொகுப்புகள்",
+    finderDesc: "உங்களுக்கான சிறந்த பயிற்சித் தொகுப்பை எளிதாகத் தேர்ந்தெடுங்கள்.",
+    finderBtn: "தொகுப்பைத் தேட",
 
-    videoBadge: "3 விரிவுரைகள்",
+    videoBadge: "3 வீடியோ வகுப்புகள்",
     videoTitle: "வீடியோ பாடங்கள்",
-    videoDesc: "கிளட்ச் கன்ட்ரோல், இணையான பார்க்கிங் மற்றும் 'S' தடம் பற்றிய செய்முறை வீடியோ வழிகாட்டல்.",
+    videoDesc: "கிளட்ச் கட்டுப்பாடு, பார்க்கிங் மற்றும் ரிவர்ஸ் 'S' பயிற்சிக்கான செய்முறை வீடியோக்கள்.",
     videoBtn: "வீடியோக்களைப் பார்க்க",
 
     portalBadge: "மாணவர் தளம்",
@@ -234,18 +225,20 @@ export function DigitalResourcesGrid({ locale }: DigitalResourcesGridProps) {
 
   return (
     <>
-      <section id="resources" className="py-16 sm:py-20 scroll-mt-20">
+      <section id="resources" className="py-20 sm:py-28 scroll-mt-20 bg-[#0d0c0a]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Header */}
-          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-14">
-            <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-950/60 border border-emerald-800/80 text-xs font-semibold uppercase tracking-wider text-emerald-300 mb-3 shadow-xs">
-              <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
-              <span>{t.badge}</span>
+          
+          {/* Header with Marcus Lorenzet Editorial Style */}
+          <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-18">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#161513] border border-white/[0.08] text-xs font-semibold mb-4">
+              <span className="editorial-bracket text-[10px] sm:text-[11px] text-[#d0c5ab]">
+                [ 08 · DIGITAL EXAM & LEARNING SUITE ]
+              </span>
             </div>
-            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white" style={{ textWrap: "balance" }}>
+            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-[#f5f5f3] uppercase leading-tight" style={{ textWrap: "balance" }}>
               {t.title}
             </h2>
-            <p className="mt-3 text-sm sm:text-base text-slate-300 leading-relaxed">
+            <p className="mt-4 text-sm sm:text-base text-[#c7c2b6] leading-relaxed">
               {t.subtitle}
             </p>
           </div>
@@ -253,46 +246,44 @@ export function DigitalResourcesGrid({ locale }: DigitalResourcesGridProps) {
           {/* Golden Bento Command Hub (All 8 Tools in 3 Harmonious Tiers) */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7 items-stretch">
             
-            {/* ======================================================== */}
-            {/* TIER 1 - HERO 1: DMT Mock Exam Simulator (2 Cols)        */}
-            {/* ======================================================== */}
-            <div className="col-span-1 md:col-span-2 relative p-6 sm:p-8 rounded-3xl border-2 border-emerald-500/50 bg-gradient-to-br from-slate-900 via-slate-900/95 to-emerald-950/30 shadow-2xl flex flex-col justify-between overflow-hidden group hover:border-emerald-400 transition-all duration-300">
-              <div className="absolute -top-16 -right-16 w-64 h-64 bg-emerald-500/15 rounded-full blur-3xl pointer-events-none" />
+            {/* TIER 1 - HERO 1: DMT Mock Exam Simulator (2 Cols) */}
+            <div className="col-span-1 md:col-span-2 relative p-6 sm:p-8 rounded-3xl marcus-card shadow-2xl flex flex-col justify-between overflow-hidden group">
+              <div className="absolute -top-16 -right-16 w-64 h-64 bg-[#fcc438]/5 rounded-full blur-3xl pointer-events-none" />
 
               <div>
                 <div className="flex items-center justify-between mb-5">
-                  <div className="w-13 h-13 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center shadow-lg shadow-emerald-950/40">
+                  <div className="w-13 h-13 rounded-2xl bg-[#1c1a17] border border-white/10 text-[#fcc438] flex items-center justify-center shadow-lg">
                     <FileQuestion className="w-7 h-7" />
                   </div>
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/40 text-emerald-300 text-[11px] font-black uppercase tracking-wider shadow-xs">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1c1a17] border border-white/10 text-[#d0c5ab] text-[11px] font-black uppercase tracking-wider shadow-xs">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#fcc438] animate-pulse" />
                     <span>{t.examBadge}</span>
                   </span>
                 </div>
 
-                <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight">
+                <h3 className="text-xl sm:text-2xl font-black text-[#f5f5f3] tracking-tight">
                   {t.examTitle}
                 </h3>
-                <p className="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed max-w-xl">
+                <p className="mt-2 text-xs sm:text-sm text-[#c7c2b6] leading-relaxed max-w-xl">
                   {t.examDesc}
                 </p>
 
                 {/* 4 Feature Chips */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-5">
                   {t.examChips.map((chip, idx) => (
-                    <div key={idx} className="p-2.5 rounded-xl border border-slate-800 bg-slate-950/60 flex items-center gap-2 text-xs text-slate-200">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                    <div key={idx} className="p-2.5 rounded-xl border border-white/[0.06] bg-[#0d0c0a] flex items-center gap-2 text-xs text-[#c7c2b6]">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#fcc438] shrink-0" />
                       <span className="font-semibold truncate">{chip}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="mt-6 pt-5 border-t border-slate-800/80 flex items-center justify-between">
+              <div className="mt-6 pt-5 border-t border-white/[0.06] flex items-center justify-between">
                 <button
                   type="button"
                   onClick={() => setActiveModal("exam")}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs sm:text-sm shadow-emerald-glow active:scale-95 transition-all cursor-pointer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#d0c5ab] hover:bg-[#e4dbc6] text-[#11100d] font-black text-xs sm:text-sm uppercase tracking-wider shadow-md active:scale-95 transition-all cursor-pointer"
                 >
                   <span>{t.examBtn}</span>
                   <ArrowRight className="w-4 h-4" />
@@ -300,46 +291,44 @@ export function DigitalResourcesGrid({ locale }: DigitalResourcesGridProps) {
               </div>
             </div>
 
-            {/* ======================================================== */}
-            {/* TIER 1 - HERO 2: Road Signs Directory (2 Cols)           */}
-            {/* ======================================================== */}
-            <div className="col-span-1 md:col-span-2 relative p-6 sm:p-8 rounded-3xl border-2 border-amber-500/40 bg-gradient-to-br from-slate-900 via-slate-900/95 to-amber-950/20 shadow-2xl flex flex-col justify-between overflow-hidden group hover:border-amber-400/80 transition-all duration-300">
-              <div className="absolute -top-16 -right-16 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+            {/* TIER 1 - HERO 2: Road Signs Directory (2 Cols) */}
+            <div className="col-span-1 md:col-span-2 relative p-6 sm:p-8 rounded-3xl marcus-card shadow-2xl flex flex-col justify-between overflow-hidden group">
+              <div className="absolute -top-16 -right-16 w-64 h-64 bg-[#d0c5ab]/5 rounded-full blur-3xl pointer-events-none" />
 
               <div>
                 <div className="flex items-center justify-between mb-5">
-                  <div className="w-13 h-13 rounded-2xl bg-amber-500/15 border border-amber-500/30 text-amber-400 flex items-center justify-center shadow-lg shadow-amber-950/40">
+                  <div className="w-13 h-13 rounded-2xl bg-[#1c1a17] border border-white/10 text-[#d0c5ab] flex items-center justify-center shadow-lg">
                     <Compass className="w-7 h-7" />
                   </div>
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/15 border border-amber-500/40 text-amber-300 text-[11px] font-black uppercase tracking-wider shadow-xs">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1c1a17] border border-white/10 text-[#d0c5ab] text-[11px] font-black uppercase tracking-wider shadow-xs">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                     <span>{t.signsBadge}</span>
                   </span>
                 </div>
 
-                <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight">
+                <h3 className="text-xl sm:text-2xl font-black text-[#f5f5f3] tracking-tight">
                   {t.signsTitle}
                 </h3>
-                <p className="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed max-w-xl">
+                <p className="mt-2 text-xs sm:text-sm text-[#c7c2b6] leading-relaxed max-w-xl">
                   {t.signsDesc}
                 </p>
 
                 {/* 4 Feature Chips */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-5">
                   {t.signsChips.map((chip, idx) => (
-                    <div key={idx} className="p-2.5 rounded-xl border border-slate-800 bg-slate-950/60 flex items-center gap-2 text-xs text-slate-200">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                    <div key={idx} className="p-2.5 rounded-xl border border-white/[0.06] bg-[#0d0c0a] flex items-center gap-2 text-xs text-[#c7c2b6]">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#d0c5ab] shrink-0" />
                       <span className="font-semibold truncate">{chip}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="mt-6 pt-5 border-t border-slate-800/80 flex items-center justify-between">
+              <div className="mt-6 pt-5 border-t border-white/[0.06] flex items-center justify-between">
                 <button
                   type="button"
                   onClick={() => setActiveModal("signs")}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-amber-300 hover:text-white border border-amber-500/40 font-extrabold text-xs sm:text-sm active:scale-95 transition-all cursor-pointer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#1c1a17] hover:bg-[#25231f] text-[#d0c5ab] hover:text-white border border-white/10 font-black text-xs sm:text-sm uppercase tracking-wider active:scale-95 transition-all cursor-pointer"
                 >
                   <span>{t.signsBtn}</span>
                   <ArrowRight className="w-4 h-4" />
@@ -347,185 +336,191 @@ export function DigitalResourcesGrid({ locale }: DigitalResourcesGridProps) {
               </div>
             </div>
 
-            {/* ======================================================== */}
-            {/* TIER 2 - CARD 3: Licence Information Guide (1 Col)       */}
-            {/* ======================================================== */}
-            <div className="col-span-1 rounded-3xl border border-slate-800 bg-slate-900 p-5 sm:p-6 shadow-xl flex flex-col justify-between hover:border-blue-500/50 hover:-translate-y-1 transition-all duration-300 group">
+            {/* TIER 2 - CARD 3: Licence Information Guide (1 Col) */}
+            <div className="col-span-1 rounded-3xl marcus-card p-5 sm:p-6 shadow-xl flex flex-col justify-between group">
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-xl bg-[#1c1a17] border border-white/10 text-[#d0c5ab] flex items-center justify-center">
                     <BookOpen className="w-5 h-5" />
                   </div>
-                  <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-slate-800 text-blue-300 border border-blue-900/50">
+                  <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-[#1c1a17] text-[#d0c5ab] border border-white/10">
                     {t.guideBadge}
                   </span>
                 </div>
 
-                <h4 className="text-base font-bold text-white group-hover:text-blue-400 transition-colors">
+                <div className="text-[10px] font-mono text-[#8c877a] uppercase tracking-wider mb-1">
+                  [ 01 · GUIDE ]
+                </div>
+
+                <h4 className="text-base font-bold text-[#f5f5f3] group-hover:text-[#d0c5ab] transition-colors">
                   {t.guideTitle}
                 </h4>
-                <p className="mt-2 text-xs text-slate-300 leading-relaxed">
+                <p className="mt-2 text-xs text-[#c7c2b6] leading-relaxed">
                   {t.guideDesc}
                 </p>
               </div>
 
-              <div className="mt-5 pt-3.5 border-t border-slate-800">
+              <div className="mt-5 pt-3.5 border-t border-white/[0.06]">
                 <button
                   type="button"
                   onClick={() => setActiveModal("guide")}
-                  className="w-full inline-flex items-center justify-between text-xs font-bold text-blue-400 hover:text-blue-300 cursor-pointer"
+                  className="w-full inline-flex items-center justify-between text-xs font-bold text-[#d0c5ab] hover:text-white cursor-pointer"
                 >
                   <span>{t.guideBtn}</span>
-                  <span className="w-6 h-6 rounded-full bg-blue-950/60 border border-blue-800/80 flex items-center justify-center">
+                  <span className="w-6 h-6 rounded-full bg-[#1c1a17] border border-white/10 flex items-center justify-center">
                     →
                   </span>
                 </button>
               </div>
             </div>
 
-            {/* ======================================================== */}
-            {/* TIER 2 - CARD 4: Training Packages & Finder (1 Col)      */}
-            {/* ======================================================== */}
-            <div className="col-span-1 rounded-3xl border border-slate-800 bg-slate-900 p-5 sm:p-6 shadow-xl flex flex-col justify-between hover:border-purple-500/50 hover:-translate-y-1 transition-all duration-300 group">
+            {/* TIER 2 - CARD 4: Training Packages & Finder (1 Col) */}
+            <div className="col-span-1 rounded-3xl marcus-card p-5 sm:p-6 shadow-xl flex flex-col justify-between group">
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-xl bg-[#1c1a17] border border-white/10 text-[#fcc438] flex items-center justify-center">
                     <Sparkles className="w-5 h-5" />
                   </div>
-                  <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-slate-800 text-purple-300 border border-purple-900/50">
+                  <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-[#1c1a17] text-[#fcc438] border border-white/10">
                     {t.finderBadge}
                   </span>
                 </div>
 
-                <h4 className="text-base font-bold text-white group-hover:text-purple-400 transition-colors">
+                <div className="text-[10px] font-mono text-[#8c877a] uppercase tracking-wider mb-1">
+                  [ 02 · MATCH ]
+                </div>
+
+                <h4 className="text-base font-bold text-[#f5f5f3] group-hover:text-[#fcc438] transition-colors">
                   {t.finderTitle}
                 </h4>
-                <p className="mt-2 text-xs text-slate-300 leading-relaxed">
+                <p className="mt-2 text-xs text-[#c7c2b6] leading-relaxed">
                   {t.finderDesc}
                 </p>
               </div>
 
-              <div className="mt-5 pt-3.5 border-t border-slate-800">
+              <div className="mt-5 pt-3.5 border-t border-white/[0.06]">
                 <button
                   type="button"
                   onClick={() => setActiveModal("finder")}
-                  className="w-full inline-flex items-center justify-between text-xs font-bold text-purple-400 hover:text-purple-300 cursor-pointer"
+                  className="w-full inline-flex items-center justify-between text-xs font-bold text-[#fcc438] hover:text-white cursor-pointer"
                 >
                   <span>{t.finderBtn}</span>
-                  <span className="w-6 h-6 rounded-full bg-purple-950/60 border border-purple-800/80 flex items-center justify-center">
+                  <span className="w-6 h-6 rounded-full bg-[#1c1a17] border border-white/10 flex items-center justify-center">
                     →
                   </span>
                 </button>
               </div>
             </div>
 
-            {/* ======================================================== */}
-            {/* TIER 2 - CARD 5: Practical Video Lessons (1 Col)         */}
-            {/* ======================================================== */}
-            <div className="col-span-1 rounded-3xl border border-slate-800 bg-slate-900 p-5 sm:p-6 shadow-xl flex flex-col justify-between hover:border-rose-500/50 hover:-translate-y-1 transition-all duration-300 group">
+            {/* TIER 2 - CARD 5: Practical Video Lessons (1 Col) */}
+            <div className="col-span-1 rounded-3xl marcus-card p-5 sm:p-6 shadow-xl flex flex-col justify-between group">
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-400 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-xl bg-[#1c1a17] border border-white/10 text-[#d0c5ab] flex items-center justify-center">
                     <Video className="w-5 h-5" />
                   </div>
-                  <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-slate-800 text-rose-300 border border-rose-900/50">
+                  <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-[#1c1a17] text-[#d0c5ab] border border-white/10">
                     {t.videoBadge}
                   </span>
                 </div>
 
-                <h4 className="text-base font-bold text-white group-hover:text-rose-400 transition-colors">
+                <div className="text-[10px] font-mono text-[#8c877a] uppercase tracking-wider mb-1">
+                  [ 03 · VIDEO ]
+                </div>
+
+                <h4 className="text-base font-bold text-[#f5f5f3] group-hover:text-[#d0c5ab] transition-colors">
                   {t.videoTitle}
                 </h4>
-                <p className="mt-2 text-xs text-slate-300 leading-relaxed">
+                <p className="mt-2 text-xs text-[#c7c2b6] leading-relaxed">
                   {t.videoDesc}
                 </p>
               </div>
 
-              <div className="mt-5 pt-3.5 border-t border-slate-800">
+              <div className="mt-5 pt-3.5 border-t border-white/[0.06]">
                 <button
                   type="button"
                   onClick={() => setActiveModal("video")}
-                  className="w-full inline-flex items-center justify-between text-xs font-bold text-rose-400 hover:text-rose-300 cursor-pointer"
+                  className="w-full inline-flex items-center justify-between text-xs font-bold text-[#d0c5ab] hover:text-white cursor-pointer"
                 >
                   <span>{t.videoBtn}</span>
-                  <span className="w-6 h-6 rounded-full bg-rose-950/60 border border-rose-800/80 flex items-center justify-center">
+                  <span className="w-6 h-6 rounded-full bg-[#1c1a17] border border-white/10 flex items-center justify-center">
                     →
                   </span>
                 </button>
               </div>
             </div>
 
-            {/* ======================================================== */}
-            {/* TIER 2 - CARD 6: Student Portal Desk (1 Col)             */}
-            {/* ======================================================== */}
-            <div className="col-span-1 rounded-3xl border border-slate-800 bg-slate-900 p-5 sm:p-6 shadow-xl flex flex-col justify-between hover:border-sky-500/50 hover:-translate-y-1 transition-all duration-300 group">
+            {/* TIER 2 - CARD 6: Student Portal Desk (1 Col) */}
+            <div className="col-span-1 rounded-3xl marcus-card p-5 sm:p-6 shadow-xl flex flex-col justify-between group">
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-sky-500/10 border border-sky-500/20 text-sky-400 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-xl bg-[#1c1a17] border border-white/10 text-[#d0c5ab] flex items-center justify-center">
                     <Users className="w-5 h-5" />
                   </div>
-                  <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-slate-800 text-sky-300 border border-sky-900/50">
+                  <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-[#1c1a17] text-[#d0c5ab] border border-white/10">
                     {t.portalBadge}
                   </span>
                 </div>
 
-                <h4 className="text-base font-bold text-white group-hover:text-sky-400 transition-colors">
+                <div className="text-[10px] font-mono text-[#8c877a] uppercase tracking-wider mb-1">
+                  [ 04 · DESK ]
+                </div>
+
+                <h4 className="text-base font-bold text-[#f5f5f3] group-hover:text-[#d0c5ab] transition-colors">
                   {t.portalTitle}
                 </h4>
-                <p className="mt-2 text-xs text-slate-300 leading-relaxed">
+                <p className="mt-2 text-xs text-[#c7c2b6] leading-relaxed">
                   {t.portalDesc}
                 </p>
               </div>
 
-              <div className="mt-5 pt-3.5 border-t border-slate-800">
+              <div className="mt-5 pt-3.5 border-t border-white/[0.06]">
                 <button
                   type="button"
                   onClick={() => setActiveModal("portal")}
-                  className="w-full inline-flex items-center justify-between text-xs font-bold text-sky-400 hover:text-sky-300 cursor-pointer"
+                  className="w-full inline-flex items-center justify-between text-xs font-bold text-[#d0c5ab] hover:text-white cursor-pointer"
                 >
                   <span>{t.portalBtn}</span>
-                  <span className="w-6 h-6 rounded-full bg-sky-950/60 border border-sky-800/80 flex items-center justify-center">
+                  <span className="w-6 h-6 rounded-full bg-[#1c1a17] border border-white/10 flex items-center justify-center">
                     →
                   </span>
                 </button>
               </div>
             </div>
 
-            {/* ======================================================== */}
-            {/* TIER 3 - CARD 7: Educational Blog & Trial Secrets (2 Cols)*/}
-            {/* ======================================================== */}
-            <div className="col-span-1 md:col-span-2 rounded-3xl border border-slate-800 bg-gradient-to-br from-slate-900 via-slate-900 to-indigo-950/30 p-6 sm:p-7 shadow-xl flex flex-col justify-between hover:border-indigo-500/50 transition-all duration-300 group">
+            {/* TIER 3 - CARD 7: Educational Blog & Trial Secrets (2 Cols) */}
+            <div className="col-span-1 md:col-span-2 rounded-3xl marcus-card p-6 sm:p-7 shadow-xl flex flex-col justify-between group">
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-11 h-11 rounded-2xl bg-indigo-500/15 border border-indigo-500/30 text-indigo-400 flex items-center justify-center">
+                  <div className="w-11 h-11 rounded-2xl bg-[#1c1a17] border border-white/10 text-[#fcc438] flex items-center justify-center">
                     <GraduationCap className="w-6 h-6" />
                   </div>
-                  <span className="text-[11px] font-mono font-bold px-3 py-1 rounded-full bg-indigo-500/15 border border-indigo-500/30 text-indigo-300">
+                  <span className="text-[11px] font-mono font-bold px-3 py-1 rounded-full bg-[#1c1a17] border border-white/10 text-[#d0c5ab]">
                     {t.blogBadge}
                   </span>
                 </div>
 
-                <h4 className="text-lg sm:text-xl font-bold text-white group-hover:text-indigo-300 transition-colors">
+                <h4 className="text-lg sm:text-xl font-bold text-[#f5f5f3] group-hover:text-[#fcc438] transition-colors">
                   {t.blogTitle}
                 </h4>
-                <p className="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <p className="mt-2 text-xs sm:text-sm text-[#c7c2b6] leading-relaxed">
                   {t.blogDesc}
                 </p>
 
                 {/* Preview pill */}
-                <div className="mt-4 p-3 rounded-xl bg-slate-950/70 border border-slate-800 flex items-center gap-2.5 text-xs text-slate-300">
-                  <span className="px-2 py-0.5 rounded-md bg-indigo-500/20 text-indigo-300 font-mono text-[10px] font-bold shrink-0">
+                <div className="mt-4 p-3 rounded-xl bg-[#0d0c0a] border border-white/[0.06] flex items-center gap-2.5 text-xs text-[#c7c2b6]">
+                  <span className="px-2 py-0.5 rounded-md bg-[#1c1a17] text-[#fcc438] font-mono text-[10px] font-bold shrink-0">
                     {t.blogPreviewTag}
                   </span>
                   <span className="truncate font-medium">{t.blogPreviewTitle}</span>
                 </div>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between">
+              <div className="mt-6 pt-4 border-t border-white/[0.06] flex items-center justify-between">
                 <button
                   type="button"
                   onClick={scrollToBlog}
-                  className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-indigo-400 hover:text-indigo-300 cursor-pointer"
+                  className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#d0c5ab] hover:text-[#fcc438] cursor-pointer"
                 >
                   <span>{t.blogBtn}</span>
                   <ArrowRight className="w-4 h-4" />
@@ -533,41 +528,39 @@ export function DigitalResourcesGrid({ locale }: DigitalResourcesGridProps) {
               </div>
             </div>
 
-            {/* ======================================================== */}
-            {/* TIER 3 - CARD 8: Student Shop & Starter Kits (2 Cols)    */}
-            {/* ======================================================== */}
-            <div className="col-span-1 md:col-span-2 rounded-3xl border border-slate-800 bg-gradient-to-br from-slate-900 via-slate-900 to-orange-950/30 p-6 sm:p-7 shadow-xl flex flex-col justify-between hover:border-orange-500/50 transition-all duration-300 group">
+            {/* TIER 3 - CARD 8: Student Shop & Starter Kits (2 Cols) */}
+            <div className="col-span-1 md:col-span-2 rounded-3xl marcus-card p-6 sm:p-7 shadow-xl flex flex-col justify-between group">
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-11 h-11 rounded-2xl bg-orange-500/15 border border-orange-500/30 text-orange-400 flex items-center justify-center">
+                  <div className="w-11 h-11 rounded-2xl bg-[#1c1a17] border border-white/10 text-[#d0c5ab] flex items-center justify-center">
                     <ShoppingBag className="w-6 h-6" />
                   </div>
-                  <span className="text-[11px] font-mono font-bold px-3 py-1 rounded-full bg-orange-500/15 border border-orange-500/30 text-orange-300">
+                  <span className="text-[11px] font-mono font-bold px-3 py-1 rounded-full bg-[#1c1a17] border border-white/10 text-[#d0c5ab]">
                     {t.shopBadge}
                   </span>
                 </div>
 
-                <h4 className="text-lg sm:text-xl font-bold text-white group-hover:text-orange-300 transition-colors">
+                <h4 className="text-lg sm:text-xl font-bold text-[#f5f5f3] group-hover:text-[#d0c5ab] transition-colors">
                   {t.shopTitle}
                 </h4>
-                <p className="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <p className="mt-2 text-xs sm:text-sm text-[#c7c2b6] leading-relaxed">
                   {t.shopDesc}
                 </p>
 
                 {/* Preview pill */}
-                <div className="mt-4 p-3 rounded-xl bg-slate-950/70 border border-slate-800 flex items-center gap-2.5 text-xs text-slate-300">
-                  <span className="px-2 py-0.5 rounded-md bg-orange-500/20 text-orange-300 font-mono text-[10px] font-bold shrink-0">
+                <div className="mt-4 p-3 rounded-xl bg-[#0d0c0a] border border-white/[0.06] flex items-center gap-2.5 text-xs text-[#c7c2b6]">
+                  <span className="px-2 py-0.5 rounded-md bg-[#1c1a17] text-[#d0c5ab] font-mono text-[10px] font-bold shrink-0">
                     {t.shopPreviewTag}
                   </span>
                   <span className="truncate font-medium">{t.shopPreviewTitle}</span>
                 </div>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between">
+              <div className="mt-6 pt-4 border-t border-white/[0.06] flex items-center justify-between">
                 <button
                   type="button"
                   onClick={() => setActiveModal("shop")}
-                  className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-orange-400 hover:text-orange-300 cursor-pointer"
+                  className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#d0c5ab] hover:text-white cursor-pointer"
                 >
                   <span>{t.shopBtn}</span>
                   <ArrowRight className="w-4 h-4" />

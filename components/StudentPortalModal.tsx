@@ -126,28 +126,28 @@ export function StudentPortalModal({ locale, onClose }: StudentPortalModalProps)
 
   return (
     <div 
-      className="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-4 animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 bg-[#0d0c0a]/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-4 animate-in fade-in duration-200"
       onClick={onClose}
     >
       <div 
-        className="bg-slate-900 border border-slate-800 rounded-3xl max-w-3xl w-full max-h-[92vh] flex flex-col shadow-2xl overflow-hidden"
+        className="bg-[#141310] border border-white/10 rounded-3xl max-w-2xl w-full max-h-[92vh] flex flex-col shadow-2xl overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Header */}
-        <div className="p-5 sm:p-6 bg-slate-950 border-b border-slate-800 flex items-center justify-between">
+        <div className="p-5 sm:p-6 bg-[#0d0c0a] border-b border-white/10 flex items-center justify-between">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-sky-500/15 border border-sky-500/30 text-sky-300 text-[11px] font-bold uppercase tracking-wider mb-1">
-              <Sparkles className="w-3 h-3 text-sky-400" />
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#fcc438]/10 border border-[#fcc438]/30 text-[#fcc438] text-[11px] font-mono font-bold uppercase tracking-wider mb-1">
+              <Sparkles className="w-3 h-3 text-[#fcc438]" />
               <span>{t.badge}</span>
             </div>
-            <h3 className="text-lg sm:text-xl font-black text-white tracking-tight">
+            <h3 className="text-lg sm:text-xl font-black text-[#f5f2eb] tracking-tight">
               {t.title}
             </h3>
           </div>
           <button
             type="button"
             onClick={onClose}
-            className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition-colors cursor-pointer"
+            className="p-2 rounded-xl text-[#78756c] hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
             aria-label="Close modal"
           >
             <X className="w-5 h-5" />
@@ -159,18 +159,18 @@ export function StudentPortalModal({ locale, onClose }: StudentPortalModalProps)
           {/* Search Box */}
           <form onSubmit={handleSearch} className="flex flex-col sm:flex-row gap-2.5">
             <div className="relative flex-1">
-              <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+              <Search className="w-4 h-4 text-[#78756c] absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder={t.searchPlaceholder}
-                className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white placeholder-slate-500 text-xs sm:text-sm focus:outline-none focus:border-sky-500"
+                className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#0d0c0a] border border-white/10 text-[#f5f2eb] placeholder-[#78756c] text-xs sm:text-sm focus:outline-none focus:border-[#fcc438] focus:ring-1 focus:ring-[#fcc438]/30 font-mono"
               />
             </div>
             <button
               type="submit"
-              className="px-5 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs sm:text-sm cursor-pointer transition-all active:scale-95 shrink-0"
+              className="px-5 py-2.5 rounded-xl bg-[#d0c5ab] hover:bg-[#e4dcce] text-[#0d0c0a] font-mono font-bold uppercase tracking-wider text-xs sm:text-sm cursor-pointer transition-all active:scale-95 shrink-0"
             >
               {t.searchBtn}
             </button>
@@ -179,59 +179,59 @@ export function StudentPortalModal({ locale, onClose }: StudentPortalModalProps)
           {showResult && (
             <div className="space-y-4 animate-in fade-in duration-300">
               {/* Student Overview Card */}
-              <div className="p-5 rounded-2xl bg-gradient-to-br from-slate-950 via-slate-950 to-sky-950/20 border border-slate-800 shadow-inner">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800/80 pb-4 mb-4">
+              <div className="p-5 rounded-2xl bg-[#0d0c0a] border border-white/10 shadow-inner">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/10 pb-4 mb-4">
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-xl bg-sky-500/15 border border-sky-500/30 text-sky-400 flex items-center justify-center font-bold text-base">
+                    <div className="w-12 h-12 rounded-xl bg-[#fcc438]/10 border border-[#fcc438]/30 text-[#fcc438] flex items-center justify-center font-bold text-base font-mono">
                       KJ
                     </div>
                     <div>
                       <div className="flex items-center gap-2">
-                        <h4 className="text-base sm:text-lg font-black text-white">
+                        <h4 className="text-base sm:text-lg font-black text-[#f5f2eb]">
                           {t.studentName}
                         </h4>
-                        <span className="px-2 py-0.5 rounded-md bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-[10px] font-bold font-mono">
+                        <span className="px-2 py-0.5 rounded-md bg-[#fcc438]/10 border border-[#fcc438]/30 text-[#fcc438] text-[10px] font-bold font-mono">
                           ACTIVE
                         </span>
                       </div>
-                      <p className="text-xs text-slate-400 font-mono mt-0.5">
+                      <p className="text-xs text-[#78756c] font-mono mt-0.5">
                         ID: {t.studentId} · {t.branch}
                       </p>
                     </div>
                   </div>
-                  <div className="text-xs font-semibold text-sky-300 bg-sky-950/60 px-3 py-1.5 rounded-xl border border-sky-800/60 self-start sm:self-auto">
+                  <div className="text-xs font-mono font-semibold text-[#d0c5ab] bg-white/5 px-3 py-1.5 rounded-xl border border-white/10 self-start sm:self-auto">
                     {t.enrolledClass}
                   </div>
                 </div>
 
                 {/* 4 Status Metric Tiles */}
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
-                  <div className="p-3 rounded-xl bg-slate-900 border border-slate-800">
-                    <span className="text-[11px] text-slate-400 block mb-1">{t.statHours}</span>
-                    <span className="text-base font-extrabold text-white font-mono">14 / 20 hrs</span>
-                    <div className="w-full bg-slate-800 rounded-full h-1 mt-2">
-                      <div className="bg-sky-500 h-full w-[70%] rounded-full" />
+                  <div className="p-3 rounded-xl bg-[#141310] border border-white/10">
+                    <span className="text-[11px] font-mono text-[#78756c] block mb-1">{t.statHours}</span>
+                    <span className="text-base font-extrabold text-[#f5f2eb] font-mono">14 / 20 hrs</span>
+                    <div className="w-full bg-white/10 rounded-full h-1 mt-2">
+                      <div className="bg-[#fcc438] h-full w-[70%] rounded-full" />
                     </div>
                   </div>
 
-                  <div className="p-3 rounded-xl bg-slate-900 border border-slate-800">
-                    <span className="text-[11px] text-slate-400 block mb-1">{t.statTheory}</span>
-                    <span className="text-xs font-bold text-emerald-400 flex items-center gap-1 mt-1">
+                  <div className="p-3 rounded-xl bg-[#141310] border border-white/10">
+                    <span className="text-[11px] font-mono text-[#78756c] block mb-1">{t.statTheory}</span>
+                    <span className="text-xs font-bold text-[#fcc438] flex items-center gap-1 mt-1 font-mono">
                       <CheckCircle2 className="w-3.5 h-3.5" />
                       {t.passed}
                     </span>
                   </div>
 
-                  <div className="p-3 rounded-xl bg-slate-900 border border-slate-800">
-                    <span className="text-[11px] text-slate-400 block mb-1">{t.statStatus}</span>
-                    <span className="text-xs font-bold text-sky-300 block mt-1">
+                  <div className="p-3 rounded-xl bg-[#141310] border border-white/10">
+                    <span className="text-[11px] font-mono text-[#78756c] block mb-1">{t.statStatus}</span>
+                    <span className="text-xs font-bold text-[#d0c5ab] block mt-1 font-mono">
                       {t.permitActive}
                     </span>
                   </div>
 
-                  <div className="p-3 rounded-xl bg-slate-900 border border-slate-800">
-                    <span className="text-[11px] text-slate-400 block mb-1">{t.statTrial}</span>
-                    <span className="text-xs font-bold text-amber-400 block mt-1">
+                  <div className="p-3 rounded-xl bg-[#141310] border border-white/10">
+                    <span className="text-[11px] font-mono text-[#78756c] block mb-1">{t.statTrial}</span>
+                    <span className="text-xs font-bold text-[#fcc438] block mt-1 font-mono">
                       {t.trialDate}
                     </span>
                   </div>
@@ -239,16 +239,16 @@ export function StudentPortalModal({ locale, onClose }: StudentPortalModalProps)
               </div>
 
               {/* Next Lesson Appointment */}
-              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+              <div className="p-4 rounded-2xl bg-[#0d0c0a] border border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
                 <div>
-                  <span className="text-[11px] font-mono text-sky-400 font-bold uppercase tracking-wider block mb-0.5">
+                  <span className="text-[11px] font-mono text-[#fcc438] font-bold uppercase tracking-wider block mb-0.5">
                     {t.nextLessonTitle}
                   </span>
-                  <p className="font-bold text-white text-xs sm:text-sm">
+                  <p className="font-bold text-[#f5f2eb] text-xs sm:text-sm">
                     {t.nextLessonDetails}
                   </p>
-                  <p className="text-slate-400 mt-0.5 text-[11px]">
-                    {t.instructorLabel}: <span className="text-slate-200 font-semibold">{t.instructorName}</span>
+                  <p className="text-[#78756c] mt-0.5 text-[11px]">
+                    {t.instructorLabel}: <span className="text-[#d0c5ab] font-semibold">{t.instructorName}</span>
                   </p>
                 </div>
 
@@ -256,7 +256,7 @@ export function StudentPortalModal({ locale, onClose }: StudentPortalModalProps)
                   href="https://wa.me/94707076029?text=Hello%20Wenasa,%20I%20am%20student%20Kasun%20Jayawardena%20(WN-2026-881).%20I%20would%20like%20to%20reschedule%20my%20lesson."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-sky-300 font-bold border border-sky-800/40 text-center transition-all cursor-pointer"
+                  className="px-3.5 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-[#d0c5ab] hover:text-white font-mono font-bold text-xs uppercase tracking-wider border border-white/10 text-center transition-all cursor-pointer"
                 >
                   {t.bookSlotBtn}
                 </a>
@@ -266,15 +266,15 @@ export function StudentPortalModal({ locale, onClose }: StudentPortalModalProps)
         </div>
 
         {/* Modal Footer */}
-        <div className="p-4 sm:p-5 bg-slate-950 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
-          <p className="text-slate-400 text-center sm:text-left text-[11px] sm:text-xs">
+        <div className="p-4 sm:p-5 bg-[#0d0c0a] border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+          <p className="text-[#78756c] text-center sm:text-left text-[11px] sm:text-xs">
             {t.helpNotice}
           </p>
           <a
             href="https://wa.me/94707076029?text=Hello%20Wenasa%20Student%20Desk,%20I%20need%20help%20with%20my%20training%20portal."
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold cursor-pointer transition-all active:scale-95"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#25D366] hover:bg-[#20ba59] text-[#0d0c0a] font-mono font-bold uppercase tracking-wider cursor-pointer transition-all active:scale-95 shadow-md"
           >
             <MessageCircle className="w-4 h-4" />
             <span>{t.whatsappBtn}</span>

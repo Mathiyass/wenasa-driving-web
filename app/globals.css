@@ -5,51 +5,94 @@
 
 @theme {
   --font-sans: var(--font-sans-en), "Noto Sans Sinhala", "Noto Sans Tamil", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --color-slate-850: #131d31;
-  --color-slate-925: #070b14;
+  --color-obsidian-950: #0a0908;
+  --color-obsidian-900: #0d0c0a;
+  --color-obsidian-850: #12110e;
+  --color-obsidian-800: #161513;
+  --color-obsidian-750: #1c1a17;
+  --color-sand-50: #fbf9f4;
+  --color-sand-100: #f3efe6;
+  --color-sand-200: #eae3d2;
+  --color-sand-300: #d0c5ab;
+  --color-sand-400: #b5a88c;
+  --color-sand-500: #9c8e71;
+  --color-gold-400: #ffd359;
+  --color-gold-500: #fcc438;
+  --color-gold-600: #e2a823;
+}
+
+:root {
+  --bg-obsidian: #0d0c0a;
+  --bg-surface: #141310;
+  --bg-surface-elevated: #1a1916;
+  --accent-sand: #d0c5ab;
+  --accent-gold: #fcc438;
+  --text-muted: #9e988a;
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
+  scroll-padding-top: 6rem;
+  background-color: #0d0c0a;
+  color: #f5f5f3;
 }
 
 ::selection {
-  background-color: #059669;
-  color: #ffffff;
+  background-color: #fcc438;
+  color: #0d0c0a;
 }
 
-/* HopeRise High-Trust Card & Surface Elevation */
-.shadow-hoperise {
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+/* Marcus Lorenzet Editorial Luxury Glass & Surfaces */
+.marcus-dock {
+  background: rgba(20, 19, 16, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 48px -12px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(208, 197, 171, 0.08);
 }
 
-.shadow-hoperise-lg {
-  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.6), 0 8px 16px -4px rgba(0, 0, 0, 0.3);
+.marcus-card {
+  background: #141310;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.7);
+  transition: border-color 0.35s ease, transform 0.35s cubic-bezier(0.32, 0.72, 0, 1), box-shadow 0.35s ease;
 }
 
-.shadow-hoperise-emerald {
-  box-shadow: 0 20px 40px -12px rgba(16, 185, 129, 0.25), 0 8px 16px -4px rgba(16, 185, 129, 0.15);
+.marcus-card:hover {
+  border-color: rgba(208, 197, 171, 0.28);
+  box-shadow: 0 24px 50px -12px rgba(0, 0, 0, 0.85), 0 0 30px -10px rgba(252, 196, 56, 0.08);
 }
 
-.shadow-emerald-glow {
-  box-shadow: 0 16px 40px -10px rgba(16, 185, 129, 0.35), 0 0 0 1px rgba(16, 185, 129, 0.3);
+.marcus-badge {
+  background: rgba(26, 25, 22, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #d0c5ab;
 }
 
-/* Double-Bezel Concentric Hardware Enclosure */
-.double-bezel-outer {
-  padding: 0.375rem;
-  border-radius: 2rem;
-  background: rgba(255, 255, 255, 0.04);
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
-  transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1), box-shadow 0.4s ease;
+.editorial-bracket {
+  color: #d0c5ab;
+  font-family: var(--font-sans);
+  letter-spacing: 0.15em;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.75rem;
 }
 
-.double-bezel-inner {
-  border-radius: calc(2rem - 0.375rem);
-  background: #0d1527;
-  border: 1px solid rgba(51, 65, 85, 0.65);
-  box-shadow: 0 14px 34px -10px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.06);
+/* Ambient Radial Glow */
+.marcus-ambient-glow {
+  background: radial-gradient(ellipse 65% 50% at 50% 0%, rgba(252, 196, 56, 0.07), transparent 75%);
+}
+
+.marcus-subtle-glow {
+  background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(208, 197, 171, 0.05), transparent 70%);
+}
+
+/* Subtle dot grid pattern */
+.bg-grid-subtle {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 28px 28px;
 }
 
 /* Button-in-Button Nested Micro-Interactions */
@@ -86,55 +129,6 @@ html {
   transform: translate(2px, -2px) scale(1.08);
 }
 
-/* Frosted Floating Pill Header */
-.glass-pill {
-  background: rgba(13, 21, 39, 0.88);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(51, 65, 85, 0.7);
-  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.7), inset 0 1px 1px rgba(255, 255, 255, 0.08);
-}
-
-/* Floating Metric Badges */
-.floating-badge {
-  background: rgba(15, 23, 42, 0.94);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(51, 65, 85, 0.7);
-  box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.6);
-  color: #ffffff;
-}
-
-/* Subtle dot grid pattern for technical academy aesthetic */
-.bg-grid-subtle {
-  background-image: radial-gradient(rgba(15, 23, 42, 0.06) 1px, transparent 1px);
-  background-size: 24px 24px;
-}
-
-.dark .bg-grid-subtle {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-}
-
-/* HopeRise Stadium Capsule Cutout Window */
-.capsule-window {
-  border-radius: 9999px;
-  overflow: hidden;
-  display: inline-flex;
-  vertical-align: middle;
-  box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.25), inset 0 2px 4px rgba(255, 255, 255, 0.5);
-  border: 4px solid rgba(255, 255, 255, 0.95);
-  transition: transform 0.5s cubic-bezier(0.32, 0.72, 0, 1), box-shadow 0.5s ease;
-}
-
-.dark .capsule-window {
-  border-color: rgba(30, 41, 59, 0.95);
-  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.8), inset 0 1px 2px rgba(255, 255, 255, 0.1);
-}
-
-.capsule-window:hover {
-  transform: scale(1.04);
-}
-
 /* Custom Hardware Tactile Range Slider */
 input[type="range"].tactile-slider {
   -webkit-appearance: none;
@@ -146,11 +140,7 @@ input[type="range"].tactile-slider {
 input[type="range"].tactile-slider::-webkit-slider-runnable-track {
   height: 8px;
   border-radius: 9999px;
-  background: #e2e8f0;
-}
-
-.dark input[type="range"].tactile-slider::-webkit-slider-runnable-track {
-  background: #334155;
+  background: #25231f;
 }
 
 input[type="range"].tactile-slider::-webkit-slider-thumb {
@@ -159,16 +149,11 @@ input[type="range"].tactile-slider::-webkit-slider-thumb {
   width: 24px;
   height: 24px;
   border-radius: 9999px;
-  background: #059669;
-  border: 3px solid #ffffff;
-  box-shadow: 0 4px 10px rgba(5, 150, 105, 0.4), 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: #fcc438;
+  border: 3px solid #0d0c0a;
+  box-shadow: 0 4px 10px rgba(252, 196, 56, 0.4), 0 2px 4px rgba(0, 0, 0, 0.4);
   margin-top: -8px;
   transition: transform 0.2s cubic-bezier(0.32, 0.72, 0, 1), background-color 0.2s ease;
-}
-
-.dark input[type="range"].tactile-slider::-webkit-slider-thumb {
-  border-color: #0f172a;
-  background: #10b981;
 }
 
 input[type="range"].tactile-slider:hover::-webkit-slider-thumb {
@@ -177,6 +162,5 @@ input[type="range"].tactile-slider:hover::-webkit-slider-thumb {
 
 input[type="range"].tactile-slider:active::-webkit-slider-thumb {
   transform: scale(1.25);
-  background: #047857;
+  background: #e2a823;
 }
-
