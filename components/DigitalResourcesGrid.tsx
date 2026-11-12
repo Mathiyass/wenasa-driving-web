@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Locale } from "@/src/config/i18n";
+import { soundManager } from "@/lib/sound";
 import { 
   FileQuestion, 
   Compass, 
@@ -225,7 +226,7 @@ export function DigitalResourcesGrid({ locale }: DigitalResourcesGridProps) {
 
   return (
     <>
-      <section id="resources" className="py-20 sm:py-28 scroll-mt-20 bg-[#0d0c0a]">
+      <section id="resources" className="py-20 sm:py-28 scroll-mt-20 bg-[#070706]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Header with Marcus Lorenzet Editorial Style */}

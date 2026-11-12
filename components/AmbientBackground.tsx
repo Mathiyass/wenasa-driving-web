@@ -36,7 +36,8 @@ export function AmbientBackground() {
       aria-hidden="true"
       className="pointer-events-none fixed inset-0 z-0 overflow-hidden select-none"
     >
-      {/* 1. Subtle Engineering Blueprint Dot Grid with Smooth Radial Vignette */}
+      {/* 1. Micro-scale Carbon Diagonal Weave & Blueprint Dot Grid */}
+      <div className="absolute inset-0 bg-carbon-weave opacity-60" />
       <div 
         className="absolute inset-0 bg-grid-subtle opacity-40"
         style={{

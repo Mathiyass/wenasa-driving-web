@@ -93,7 +93,7 @@ export default async function LocalizedHomePage({
   const currentLocale: Locale = locale;
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#0d0c0a] text-[#f5f5f3] font-sans antialiased selection:bg-[#fcc438] selection:text-[#0d0c0a] relative">
+    <div className="min-h-screen flex flex-col bg-[#070706] text-[#f5f5f3] font-sans antialiased selection:bg-[#f59e0b] selection:text-[#070706] relative">
       {/* Dynamic Ambient Background & Cursor Spotlight */}
       <AmbientBackground />
 

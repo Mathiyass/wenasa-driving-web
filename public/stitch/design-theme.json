@@ -1,0 +1,178 @@
+{
+  "projectId": "projects/11374186631473338108",
+  "title": "Wenasa Driving School - Award Winning UI",
+  "updatedAt": "2026-11-12T00:20:18.702837Z",
+  "designTheme": {
+    "bodyFont": "SPACE_GROTESK",
+    "bodyFontFamily": "Space Grotesk",
+    "colorMode": "DARK",
+    "colorVariant": "FIDELITY",
+    "customColor": "#f59e0b",
+    "designMd": "---\nname: Obsidian Atelier Dynamics\ncolors:\n  surface: '#141312'\n  surface-dim: '#141312'\n  surface-bright: '#3b3937'\n  surface-container-lowest: '#0f0e0d'\n  surface-container-low: '#1d1b1a'\n  surface-container: '#211f1e'\n  surface-container-high: '#2b2a28'\n  surface-container-highest: '#363433'\n  on-surface: '#e6e1df'\n  on-surface-variant: '#d8c3ad'\n  inverse-surface: '#e6e1df'\n  inverse-on-surface: '#32302f'\n  outline: '#a08e7a'\n  outline-variant: '#534434'\n  surface-tint: '#ffb95f'\n  primary: '#ffc174'\n  on-primary: '#472a00'\n  primary-container: '#f59e0b'\n  on-primary-container: '#613b00'\n  inverse-primary: '#855300'\n  secondary: '#d1c6ac'\n  on-secondary: '#36301e'\n  secondary-container: '#4d4632'\n  on-secondary-container: '#bfb49b'\n  tertiary: '#becee4'\n  on-tertiary: '#233143'\n  tertiary-container: '#a3b2c7'\n  on-tertiary-container: '#364557'\n  error: '#ffb4ab'\n  on-error: '#690005'\n  error-container: '#93000a'\n  on-error-container: '#ffdad6'\n  primary-fixed: '#ffddb8'\n  primary-fixed-dim: '#ffb95f'\n  on-primary-fixed: '#2a1700'\n  on-primary-fixed-variant: '#653e00'\n  secondary-fixed: '#ede2c6'\n  secondary-fixed-dim: '#d1c6ac'\n  on-secondary-fixed: '#201b0a'\n  on-secondary-fixed-variant: '#4d4632'\n  tertiary-fixed: '#d4e4fa'\n  tertiary-fixed-dim: '#b9c8de'\n  on-tertiary-fixed: '#0d1c2d'\n  on-tertiary-fixed-variant: '#39485a'\n  background: '#141312'\n  on-background: '#e6e1df'\n  surface-variant: '#363433'\ntypography:\n  display-hero:\n    fontFamily: Playfair Display\n    fontSize: 64px\n    fontWeight: '600'\n    lineHeight: 72px\n    letterSpacing: -0.03em\n  display-hero-mobile:\n    fontFamily: Playfair Display\n    fontSize: 40px\n    fontWeight: '600'\n    lineHeight: 48px\n    letterSpacing: -0.02em\n  headline-lg:\n    fontFamily: Playfair Display\n    fontSize: 44px\n    fontWeight: '500'\n    lineHeight: 52px\n    letterSpacing: -0.02em\n  headline-lg-mobile:\n    fontFamily: Playfair Display\n    fontSize: 30px\n    fontWeight: '500'\n    lineHeight: 38px\n    letterSpacing: -0.01em\n  headline-md:\n    fontFamily: Playfair Display\n    fontSize: 32px\n    fontWeight: '400'\n    lineHeight: 40px\n    letterSpacing: -0.01em\n  headline-sm:\n    fontFamily: Space Grotesk\n    fontSize: 22px\n    fontWeight: '600'\n    lineHeight: 28px\n    letterSpacing: 0.02em\n  body-lg:\n    fontFamily: Space Grotesk\n    fontSize: 18px\n    fontWeight: '400'\n    lineHeight: 28px\n    letterSpacing: 0.01em\n  body-md:\n    fontFamily: Space Grotesk\n    fontSize: 15px\n    fontWeight: '400'\n    lineHeight: 24px\n    letterSpacing: 0em\n  body-sm:\n    fontFamily: Space Grotesk\n    fontSize: 13px\n    fontWeight: '400'\n    lineHeight: 20px\n    letterSpacing: 0.01em\n  telemetry-display:\n    fontFamily: JetBrains Mono\n    fontSize: 36px\n    fontWeight: '700'\n    lineHeight: 40px\n    letterSpacing: -0.04em\n  telemetry-unit:\n    fontFamily: JetBrains Mono\n    fontSize: 11px\n    fontWeight: '500'\n    lineHeight: 14px\n    letterSpacing: 0.14em\n  label-caps:\n    fontFamily: JetBrains Mono\n    fontSize: 11px\n    fontWeight: '600'\n    lineHeight: 16px\n    letterSpacing: 0.18em\n  label-hud:\n    fontFamily: JetBrains Mono\n    fontSize: 9px\n    fontWeight: '500'\n    lineHeight: 12px\n    letterSpacing: 0.22em\nrounded:\n  sm: 0.125rem\n  DEFAULT: 0.25rem\n  md: 0.375rem\n  lg: 0.5rem\n  xl: 0.75rem\n  full: 9999px\nspacing:\n  gutter: 1.5rem\n  gutter-mobile: 0.75rem\n  margin: 3.5rem\n  margin-mobile: 1.25rem\n  space-xs: 0.25rem\n  space-sm: 0.5rem\n  space-md: 1rem\n  space-lg: 1.75rem\n  space-xl: 3rem\n---\n\n## Brand & Style\nThe design system establishes an ultra-exclusive, high-performance digital cockpit for a world-class performance driving academy. The interface merges the tactile, precision-engineered world of endurance motorsport telemetry with the restrained opulence of private automotive ateliers. It evokes focus, calibrated velocity, engineering mastery, and uncompromising refinement.\n\nThe aesthetic fuses **Modern Editorial Luxury** with **Precision HUD Glassmorphism**:\n- Obsidian and deep metallic surfaces provide a void-like canvas that simulates night driving through high-altitude passes.\n- Warm champagne typography and champagne-gold structures reject sterile monochrome UI in favor of grand-tourer bespoke interior appointments.\n- Electric amber telemetry accents evoke active tachometer redlines, apex apex markers, and luminescent digital cockpit instrumentation.\n- Translucent micro-surfaces, subtle carbon fiber structural weaves, and razor-sharp titanium borders construct a spatial environment reminiscent of a prototype hypercar mono-cell.\n\n## Colors\nThe color architecture relies on a dark-dominant hierarchy where luminosity denotes performance state and structural hierarchy:\n\n- **Primary Accent (`#F59E0B` / `#FCC438`)**: Radiance Amber. Reserved for dynamic telemetry values, critical apex vectors, active drive modes, tachometer spikes, primary interactive triggers, and focused states.\n- **Secondary (`#D0C5AB` / `#EBE3D5`)**: Warm Champagne Sand. Applied to high-tier editorial headlines, primary navigation titles, active instrumentation readouts, and bespoke structural framing.\n- **Tertiary (`#94A3B8`)**: Titanium Slate. Dictates technical secondary data, grid track lines, telemetry scales, units of measurement (km/h, G-force, deg/s), and resting borders.\n- **Neutral Core (`#0C0B0A` to `#131210`)**: Deep Obsidian & Carbon Matrix. Foundational layers engineered with zero pure-black harshness, utilizing warm undertones to preserve long-session legibility and luxury depth.\n- **Structural States**:\n  - `surface-canvas`: `#0C0B0A`\n  - `surface-cockpit`: `#131210` with 80% opacity when paired with backdrop filters.\n  - `surface-glass`: `rgba(27, 25, 23, 0.65)` overlayed with `rgba(208, 197, 171, 0.08)` top inner rim lighting.\n\n## Typography\nThe system enforces a tri-font hierarchy to balance haute-horlogerie prestige with racing telemetry:\n\n1. **Display & Primary Headers (Playfair Display)**: Imparts the heritage, high-society distinction of historical racing circuits (Monaco, Goodwood, Spa). Used in high-contrast italic and roman cuts for track titles, module headers, and value propositions.\n2. **Body & Interface Structural Text (Space Grotesk)**: Geometric, crisp, and aerodynamic. Ensures zero visual drag across dashboard viewports, driver statistics, course breakdowns, and structural UI labels.\n3. **Telemetry, HUD & Micro-Metadata (JetBrains Mono)**: Utilitarian data encoding. Renders high-precision metrics (lap splits, yaw rates, tire carcass temperatures, track sector deltas) with strict tabular alignment and uppercase tracking.\n\n## Layout & Spacing\nThe layout adheres to a 12-column telemetry cockpit grid designed for asymmetric, data-dense immersion:\n\n- **Desktop (1440px+)**: 12 columns with `3.5rem` margins and `1.5rem` gutters. Cockpit elements align to custom dashboard arrangements: 3-column telemetry sidebar, 6-column central 3D/video viewport, 3-column session profile.\n- **Tablet (768px - 1439px)**: 8 columns with `2rem` margins and `1rem` gutters. HUD modules drop below the central interactive stage into a horizontal scroll strip.\n- **Mobile (< 768px)**: 4 columns with `1.25rem` margins and `0.75rem` gutters. Telemetry reads collapse into vertical segmented stacks; critical flight/drive vectors lock to sticky top/bottom overlays.\n- **Spatial Rhythm**: Components maintain internal macro-breathing room (`space-lg` to `space-xl`) around high-tension, micro-dense telemetry modules (`space-xs` and `space-sm`) to emulate the tight precision of an F1 cockpit set against open circuit tarmac.\n\n## Elevation & Depth\nDepth mimics luxury automotive multi-material construction: tinted optic glass over milled titanium frames, suspended over a dark woven composite chassis:\n\n- **Base Level (Chassis)**: `#0C0B0A` with a micro-scale 2px diagonal carbon texture pattern rendered via low-opacity CSS radial gradients (`rgba(255,255,255,0.015)`).\n- **Sub-Surface (Console Tiers)**: `#131210` with `border: 1px solid rgba(148, 163, 184, 0.12)`.\n- **Floating HUD & Cockpit Modules (Optic Glass)**:\n  - Background: `rgba(19, 18, 16, 0.68)`.\n  - Backdrop Blur: `24px` with a `140%` saturation boost.\n  - Border: Multi-stop border using `linear-gradient(135deg, rgba(208, 197, 171, 0.3) 0%, rgba(148, 163, 184, 0.08) 50%, rgba(245, 158, 11, 0.25) 100%)`.\n  - Ambient Shadow: `0 16px 40px -10px rgba(0, 0, 0, 0.8), 0 0 20px 0 rgba(245, 158, 11, 0.04)`.\n- **Active / Alert Overlays**: Outer amber halo glow with `0 0 32px rgba(245, 158, 11, 0.22)` and interior rim highlights (`inset 0 1px 0 rgba(252, 196, 56, 0.4)`).\n\n## Shapes\nThe design adopts a sharp, architectural **Soft/Technical Chamfer (`roundedness: 1`)** aesthetic:\n- Standard containers, telemetry pods, and inputs feature strict `0.25rem` (4px) corner radii, accented with engineered 45-degree corner notches (clip-paths) on primary flight panels.\n- Buttons, interactive chips, and floating telemetry indicators utilize controlled `0.25rem` radii to avoid the playful, casual appearance of organic rounded pill forms.\n- Badges and mode switches utilize precision-beveled edges (`polygon(6px 0%, calc(100% - 6px) 0%, 100% calc(100% - 6px), 0% 100%)`) to mirror aerodynamic aero-dive planes.\n\n## Components\n\n### Buttons & Actuators\n- **Primary Drive Actuator**: Champagne Sand background (`#D0C5AB`), Obsidian micro-type (`#0C0B0A`), font weight 600, uppercase `label-caps`. Hover activates an instantaneous shift to glowing Amber (`#F59E0B`) with an ambient outer bloom (`0 0 24px rgba(245, 158, 11, 0.45)`) and slight inset bevel sheen.\n- **Secondary Telemetry Trigger**: Translucent titanium glass background (`rgba(27, 25, 23, 0.6)`), 1px solid slate border (`rgba(148, 163, 184, 0.25)`), Champagne typography (`#EBE3D5`). Hover invokes an amber hairline accent line sliding across the top edge.\n\n### Chips & Drive Mode Selectors\n- Compact horizontal segments with mono tracking (`label-hud`). Inactive state displays titanium slate text with faint dark backing. Active state illuminates with an amber indicator dot, warm sand typography, and a distinct glass-morphic elevation.\n\n### Precision HUD Panels & Cards\n- Fabricated with deep carbon backgrounds, backdrop blurs, and hairline titanium-slate borders.\n- Top-right corner of each card includes high-precision coordinates or sector IDs (e.g., `SEC.03 // APEX VELOCITY`) set in `label-hud` muted slate typography.\n\n### Input Fields & Sliders\n- Minimalist bounding boxes with dark obsidian fill and razor-thin `1px` borders. Focus states illuminate the border to warm amber gold with zero default focus rings.\n- Metric scrubbers and calibration sliders utilize thin titanium tracks with glowing amber circular reticles and numeric readouts displayed in real-time `JetBrains Mono`.\n\n### Lists & Telemetry Feeds\n- Border-bottom divider rows styled with a 1px dashed titanium pattern (`rgba(148, 163, 184, 0.15)`).\n- Asymmetrical column layouts aligning lap sectors, telemetry traces, and dynamic delta indicators (`+0.042` in muted slate or `-0.180` in glowing amber gold).\n\n### Gauges & Dial Instruments (Specialty Cockpit Component)\n- Semi-circular and vertical bar displays featuring segmented graduation tick-marks. Active zones glow with Amber Gold gradient falloffs, while warning thresholds flash in sharp micro-animations.",
+    "font": "PLAYFAIR_DISPLAY",
+    "headlineFont": "PLAYFAIR_DISPLAY",
+    "headlineFontFamily": "Playfair Display",
+    "labelFont": "JETBRAINS_MONO",
+    "labelFontFamily": "JetBrains Mono",
+    "namedColors": {
+      "background": "#141312",
+      "error": "#ffb4ab",
+      "error_container": "#93000a",
+      "inverse_on_surface": "#32302f",
+      "inverse_primary": "#855300",
+      "inverse_surface": "#e6e1df",
+      "on_background": "#e6e1df",
+      "on_error": "#690005",
+      "on_error_container": "#ffdad6",
+      "on_primary": "#472a00",
+      "on_primary_container": "#613b00",
+      "on_primary_fixed": "#2a1700",
+      "on_primary_fixed_variant": "#653e00",
+      "on_secondary": "#36301e",
+      "on_secondary_container": "#bfb49b",
+      "on_secondary_fixed": "#201b0a",
+      "on_secondary_fixed_variant": "#4d4632",
+      "on_surface": "#e6e1df",
+      "on_surface_variant": "#d8c3ad",
+      "on_tertiary": "#233143",
+      "on_tertiary_container": "#364557",
+      "on_tertiary_fixed": "#0d1c2d",
+      "on_tertiary_fixed_variant": "#39485a",
+      "outline": "#a08e7a",
+      "outline_variant": "#534434",
+      "primary": "#ffc174",
+      "primary_container": "#f59e0b",
+      "primary_fixed": "#ffddb8",
+      "primary_fixed_dim": "#ffb95f",
+      "secondary": "#d1c6ac",
+      "secondary_container": "#4d4632",
+      "secondary_fixed": "#ede2c6",
+      "secondary_fixed_dim": "#d1c6ac",
+      "surface": "#141312",
+      "surface_bright": "#3b3937",
+      "surface_container": "#211f1e",
+      "surface_container_high": "#2b2a28",
+      "surface_container_highest": "#363433",
+      "surface_container_low": "#1d1b1a",
+      "surface_container_lowest": "#0f0e0d",
+      "surface_dim": "#141312",
+      "surface_tint": "#ffb95f",
+      "surface_variant": "#363433",
+      "tertiary": "#becee4",
+      "tertiary_container": "#a3b2c7",
+      "tertiary_fixed": "#d4e4fa",
+      "tertiary_fixed_dim": "#b9c8de"
+    },
+    "overrideNeutralColor": "#0c0b0a",
+    "overridePrimaryColor": "#f59e0b",
+    "overrideSecondaryColor": "#d0c5ab",
+    "overrideTertiaryColor": "#94a3b8",
+    "roundness": "ROUND_FOUR",
+    "spacing": {
+      "gutter": "1.5rem",
+      "gutter-mobile": "0.75rem",
+      "margin": "3.5rem",
+      "margin-mobile": "1.25rem",
+      "space-lg": "1.75rem",
+      "space-md": "1rem",
+      "space-sm": "0.5rem",
+      "space-xl": "3rem",
+      "space-xs": "0.25rem"
+    },
+    "spacingScale": 2,
+    "typography": {
+      "body-lg": {
+        "fontFamily": "Space Grotesk",
+        "fontSize": "18px",
+        "fontWeight": "400",
+        "letterSpacing": "0.01em",
+        "lineHeight": "28px"
+      },
+      "body-md": {
+        "fontFamily": "Space Grotesk",
+        "fontSize": "15px",
+        "fontWeight": "400",
+        "letterSpacing": "0em",
+        "lineHeight": "24px"
+      },
+      "body-sm": {
+        "fontFamily": "Space Grotesk",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "letterSpacing": "0.01em",
+        "lineHeight": "20px"
+      },
+      "display-hero": {
+        "fontFamily": "Playfair Display",
+        "fontSize": "64px",
+        "fontWeight": "600",
+        "letterSpacing": "-0.03em",
+        "lineHeight": "72px"
+      },
+      "display-hero-mobile": {
+        "fontFamily": "Playfair Display",
+        "fontSize": "40px",
+        "fontWeight": "600",
+        "letterSpacing": "-0.02em",
+        "lineHeight": "48px"
+      },
+      "headline-lg": {
+        "fontFamily": "Playfair Display",
+        "fontSize": "44px",
+        "fontWeight": "500",
+        "letterSpacing": "-0.02em",
+        "lineHeight": "52px"
+      },
+      "headline-lg-mobile": {
+        "fontFamily": "Playfair Display",
+        "fontSize": "30px",
+        "fontWeight": "500",
+        "letterSpacing": "-0.01em",
+        "lineHeight": "38px"
+      },
+      "headline-md": {
+        "fontFamily": "Playfair Display",
+        "fontSize": "32px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.01em",
+        "lineHeight": "40px"
+      },
+      "headline-sm": {
+        "fontFamily": "Space Grotesk",
+        "fontSize": "22px",
+        "fontWeight": "600",
+        "letterSpacing": "0.02em",
+        "lineHeight": "28px"
+      },
+      "label-caps": {
+        "fontFamily": "JetBrains Mono",
+        "fontSize": "11px",
+        "fontWeight": "600",
+        "letterSpacing": "0.18em",
+        "lineHeight": "16px"
+      },
+      "label-hud": {
+        "fontFamily": "JetBrains Mono",
+        "fontSize": "9px",
+        "fontWeight": "500",
+        "letterSpacing": "0.22em",
+        "lineHeight": "12px"
+      },
+      "telemetry-display": {
+        "fontFamily": "JetBrains Mono",
+        "fontSize": "36px",
+        "fontWeight": "700",
+        "letterSpacing": "-0.04em",
+        "lineHeight": "40px"
+      },
+      "telemetry-unit": {
+        "fontFamily": "JetBrains Mono",
+        "fontSize": "11px",
+        "fontWeight": "500",
+        "letterSpacing": "0.14em",
+        "lineHeight": "14px"
+      }
+    }
+  },
+  "thumbnail": "https://lh3.googleusercontent.com/aida/ALJJyrD9sB0FImtq4iCtnE-TDkcMsajQUJomMaa8PL3Pri39flKJCjVlf1k9JGkS4s86js5kqd2YKHk4JRcyyw49yNHZs_nEopOzL9eI8jtnoNSS-l2gMZPzvfEYA0rDlcs881y7GVy_kZdX2xCaNoogaZj4ckZcYuZbuQj9jRc6Ae9tnElmYWszfSvHj3qjDhYCxa6PGBO-2_534FWNLA8h5By84euZdNpONd7vf2ND4IEj7KvPg9_1v2-YGXXx"
+}

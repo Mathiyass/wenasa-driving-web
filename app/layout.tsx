@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
+import { CustomCursor } from "@/components/CustomCursor";
 import "./globals.css";
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -90,7 +91,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </head>
-      <body suppressHydrationWarning className="min-h-screen bg-[#0d0c0a] text-[#f5f5f3] antialiased font-sans selection:bg-[#fcc438] selection:text-[#0d0c0a]">
+      <body suppressHydrationWarning className="min-h-screen bg-[#070706] text-[#f5f5f3] antialiased font-sans selection:bg-[#f59e0b] selection:text-[#070706]">
+        <CustomCursor />
         {children}
       </body>
     </html>

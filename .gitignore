@@ -1,10 +1,39 @@
+# Dependencies
 node_modules/
+.pnp
+.pnp.js
+
+# Testing & Automation
+coverage/
+.playwright-mcp/
+
+# Next.js Build & Export Output
 .next/
 out/
-.playwright-mcp/
-coverage/
-*.log
-.DS_Store
+
+# Environment Variables & Secrets
 .env*
 !.env.example
 
+# Antigravity & Agent Internal State
+.agy/
+
+# Build and TypeScript Cache
+*.tsbuildinfo
+next-env.d.ts.bak
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# IDE & Editor Settings
+.vscode/
+.idea/
+*.swp
+*.swo

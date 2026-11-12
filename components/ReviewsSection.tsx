@@ -4,6 +4,7 @@ import { useState } from "react";
 import { siteConfig } from "@/src/config/site";
 import { Locale } from "@/src/config/i18n";
 import { getDictionary } from "@/src/i18n";
+import { soundManager } from "@/lib/sound";
 import { 
   QrCode, 
   ExternalLink, 
@@ -110,7 +111,7 @@ export function ReviewsSection({ locale }: ReviewsSectionProps) {
   };
 
   return (
-    <section id="reviews" className="py-20 sm:py-28 scroll-mt-20 bg-[#0d0c0a] relative overflow-hidden">
+    <section id="reviews" className="py-20 sm:py-28 scroll-mt-20 bg-[#070706] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header with Marcus Lorenzet Editorial Style */}

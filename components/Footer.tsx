@@ -4,6 +4,7 @@ import { siteConfig } from "@/src/config/site";
 import { Locale } from "@/src/config/i18n";
 import { getDictionary } from "@/src/i18n";
 import { LanguageSwitcher } from "./LanguageSwitcher";
+import { soundManager } from "@/lib/sound";
 import { MapPin, Phone, MessageSquare, Clock, ShieldCheck, Heart } from "lucide-react";
 import { useState } from "react";
 import { PolicyModal } from "./PolicyModal";

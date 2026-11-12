@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "stitch:sync": "node scripts/stitch-sync.mjs",
     "lint": "eslint .",
     "clean": "next clean"
   },

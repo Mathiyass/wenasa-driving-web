@@ -6,7 +6,8 @@ import { Locale } from "@/src/config/i18n";
 import { getDictionary } from "@/src/i18n";
 import { siteConfig, getLiveBusinessStatus } from "@/src/config/site";
 import { LanguageSwitcher } from "./LanguageSwitcher";
-import { Phone, Clock, ArrowUpRight, Car, Compass } from "lucide-react";
+import { soundManager } from "@/lib/sound";
+import { Phone, Clock, ArrowUpRight, Car, Compass, Volume2, VolumeX } from "lucide-react";
 import { motion, useScroll, useSpring } from "motion/react";
 
 interface NavbarProps {
@@ -17,6 +18,16 @@ export function Navbar({ locale }: NavbarProps) {
   const dict = getDictionary(locale);
   const [liveStatus, setLiveStatus] = useState(getLiveBusinessStatus());
   const [activeSection, setActiveSection] = useState<string>("");
+  const [audioEnabled, setAudioEnabled] = useState(false);
+
+  useEffect(() => {
+    setAudioEnabled(soundManager.isEnabled());
+    return soundManager.subscribe((val) => setAudioEnabled(val));
+  }, []);
+
+  const toggleAudio = () => {
+    soundManager.toggle();
+  };
 
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
@@ -167,6 +178,8 @@ export function Navbar({ locale }: NavbarProps) {
                 <a
                   key={link.href}
                   href={link.href}
+                  onClick={() => soundManager.playClick()}
+                  onMouseEnter={() => soundManager.playHover()}
                   className={`px-2.5 sm:px-3.5 py-1.5 rounded-full transition-all whitespace-nowrap active:scale-95 ${
                     isActive
                       ? "text-[#fcc438] bg-white/[0.08] shadow-inner"
@@ -181,9 +194,29 @@ export function Navbar({ locale }: NavbarProps) {
 
           <div className="w-[1px] h-4 bg-white/10 mx-0.5 sm:mx-1" />
 
+          {/* Audio Micro-Interactions Toggle */}
+          <button
+            type="button"
+            onClick={toggleAudio}
+            onMouseEnter={() => soundManager.playHover()}
+            title={audioEnabled ? "Mute tactile sounds" : "Enable tactile sounds"}
+            className={`flex items-center gap-1 px-2.5 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-wider transition-all cursor-pointer ${
+              audioEnabled
+                ? "bg-[#f59e0b]/20 text-[#f59e0b] border border-[#f59e0b]/30"
+                : "text-[#9e988a] hover:text-[#f5f5f3] hover:bg-white/[0.06]"
+            }`}
+          >
+            {audioEnabled ? <Volume2 className="w-3 h-3" /> : <VolumeX className="w-3 h-3" />}
+            <span className="hidden md:inline">{audioEnabled ? "FX ON" : "FX"}</span>
+          </button>
+
+          <div className="w-[1px] h-4 bg-white/10 mx-0.5 sm:mx-1" />
+
           {/* Standout Warm Champagne Action Pill with Shimmer (Marcus Signature CTA) */}
           <a
             href="#apply"
+            onClick={() => soundManager.playClick()}
+            onMouseEnter={() => soundManager.playHover()}
             className="btn-shimmer flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#d0c5ab] hover:bg-[#e4dbc6] text-[#11100d] font-black text-[11px] sm:text-xs uppercase tracking-wider transition-all duration-300 shadow-md hover:scale-[1.03] active:scale-95 shrink-0"
           >
             <Car className="w-3.5 h-3.5" />

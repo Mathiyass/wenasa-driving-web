@@ -23,9 +23,9 @@ export default function RootPage() {
   }, [router]);
 
   return (
-    <div className="min-h-screen bg-[#0d0c0a] flex items-center justify-center text-[#d0c5ab] font-mono text-xs">
+    <div className="min-h-screen bg-[#070706] flex items-center justify-center text-[#d0c5ab] font-mono text-xs">
       <div className="flex items-center gap-3">
-        <div className="w-2.5 h-2.5 rounded-full bg-[#fcc438] animate-ping" />
+        <div className="w-2.5 h-2.5 rounded-full bg-[#f59e0b] animate-ping" />
         <span>Entering Wenasa Driving School...</span>
       </div>
     </div>

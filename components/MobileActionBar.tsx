@@ -3,6 +3,7 @@
 import { siteConfig } from "@/src/config/site";
 import { Locale } from "@/src/config/i18n";
 import { getDictionary } from "@/src/i18n";
+import { soundManager } from "@/lib/sound";
 import { Phone, MessageSquare, Car } from "lucide-react";
 
 interface MobileActionBarProps {
@@ -22,6 +23,7 @@ export function MobileActionBar({ locale }: MobileActionBarProps) {
         {/* Call Button */}
         <a
           href={`tel:${siteConfig.contact.phoneE164}`}
+          onClick={() => soundManager.playClick()}
           className="flex items-center justify-center gap-1.5 min-h-[42px] px-2.5 py-2 rounded-full bg-[#1c1a17] hover:bg-[#25231f] active:scale-95 text-xs font-semibold text-[#d0c5ab] transition-all border border-white/[0.06]"
           aria-label={`Call ${siteConfig.contact.phoneDisplay}`}
         >
@@ -36,6 +38,7 @@ export function MobileActionBar({ locale }: MobileActionBarProps) {
           href={siteConfig.contact.whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => soundManager.playClick()}
           className="flex items-center justify-center gap-1.5 min-h-[42px] px-2.5 py-2 rounded-full bg-[#1c1a17] hover:bg-[#25231f] active:scale-95 text-xs font-semibold text-[#f5f5f3] transition-all border border-white/[0.06]"
           aria-label="Chat with Wenasa on WhatsApp"
         >
@@ -46,6 +49,7 @@ export function MobileActionBar({ locale }: MobileActionBarProps) {
         {/* Apply Now Button */}
         <a
           href="#apply"
+          onClick={() => soundManager.playClick()}
           className="flex items-center justify-center gap-1.5 min-h-[42px] px-2.5 py-2 rounded-full bg-[#d0c5ab] hover:bg-[#e4dbc6] active:scale-95 text-xs font-black text-[#11100d] uppercase tracking-wider transition-all shadow-md"
           aria-label="Enroll online"
         >

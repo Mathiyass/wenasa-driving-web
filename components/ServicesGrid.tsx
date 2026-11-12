@@ -4,6 +4,7 @@ import { useState } from "react";
 import { siteConfig } from "@/src/config/site";
 import { Locale } from "@/src/config/i18n";
 import { getDictionary } from "@/src/i18n";
+import { soundManager } from "@/lib/sound";
 import { 
   Car, 
   Bike, 
@@ -100,6 +101,7 @@ export function ServicesGrid({ locale }: ServicesGridProps) {
   const bMeta = classBTexts[locale] || classBTexts.en;
 
   const handleEnrollClassB = () => {
+    soundManager.playSuccessChime();
     window.dispatchEvent(
       new CustomEvent("wenasa:select-class", {
         detail: "B",
@@ -115,7 +117,7 @@ export function ServicesGrid({ locale }: ServicesGridProps) {
   const classBYearsToWait = classB.minimumAge - parsedAge;
 
   return (
-    <section id="services" className="py-20 sm:py-28 scroll-mt-20 bg-[#0d0c0a] relative">
+    <section id="services" className="py-20 sm:py-28 scroll-mt-20 bg-[#070706] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Heading with Marcus Lorenzet Editorial Aesthetic */}
